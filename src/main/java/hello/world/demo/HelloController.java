@@ -1,6 +1,7 @@
 package hello.world.demo;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -11,9 +12,9 @@ public class HelloController {
         return "Hello World!";
     }
 
-    @GetMapping("error")
+    @RequestMapping("ascii")
     public String sayError() {
-        return "                                 An error happened                               \n" +
+        return "                                                                \n" +
                 "                                                                                \n" +
                 "                                       ...                                      \n" +
                 "                               .....         ....                               \n" +
