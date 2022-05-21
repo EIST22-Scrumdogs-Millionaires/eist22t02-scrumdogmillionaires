@@ -86,6 +86,7 @@ public class HelloController {
         return "Tschüss World!";
     }
 
+
     @GetMapping("sayJson")
     public int[] sayJ() {
         return new int[]{1,3,4};
