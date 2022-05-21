@@ -1,5 +1,4 @@
 # reservation_system
-test
 
 A reservation system for restaurants created by five TUM-Students. 
 
