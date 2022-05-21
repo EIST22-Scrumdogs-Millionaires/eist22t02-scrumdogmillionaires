@@ -7,7 +7,7 @@ body {
   color: black;
   margin: 0 0 30px;
   /* bottom = footer height */
-  padding: 100px;
+
 }
 
 html {
@@ -16,7 +16,7 @@ html {
 }
 
 footer {
-  background-color: #cbe8ba;
+  background-color: #c5e1a5;
   position: absolute;
   left: 0;
   bottom: 0;
