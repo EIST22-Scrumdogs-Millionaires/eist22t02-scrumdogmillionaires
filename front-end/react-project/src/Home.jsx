@@ -4,18 +4,22 @@ import NavigationBar from "./components/NavigationBar";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import SearchBox from "./components/SearchBox";
-function StartingPage() {
+import map from "./images/map-test.png";
+function Home() {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <h1>Restaurant Reservation System</h1>
-      <p>
-        <SearchBox />
+      <div className="search-wrapper">
+      <h1 className="title">Restaurant Reservation System</h1>
+     
+<h3 className="sub-title">Search, reservate, and cancel within a few clicks. A project created by five TUM-Students.</h3>
+        <SearchBox/>
         <Button color="secondary" variant="contained" component={Link} to="/search">Search</Button>
-      </p>
+      </div>
+      <img src={map} alt="map" className="map"></img>
       <Footer />
     </div>
   );
 }
 
-export default StartingPage;
+export default Home;

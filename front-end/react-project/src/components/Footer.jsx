@@ -1,4 +1,3 @@
-import {Button} from "@material-ui/core";
 import React from "react";
 import GitHubLogo from "../images/github-logo.png";
 function Footer() {
@@ -6,7 +5,7 @@ function Footer() {
   return (
     <footer>
       
-      <div className="copyright"> © {date.getFullYear()} </div>
+      <div className="copyright">Copyright © {date.getFullYear()}</div>
       <div className="links">
         <a href="https://github.com/Scrumdog-Millionaries"><img src={GitHubLogo} alt="Github Logo" className="github-logo"></img></a>
       </div>
