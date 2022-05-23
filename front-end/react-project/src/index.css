@@ -1,0 +1,73 @@
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  color: black;
+  margin: 0 0 120px;
+  /* bottom = footer height */
+
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+footer {
+  background-color: #c5e1a5;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 120px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.copyright {
+  padding-top: 30px;
+  color: gray;
+}
+
+.links {
+  padding: 20px;
+
+}
+
+.github-logo{
+  width: 35px;
+  height: 35px;
+}
+.title{
+  padding: 90px 20x 20px 20px;
+  color: #3b4754;
+}
+.search-box{
+  padding-top: 40px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+.navigation-bar{
+  background-color: white;
+}
+.search-wrapper{
+  background-color: #c5e1a5;
+  padding: 80px 40px 80px 20px;
+}
+
+.sub-title{
+  color: #3b4754;
+}
+
+.map{
+  width: 70%;
+  max-width: 1000px;
+  padding: 40px 0 40px 0;
+}
+
+.search-result-comp {
+  margin: 30px;
+
+}
