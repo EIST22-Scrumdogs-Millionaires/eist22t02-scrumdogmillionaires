@@ -2,17 +2,15 @@ package hello.world.demo.restaurant;
 
 import java.util.List;
 
-public class Restaurant {
-    private String name;
-    private String description;
-    private Location location;
-    private List pictures;
+public class Table {
+    private int id;
+    private int seats;
+    private Restaurant restaurant;
 
-    public Restaurant(String name, String description, Location location, List pictures) {
-        this.name = name;
-        this.description = description;
-        this.location = location;
-        this.pictures = pictures;
+    public Table(int id, int seats, Restaurant restaurant) {
+        this.id = id;
+        this.seats = seats;
+        this.restaurant = restaurant;
     }
 
 }

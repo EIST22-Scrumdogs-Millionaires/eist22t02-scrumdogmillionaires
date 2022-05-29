@@ -1,18 +1,18 @@
 package hello.world.demo.restaurant;
 
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-public class Restaurant {
-    private String name;
-    private String description;
-    private Location location;
-    private List pictures;
+public class Reservation {
+    private static int ID=0;
+    private int id;
+    private LocalTime time;
+    private LocalDate date;
+    private Table table;
 
-    public Restaurant(String name, String description, Location location, List pictures) {
-        this.name = name;
-        this.description = description;
-        this.location = location;
-        this.pictures = pictures;
+    public Reservation(int id, LocalTime time, LocalDate date) {
+        this.id = ID++;
+        this.time = time;
+        this.date = date;
     }
-
 }
