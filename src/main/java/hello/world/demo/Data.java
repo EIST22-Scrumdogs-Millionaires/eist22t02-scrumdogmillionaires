@@ -11,19 +11,23 @@ public class Data {
 
     public Data() {
         this.sampleRestaurants = new Restaurant[]{
+            /*
                 new Restaurant("DA VINCI","Italienisches Restaurant und Pizzeria",
                         new Location(42,420,"München","Bayerstraße",51,187),
                         null
                         )
+                        */
         };
     }
 
-    public static Restaurant[] getAllRestaurants (){
+    public synchronized static Restaurant[] getAllRestaurants (){
         return new Restaurant[]{
+               /*
                 new Restaurant("DA VINCI","Italienisches Restaurant und Pizzeria",
                         new Location(42,420,"München","Bayerstraße",51,187),
                         null
                 )
+               */
         };
     }
 }
