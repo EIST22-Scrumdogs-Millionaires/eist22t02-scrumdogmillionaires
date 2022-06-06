@@ -17,8 +17,6 @@ import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import { grey } from '@mui/material/colors';
 import TUMMensa from "../images/TUM-Mensa.jpg";
 import Rating from "./Rating";
-import StarIcon from '@mui/icons-material/Star';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import {default as WebsiteIcon} from '@mui/icons-material/Language';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
