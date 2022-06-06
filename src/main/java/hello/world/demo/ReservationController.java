@@ -7,17 +7,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hello.world.demo.restaurant.Restaurant;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class RestaurantController {
+public class ReservationController {
 private Data data = new Data();
 
-    @GetMapping("restaurants/getTopTen")
-    public ResponseEntity<String> returngetTopTen() {
+    @GetMapping("reservations/{id}")
+    public ResponseEntity<String> returnReservation( @PathVariable("id") int id) {
         data = new Data();
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
@@ -31,8 +34,8 @@ private Data data = new Data();
         return ResponseEntity.ok(jsonString);
     }
 
-    @GetMapping("restaurants/{pageSize}/{index}")
-    public ResponseEntity<String> returnAllRestaurants( @PathVariable("pageSize") int pageSize, @PathVariable("index") int index) {
+    @DeleteMapping("reservations/{id}")
+    public ResponseEntity<String> removeReservation( @PathVariable("id") int id) {
         data = new Data();
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
@@ -46,8 +49,8 @@ private Data data = new Data();
         return ResponseEntity.ok(jsonString);
     }
 
-    @GetMapping("restaurants/{id}")
-    public ResponseEntity<String> returnRestaurant( @PathVariable("id") int id) {
+    @PostMapping("reservations")
+    public ResponseEntity<String> postReservation(@RequestBody String restaurant) {
         data = new Data();
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
