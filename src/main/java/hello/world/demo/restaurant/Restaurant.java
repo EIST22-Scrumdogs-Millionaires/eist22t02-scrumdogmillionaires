@@ -1,11 +1,10 @@
 package hello.world.demo.restaurant;
 
 
-import java.sql.Time;
+
 import java.time.LocalTime;
 import java.util.List;
 
-import javax.tools.DocumentationTool.Location;
 
 import hello.world.demo.EmailService;
 import org.apache.catalina.User;
@@ -18,13 +17,13 @@ public class Restaurant {
     private List<String> ratings;
 
     private List<String> comments;
-    private Time openingTimes;
-    private Time closingTime;
+    private LocalTime openingTimes;
+    private LocalTime closingTime;
     private String website;
     private String priceCategory;
 
     public Restaurant(String name, String description, Location location, List<String> pictures, List<String> ratings,
-			List<String> comments, Time openingTimes, Time closingTime, String website, String priceCategory) {
+			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -86,19 +85,19 @@ public class Restaurant {
 		this.comments = comments;
 	}
 
-	public Time getOpeningTimes() {
+	public LocalTime getOpeningTimes() {
 		return openingTimes;
 	}
 
-	public void setOpeningTimes(Time openingTimes) {
+	public void setOpeningTimes(LocalTime openingTimes) {
 		this.openingTimes = openingTimes;
 	}
 
-	public Time getClosingTime() {
+	public LocalTime getClosingTime() {
 		return closingTime;
 	}
 
-	public void setClosingTime(Time closingTime) {
+	public void setClosingTime(LocalTime closingTime) {
 		this.closingTime = closingTime;
 	}
 
