@@ -16,6 +16,12 @@ public class Data {
                         null, null, null, null, null, "https://davincirestaurants.de", "$$")
 
         );
+        this.sampleRestaurants.add(new Restaurant("MUN MUN", "Thailändisches Restaurant", null, null, null, null, null,
+                null, "munmun.de", "$$"));
+        this.sampleRestaurants.add(new Restaurant("TÜRKITCH", "Köfte & Kebap", null, null, null, null, null, null,
+                "tuerkitch-koeftekebap.de", "$"));
+        this.sampleRestaurants.add(new Restaurant("Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
+                null, null, null, null, null, null, "augustinerkeller.de", "$$$"));
     }
 
     public static synchronized List<Restaurant> getAllRestaurants() {
