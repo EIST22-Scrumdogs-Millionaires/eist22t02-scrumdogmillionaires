@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "./components/Footer";
-import NavigationBar from "./components/NavigationBar";
-import SearchResultComp from "./components/SearchResultComp";
+import Footer from "../components/Footer";
+import NavigationBar from "../components/NavigationBar";
+import SearchResultComp from "../components/SearchResultComp";
 
 export default function Search(){
     return <div>

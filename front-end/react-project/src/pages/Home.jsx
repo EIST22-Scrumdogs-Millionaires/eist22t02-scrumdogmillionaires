@@ -1,9 +1,9 @@
 import React from "react";
-import Footer from "./components/Footer";
-import NavigationBar from "./components/NavigationBar";
+import Footer from "../components/Footer";
+import NavigationBar from "../components/NavigationBar";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import SearchBox from "./components/SearchBox";
+import SearchBox from "../components/SearchBox";
 import map from "./images/map-test.png";
 function Home() {
   return (
