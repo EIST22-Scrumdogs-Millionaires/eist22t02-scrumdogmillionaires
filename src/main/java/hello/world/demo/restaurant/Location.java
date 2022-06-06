@@ -5,10 +5,10 @@ public class Location {
     private int Ycoordinate;
     private String city;
     private String street;
-    private int streetnumber;
-    private int plz;
+    private String streetnumber;
+    private String plz;
 
-    public Location(int xcoordinate, int ycoordinate, String city, String street, int streetnumber, int plz) {
+    public Location(int xcoordinate, int ycoordinate, String city, String street, String streetnumber, String plz) {
         Xcoordinate = xcoordinate;
         Ycoordinate = ycoordinate;
         this.city = city;
@@ -49,19 +49,19 @@ public class Location {
         this.street = street;
     }
 
-    public int getStreetnumber() {
+    public String getStreetnumber() {
         return streetnumber;
     }
 
-    public void setStreetnumber(int streetnumber) {
+    public void setStreetnumber(String streetnumber) {
         this.streetnumber = streetnumber;
     }
 
-    public int getPlz() {
+    public String getPlz() {
         return plz;
     }
 
-    public void setPlz(int plz) {
+    public void setPlz(String plz) {
         this.plz = plz;
     }
 }
