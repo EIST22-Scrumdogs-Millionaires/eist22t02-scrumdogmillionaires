@@ -1,6 +1,5 @@
 package hello.world.demo.restaurant;
 
-import java.time.LocalTime;
 
 import java.sql.Time;
 import java.util.List;
