@@ -8,6 +8,7 @@ import java.util.List;
 import javax.tools.DocumentationTool.Location;
 
 import hello.world.demo.EmailService;
+import org.apache.catalina.User;
 
 public class Restaurant {
     private String name;
