@@ -1,29 +1,28 @@
 package hello.world.demo;
 
-import hello.world.demo.restaurant.Location;
-import hello.world.demo.restaurant.Restaurant;
-
-import java.sql.Time;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import hello.world.demo.restaurant.Restaurant;
 
 public class Data {
 
-    private Restaurant[] sampleRestaurants;
+    private static List<Restaurant> sampleRestaurants = new ArrayList<>();
 
     public Data() {
-        this.sampleRestaurants = new Restaurant[]{
-                new Restaurant("DA VINCI","Italienisches Restaurant und Pizzeria", null,
-                        null, null, null, null, null, "https://davincirestaurants.de", "$$"
-                        )
+        this.sampleRestaurants.add(
+                new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", null,
+                        null, null, null, null, null, "https://davincirestaurants.de", "$$")
 
-        };
+        );
     }
 
-    public synchronized static Restaurant[] getAllRestaurants (){
-        return new Restaurant[]{
-                new Restaurant("DA VINCI","Italienisches Restaurant und Pizzeria", null,
-                        null, null, null, null, null, "https://davincirestaurants.de", "$$"
-                )
-        };
+    public static synchronized List<Restaurant> getAllRestaurants() {
+        return sampleRestaurants;
+    }
+
+    public static synchronized Optional<Restaurant> getRestaurant(String name) {
+        return sampleRestaurants.stream().filter(x -> x.getName().equals(name)).findFirst();
     }
 }
