@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "./components/Footer";
-import NavigationBar from "./components/NavigationBar";
+import Footer from "../components/Footer";
+import NavigationBar from "../components/NavigationBar";
 export default function Login(){
     return <div>
     <NavigationBar/>
