@@ -2,9 +2,12 @@ package hello.world.demo.restaurant;
 
 
 import java.sql.Time;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.tools.DocumentationTool.Location;
+
+import hello.world.demo.EmailService;
 
 public class Restaurant {
     private String name;
@@ -112,5 +115,18 @@ public class Restaurant {
 
 	public void setPriceCategory(String priceCategory) {
 		this.priceCategory = priceCategory;
+	}
+
+	public void passReservation(Reservation reservation, User user){
+	}
+
+	public void cancelReservation(Reservation reservation, User user){
+		EmailService.confirmCancellation(reservation);
+	}
+
+	public void getDetail(){
+	}
+
+	public void checkAvailability(LocalTime date){
 	}
 }
