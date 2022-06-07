@@ -8,7 +8,7 @@ const mapStyles = {
 };
 
 function addMarker(props) {
-
+    //TODO: add markers for all restaurants
 }
 
 export class MapContainer extends Component {
@@ -30,7 +30,15 @@ export class MapContainer extends Component {
             selectedPlace: props,
             activeMarker: marker,
             showingInfoWindow: true
-        })
+        });
+
+
+    onInfoWindowClose = () => {
+        this.setState({
+            showingInfoWindow: false,
+            activeMarker: null
+        });
+    }
 
     render() {
         return (
@@ -45,7 +53,7 @@ export class MapContainer extends Component {
                     }
                 }>
 
-                <Marker onMouseover={this.onMouseoverMarker} title={"TUM"} name={"Technische Universität München"} position={{ lat: 48.142166098, lng: 11.56745 }} />
+                <Marker onClick={this.onMarkerClick} title={"TUM"} name={"Technische Universität München"} position={{ lat: 48.142166098, lng: 11.56745 }} />
 
                 <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onClose={this.onInfoWindowClose}>
                     <div>
