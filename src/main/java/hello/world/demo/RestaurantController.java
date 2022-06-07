@@ -54,7 +54,7 @@ private Data data = new Data();
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
+            jsonString = mapper.writeValueAsString(Data.getRestaurant("DA VINCI"));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
