@@ -4,8 +4,9 @@ import NavigationBar from "../components/NavigationBar";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import SearchBox from "../components/SearchBox";
-import map from "./images/map-test.png";
-function Home() {
+import map from "../images/map-test.png";
+const Home = () => {
+  const query = "lol";
   return (
     <div>
       <NavigationBar></NavigationBar>
@@ -14,12 +15,13 @@ function Home() {
      
 <h3 className="sub-title">Search, reservate, and cancel within a few clicks. A project created by five TUM-Students.</h3>
         <SearchBox/>
-        <Button color="secondary" variant="contained" component={Link} to="/search">Search</Button>
+        <Button color="secondary" variant="contained" component={Link} to={`/search/${query}`}>Search</Button>
       </div>
       <img src={map} alt="map" className="map"></img>
       <Footer />
     </div>
   );
 }
+
 
 export default Home;

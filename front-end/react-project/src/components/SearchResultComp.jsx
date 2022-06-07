@@ -18,6 +18,8 @@ import { grey } from '@mui/material/colors';
 import TUMMensa from "../images/TUM-Mensa.jpg";
 import Rating from "./Rating";
 import {default as WebsiteIcon} from '@mui/icons-material/Language';
+import { Link } from 'react-router-dom'
+import { Button } from "@mui/material";
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -29,7 +31,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function SearchResultComp() {
+export default function SearchResultComp(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -38,7 +40,8 @@ export default function SearchResultComp() {
   
 
   return (
-    <Card sx={{ maxWidth: 400 }} className="search-result-comp">
+    
+    <Card className="search-result-comp">
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: grey[500]}} >
@@ -46,27 +49,33 @@ export default function SearchResultComp() {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+          <a href={props.restaurant.website}>
+          <IconButton aria-label="website">
+          <WebsiteIcon />
+        </IconButton>
+        </a>
         }
-        title="TUM Garching Mensa"
-        subheader="Boltzmannstraße 19, 85748 Garching bei München"
+        
+        title={props.restaurant.name}
+        
+        subheader={props.restaurant.address}
       />
       <CardMedia
         component="img"
         height="194"
         image={TUMMensa}
-        alt="Paella dish"
+        alt="restaurant foo"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Die Kantine mit aparter Holzdecke und Café bereitet Gerichte aus aller
-          Welt auch vegetarisch und vegan zu.
+          {props.restaurant.description}
         </Typography>
         <Typography color="text.secondary">
-            <Rating number={3}/>
+            <Rating number={props.restaurant.stars}/>
         </Typography>
+       
+        <Button  color="secondary" variant="contained" component={Link} to={`/search/detail/${props.restaurant.name}`}>More</Button>
+        
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
@@ -75,9 +84,7 @@ export default function SearchResultComp() {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <IconButton aria-label="website">
-          <WebsiteIcon />
-        </IconButton>
+        
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -96,5 +103,6 @@ export default function SearchResultComp() {
         </CardContent>
       </Collapse>
     </Card>
+  
   );
 }
