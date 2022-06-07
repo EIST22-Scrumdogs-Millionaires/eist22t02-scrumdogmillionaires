@@ -4,7 +4,8 @@ import NavigationBar from "../components/NavigationBar";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import SearchBox from "../components/SearchBox";
-import map from "../images/map-test.png";
+import Map from "../components/Map";
+
 const Home = () => {
   const query = "lol";
   return (
@@ -17,7 +18,7 @@ const Home = () => {
         <SearchBox/>
         <Button color="secondary" variant="contained" component={Link} to={`/search/${query}`}>Search</Button>
       </div>
-      <img src={map} alt="map" className="map"></img>
+        <Map></Map>
       <Footer />
     </div>
   );
