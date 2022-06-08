@@ -1,0 +1,64 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
+
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    env:
+      UPSTREAM: ssh://git@bitbucket.ase.in.tum.de:7999/eist22t02/eist22t02-scrumdogmillionaires.git
+      BITBUCKET_PUB_KEY: "[bitbucket.ase.in.tum.de]:7999,[131.159.89.140]:7999 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCO2i69e5LJibEDwVrwG9edX+xqeRB/Do+C8dNclgB5lFJjA5MlTFAZ4WewbLBeGXGAc5O64ckBlI82+FI1GwIkiKRoi/9qe+NGLmZFsjBRSz2fHLfKo/iEa8ytPP9E4iql1u7Rl+pnmY2claJ+ABQOt4XQgLWjYcIBHWpwhQ9tRjg73zUI/n/PKyEnODR14bEzJ/fBmTMgnm1ZdtSPViqLmByXgjgorCWPsRA3DrPsH3A9ncietUPj/qRbsWsPhiKK1yXXaKDHDgRD7ennVrwCAYG2hhTZEbZcjE8bbe9UY9WrRtoWLFKB/xDTn7pRv+ZxqXlcoP224we7J9s2ke1H"
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - run: ./gradlew clean test
+    
+ # CODE FOR PUSH TO BITBUCKET TAKEN FROM github.com/babyygemperor/github-action-push-to-another-repository.git
+    
+    - name: Set up remote
+      run: git remote add upstream ${{env.UPSTREAM}}
+
+    - name: Setup SSH Agent
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: |
+          ${{ secrets.PRIVATE_KEY }}
+
+    - name: Copy ssh public_key
+      run: echo "${{SECRETS.PUBLIC_KEY}}" > ~/.ssh/id_rsa.pub
+      
+    - name: Add bitbucket to known SSH-HOST
+      run: echo ${{env.BITBUCKET_PUB_KEY}} >> ~/.ssh/known_hosts
+
+    - name: Pull origin
+      run: git fetch --unshallow
+      
+    - name: Specify Identity
+      run: git config --global user.email "eist22-scrumdogmillionaires@github.com" && git config --global user.name "GitHub Action Runner"
+      
+    - name: Fix merge conflicts if any
+      run: git merge --strategy=ours
+
+    - name: Git push to other repo
+      run: git push upstream
