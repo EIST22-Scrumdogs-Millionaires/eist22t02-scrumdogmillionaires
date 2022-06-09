@@ -2,12 +2,19 @@ package hello.world.demo.restaurant;
 
 import org.apache.catalina.User;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
+@Entity
 public class Reservation {
-    private static int ID = 0;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private LocalTime time;
     private LocalDate date;
@@ -16,7 +23,6 @@ public class Reservation {
     private Restaurant restaurant;
 
     public Reservation(LocalTime time, LocalDate date, User user, Restaurant restaurant) {
-        this.id = ID++;
         this.time = time;
         this.date = date;
         this.user = user;

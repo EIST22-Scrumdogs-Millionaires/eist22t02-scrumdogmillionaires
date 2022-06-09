@@ -5,13 +5,20 @@ package hello.world.demo.restaurant;
 import java.time.LocalTime;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 import hello.world.demo.EmailService;
 import org.apache.catalina.User;
 
+@Entity
 public class Restaurant {
+	@Id
+   @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private static int ID = 0;
     private String name;
     private String description;
     private Location location;
@@ -29,7 +36,6 @@ public class Restaurant {
     public Restaurant(String name, String description, Location location, List<String> pictures, List<String> ratings,
 			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory, List<Table> tables, List<Reservation> reservations) {
 		super();
-		this.id = ID++;
 		this.name = name;
 		this.description = description;
 		this.location = location;
