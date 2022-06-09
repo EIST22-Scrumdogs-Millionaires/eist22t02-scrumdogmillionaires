@@ -9,21 +9,27 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
-@Entity
+@Entity(name = "reservation")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private int id;
+    @Column(name="time")
     private LocalTime time;
+    @Column(name="date")
     private LocalDate date;
     @ManyToOne
-    @JoinColumn(name = "table_id")
+    @JoinColumn(table="table",name = "id")
+    @Column(name="table_id")
     private Table table;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(table = "user",name = "id")
+    @Column(name="user_id")
     private Visitor user;
     @ManyToOne
-    @JoinColumn(name = "restaurant_id")
+    @JoinColumn(table = "restaurant",name = "id")
+    @Column(name="restaurant_id")
     private Restaurant restaurant;
 
     @Autowired
