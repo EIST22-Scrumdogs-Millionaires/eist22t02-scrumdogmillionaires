@@ -26,6 +26,10 @@ public class Location {
         this.plz = plz;
     }
 
+    public Location() {
+
+    }
+
     public int getXcoordinate() {
         return Xcoordinate;
     }

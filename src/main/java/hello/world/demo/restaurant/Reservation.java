@@ -2,10 +2,7 @@ package hello.world.demo.restaurant;
 
 import org.apache.catalina.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -18,15 +15,25 @@ public class Reservation {
     private int id;
     private LocalTime time;
     private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "table_id")
     private Table table;
-    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Visitor user;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
-    public Reservation(LocalTime time, LocalDate date, User user, Restaurant restaurant) {
+    public Reservation(LocalTime time, LocalDate date, Visitor user, Restaurant restaurant) {
         this.time = time;
         this.date = date;
         this.user = user;
         this.restaurant = restaurant;
+    }
+
+    public Reservation() {
+
     }
 
     public Restaurant getRestaurant() {
@@ -37,11 +44,11 @@ public class Reservation {
         this.restaurant = restaurant;
     }
 
-    public User getUser() {
+    public Visitor getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Visitor user) {
         this.user = user;
     }
 

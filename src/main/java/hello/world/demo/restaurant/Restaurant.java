@@ -4,11 +4,9 @@ package hello.world.demo.restaurant;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 import hello.world.demo.EmailService;
@@ -23,20 +21,22 @@ public class Restaurant {
 
     private String name;
     private String description;
-    private Location location;
+    @ManyToOne
+	@JoinColumn(name = "location_id")
+	private Location location;
+	@ElementCollection
     private List<String> pictures;
+	@ElementCollection
     private List<String> ratings;
-
+	@ElementCollection
     private List<String> comments;
     private LocalTime openingTimes;
     private LocalTime closingTime;
     private String website;
     private String priceCategory;
-	private List<Table> tables;
-	private List<Reservation> reservations;
 
     public Restaurant(String name, String description, Location location, List<String> pictures, List<String> ratings,
-			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory, List<Table> tables, List<Reservation> reservations) {
+			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -48,29 +48,17 @@ public class Restaurant {
 		this.closingTime = closingTime;
 		this.website = website;
 		this.priceCategory = priceCategory;
-		this.tables = tables;
-		this.reservations = reservations;
+
+	}
+
+	public Restaurant() {
+
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public List<Table> getTables() {
-		return tables;
-	}
-
-	public void setTables(List<Table> tables) {
-		this.tables = tables;
-	}
-
-	public List<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public void setReservations(List<Reservation> reservations) {
-		this.reservations = reservations;
-	}
 
 	public String getName() {
 		return name;

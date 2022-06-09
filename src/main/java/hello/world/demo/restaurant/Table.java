@@ -1,9 +1,6 @@
 package hello.world.demo.restaurant;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import javax.persistence.Entity;
 
@@ -13,12 +10,18 @@ public class Table {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private int seats;
+	@ManyToOne
+	@JoinColumn(name = "restaurant_id")
 	private Restaurant restaurant;
 
 	public Table(int id, int seats, Restaurant restaurant) {
 		this.id = id;
 		this.seats = seats;
 		this.restaurant = restaurant;
+	}
+
+	public Table() {
+
 	}
 
 	public int getId() {
