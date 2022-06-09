@@ -1,10 +1,7 @@
 package hello.world.demo.restaurant;
 
-
-
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -13,27 +10,39 @@ import hello.world.demo.EmailService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Entity
+@Entity(name = "restaurant")
 public class Restaurant {
 
 	@Id
    @GeneratedValue(strategy=GenerationType.AUTO)
+   @Column(name="id")
 	private int id;
 
+	@Column(name="name")
     private String name;
+	@Column(name="description")
     private String description;
+	
     @ManyToOne
-	@JoinColumn(name = "location_id")
+	@JoinColumn(table = "location", name = "location_id")
+	@Column(name="location")
 	private Location location;
 	@ElementCollection
+	@Column(name="pictures")
     private List<String> pictures;
 	@ElementCollection
+	@Column(name="ratings")
     private List<String> ratings;
 	@ElementCollection
+	@Column(name="comments")
     private List<String> comments;
+	@Column(name="openingTimes")
     private LocalTime openingTimes;
+	@Column(name="closingTime")
     private LocalTime closingTime;
+	@Column(name="website")
     private String website;
+	@Column(name="priceCategory")
     private String priceCategory;
 
 	@Autowired
@@ -154,5 +163,7 @@ public class Restaurant {
 
 	public void checkAvailability(LocalTime date){
 	}
+
+
 
 }
