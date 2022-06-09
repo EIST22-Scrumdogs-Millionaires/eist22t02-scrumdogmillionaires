@@ -25,9 +25,11 @@ public class User {
 		this.reservations = reservations;
 	}
 
+
 	public int getId() {
 		return id;
 	}
+
 
 	public String getUsername() {
 		return username;

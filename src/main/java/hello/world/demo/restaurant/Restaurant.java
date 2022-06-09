@@ -16,9 +16,11 @@ import org.apache.catalina.User;
 
 @Entity
 public class Restaurant {
+
 	@Id
    @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+
     private String name;
     private String description;
     private Location location;
