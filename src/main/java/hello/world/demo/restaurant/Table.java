@@ -16,7 +16,6 @@ public class Table {
 	private int seats;
 	@ManyToOne
 	@JoinColumn(table = "restaurant", name = "id")
-	@Column(name="restaurant")
 	private Restaurant restaurant;
 
 	@Autowired

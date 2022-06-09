@@ -21,15 +21,12 @@ public class Reservation {
     private LocalDate date;
     @ManyToOne
     @JoinColumn(table="table",name = "id")
-    @Column(name="table_id")
     private Table table;
     @ManyToOne
     @JoinColumn(table = "user",name = "id")
-    @Column(name="user_id")
     private Visitor user;
     @ManyToOne
     @JoinColumn(table = "restaurant",name = "id")
-    @Column(name="restaurant_id")
     private Restaurant restaurant;
 
     @Autowired

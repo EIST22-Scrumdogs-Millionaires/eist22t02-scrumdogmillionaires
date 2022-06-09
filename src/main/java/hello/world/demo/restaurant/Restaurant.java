@@ -25,7 +25,6 @@ public class Restaurant {
 	
     @ManyToOne
 	@JoinColumn(table = "location", name = "location_id")
-	@Column(name="location")
 	private Location location;
 	@ElementCollection
 	@Column(name="pictures")
