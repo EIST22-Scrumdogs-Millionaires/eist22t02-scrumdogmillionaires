@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import hello.world.demo.restaurant.Location;
 import hello.world.demo.restaurant.Restaurant;
+import hello.world.demo.restaurant.Table;
 
 public class Data {
 
@@ -28,16 +29,16 @@ public class Data {
    
 
         this.sampleRestaurants.add(
-                new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria",l,
-                        pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0), "https://davincirestaurants.de", "$$$$")
+                new Restaurant( "DA VINCI", "Italienisches Restaurant und Pizzeria",l,
+                        pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0), "https://davincirestaurants.de", "$$$$", null, null)
 
         );
-        this.sampleRestaurants.add(new Restaurant("MUN MUN", "Thailändisches Restaurant", null, null, null, null, null,
-                null, "munmun.de", "$$"));
-        this.sampleRestaurants.add(new Restaurant("TÜRKITCH", "Köfte & Kebap", null, null, null, null, null, null,
-                "tuerkitch-koeftekebap.de", "$"));
-        this.sampleRestaurants.add(new Restaurant("Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
-                null, null, null, null, null, null, "augustinerkeller.de", "$$$"));
+        this.sampleRestaurants.add( new Restaurant("MUN MUN", "Thailändisches Restaurant", null, null, null, null, null,
+                null, "munmun.de", "$$", null, null));
+        this.sampleRestaurants.add( new Restaurant("TÜRKITCH", "Köfte & Kebap", null, null, null, null, null, null,
+                "tuerkitch-koeftekebap.de", "$", null, null));
+        this.sampleRestaurants.add(new Restaurant( "Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
+                null, null, null, null, null, null, "augustinerkeller.de", "$$$", null, null));
     }
 
     public static synchronized List<Restaurant> getAllRestaurants() {

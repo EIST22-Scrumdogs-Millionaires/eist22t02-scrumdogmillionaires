@@ -1,7 +1,5 @@
 package hello.world.demo.restaurant;
 
-import java.util.List;
-
 public class Table {
     private int id;
     private int seats;

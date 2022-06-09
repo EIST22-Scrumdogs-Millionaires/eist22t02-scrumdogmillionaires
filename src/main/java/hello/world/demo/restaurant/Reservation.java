@@ -1,5 +1,7 @@
 package hello.world.demo.restaurant;
 
+import org.apache.catalina.User;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
@@ -10,11 +12,31 @@ public class Reservation {
     private LocalTime time;
     private LocalDate date;
     private Table table;
+    private User user;
+    private Restaurant restaurant;
 
-    public Reservation(int id, LocalTime time, LocalDate date) {
+    public Reservation(LocalTime time, LocalDate date, User user, Restaurant restaurant) {
         this.id = ID++;
         this.time = time;
         this.date = date;
+        this.user = user;
+        this.restaurant = restaurant;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getId() {

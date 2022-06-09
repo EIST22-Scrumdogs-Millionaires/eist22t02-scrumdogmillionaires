@@ -3,17 +3,24 @@ package hello.world.demo.restaurant;
 import java.time.LocalDate;
 import java.util.List;
 
-public class User {
+    public class User {
+    private int id;
+	private static int ID = 0;
     private String username;
     private String email;
     private LocalDate birthday;
+    private List<Reservation> reservations;
 
     public User(String username, String email, LocalDate birthday) {
+        this.id = ID++;
         this.username = username;
         this.email = email;
         this.birthday = birthday;
     }
 
+    public int getId() {
+    return id;
+    }
 
 	public String getUsername() {
 		return username;
@@ -39,3 +46,4 @@ public class User {
 		this.birthday = birthday;
 	}
 }
+

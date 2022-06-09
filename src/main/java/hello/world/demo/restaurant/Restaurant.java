@@ -10,6 +10,8 @@ import hello.world.demo.EmailService;
 import org.apache.catalina.User;
 
 public class Restaurant {
+	private int id;
+	private static int ID = 0;
     private String name;
     private String description;
     private Location location;
@@ -21,10 +23,13 @@ public class Restaurant {
     private LocalTime closingTime;
     private String website;
     private String priceCategory;
+	private List<Table> tables;
+	private List<Reservation> reservations;
 
     public Restaurant(String name, String description, Location location, List<String> pictures, List<String> ratings,
-			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory) {
+			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory, List<Table> tables, List<Reservation> reservations) {
 		super();
+		this.id = ID++;
 		this.name = name;
 		this.description = description;
 		this.location = location;
@@ -35,6 +40,28 @@ public class Restaurant {
 		this.closingTime = closingTime;
 		this.website = website;
 		this.priceCategory = priceCategory;
+		this.tables = tables;
+		this.reservations = reservations;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public List<Table> getTables() {
+		return tables;
+	}
+
+	public void setTables(List<Table> tables) {
+		this.tables = tables;
+	}
+
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 	public String getName() {
@@ -129,4 +156,5 @@ public class Restaurant {
 
 	public void checkAvailability(LocalTime date){
 	}
+
 }
