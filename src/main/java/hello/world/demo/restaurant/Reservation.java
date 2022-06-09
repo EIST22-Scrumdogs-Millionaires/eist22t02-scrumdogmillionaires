@@ -1,6 +1,7 @@
 package hello.world.demo.restaurant;
 
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
@@ -25,6 +26,7 @@ public class Reservation {
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
+    @Autowired
     public Reservation(LocalTime time, LocalDate date, Visitor user, Restaurant restaurant) {
         this.time = time;
         this.date = date;
@@ -32,6 +34,7 @@ public class Reservation {
         this.restaurant = restaurant;
     }
 
+    @Autowired
     public Reservation() {
 
     }

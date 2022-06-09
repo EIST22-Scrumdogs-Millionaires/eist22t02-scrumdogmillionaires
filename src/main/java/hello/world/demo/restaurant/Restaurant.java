@@ -11,6 +11,7 @@ import javax.persistence.*;
 
 import hello.world.demo.EmailService;
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Restaurant {
@@ -35,6 +36,7 @@ public class Restaurant {
     private String website;
     private String priceCategory;
 
+	@Autowired
     public Restaurant(String name, String description, Location location, List<String> pictures, List<String> ratings,
 			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory) {
 		super();
@@ -50,7 +52,7 @@ public class Restaurant {
 		this.priceCategory = priceCategory;
 
 	}
-
+	@Autowired
 	public Restaurant() {
 
 	}

@@ -1,5 +1,7 @@
 package hello.world.demo.restaurant;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class Location {
     private String streetnumber;
     private String plz;
 
+    @Autowired
     public Location(int xcoordinate, int ycoordinate, String city, String street, String streetnumber, String plz) {
         Xcoordinate = xcoordinate;
         Ycoordinate = ycoordinate;
@@ -26,6 +29,7 @@ public class Location {
         this.plz = plz;
     }
 
+    @Autowired
     public Location() {
 
     }

@@ -1,5 +1,7 @@
 package hello.world.demo.restaurant;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 import java.time.LocalDate;
@@ -13,12 +15,14 @@ public class Visitor {
     private String email;
     private LocalDate birthday;
 
+    @Autowired
     public Visitor(String username, String email, LocalDate birthday) {
         this.username = username;
         this.email = email;
         this.birthday = birthday;
     }
 
+    @Autowired
     public Visitor() {
 
     }

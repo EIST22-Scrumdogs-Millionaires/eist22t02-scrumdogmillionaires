@@ -1,5 +1,7 @@
 package hello.world.demo.restaurant;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 import javax.persistence.Entity;
@@ -14,12 +16,14 @@ public class Table {
 	@JoinColumn(name = "restaurant_id")
 	private Restaurant restaurant;
 
+	@Autowired
 	public Table(int id, int seats, Restaurant restaurant) {
 		this.id = id;
 		this.seats = seats;
 		this.restaurant = restaurant;
 	}
 
+	@Autowired
 	public Table() {
 
 	}
