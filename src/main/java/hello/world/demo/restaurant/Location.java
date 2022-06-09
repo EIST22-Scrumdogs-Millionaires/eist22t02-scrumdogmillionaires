@@ -2,21 +2,29 @@ package hello.world.demo.restaurant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "location")
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private int id;
+    @Column(name="Xcoordinate")
     private int Xcoordinate;
+    @Column(name="Ycoordinate")
     private int Ycoordinate;
+    @Column(name="city")
     private String city;
+    @Column(name="street")
     private String street;
+    @Column(name="streetnumber")
     private String streetnumber;
+    @Column(name="plz")
     private String plz;
 
     @Autowired
