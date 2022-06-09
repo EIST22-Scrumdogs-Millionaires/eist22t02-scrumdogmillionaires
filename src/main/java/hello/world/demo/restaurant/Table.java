@@ -6,14 +6,17 @@ import javax.persistence.*;
 
 import javax.persistence.Entity;
 
-@Entity
+@Entity(name = "table")
 public class Table {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private int id;
+	@Column(name="seats")
 	private int seats;
 	@ManyToOne
-	@JoinColumn(name = "restaurant_id")
+	@JoinColumn(table = "restaurant", name = "id")
+	@Column(name="restaurant")
 	private Restaurant restaurant;
 
 	@Autowired
