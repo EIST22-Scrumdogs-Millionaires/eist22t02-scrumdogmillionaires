@@ -1,19 +1,30 @@
 package hello.world.demo.restaurant;
 
-import java.util.List;
+import javax.persistence.*;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Table {
-    private int id;
-    private int seats;
-    private Restaurant restaurant;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private int seats;
+	@ManyToOne
+	@JoinColumn(name = "restaurant_id")
+	private Restaurant restaurant;
 
-    public Table(int id, int seats, Restaurant restaurant) {
-        this.id = id;
-        this.seats = seats;
-        this.restaurant = restaurant;
-    }
+	public Table(int id, int seats, Restaurant restaurant) {
+		this.id = id;
+		this.seats = seats;
+		this.restaurant = restaurant;
+	}
 
-    public int getId() {
+	public Table() {
+
+	}
+
+	public int getId() {
 		return id;
 	}
 

@@ -1,20 +1,55 @@
 package hello.world.demo.restaurant;
 
+import org.apache.catalina.User;
+
+import javax.persistence.*;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
+@Entity
 public class Reservation {
-    private static int ID = 0;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private LocalTime time;
     private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "table_id")
     private Table table;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Visitor user;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 
-    public Reservation(int id, LocalTime time, LocalDate date) {
-        this.id = ID++;
+    public Reservation(LocalTime time, LocalDate date, Visitor user, Restaurant restaurant) {
         this.time = time;
         this.date = date;
+        this.user = user;
+        this.restaurant = restaurant;
+    }
+
+    public Reservation() {
+
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public Visitor getUser() {
+        return user;
+    }
+
+    public void setUser(Visitor user) {
+        this.user = user;
     }
 
     public int getId() {

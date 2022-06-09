@@ -4,18 +4,31 @@ package hello.world.demo.restaurant;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Set;
+
+import javax.persistence.*;
 
 
 import hello.world.demo.EmailService;
 import org.apache.catalina.User;
 
+@Entity
 public class Restaurant {
+
+	@Id
+   @GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+
     private String name;
     private String description;
-    private Location location;
+    @ManyToOne
+	@JoinColumn(name = "location_id")
+	private Location location;
+	@ElementCollection
     private List<String> pictures;
+	@ElementCollection
     private List<String> ratings;
-
+	@ElementCollection
     private List<String> comments;
     private LocalTime openingTimes;
     private LocalTime closingTime;
@@ -35,7 +48,17 @@ public class Restaurant {
 		this.closingTime = closingTime;
 		this.website = website;
 		this.priceCategory = priceCategory;
+
 	}
+
+	public Restaurant() {
+
+	}
+
+	public int getId() {
+		return id;
+	}
+
 
 	public String getName() {
 		return name;
@@ -129,4 +152,5 @@ public class Restaurant {
 
 	public void checkAvailability(LocalTime date){
 	}
+
 }
