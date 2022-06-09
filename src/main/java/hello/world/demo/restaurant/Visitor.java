@@ -6,13 +6,17 @@ import javax.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "visitor")
 public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private int id;
+    @Column(name="username")
     private String username;
+    @Column(name="email")
     private String email;
+    @Column(name="birthday")
     private LocalDate birthday;
 
     @Autowired
