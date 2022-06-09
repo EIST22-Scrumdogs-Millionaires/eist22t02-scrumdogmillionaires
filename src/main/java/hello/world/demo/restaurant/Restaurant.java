@@ -4,18 +4,20 @@ import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.persistence.Table;
 
 
 import hello.world.demo.EmailService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Entity(name = "restaurant")
+@Entity(name = "Restaurant")
+@Table(name = "restaurant")
 public class Restaurant {
 
 	@Id
    @GeneratedValue(strategy=GenerationType.AUTO)
-   @Column(name="id")
+   @Column(name="restaurant_id")
 	private int id;
 
 	@Column(name="name")

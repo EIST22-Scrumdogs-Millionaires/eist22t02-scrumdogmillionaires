@@ -3,10 +3,12 @@ package hello.world.demo.restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import javax.persistence.Table;
 
 import java.time.LocalDate;
 
-@Entity(name = "visitor")
+@Entity(name = "Visitor")
+@Table(name = "visitor")
 public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

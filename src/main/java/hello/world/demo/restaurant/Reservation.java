@@ -1,32 +1,33 @@
 package hello.world.demo.restaurant;
 
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import javax.persistence.Table;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
-@Entity(name = "reservation")
+@Entity(name = "Reservation")
+@Table(name = "reservation")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
-    @Column(name="time")
+    @Column(name = "time")
     private LocalTime time;
-    @Column(name="date")
+    @Column(name = "date")
     private LocalDate date;
     @ManyToOne
-    @JoinColumn(table="table",name = "id")
+    @JoinColumn(table = "table", name = "id")
     private Table table;
     @ManyToOne
-    @JoinColumn(table = "user",name = "id")
+    @JoinColumn(table = "user", name = "id")
     private Visitor user;
     @ManyToOne
-    @JoinColumn(table = "restaurant",name = "id")
+    @JoinColumn(table = "restaurant", name = "restaurant_id")
     private Restaurant restaurant;
 
     @Autowired

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import hello.world.demo.restaurant.Location;
 import hello.world.demo.restaurant.Restaurant;
-import hello.world.demo.restaurant.Table;
+import hello.world.demo.restaurant.Tisch;
 
 public class Data {
 
