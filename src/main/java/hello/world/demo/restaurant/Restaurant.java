@@ -26,7 +26,7 @@ public class Restaurant {
     private String description;
 	
     @ManyToOne
-	@JoinColumn(table = "location", name = "location_id")
+	@JoinColumn(referencedColumnName = "location_id")
 	private Location location;
 	@ElementCollection
 	@Column(name="pictures")

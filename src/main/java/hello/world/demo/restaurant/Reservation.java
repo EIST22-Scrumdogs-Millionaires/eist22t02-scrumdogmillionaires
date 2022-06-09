@@ -3,7 +3,7 @@ package hello.world.demo.restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import javax.persistence.Table;
+
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -14,28 +14,29 @@ import java.util.Date;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "reservation_id")
     private int id;
     @Column(name = "time")
     private LocalTime time;
     @Column(name = "date")
     private LocalDate date;
     @ManyToOne
-    @JoinColumn(table = "table", name = "id")
-    private Table table;
+    @JoinColumn(referencedColumnName = "table_id")
+    private Tisch table;
     @ManyToOne
-    @JoinColumn(table = "user", name = "id")
+    @JoinColumn(referencedColumnName = "visitor_id")
     private Visitor user;
     @ManyToOne
-    @JoinColumn(table = "restaurant", name = "restaurant_id")
+    @JoinColumn(referencedColumnName = "restaurant_id")
     private Restaurant restaurant;
 
     @Autowired
-    public Reservation(LocalTime time, LocalDate date, Visitor user, Restaurant restaurant) {
+    public Reservation(LocalTime time, LocalDate date,Tisch table, Visitor user, Restaurant restaurant) {
         this.time = time;
         this.date = date;
         this.user = user;
         this.restaurant = restaurant;
+        this.table=table;
     }
 
     @Autowired
@@ -79,11 +80,11 @@ public class Reservation {
         this.date = date;
     }
 
-    public Table getTable() {
+    public Tisch getTable() {
         return table;
     }
 
-    public void setTable(Table table) {
+    public void setTable(Tisch table) {
         this.table = table;
     }
 

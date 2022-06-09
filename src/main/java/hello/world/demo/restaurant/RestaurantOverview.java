@@ -25,7 +25,7 @@ public class RestaurantOverview {
 
     @Bean
     public static List<Restaurant> getAllRestaurants(RestaurantRepo repository) {
-        List<Restaurant> ret = repository.getAllRestaurants();
+        List<Restaurant> ret = repository.findAll();
         if (ret.size() == 0) {
             Location l = new Location(10, 20, "München", "Horst Straße", "12", "7126");
             List<String> ratings = new ArrayList<>();
@@ -41,8 +41,16 @@ public class RestaurantOverview {
             repository.save(new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", l,
                     pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0), "https://davincirestaurants.de", "$$$$"));
 
-            ret = repository.getAllRestaurants();
+            ret = repository.findAll();
+        }
+        return ret;
+    }
 
+    private static List<Restaurant> convert (Iterable<Restaurant> i){
+    
+        List<Restaurant> ret = new ArrayList<>();
+        for (Restaurant restaurant : i) {
+            ret.add(restaurant);
         }
         return ret;
     }

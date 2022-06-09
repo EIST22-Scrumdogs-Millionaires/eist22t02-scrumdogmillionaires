@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name="visitor_id")
     private int id;
     @Column(name="username")
     private String username;

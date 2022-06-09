@@ -7,17 +7,17 @@ import javax.persistence.Table;
 
 import javax.persistence.Entity;
 
-@Entity(name = "Table")
-@Table(name = "table")
+@Entity(name = "Tisch")
+@Table(name = "tisch")
 public class Tisch {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id")
+	@Column(name="table_id")
 	private int id;
 	@Column(name="seats")
 	private int seats;
 	@ManyToOne
-	@JoinColumn(table = "restaurant", name = "id")
+	@JoinColumn(referencedColumnName = "restaurant_id")
 	private Restaurant restaurant;
 
 	@Autowired

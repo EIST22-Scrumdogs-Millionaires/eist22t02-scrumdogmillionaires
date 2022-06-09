@@ -4,7 +4,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import hello.world.demo.querys.RestaurantRepo;
+import hello.world.demo.querys.RestaurantRepoImpl;
 import hello.world.demo.restaurant.Restaurant;
+import hello.world.demo.restaurant.RestaurantOverview;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +22,13 @@ private Data data = new Data();
 
     @GetMapping("restaurants/getTopTen")
     public ResponseEntity<String> returngetTopTen() {
-        data = new Data();
+    
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
+            jsonString = mapper.writeValueAsString(RestaurantOverview.getAllRestaurants(new RestaurantRepoImpl()));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name="location_id")
     private int id;
     @Column(name="Xcoordinate")
     private int Xcoordinate;
