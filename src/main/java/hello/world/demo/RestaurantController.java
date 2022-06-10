@@ -28,7 +28,8 @@ private Data data = new Data();
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(RestaurantOverview.getAllRestaurants(new RestaurantRepoImpl()));
+            //RestaurantOverview.getAllRestaurants(new RestaurantRepoImpl())
+            jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -58,7 +59,22 @@ private Data data = new Data();
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(Data.getRestaurant("DA VINCI"));
+            jsonString = mapper.writeValueAsString(Data.getRestaurant(id));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(jsonString);
+    }
+
+    @GetMapping("restaurants/{id}")
+    public ResponseEntity<String> findRestaurant( @PathVariable("search") String search) {
+        data = new Data();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+        String jsonString = "didn't find anything";
+        try {
+            jsonString = mapper.writeValueAsString(Data.getRestaurant(search));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

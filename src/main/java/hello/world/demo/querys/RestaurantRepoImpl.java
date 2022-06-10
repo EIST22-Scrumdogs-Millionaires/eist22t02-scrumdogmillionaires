@@ -23,7 +23,6 @@ public class RestaurantRepoImpl implements RestaurantRepo {
 
     @PersistenceContext
     private EntityManager em;
-
     @Override
     public List<Restaurant> findAll() {
         return em.createQuery("select * from Restaurant", Restaurant.class).getResultList();
