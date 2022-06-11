@@ -1,19 +1,22 @@
 package hello.world.demo.restaurant;
 
 import java.time.LocalTime;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.*;
 import javax.persistence.Table;
 
 
 import hello.world.demo.EmailService;
+import hello.world.demo.querys.RestaurantRepo;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity(name = "Restaurant")
 @Table(name = "restaurant")
 public class Restaurant {
+	private final static int MAX_DIFFERENCE = 30;
+	private final static int TOP_TEN = 10;
 
 	@Id
    @GeneratedValue(strategy=GenerationType.AUTO)
@@ -152,17 +155,74 @@ public class Restaurant {
 		this.priceCategory = priceCategory;
 	}
 
-	public void passReservation(Reservation reservation, User user){
+	public void passReservation(Reservation reservation, User user) {
 	}
 
 	public void cancelReservation(Reservation reservation, User user){
 		EmailService.confirmCancellation(reservation);
 	}
 
-	public void getDetail(){
+	public void getDetail() {
 	}
 
-	public void checkAvailability(LocalTime date){
+	public void checkAvailability(LocalTime date) {
+	}
+
+	public List<Restaurant> search(String searchQuery) {
+		int difference = 0;
+		List<Restaurant> results = new ArrayList<>();
+		for (Restaurant restaurant : RestaurantOverview.getAllRestaurants(null)) {
+			String restaurantName = restaurant.getName();
+			difference = calculate(searchQuery,restaurantName);
+			if(difference <= MAX_DIFFERENCE) {
+				results.add(restaurant);
+			}
+		}
+		Collections.reverse(results);
+
+		//gib top ten 10
+		if (results.size() > TOP_TEN) {
+			((ArrayList<Restaurant>) results).trimToSize();
+			}
+
+		return results;
+
+	}
+
+	public static int calculate(String x, String y) {
+		int[][] dp = new int[x.length() + 1][y.length() + 1];
+
+		for (int i = 0; i <= x.length(); i++) {
+			for (int j = 0; j <= y.length(); j++) {
+				if (i == 0) {
+					dp[i][j] = j;
+				}
+				else if (j == 0) {
+					dp[i][j] = i;
+				}
+				else {
+					dp[i][j] = min(dp[i - 1][j - 1]
+									+ costOfSubstitution(x.charAt(i - 1), y.charAt(j - 1)),
+							dp[i - 1][j] + 1,
+							dp[i][j - 1] + 1);
+				}
+			}
+		}
+
+		return dp[x.length()][y.length()];
+	}
+
+	public static int min(int... numbers) {
+		return Arrays.stream(numbers)
+				.min().orElse(Integer.MAX_VALUE);
+	}
+
+	public static int costOfSubstitution(char a, char b) {
+		if(a==b) {
+			return 0;
+		} else {
+			return 1;
+		}
 	}
 
 
