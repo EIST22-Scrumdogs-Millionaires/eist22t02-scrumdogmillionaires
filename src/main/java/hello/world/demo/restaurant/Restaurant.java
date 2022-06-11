@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.persistence.Table;
 
 
+import hello.world.demo.Data;
 import hello.world.demo.EmailService;
 import hello.world.demo.querys.RestaurantRepo;
 import org.apache.catalina.User;
@@ -168,10 +169,10 @@ public class Restaurant {
 	public void checkAvailability(LocalTime date) {
 	}
 
-	public List<Restaurant> search(String searchQuery) {
+	public List<SmallRestaurant> search(String searchQuery) {
 		int difference = 0;
-		List<Restaurant> results = new ArrayList<>();
-		for (Restaurant restaurant : RestaurantOverview.getAllRestaurants(null)) {
+		List<SmallRestaurant> results = new ArrayList<>();
+		for (SmallRestaurant restaurant : Data.getAllRestaurants()) {
 			String restaurantName = restaurant.getName();
 			difference = calculate(searchQuery,restaurantName);
 			if(difference <= MAX_DIFFERENCE) {
@@ -182,7 +183,7 @@ public class Restaurant {
 
 		//gib top ten 10
 		if (results.size() > TOP_TEN) {
-			((ArrayList<Restaurant>) results).trimToSize();
+			((ArrayList<SmallRestaurant>) results).trimToSize();
 			}
 
 		return results;
