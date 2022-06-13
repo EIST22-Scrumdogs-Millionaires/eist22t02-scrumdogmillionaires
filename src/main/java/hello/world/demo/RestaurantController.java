@@ -65,7 +65,7 @@ private Data data = new Data();
         }
         return ResponseEntity.ok(jsonString);
     }
-
+/*
     @GetMapping("restaurants/{id}")
     public ResponseEntity<String> findRestaurant( @PathVariable("search") String search) {
         data = new Data();
@@ -80,4 +80,6 @@ private Data data = new Data();
         }
         return ResponseEntity.ok(jsonString);
     }
+
+ */
 }
