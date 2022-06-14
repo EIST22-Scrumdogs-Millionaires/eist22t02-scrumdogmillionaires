@@ -3,7 +3,7 @@ import "./App.css";
 import useState from "react-hook-use-state";
 
 function App() {
-  const [json, setJSON] = useState(null);
+  const [json, setJSON] = useState();
 
   fetch("http://localhost:8080/restaurants")
     .then((response) => response.json())

@@ -12,7 +12,6 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import { grey } from '@mui/material/colors';
 import TUMMensa from "../images/TUM-Mensa.jpg";

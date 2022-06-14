@@ -21,7 +21,7 @@ const Home = () => {
                         <h1 className="title">Restaurant Reservation System</h1>
                         <h3 className="sub-title">Search, reservate, and cancel within a few clicks. A project created by five TUM-Students.</h3>
                         <SearchBox/>
-                        <Button color="secondary" variant="contained" component={Link} to="/search${query}">Search</Button>
+                        <Button color="secondary" variant="contained" component={Link} to={`/search/${query}`}>Search</Button>
                     </div>
                 </Grid>
                 <Grid spacing={2} container="row">
@@ -30,6 +30,7 @@ const Home = () => {
                     <Grid item xs={5}>
                         <div className="map">
                             <Map/>
+                            
                         </div>
                     </Grid>
                     <Grid item xs={3}>

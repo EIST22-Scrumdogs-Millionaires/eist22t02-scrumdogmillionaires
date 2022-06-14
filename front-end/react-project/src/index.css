@@ -65,3 +65,61 @@ footer {
 .search-result-wrapper{
   padding: 40px 20px;
 }
+
+.map{
+  width: 100%;
+}
+
+.comment{
+  padding: 10px;
+  border-radius: 7px;
+  background: #f2f2f2;
+}
+.reservation-comp{
+  padding: 10px;
+  border-radius: 7px;
+  background: #f7f7f7;
+  box-shadow:  8px 8px 24px #d0d0d0,
+  -8px -8px 24px #f0f0f0;
+  margin:50px 0px 50px 0px;
+}
+
+.comment-section{
+  padding: 10px 20px;
+  border-radius: 7px;
+  background: #f7f7f7;
+  box-shadow:  8px 8px 24px #d0d0d0,
+  -8px -8px 24px #f0f0f0;
+}
+
+.picture-map-wrapper{
+  padding: 20px 20px;
+  border-radius: 7px;
+  background: #f7f7f7;
+  box-shadow:  8px 8px 24px #d0d0d0,
+  -8px -8px 24px #f0f0f0;
+}
+
+.restaurant-infos{
+  padding: 20px 20px;
+  border-radius: 7px;
+  background: #f7f7f7;
+  box-shadow:  8px 8px 24px #d0d0d0,
+  -8px -8px 24px #f0f0f0;
+  margin:50px 0px 50px 0px;
+}
+
+
+.title-wrapper{
+  background-color: #c5e1a5;
+  padding: 20px 20px;
+  border-radius: 7px;
+  box-shadow:  8px 8px 24px #d0d0d0,
+  -8px -8px 24px #f0f0f0;
+  margin:50px 0px 50px 0px;
+}
+
+.input-reservate{
+  margin: 30px auto;
+  width: 300px;
+}
