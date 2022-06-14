@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+
 import hello.world.demo.restaurant.Location;
 import hello.world.demo.restaurant.Restaurant;
 import hello.world.demo.restaurant.SmallRestaurant;
