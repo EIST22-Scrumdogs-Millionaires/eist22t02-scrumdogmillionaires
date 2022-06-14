@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import NavigationBar from "../components/NavigationBar";
 import SearchResultComp from "../components/SearchResultComp";
-import { Grid } from "@mui/material";
+import { Grid, Container} from "@mui/material";
 import restaurant_data from "../data/restaurant_name_list.json";
 export default function Search() {
   //hook from react router dom
@@ -12,11 +12,14 @@ export default function Search() {
   return (
     <div>
       <NavigationBar />
-      <div className="search-wrapper">
+      <div className="content">
+      <Container maxWidth="xl">
+      <div className="title-wrapper">
         <h1 className="title">
           Search results for <em>"{query}"</em>
         </h1>
       </div>
+      
       <div className="search-result-wrapper">
         <Grid
           container
@@ -36,7 +39,8 @@ export default function Search() {
           })}
         </Grid>
       </div>
-
+</Container>
+</div>
       <Footer />
     </div>
   );

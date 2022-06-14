@@ -4,11 +4,11 @@ function Footer() {
   const date = new Date();
   return (
     <footer>
-      
       <div className="copyright">Copyright © {date.getFullYear()}</div>
       <div className="links">
-        <a href="https://github.com/Scrumdog-Millionaries"><img src={GitHubLogo} alt="Github Logo" className="github-logo"></img></a>
+        <a href="https://github.com/EIST22-Scrumdogs-Millionaires"><img src={GitHubLogo} alt="Github Logo" className="github-logo"></img></a>
       </div>
+      
     </footer>
   );
 }

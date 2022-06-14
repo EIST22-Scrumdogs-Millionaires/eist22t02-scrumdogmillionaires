@@ -15,8 +15,8 @@ export default function DetailSearchComponent() {
   return (
     <div>
       <NavigationBar />
-      
-      <Container maxWidth="lg">
+      <div className="content">
+      <Container maxWidth="xl" >
       <div className="title-wrapper">
         <div className="search-wrapper">
           <h1>{id}</h1>
@@ -46,10 +46,10 @@ export default function DetailSearchComponent() {
             columnSpacing={{ xs: 3, md: 4 }}
           >
             <Grid item xs={12} sm={12} md={6} lg={7}>
-              <img src={TUMMensa} alt="restaurant picture" className="map" />
+              <img src={TUMMensa} alt="restaurant picture" className="picture" />
             </Grid>
             <Grid item xs={12} sm={12} md={6} lg={5}>
-              <img src={Map} alt="Map" className="map"></img>
+              <img src={Map} alt="Map" className="test-map"></img>
             </Grid>
           </Grid>
         </div>
@@ -58,6 +58,7 @@ export default function DetailSearchComponent() {
         </div>
         <CommentSection />
       </Container>
+      </div>
       <Footer />
     </div>
   );

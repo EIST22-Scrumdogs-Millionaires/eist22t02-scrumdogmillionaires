@@ -15,22 +15,24 @@ html {
 }
 
 footer {
-  background-color: #c5e1a5;
-  position: fixed;
+  margin-top: 20px;
+  box-shadow: -1px 7px 10px 4px #000000;
+  position: absolute;
   left: 0;
   bottom: 0;
-  height: 60px;
+  height: 120px;
   width: 100%;
   overflow: hidden;
 }
 
+
 .copyright {
-  padding-top: 10px;
+  margin-top: 25px;
   color: gray;
 }
 
 .links {
-  padding: 5px;
+  margin-top: 20px;
 
 }
 
@@ -40,7 +42,6 @@ footer {
 }
 .title{
   padding: 0px 20x 0px 20px;
-  color: #3b4754;
 }
 .search-box{
   padding-top: 10px;
@@ -57,13 +58,8 @@ footer {
   margin-bottom: 20px;
 }
 
-.sub-title{
-  color: #3b4754;
-}
-
-
 .search-result-wrapper{
-  padding: 40px 20px;
+  padding: 40px 0;
 }
 
 .map{
@@ -126,4 +122,16 @@ footer {
 .input-reservate{
   margin: 30px auto;
   width: 300px;
+}
+
+.test-map{
+  width: 100%;
+}
+
+.picture{
+  width: 100%;
+}
+
+.content{
+  padding-bottom: 80px;
 }

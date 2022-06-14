@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-
-      <Container maxWidth="lg">
+      <div className="content">
+      <Container maxWidth="xl">
         <div className="title-wrapper">
           <h1 className="title">Restaurant Reservation System</h1>
           <h3 className="sub-title">
@@ -35,6 +35,7 @@ const Home = () => {
           <Map />
         </div>
       </Container>
+      </div>
       <Footer />
     </div>
   );
