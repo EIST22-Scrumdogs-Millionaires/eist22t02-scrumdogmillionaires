@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import SearchBox from "../components/SearchBox";
 import Map from "../components/Map";
-import { Grid, Box, Item, Container } from "@mui/material";
+import { Container } from "@mui/material";
 
 const Home = () => {
   const query = "lol";
@@ -16,10 +16,10 @@ const Home = () => {
       <Container maxWidth="xl">
         <div className="title-wrapper">
           <h1 className="title">Restaurant Reservation System</h1>
-          <h3 className="sub-title">
+          <div className="sub-title">
             Search, reservate, and cancel within a few clicks. A project created
             by five TUM-Students.
-          </h3>
+          </div>
           <SearchBox />
           <Button
             color="secondary"
