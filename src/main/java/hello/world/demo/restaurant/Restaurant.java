@@ -33,10 +33,12 @@ public class Restaurant {
 
 	private List<Tisch> tables;
 
+	private RestaurantType restaurantType;
+
 	public Restaurant(String name, String description, Location location, List<String> pictures, List<Integer> ratings,
 			List<String> comments, List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
 			String priceCategory,
-			List<Tisch> tables) {
+			List<Tisch> tables, RestaurantType restaurantType) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -49,6 +51,7 @@ public class Restaurant {
 		this.website = website;
 		this.priceCategory = priceCategory;
 		this.tables = tables;
+		this.restaurantType = restaurantType;
 	}
 
 	public int getId() {
@@ -149,6 +152,10 @@ public class Restaurant {
 
 	public List<Tisch> getTables() {
 		return tables;
+	}
+
+	public RestaurantType getRestaurantType() {
+		return restaurantType;
 	}
 
 	public void passReservation(Reservation reservation, User user) {

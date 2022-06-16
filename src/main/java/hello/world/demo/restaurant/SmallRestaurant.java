@@ -25,14 +25,17 @@ public class SmallRestaurant {
 
 	private double averageRating;
 
+	private RestaurantType restaurantType;
+
 	public SmallRestaurant(String name, String description, Location location,
-			String website, String priceCategory, double averageRating) {
+			String website, String priceCategory, double averageRating, RestaurantType restaurantType) {
 		this.name = name;
 		this.description = description;
 		this.location = location;
 		this.website = website;
 		this.priceCategory = priceCategory;
 		this.averageRating = averageRating;
+		this.restaurantType = restaurantType;
 	}
 
 	public int getId() {
@@ -81,6 +84,10 @@ public class SmallRestaurant {
 
 	public double getAverageRating() {
 		return averageRating;
+	}
+
+	public RestaurantType getRestaurantType() {
+		return restaurantType;
 	}
 
 }

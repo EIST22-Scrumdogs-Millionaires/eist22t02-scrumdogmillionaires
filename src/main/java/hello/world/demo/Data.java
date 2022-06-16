@@ -6,6 +6,7 @@ import java.util.List;
 
 import hello.world.demo.restaurant.Location;
 import hello.world.demo.restaurant.Restaurant;
+import hello.world.demo.restaurant.RestaurantType;
 import hello.world.demo.restaurant.Tisch;
 
 public class Data {
@@ -40,19 +41,19 @@ public class Data {
                 sampleRestaurants.add(
                                 new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", l,
                                                 pic, ratings, com, openingTimes, closingTimes,
-                                                "https://davincirestaurants.de", "$$$$", tables)
+                                                "https://davincirestaurants.de", "$$$$", tables, RestaurantType.ITALIAN)
 
                 );
                 sampleRestaurants.add(
                                 new Restaurant("MUN MUN", "Thailändisches Restaurant", null, null, null, null, null,
-                                                null, "munmun.de", "$$", tables));
+                                                null, "munmun.de", "$$", tables, RestaurantType.TAIWANESE));
                 sampleRestaurants
                                 .add(new Restaurant("TÜRKITCH", "Köfte & Kebap", null, null, null, null, null, null,
-                                                "tuerkitch-koeftekebap.de", "$", null));
+                                                "tuerkitch-koeftekebap.de", "$", null, RestaurantType.TAIWANESE));
                 sampleRestaurants.add(
                                 new Restaurant("Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
                                                 null, null, null, null, null, null, "augustinerkeller.de", "$$$",
-                                                null));
+                                                null, RestaurantType.BAVARIAN));
 
                 return sampleRestaurants;
         }

@@ -29,13 +29,14 @@ public class RestaurantOverview {
 
 	public static List<SmallRestaurant> getAllRestaurants() {
 		return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-				x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating())).toList();
+				x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType()))
+				.toList();
 
 	}
 
 	public static List<SmallRestaurant> getTopTen() {
 		return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-				x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating()))
+				x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType()))
 				.sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
 				.toList();
 
