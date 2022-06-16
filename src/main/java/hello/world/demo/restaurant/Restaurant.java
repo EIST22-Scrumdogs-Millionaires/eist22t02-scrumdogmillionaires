@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 import hello.world.demo.Data;
 import hello.world.demo.EmailService;
-import hello.world.demo.querys.RestaurantRepo;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
