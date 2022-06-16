@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.*;
 import javax.persistence.Table;
 
-
-import hello.world.demo.EmailService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 

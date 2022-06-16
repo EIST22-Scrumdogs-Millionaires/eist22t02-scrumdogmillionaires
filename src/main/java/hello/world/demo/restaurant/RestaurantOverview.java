@@ -1,61 +1,93 @@
 package hello.world.demo.restaurant;
 
-import hello.world.demo.querys.*;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import hello.world.demo.Data;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class RestaurantOverview {
-    private static String filterType;
-    private static List<Restaurant> restaurants;
+    private static List<Restaurant> restaurants = Data.generateRestaurants();
 
-    private static final Logger log = LoggerFactory.getLogger(RestaurantOverview.class);
+    private final static int MAX_DIFFERENCE = 30;
+	private final static int TOP_TEN = 10;
 
-    public static void selectRestaurant(Restaurant r) {
-
-    }
-
-    @Bean
-    public static List<Restaurant> getAllRestaurants(RestaurantRepo repository) {
-        List<Restaurant> ret = repository.findAll();
+    public static Restaurant getRestaurantById(int id) {
+        List<Restaurant> ret = restaurants.stream().filter(x -> x.getId() == id).toList();
         if (ret.size() == 0) {
-            Location l = new Location(10, 20, "München", "Horst Straße", "12", "7126");
-            List<String> ratings = new ArrayList<>();
-            ratings.add("Exzellent wie sonst was!");
-            ratings.add("Sehr sehr gut!!");
-
-            List<String> com = new ArrayList<>();
-            com.add("Exzellent!");
-            com.add("Sehr gut!!");
-
-            List<String> pic = new ArrayList<>();
-
-            repository.save(new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", l,
-                    pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0), "https://davincirestaurants.de", "$$$$"));
-
-            ret = repository.findAll();
+            return null;
         }
-        return ret;
+        return ret.get(0);
     }
 
-    private static List<Restaurant> convert (Iterable<Restaurant> i){
-    
-        List<Restaurant> ret = new ArrayList<>();
-        for (Restaurant restaurant : i) {
-            ret.add(restaurant);
-        }
-        return ret;
+    public static List<SmallRestaurant> getAllRestaurants() {
+        return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory())).toList();
+
     }
 
-    public static String getFilterType() {
-        return filterType;
-    }
+    public List<SmallRestaurant> search(String searchQuery) {
+		int difference = 0;
+		List<SmallRestaurant> results = new ArrayList<>();
+		for (SmallRestaurant restaurant : getAllRestaurants()) {
+			String restaurantName = restaurant.getName();
+			difference = calculate(searchQuery, restaurantName);
+			if (difference <= MAX_DIFFERENCE) {
+				results.add(restaurant);
+			}
+		}
+		Collections.reverse(results);
+
+		// gib top ten 10
+		if (results.size() > TOP_TEN) {
+			((ArrayList<SmallRestaurant>) results).trimToSize();
+		}
+
+		return results;
+
+	}
+
+	public static int calculate(String x, String y) {
+		int[][] dp = new int[x.length() + 1][y.length() + 1];
+
+		for (int i = 0; i <= x.length(); i++) {
+			for (int j = 0; j <= y.length(); j++) {
+				if (i == 0) {
+					dp[i][j] = j;
+				} else if (j == 0) {
+					dp[i][j] = i;
+				} else {
+					dp[i][j] = min(dp[i - 1][j - 1]
+							+ costOfSubstitution(x.charAt(i - 1), y.charAt(j - 1)),
+							dp[i - 1][j] + 1,
+							dp[i][j - 1] + 1);
+				}
+			}
+		}
+
+		return dp[x.length()][y.length()];
+	}
+
+	public static int min(int... numbers) {
+		return Arrays.stream(numbers)
+				.min().orElse(Integer.MAX_VALUE);
+	}
+
+	public static int costOfSubstitution(char a, char b) {
+		if (a == b) {
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+
+
+ 
 }
