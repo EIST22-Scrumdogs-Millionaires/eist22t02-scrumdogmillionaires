@@ -27,6 +27,16 @@ public class SmallRestaurant {
 
 	private RestaurantType restaurantType;
 
+	/**
+	 * This model of a restaurant has less data and is used when the restaurant is visible in the overview
+	 * @param name
+	 * @param description
+	 * @param location
+	 * @param website
+	 * @param priceCategory
+	 * @param averageRating
+	 * @param restaurantType
+	 */
 	public SmallRestaurant(String name, String description, Location location,
 			String website, String priceCategory, double averageRating, RestaurantType restaurantType) {
 		this.name = name;

@@ -110,7 +110,7 @@ public class RestaurantOverview {
      * @param lat2 Latidue two
      * @param lon1 Longitude one
      * @param lon2 Longitude one
-     * @param dist maximal distance
+     * @param dis maximal distance
      * @returns true if distance in KM is smaller equal than the passed distance,
      * otherwise false
      */
@@ -167,6 +167,12 @@ public class RestaurantOverview {
         return results;
     }
 
+    /**
+     * calculates the difference between 2 strings
+     * @param x
+     * @param y
+     * @return
+     */
     public static int calculate(String x, String y) {
         int[][] dp = new int[x.length() + 1][y.length() + 1];
 
@@ -193,6 +199,7 @@ public class RestaurantOverview {
                 .min().orElse(Integer.MAX_VALUE);
     }
 
+
     public static int costOfSubstitution(char a, char b) {
         if (a == b) {
             return 0;
@@ -201,6 +208,11 @@ public class RestaurantOverview {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public static Reservation getReservation(int id) {
         List<Reservation> ret = new ArrayList<>();
         restaurants.stream().map(x -> x.getReservations()).forEach(x -> ret.addAll(x));
@@ -211,15 +223,26 @@ public class RestaurantOverview {
         return ret.get(0);
     }
 
-    public static Reservation postReservation(Reservation reservation) {
+    /**
+     * Finds the restaurant in the list of restaurants and adds the new reservation to it
+     * @param reservation
+     * @param visitor
+     * @return
+     */
+    public static Reservation postReservation(Reservation reservation, Visitor visitor) {
         if (restaurants.stream().filter(res -> reservation.getRestaurant().equals(res)).toList().get(0)
-                .passReservation(reservation, new Visitor("testusername", "testmail", null)))
+                .passReservation(reservation, visitor))
             return reservation;
         else {
             return null;
         }
     }
 
+    /**
+     *
+     * @param id
+     * @param secretCancelKey
+     */
     public static void cancelReservation(int id, String secretCancelKey) {
         Reservation reservation = getReservation(id);
         if (reservation != null) {

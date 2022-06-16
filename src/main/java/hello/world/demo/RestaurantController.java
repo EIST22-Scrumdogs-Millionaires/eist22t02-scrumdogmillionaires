@@ -80,7 +80,7 @@ public class RestaurantController {
         return ResponseEntity.ok(jsonString);
     }
 
-    // Dont need that do we?
+    // Dont need that do we? We hope not ;)
     // @GetMapping("restaurants/{pageSize}/{index}")
     // public ResponseEntity<String> returnAllRestaurants(@PathVariable("pageSize")
     // int pageSize,

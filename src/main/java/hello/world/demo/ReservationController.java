@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hello.world.demo.restaurant.Reservation;
 import hello.world.demo.restaurant.RestaurantOverview;
 
+import hello.world.demo.restaurant.Visitor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,9 +41,10 @@ public class ReservationController {
         RestaurantOverview.cancelReservation(id, cancleSecretKey);
     }
 
-    // TODO::
+    //Open question about how the user gets transmitted
      @PostMapping("reservations")
-     public ResponseEntity<String> postReservation(@RequestBody Reservation reservation)
+     public ResponseEntity<String> postReservation(@RequestBody Reservation reservation,
+                                                   @RequestBody Visitor visitor)
      {
 
      ObjectMapper mapper = new ObjectMapper();
@@ -50,7 +52,7 @@ public class ReservationController {
 
      String jsonString = "didn't find anything";
      try {
-     jsonString = mapper.writeValueAsString(RestaurantOverview.postReservation(reservation));
+     jsonString = mapper.writeValueAsString(RestaurantOverview.postReservation(reservation,visitor));
      } catch (JsonProcessingException e) {
      e.printStackTrace();
      }
