@@ -3,8 +3,11 @@ package hello.world.demo.restaurant;
 import java.time.LocalTime;
 import java.util.*;
 
-import hello.world.demo.EmailService;
 import org.apache.catalina.User;
+
+import hello.world.demo.email.EmailServiceImpl;
+
+
 
 public class Restaurant {
 
@@ -145,7 +148,7 @@ public class Restaurant {
 	}
 
 	public void cancelReservation(Reservation reservation, User user) {
-		EmailService.confirmCancellation(reservation);
+		EmailServiceImpl.confirmCancellation(reservation);
 	}
 
 	public void checkAvailability(LocalTime date) {

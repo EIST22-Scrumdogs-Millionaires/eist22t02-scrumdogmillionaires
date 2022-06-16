@@ -1,25 +1,20 @@
-package hello.world.demo;
+package hello.world.demo.email;
 
 import hello.world.demo.restaurant.Reservation;
 import hello.world.demo.restaurant.Visitor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Properties;
 
+@Service
+public class EmailServiceImpl {
 
-@Component
-public class EmailService {
+    private static JavaMailSender mailSender = getJavaMailSender();
 
-
-    @Autowired
-    private JavaMailSender mailSender;
-
-    public void sendSimpleMessage(String to, String subject, String text) {
+    public static void sendSimpleMessage(String to, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("noreply@scrumdogmillionaires.com");
         message.setTo(to);
@@ -28,8 +23,7 @@ public class EmailService {
         mailSender.send(message);
     }
 
-    @Bean
-    public JavaMailSender getJavaMailSender() {
+    public static JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
@@ -46,7 +40,6 @@ public class EmailService {
         return mailSender;
     }
 
-
     public static void confirmReservation(Reservation reservation) {
     }
 
@@ -54,6 +47,7 @@ public class EmailService {
     }
 
     public static void sendEmail(Visitor user, String message) {
+        sendSimpleMessage(user.getEmail(), "moin", "meister");
     }
 
     public static void verifyEmail(Visitor user, String message) {
