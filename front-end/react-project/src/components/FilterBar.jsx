@@ -7,24 +7,33 @@ import {
     Typography,
     Rating,
     Grid,
-    FormControlLabel, Switch, Slider
+    FormControlLabel, Switch, Slider, TextField
 } from "@mui/material";
-import React from "react";
+import React, {createContext} from "react";
+import {DateTimePicker} from "@mui/x-date-pickers";
+import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
+import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
 
 const marks = [
     {
-        value: 5,
-        label: "5km",
+        value: 1,
+        label: "1km",
+    },
+    {
+        value: 10,
+        label: "10km",
     },
     {
         value: 20,
         label: "20km",
     },
     {
-        value: 35,
-        label: "35km",
+        value: 30,
+        label: "30km",
     },
 ];
+
+const Filters = createContext();
 
 function SelectPreisklasse() {
     const [preisklasse, setPreisklasse] = React.useState("");
@@ -34,7 +43,7 @@ function SelectPreisklasse() {
     }
 
     return (
-        <Box sx={{minWidth:100, maxWidth:160}}>
+        <Box sx={{minWidth:100}}>
             <FormControl fullWidth>
                 <InputLabel>Preisklasse</InputLabel>
                 <Select labelId="preisklasse" label="Preisklasse" value={preisklasse} onChange={handleChange}>
@@ -56,7 +65,7 @@ function SelectCategory() {
     }
 
     return (
-        <Box sx={{minWidth:150, maxWidth:160}}>
+        <Box sx={{minWidth:150}}>
             <FormControl fullWidth>
                 <InputLabel>Kategorie</InputLabel>
                 <Select labelId="category" label="Category" value={category} onChange={handleChange}>
@@ -70,36 +79,85 @@ function SelectCategory() {
     );
 }
 
-export default function FilterBar() {
+function ReservationTimePicker() {
+    const [value, setValue] = React.useState(null);
+
+    const handleChange = (date) => {
+        setValue(date);
+    }
+
+    return (
+        <Box sx={{minWidth:160}}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DateTimePicker
+                    label="Date&Time picker"
+                    value={value}
+                    onChange={handleChange}
+                    renderInput={(params) => <TextField {...params} />}
+                />
+            </LocalizationProvider>
+        </Box>
+
+    )
+}
+
+export class FilterBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            filters: {
+                category: "",
+                price: "",
+                rating: "",
+                distance: "",
+                time: ""
+            }
+        }
+    }
+
+    handleSliderChange = (event, value) => {
+        this.setState({
+            filters: {
+                distance: value*1000
+            }
+        })
+        this.props.filterCallback(this.state.filters);
+        console.log(value);
+    }
+
+    render() {
         return (
             <div>
                 <Grid container spacing={3} justifyContent="space-around">
                     <Grid item xs={2}>
-                        <SelectCategory />
+                        <SelectCategory/>
                     </Grid>
                     <Grid item xs={2}>
-                        <SelectPreisklasse />
+                        <SelectPreisklasse/>
                     </Grid>
                     <Grid item xs={2}>
                         <Box>
-                            <div className="rating-typography">
-                                <Typography>Rating (mind.)</Typography>
-                            <Rating />
-                            </div>
+                            <Typography>Rating (mind.)</Typography>
+                            <Rating/>
                         </Box>
-                    </Grid>
-                    <Grid item xs={2}>
-                        <FormControlLabel labelPlacement="top" control={<Switch />} label="Jetzt geöffnet" />
                     </Grid>
                     <Grid item xs={2}>
                         <Box>
                             <Typography>Distanz</Typography>
                             <Slider
-                                defaultValue={20} min={5} max={35} marks={marks}/>
+                                defaultValue={20} min={1} max={30} marks={marks} onChange={this.handleSliderChange}/>
+                        </Box>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Box>
+                            <ReservationTimePicker/>
                         </Box>
                     </Grid>
                 </Grid>
             </div>
         )
+    }
 }
 
+export default FilterBar
