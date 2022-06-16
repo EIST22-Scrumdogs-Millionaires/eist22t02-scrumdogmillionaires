@@ -29,8 +29,7 @@ public class Restaurant {
 	@Column(name="description")
     private String description;
 	
-    @ManyToOne
-	@JoinColumn(referencedColumnName = "location_id")
+	@Column(name="location")
 	private Location location;
 	@ElementCollection
 	@Column(name="pictures")
@@ -49,10 +48,14 @@ public class Restaurant {
     private String website;
 	@Column(name="priceCategory")
     private String priceCategory;
+	@ElementCollection
+	@Column(name="comments")
+	private List<Table> tables;
+
 
 	@Autowired
     public Restaurant(String name, String description, Location location, List<String> pictures, List<String> ratings,
-			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory) {
+			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory, List<Table> tables) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -64,6 +67,7 @@ public class Restaurant {
 		this.closingTime = closingTime;
 		this.website = website;
 		this.priceCategory = priceCategory;
+		this.tables=tables;
 
 	}
 	@Autowired
@@ -154,6 +158,14 @@ public class Restaurant {
 
 	public void setPriceCategory(String priceCategory) {
 		this.priceCategory = priceCategory;
+	}
+
+	public void setTables(List<Table> tables) {
+		this.tables = tables;
+	}
+
+	public List<Table> getTables() {
+		return tables;
 	}
 
 	public void passReservation(Reservation reservation, User user) {

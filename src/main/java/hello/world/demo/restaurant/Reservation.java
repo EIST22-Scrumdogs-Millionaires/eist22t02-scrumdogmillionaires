@@ -20,11 +20,7 @@ public class Reservation {
     private LocalTime time;
     @Column(name = "date")
     private LocalDate date;
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "table_id")
-    private Tisch table;
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "visitor_id")
+    @Column(name = "visitor")
     private Visitor user;
     @ManyToOne
     @JoinColumn(referencedColumnName = "restaurant_id")
@@ -36,7 +32,6 @@ public class Reservation {
         this.date = date;
         this.user = user;
         this.restaurant = restaurant;
-        this.table=table;
     }
 
     @Autowired
@@ -78,14 +73,6 @@ public class Reservation {
 
     public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    public Tisch getTable() {
-        return table;
-    }
-
-    public void setTable(Tisch table) {
-        this.table = table;
     }
 
     // oder boolean?

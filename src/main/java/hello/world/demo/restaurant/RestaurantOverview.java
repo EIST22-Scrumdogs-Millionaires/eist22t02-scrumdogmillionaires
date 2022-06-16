@@ -39,7 +39,7 @@ public class RestaurantOverview {
             List<String> pic = new ArrayList<>();
 
             repository.save(new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", l,
-                    pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0), "https://davincirestaurants.de", "$$$$"));
+                    pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0), "https://davincirestaurants.de", "$$$$", null));
 
             ret = repository.findAll();
         }

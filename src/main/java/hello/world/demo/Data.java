@@ -3,14 +3,11 @@ package hello.world.demo;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import hello.world.demo.restaurant.Location;
 import hello.world.demo.restaurant.Restaurant;
 import hello.world.demo.restaurant.SmallRestaurant;
-import hello.world.demo.restaurant.Tisch;
+
 
 public class Data {
 
@@ -31,18 +28,18 @@ public class Data {
                 this.sampleRestaurants.add(
                                 new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", l,
                                                 pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0),
-                                                "https://davincirestaurants.de", "$$$$")
+                                                "https://davincirestaurants.de", "$$$$", null)
 
                 );
                 this.sampleRestaurants.add(
                                 new Restaurant("MUN MUN", "Thailändisches Restaurant", null, null, null, null, null,
-                                                null, "munmun.de", "$$"));
+                                                null, "munmun.de", "$$", null));
                 this.sampleRestaurants
                                 .add(new Restaurant("TÜRKITCH", "Köfte & Kebap", null, null, null, null, null, null,
-                                                "tuerkitch-koeftekebap.de", "$"));
+                                                "tuerkitch-koeftekebap.de", "$", null));
                 this.sampleRestaurants.add(
                                 new Restaurant("Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
-                                                null, null, null, null, null, null, "augustinerkeller.de", "$$$"));
+                                                null, null, null, null, null, null, "augustinerkeller.de", "$$$", null));
         }
 
         public static synchronized List<SmallRestaurant> getAllRestaurants() {

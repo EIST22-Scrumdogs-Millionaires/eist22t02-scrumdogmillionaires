@@ -6,7 +6,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import hello.world.demo.querys.RestaurantRepo;
-import hello.world.demo.querys.RestaurantRepoImpl;
 import hello.world.demo.restaurant.Restaurant;
 import hello.world.demo.restaurant.RestaurantOverview;
 
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestaurantController {
 private Data data = new Data();
+private RestaurantRepo restaurantRepo;
 
     @GetMapping("restaurants/getTopTen")
     public ResponseEntity<String> returngetTopTen() {
@@ -29,7 +29,7 @@ private Data data = new Data();
         String jsonString = "didn't find anything";
         try {
             //RestaurantOverview.getAllRestaurants(new RestaurantRepoImpl())
-            jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
+            jsonString = mapper.writeValueAsString(RestaurantOverview.getAllRestaurants(restaurantRepo));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

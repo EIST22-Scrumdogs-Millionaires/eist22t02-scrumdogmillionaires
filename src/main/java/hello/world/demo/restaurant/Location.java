@@ -1,35 +1,19 @@
 package hello.world.demo.restaurant;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity(name = "Location")
-@Table(name = "location")
 public class Location {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="location_id")
-    private int id;
-    @Column(name="Xcoordinate")
+
     private int Xcoordinate;
-    @Column(name="Ycoordinate")
+
     private int Ycoordinate;
-    @Column(name="city")
+
     private String city;
-    @Column(name="street")
+
     private String street;
-    @Column(name="streetnumber")
+
     private String streetnumber;
-    @Column(name="plz")
+
     private String plz;
 
-    @Autowired
     public Location(int xcoordinate, int ycoordinate, String city, String street, String streetnumber, String plz) {
         Xcoordinate = xcoordinate;
         Ycoordinate = ycoordinate;
@@ -37,11 +21,6 @@ public class Location {
         this.street = street;
         this.streetnumber = streetnumber;
         this.plz = plz;
-    }
-
-    @Autowired
-    public Location() {
-
     }
 
     public int getXcoordinate() {
