@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hello.world.demo.restaurant.Reservation;
 import hello.world.demo.restaurant.RestaurantOverview;
 
 import org.springframework.http.ResponseEntity;
@@ -40,19 +41,19 @@ public class ReservationController {
     }
 
     // TODO::
-    // @PostMapping("reservations")
-    // public ResponseEntity<String> postReservation(@RequestBody String restaurant)
-    // {
+     @PostMapping("reservations")
+     public ResponseEntity<String> postReservation(@RequestBody Reservation reservation)
+     {
 
-    // ObjectMapper mapper = new ObjectMapper();
-    // mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+     ObjectMapper mapper = new ObjectMapper();
+     mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
-    // String jsonString = "didn't find anything";
-    // try {
-    // jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
-    // } catch (JsonProcessingException e) {
-    // e.printStackTrace();
-    // }
-    // return ResponseEntity.ok(jsonString);
-    // }
+     String jsonString = "didn't find anything";
+     try {
+     jsonString = mapper.writeValueAsString(RestaurantOverview.postReservation(reservation));
+     } catch (JsonProcessingException e) {
+     e.printStackTrace();
+     }
+     return ResponseEntity.ok(jsonString);
+     }
 }

@@ -171,9 +171,10 @@ public class Restaurant {
 		return reservations;
 	}
 
-	public void passReservation(Reservation reservation, Visitor user) {
+	public boolean passReservation(Reservation reservation, Visitor user) {
 		reservation.setUser(user);
 		reservations.add(reservation);
+		return true;
 	}
 
 	public void cancelReservation(Reservation reservation, String cancelSecretKey) {

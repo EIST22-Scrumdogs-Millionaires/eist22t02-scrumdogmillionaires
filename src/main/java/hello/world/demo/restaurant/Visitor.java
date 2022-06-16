@@ -1,6 +1,7 @@
 package hello.world.demo.restaurant;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Visitor {
 
@@ -10,9 +11,9 @@ public class Visitor {
 
     private String email;
 
-    private LocalDate birthday;
+    private Date birthday;
 
-    public Visitor(String username, String email, LocalDate birthday) {
+    public Visitor(String username, String email, Date birthday) {
         this.username = username;
         this.email = email;
         this.birthday = birthday;
@@ -38,11 +39,11 @@ public class Visitor {
         this.email = email;
     }
 
-    public LocalDate getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
