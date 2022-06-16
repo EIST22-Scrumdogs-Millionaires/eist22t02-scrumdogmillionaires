@@ -14,26 +14,34 @@ import java.util.Collections;
 import java.util.List;
 
 public class RestaurantOverview {
-    private static List<Restaurant> restaurants = Data.generateRestaurants();
+	private static List<Restaurant> restaurants = Data.generateRestaurants();
 
-    private final static int MAX_DIFFERENCE = 30;
+	private final static int MAX_DIFFERENCE = 30;
 	private final static int TOP_TEN = 10;
 
-    public static Restaurant getRestaurantById(int id) {
-        List<Restaurant> ret = restaurants.stream().filter(x -> x.getId() == id).toList();
-        if (ret.size() == 0) {
-            return null;
-        }
-        return ret.get(0);
-    }
+	public static Restaurant getRestaurantById(int id) {
+		List<Restaurant> ret = restaurants.stream().filter(x -> x.getId() == id).toList();
+		if (ret.size() == 0) {
+			return null;
+		}
+		return ret.get(0);
+	}
 
-    public static List<SmallRestaurant> getAllRestaurants() {
-        return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-                x.getLocation(), x.getWebsite(), x.getPriceCategory())).toList();
+	public static List<SmallRestaurant> getAllRestaurants() {
+		return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
+				x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating())).toList();
 
-    }
+	}
 
-    public List<SmallRestaurant> search(String searchQuery) {
+	public static List<SmallRestaurant> getTopTen() {
+		return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
+				x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating()))
+				.sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
+				.toList();
+
+	}
+
+	public List<SmallRestaurant> search(String searchQuery) {
 		int difference = 0;
 		List<SmallRestaurant> results = new ArrayList<>();
 		for (SmallRestaurant restaurant : getAllRestaurants()) {
@@ -47,7 +55,7 @@ public class RestaurantOverview {
 
 		// gib top ten 10
 		if (results.size() > TOP_TEN) {
-			((ArrayList<SmallRestaurant>) results).trimToSize();
+			((ArrayList<SmallRestaurant>) results).subList(0, TOP_TEN);
 		}
 
 		return results;
@@ -88,6 +96,4 @@ public class RestaurantOverview {
 		}
 	}
 
-
- 
 }

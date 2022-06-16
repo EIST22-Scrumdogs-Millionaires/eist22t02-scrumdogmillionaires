@@ -7,8 +7,6 @@ import org.apache.catalina.User;
 
 import hello.world.demo.email.EmailServiceImpl;
 
-
-
 public class Restaurant {
 
 	private int id;
@@ -21,13 +19,13 @@ public class Restaurant {
 
 	private List<String> pictures;
 
-	private List<String> ratings;
+	private List<Integer> ratings;
 
 	private List<String> comments;
 
-	private LocalTime openingTimes;
+	private List<LocalTime> openingTimes;
 
-	private LocalTime closingTime;
+	private List<LocalTime> closingTime;
 
 	private String website;
 
@@ -35,8 +33,9 @@ public class Restaurant {
 
 	private List<Tisch> tables;
 
-	public Restaurant(String name, String description, Location location, List<String> pictures, List<String> ratings,
-			List<String> comments, LocalTime openingTimes, LocalTime closingTime, String website, String priceCategory,
+	public Restaurant(String name, String description, Location location, List<String> pictures, List<Integer> ratings,
+			List<String> comments, List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
+			String priceCategory,
 			List<Tisch> tables) {
 		super();
 		this.name = name;
@@ -88,12 +87,20 @@ public class Restaurant {
 		this.pictures = pictures;
 	}
 
-	public List<String> getRatings() {
+	public List<Integer> getRatings() {
 		return ratings;
 	}
 
-	public void setRatings(List<String> ratings) {
+	public void setRatings(List<Integer> ratings) {
 		this.ratings = ratings;
+	}
+
+	public double getAverageRating() {
+		double ret = 0;
+		for (Integer i : ratings) {
+			ret += i;
+		}
+		return ret / (double) ratings.size();
 	}
 
 	public List<String> getComments() {
@@ -104,19 +111,19 @@ public class Restaurant {
 		this.comments = comments;
 	}
 
-	public LocalTime getOpeningTimes() {
+	public List<LocalTime> getOpeningTimes() {
 		return openingTimes;
 	}
 
-	public void setOpeningTimes(LocalTime openingTimes) {
+	public void setOpeningTimes(List<LocalTime> openingTimes) {
 		this.openingTimes = openingTimes;
 	}
 
-	public LocalTime getClosingTime() {
+	public List<LocalTime> getClosingTime() {
 		return closingTime;
 	}
 
-	public void setClosingTime(LocalTime closingTime) {
+	public void setClosingTime(List<LocalTime> closingTime) {
 		this.closingTime = closingTime;
 	}
 

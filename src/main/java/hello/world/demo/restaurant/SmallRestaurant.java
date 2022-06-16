@@ -9,42 +9,35 @@ import javax.persistence.Table;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 public class SmallRestaurant {
-
 
 	private int id;
 
+	private String name;
 
-    private String name;
+	private String description;
 
-    private String description;
-	
 	private Location location;
 
-    private String website;
+	private String website;
 
-    private String priceCategory;
+	private String priceCategory;
 
+	private double averageRating;
 
-    public SmallRestaurant(String name, String description, Location location, 
-			  String website, String priceCategory) {
-		
+	public SmallRestaurant(String name, String description, Location location,
+			String website, String priceCategory, double averageRating) {
 		this.name = name;
 		this.description = description;
 		this.location = location;
-
-
 		this.website = website;
 		this.priceCategory = priceCategory;
-
+		this.averageRating = averageRating;
 	}
-
 
 	public int getId() {
 		return id;
 	}
-
 
 	public String getName() {
 		return name;
@@ -70,7 +63,6 @@ public class SmallRestaurant {
 		this.location = location;
 	}
 
-
 	public String getWebsite() {
 		return website;
 	}
@@ -86,4 +78,9 @@ public class SmallRestaurant {
 	public void setPriceCategory(String priceCategory) {
 		this.priceCategory = priceCategory;
 	}
+
+	public double getAverageRating() {
+		return averageRating;
+	}
+
 }

@@ -14,9 +14,9 @@ public class Data {
                 List<Restaurant> sampleRestaurants = new ArrayList<>();
 
                 Location l = new Location(10, 20, "München", "Horst Straße", "12", "7126");
-                List<String> ratings = new ArrayList<>();
-                ratings.add("Exzellent wie sonst was!");
-                ratings.add("Sehr sehr gut!!");
+                List<Integer> ratings = new ArrayList<>();
+                ratings.add(5);
+                ratings.add(4);
 
                 List<String> com = new ArrayList<>();
                 com.add("Exzellent!");
@@ -27,9 +27,19 @@ public class Data {
                 List<Tisch> tables = new ArrayList<>();
                 tables.add(new Tisch(0, 5));
 
+                LocalTime opening = LocalTime.of(13, 0);
+
+                List<LocalTime> openingTimes = Util.getLocalTimeList(opening, opening, opening, opening, opening,
+                                opening, opening);
+
+                LocalTime closing = LocalTime.of(13, 0);
+
+                List<LocalTime> closingTimes = Util.getLocalTimeList(closing, closing, closing, closing, closing,
+                                closing, closing);
+
                 sampleRestaurants.add(
                                 new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", l,
-                                                pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0),
+                                                pic, ratings, com, openingTimes, closingTimes,
                                                 "https://davincirestaurants.de", "$$$$", tables)
 
                 );
