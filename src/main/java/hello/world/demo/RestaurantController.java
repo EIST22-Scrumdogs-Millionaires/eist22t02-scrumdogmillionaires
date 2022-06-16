@@ -59,7 +59,7 @@ private RestaurantRepo restaurantRepo;
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(Data.getRestaurant(id));
+            jsonString = mapper.writeValueAsString(RestaurantOverview.getRestaurantById(id));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

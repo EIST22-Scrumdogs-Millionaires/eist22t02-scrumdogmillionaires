@@ -19,8 +19,14 @@ public class RestaurantOverview {
 
     private static final Logger log = LoggerFactory.getLogger(RestaurantOverview.class);
 
-    public static void selectRestaurant(Restaurant r) {
+    public static Restaurant getRestaurantById(RestaurantRepo repository, Long id) {
+        Restaurant ret = null;
+        try {
+            ret = repository.getById(id);
+        } catch (Exception e) {
 
+        }
+        return ret;
     }
 
     @Bean
@@ -39,15 +45,16 @@ public class RestaurantOverview {
             List<String> pic = new ArrayList<>();
 
             repository.save(new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", l,
-                    pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0), "https://davincirestaurants.de", "$$$$", null));
+                    pic, ratings, com, LocalTime.of(13, 0), LocalTime.of(0, 0), "https://davincirestaurants.de", "$$$$",
+                    null));
 
             ret = repository.findAll();
         }
         return ret;
     }
 
-    private static List<Restaurant> convert (Iterable<Restaurant> i){
-    
+    private static List<Restaurant> convert(Iterable<Restaurant> i) {
+
         List<Restaurant> ret = new ArrayList<>();
         for (Restaurant restaurant : i) {
             ret.add(restaurant);
