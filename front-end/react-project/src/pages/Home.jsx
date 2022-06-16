@@ -5,7 +5,8 @@ import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import SearchBox from "../components/SearchBox";
 import Map from "../components/Map";
-import { Container } from "@mui/material";
+import {Container} from "@mui/material";
+import FilterBar from "../components/FilterBar";
 
 const Home = () => {
   const query = "lol";
@@ -29,6 +30,10 @@ const Home = () => {
           >
             Search
           </Button>
+        </div>
+
+          <div className="filterbar">
+            <FilterBar />
         </div>
 
         <div className="map">
