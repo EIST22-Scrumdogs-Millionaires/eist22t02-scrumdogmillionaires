@@ -19,7 +19,7 @@ public class RestaurantOverview {
         }
         return ret.get(0);
     }
-
+    //TODO: null checks
     public static List<SmallRestaurant> getAllRestaurants() {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
                         x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType()))
