@@ -1,42 +1,30 @@
 package hello.world.demo.restaurant;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.*;
 
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
-@Entity(name = "Reservation")
-@Table(name = "reservation")
 public class Reservation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "reservation_id")
+
     private int id;
-    @Column(name = "time")
+   
     private LocalTime time;
-    @Column(name = "date")
+  
     private LocalDate date;
-    @Column(name = "visitor")
+   
     private Visitor user;
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "restaurant_id")
+
     private Restaurant restaurant;
 
-    @Autowired
+  
     public Reservation(LocalTime time, LocalDate date,Tisch table, Visitor user, Restaurant restaurant) {
         this.time = time;
         this.date = date;
         this.user = user;
         this.restaurant = restaurant;
-    }
-
-    @Autowired
-    public Reservation() {
-
     }
 
     public Restaurant getRestaurant() {

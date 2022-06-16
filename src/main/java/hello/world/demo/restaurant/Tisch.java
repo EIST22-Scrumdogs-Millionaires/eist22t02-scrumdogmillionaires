@@ -6,12 +6,11 @@ public class Tisch {
 
 	private int seats;
 
-	private Restaurant restaurant;
 
-	public Tisch(int id, int seats, Restaurant restaurant) {
+	public Tisch(int id, int seats) {
 		this.id = id;
 		this.seats = seats;
-		this.restaurant = restaurant;
+		
 	}
 
 	public int getId() {
@@ -24,13 +23,5 @@ public class Tisch {
 
 	public void setSeats(int seats) {
 		this.seats = seats;
-	}
-
-	public Restaurant getRestaurant() {
-		return restaurant;
-	}
-
-	public void setRestaurant(Restaurant restaurant) {
-		this.restaurant = restaurant;
 	}
 }
