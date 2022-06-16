@@ -41,7 +41,7 @@ public class RestaurantOverview {
 
 	}
 
-	public List<SmallRestaurant> search(String searchQuery) {
+	public static List<SmallRestaurant> search(String searchQuery) {
 		int difference = 0;
 		List<SmallRestaurant> results = new ArrayList<>();
 		for (SmallRestaurant restaurant : getAllRestaurants()) {

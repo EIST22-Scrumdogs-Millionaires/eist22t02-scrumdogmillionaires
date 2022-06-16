@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-
 import hello.world.demo.restaurant.RestaurantOverview;
 
 import org.springframework.http.ResponseEntity;
@@ -33,32 +31,48 @@ public class RestaurantController {
         return ResponseEntity.ok(jsonString);
     }
 
-    // Dont need that do we?
-    // @GetMapping("restaurants/{pageSize}/{index}")
-    // public ResponseEntity<String> returnAllRestaurants(@PathVariable("pageSize") int pageSize,
-    //         @PathVariable("index") int index) {
+    @GetMapping("restaurants/{search}")
+    public ResponseEntity<String> returnRestaurant(@PathVariable("search") String search) {
 
-    //     ObjectMapper mapper = new ObjectMapper();
-    //     mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-
-    //     String jsonString = "didn't find anything";
-    //     try {
-    //         jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
-    //     } catch (JsonProcessingException e) {
-    //         e.printStackTrace();
-    //     }
-    //     return ResponseEntity.ok(jsonString);
-    // }
-
-    @GetMapping("restaurants/{id}")
-    public ResponseEntity<String> returnRestaurant(@PathVariable("id") int id) {
-      
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(RestaurantOverview.getRestaurantById( id));
+            jsonString = mapper.writeValueAsString(RestaurantOverview.search(search));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(jsonString);
+    }
+
+    // Dont need that do we?
+    // @GetMapping("restaurants/{pageSize}/{index}")
+    // public ResponseEntity<String> returnAllRestaurants(@PathVariable("pageSize")
+    // int pageSize,
+    // @PathVariable("index") int index) {
+
+    // ObjectMapper mapper = new ObjectMapper();
+    // mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+    // String jsonString = "didn't find anything";
+    // try {
+    // jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
+    // } catch (JsonProcessingException e) {
+    // e.printStackTrace();
+    // }
+    // return ResponseEntity.ok(jsonString);
+    // }
+
+    @GetMapping("restaurants/{id}")
+    public ResponseEntity<String> returnRestaurant(@PathVariable("id") int id) {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+        String jsonString = "didn't find anything";
+        try {
+            jsonString = mapper.writeValueAsString(RestaurantOverview.getRestaurantById(id));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
