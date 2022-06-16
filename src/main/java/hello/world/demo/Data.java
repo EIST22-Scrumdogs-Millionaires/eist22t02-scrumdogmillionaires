@@ -42,22 +42,22 @@ public class Data {
                 List<Reservation> reservations = new ArrayList<>();
 
                 sampleRestaurants.add(
-                                new Restaurant("DA VINCI", "Italienisches Restaurant und Pizzeria", l,
+                                new Restaurant(0, "DA VINCI", "Italienisches Restaurant und Pizzeria", l,
                                                 pic, ratings, com, openingTimes, closingTimes,
                                                 "https://davincirestaurants.de", "$$$$", tables, RestaurantType.ITALIAN,
                                                 reservations)
 
                 );
                 sampleRestaurants.add(
-                                new Restaurant("MUN MUN", "Thailändisches Restaurant", null, null, null, null, null,
+                                new Restaurant(1, "MUN MUN", "Thailändisches Restaurant", null, null, null, null, null,
                                                 null, "munmun.de", "$$", tables, RestaurantType.TAIWANESE,
                                                 reservations));
                 sampleRestaurants
-                                .add(new Restaurant("TÜRKITCH", "Köfte & Kebap", null, null, null, null, null, null,
+                                .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", null, null, null, null, null, null,
                                                 "tuerkitch-koeftekebap.de", "$", null, RestaurantType.TAIWANESE,
                                                 reservations));
                 sampleRestaurants.add(
-                                new Restaurant("Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
+                                new Restaurant(3, "Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
                                                 null, null, null, null, null, null, "augustinerkeller.de", "$$$",
                                                 null, RestaurantType.BAVARIAN, reservations));
 

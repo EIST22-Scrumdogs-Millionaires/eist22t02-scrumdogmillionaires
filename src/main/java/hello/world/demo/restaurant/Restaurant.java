@@ -41,11 +41,13 @@ public class Restaurant {
 
 	private List<Reservation> reservations;
 
-	public Restaurant(String name, String description, Location location, List<String> pictures, List<Integer> ratings,
+	public Restaurant(int id, String name, String description, Location location, List<String> pictures,
+			List<Integer> ratings,
 			List<String> comments, List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
 			String priceCategory,
 			List<Tisch> tables, RestaurantType restaurantType, List<Reservation> reservations) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.location = location;
@@ -174,10 +176,11 @@ public class Restaurant {
 		reservations.add(reservation);
 	}
 
-	public void cancelReservation(Reservation reservation, Visitor user) {
-		EmailServiceImpl.confirmCancellation(reservation);
-		reservation.setUser(user);
-		reservations.remove(reservation);
+	public void cancelReservation(Reservation reservation, String cancelSecretKey) {
+		if (reservation.getCancelSecretKey().compareTo(cancelSecretKey) == 0) {
+			EmailServiceImpl.confirmCancellation(reservation);
+			reservations.remove(reservation);
+		}
 	}
 
 	public boolean checkAvailability(LocalTime from, LocalDate date, int persons) {

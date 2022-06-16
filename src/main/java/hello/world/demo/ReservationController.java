@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hello.world.demo.restaurant.RestaurantOverview;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,54 +15,44 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 public class ReservationController {
-private Data data = new Data();
 
-//TODO::
-    // @GetMapping("reservations/{id}")
-    // public ResponseEntity<String> returnReservation( @PathVariable("id") int id) {
-    //     data = new Data();
-    //     ObjectMapper mapper = new ObjectMapper();
-    //     mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+    @GetMapping("reservations/{id}")
+    public ResponseEntity<String> returnReservation(@PathVariable("id") int id) {
 
-    //     String jsonString = "didn't find anything";
-    //     try {
-    //         jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
-    //     } catch (JsonProcessingException e) {
-    //         e.printStackTrace();
-    //     }
-    //     return ResponseEntity.ok(jsonString);
-    // }
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
-    // @DeleteMapping("reservations/{id}")
-    // public ResponseEntity<String> removeReservation( @PathVariable("id") int id) {
-    //     data = new Data();
-    //     ObjectMapper mapper = new ObjectMapper();
-    //     mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        String jsonString = "didn't find anything";
+        try {
+            jsonString = mapper.writeValueAsString(RestaurantOverview.getReservation(id));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(jsonString);
+    }
 
-    //     String jsonString = "didn't find anything";
-    //     try {
-    //         jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
-    //     } catch (JsonProcessingException e) {
-    //         e.printStackTrace();
-    //     }
-    //     return ResponseEntity.ok(jsonString);
-    // }
+    @DeleteMapping("reservations/{id}/{cancleSecretKey}")
+    public void removeReservation(@PathVariable("id") int id,
+            @PathVariable("cancleSecretKey") String cancleSecretKey) {
+        RestaurantOverview.cancelReservation(id, cancleSecretKey);
+    }
 
+    // TODO::
     // @PostMapping("reservations")
-    // public ResponseEntity<String> postReservation(@RequestBody String restaurant) {
-    //     data = new Data();
-    //     ObjectMapper mapper = new ObjectMapper();
-    //     mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+    // public ResponseEntity<String> postReservation(@RequestBody String restaurant)
+    // {
 
-    //     String jsonString = "didn't find anything";
-    //     try {
-    //         jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
-    //     } catch (JsonProcessingException e) {
-    //         e.printStackTrace();
-    //     }
-    //     return ResponseEntity.ok(jsonString);
+    // ObjectMapper mapper = new ObjectMapper();
+    // mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+    // String jsonString = "didn't find anything";
+    // try {
+    // jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
+    // } catch (JsonProcessingException e) {
+    // e.printStackTrace();
+    // }
+    // return ResponseEntity.ok(jsonString);
     // }
 }

@@ -16,11 +16,18 @@ public class Reservation {
 
     private Tisch table;
 
-    public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user) {
+    private Restaurant restaurant;
+
+    private String cancalSecretKey;
+
+    public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, int id, Restaurant restaurant) {
+        this.id = id;
         this.time = time;
         this.date = date;
         this.user = user;
         this.table = table;
+        this.restaurant = restaurant;
+        this.cancalSecretKey = String.valueOf(Math.random());
 
     }
 
@@ -58,6 +65,14 @@ public class Reservation {
 
     public void setTable(Tisch table) {
         this.table = table;
+    }
+
+    public String getCancelSecretKey() {
+        return cancalSecretKey;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
     // oder boolean?

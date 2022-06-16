@@ -1,10 +1,5 @@
 package hello.world.demo.restaurant;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
 import hello.world.demo.Data;
 
 import java.time.LocalDate;
@@ -210,4 +205,20 @@ public class RestaurantOverview {
 		}
 	}
 
+	public static Reservation getReservation(int id) {
+		List<Reservation> ret = new ArrayList<>();
+		restaurants.stream().map(x -> x.getReservations()).forEach(x -> ret.addAll(x));
+
+		if (ret.size() == 0) {
+			return null;
+		}
+		return ret.get(0);
+	}
+
+	public static void cancelReservation(int id, String secretCancelKey) {
+		Reservation reservation = getReservation(id);
+		if (reservation != null) {
+			reservation.getRestaurant().cancelReservation(reservation, secretCancelKey);
+		}
+	}
 }
