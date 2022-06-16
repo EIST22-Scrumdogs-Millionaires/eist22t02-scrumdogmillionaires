@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import hello.world.demo.restaurant.RestaurantOverview;
+import hello.world.demo.restaurant.RestaurantType;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,37 @@ public class RestaurantController {
 
     @GetMapping("restaurants/{search}")
     public ResponseEntity<String> returnRestaurant(@PathVariable("search") String search) {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+        String jsonString = "didn't find anything";
+        try {
+            jsonString = mapper.writeValueAsString(RestaurantOverview.search(search));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(jsonString);
+    }
+
+    @GetMapping("restaurants/getRestaurantTypes")
+    public ResponseEntity<String> getRestaurantTypes() {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+        String jsonString = "didn't find anything";
+        try {
+            jsonString = mapper.writeValueAsString(RestaurantType.values());
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(jsonString);
+    }
+
+    @GetMapping("restaurants/{search}/{filter}")
+    public ResponseEntity<String> filterRestaurants(@PathVariable("search") String search,
+            @PathVariable("filter") String filter) {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
