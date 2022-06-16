@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 import hello.world.demo.Data;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +32,6 @@ public class RestaurantOverview {
 		return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
 				x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType()))
 				.toList();
-
 	}
 
 	public static List<SmallRestaurant> getTopTen() {
@@ -40,6 +40,120 @@ public class RestaurantOverview {
 				.sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
 				.toList();
 
+	}
+
+	/*
+	 * Filterype Syntax:
+	 * T_t: RestaurantType
+	 * P_p: Prce Category
+	 * D_x_y_d: Distance, x and y coordinates and distnace in km respectively
+	 * A_r: Average Rating
+	 * F_f_d_p: Free time slots, timefrom, date and number of persons
+	 */
+	public static List<SmallRestaurant> filter(String searchQuery, List<String> filterTypes) {
+		List<Restaurant> ret;
+		if (searchQuery.isBlank()) {
+			ret = restaurants;
+		} else {
+			ret = searchB(searchQuery);
+		}
+		for (String filterType : filterTypes) {
+
+			switch (filterType.charAt(0)) {
+				case 'T': {
+					RestaurantType restaurantType = RestaurantType.valueOf(getArgument(filterType, 0));
+					ret = ret.stream().filter(x -> x.getRestaurantType() == restaurantType).toList();
+					break;
+				}
+				case 'P': {
+					String priceCategory = getArgument(filterType, 0);
+					ret = ret.stream().filter(x -> x.getPriceCategory().compareTo(priceCategory) == 0).toList();
+					break;
+				}
+				case 'D': {
+					Double x = Double.parseDouble(getArgument(filterType, 0));
+					Double y = Double.parseDouble(getArgument(filterType, 1));
+					Double dis = Double.parseDouble(getArgument(filterType, 2));
+					ret = ret.stream().filter(l -> distance(l.getLocation().getXcoordinate(), x,
+							l.getLocation().getYcoordinate(), y, dis)).toList();
+					break;
+				}
+				case 'A': {
+					Double avg = Double.parseDouble(getArgument(filterType, 0));
+					ret = ret.stream().filter(l -> l.getAverageRating() >= avg).toList();
+					break;
+				}
+				case 'F': {
+					LocalTime time = LocalTime.parse((getArgument(filterType, 0)));
+					LocalDate date = LocalDate.parse((getArgument(filterType, 1)));
+					Integer pers = Integer.parseInt(getArgument(filterType, 2));
+					ret = ret.stream().filter(l -> l.checkAvailability(time, date, pers)).toList();
+					break;
+				}
+			}
+		}
+		return ret.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
+				x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType()))
+				.toList();
+
+	}
+
+	private static String getArgument(String src, int num) {
+		String ret = "";
+		while (num > 0) {
+			src = src.substring(src.indexOf('_' + 1, 0));
+			if (src.lastIndexOf('_') != -1 && num == 0) {
+				src = src.substring(0, src.indexOf('_', 0));
+			}
+			num--;
+		}
+		return ret;
+	}
+
+	/**
+	 * Calculate distance between two points in latitude and longitude using
+	 * Haversine method as its base.
+	 * 
+	 * @param lat1 Latidue one
+	 * @param lat2 Latidue two
+	 * @param lon1 Longitude one
+	 * @param lon2 Longitude one
+	 * @param dist maximal distance
+	 * 
+	 * @returns true if distance in KM is smaller equal than the passed distance,
+	 *          otherwise false
+	 */
+	public static boolean distance(double lat1, double lat2, double lon1,
+			double lon2, double dis) {
+
+		final int R = 6371; // Radius of the earth in km
+
+		double latDistance = Math.toRadians(lat2 - lat1);
+		double lonDistance = Math.toRadians(lon2 - lon1);
+		double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
+				+ Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
+						* Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+		return (R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))) <= dis;
+	}
+
+	public static List<Restaurant> searchB(String searchQuery) {
+		int difference = 0;
+		List<Restaurant> results = new ArrayList<>();
+		for (Restaurant restaurant : restaurants) {
+			String restaurantName = restaurant.getName();
+			difference = calculate(searchQuery, restaurantName);
+			if (difference <= MAX_DIFFERENCE) {
+				results.add(restaurant);
+			}
+		}
+		Collections.reverse(results);
+
+		// gib top ten 10
+		if (results.size() > TOP_TEN) {
+			((ArrayList<Restaurant>) results).subList(0, TOP_TEN);
+		}
+
+		return results;
 	}
 
 	public static List<SmallRestaurant> search(String searchQuery) {
@@ -60,7 +174,6 @@ public class RestaurantOverview {
 		}
 
 		return results;
-
 	}
 
 	public static int calculate(String x, String y) {

@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hello.world.demo.restaurant.RestaurantOverview;
 import hello.world.demo.restaurant.RestaurantType;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,7 +66,7 @@ public class RestaurantController {
 
     @GetMapping("restaurants/{search}/{filter}")
     public ResponseEntity<String> filterRestaurants(@PathVariable("search") String search,
-            @PathVariable("filter") String filter) {
+            @PathVariable("filter") List<String> filter) {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);

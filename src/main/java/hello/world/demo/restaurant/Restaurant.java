@@ -1,5 +1,7 @@
 package hello.world.demo.restaurant;
 
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
@@ -8,6 +10,8 @@ import org.apache.catalina.User;
 import hello.world.demo.email.EmailServiceImpl;
 
 public class Restaurant {
+
+	private static final int RESERVATION_DURATION = 2;
 
 	private int id;
 
@@ -35,10 +39,12 @@ public class Restaurant {
 
 	private RestaurantType restaurantType;
 
+	private List<Reservation> reservations;
+
 	public Restaurant(String name, String description, Location location, List<String> pictures, List<Integer> ratings,
 			List<String> comments, List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
 			String priceCategory,
-			List<Tisch> tables, RestaurantType restaurantType) {
+			List<Tisch> tables, RestaurantType restaurantType, List<Reservation> reservations) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -52,6 +58,7 @@ public class Restaurant {
 		this.priceCategory = priceCategory;
 		this.tables = tables;
 		this.restaurantType = restaurantType;
+		this.reservations = reservations;
 	}
 
 	public int getId() {
@@ -158,14 +165,29 @@ public class Restaurant {
 		return restaurantType;
 	}
 
-	public void passReservation(Reservation reservation, User user) {
+	public List<Reservation> getReservations() {
+		return reservations;
 	}
 
-	public void cancelReservation(Reservation reservation, User user) {
+	public void passReservation(Reservation reservation, Visitor user) {
+		reservation.setUser(user);
+		reservations.add(reservation);
+	}
+
+	public void cancelReservation(Reservation reservation, Visitor user) {
 		EmailServiceImpl.confirmCancellation(reservation);
+		reservation.setUser(user);
+		reservations.remove(reservation);
 	}
 
-	public void checkAvailability(LocalTime date) {
+	public boolean checkAvailability(LocalTime from, LocalDate date, int persons) {
+		List<Tisch> availableTables = this.tables.stream().filter(x -> x.getSeats() >= persons).toList();
+
+		List<Reservation> possibleReservations = this.reservations.stream().filter(x -> x.getDate().equals(date))
+				.filter(x -> Duration.between(x.getTime(), from).toHours() < RESERVATION_DURATION)
+				.filter(x -> availableTables.stream().anyMatch(y -> y.getId() == x.getId())).toList();
+
+		return availableTables.size() > possibleReservations.size();
 	}
 
 }
