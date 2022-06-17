@@ -34,7 +34,7 @@ public class RestaurantController {
         return ResponseEntity.ok(jsonString);
     }
 
-    @GetMapping("restaurants/{search}")
+    @GetMapping("restaurants/search/{search}")
     public ResponseEntity<String> returnRestaurant(@PathVariable("search") String search) {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -64,7 +64,7 @@ public class RestaurantController {
         return ResponseEntity.ok(jsonString);
     }
 
-    @GetMapping("restaurants/{search}/{filter}")
+    @GetMapping("restaurants/search/{search}/{filter}")
     public ResponseEntity<String> filterRestaurants(@PathVariable("search") String search,
             @PathVariable("filter") List<String> filter) {
 

@@ -108,6 +108,9 @@ public class Restaurant {
 	}
 
 	public double getAverageRating() {
+		if(ratings==null){
+			return 0;
+		}
 		double ret = 0;
 		for (Integer i : ratings) {
 			ret += i;
