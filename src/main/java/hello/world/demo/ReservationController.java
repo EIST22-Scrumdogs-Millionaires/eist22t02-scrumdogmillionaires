@@ -80,7 +80,7 @@ public class ReservationController {
 
        // EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject", "Test mail");
 
-        EmailServiceImpl.sendMail("rico.finkbeiner@tum.de", "100 Euro Rabatt - Klicken Sie jetzt schnell", "hihihi");
+        EmailServiceImpl.sendMail("rico.finkbeiner@tum.de", "100 Euro Rabatt - Klicken Sie jetzt schnell", "100 Euro Rabatt - Klicken Sie jetzt schnell: https://is.gd/WVZvnI");
 
 
         return "emailsent";
