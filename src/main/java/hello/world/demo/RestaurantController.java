@@ -98,7 +98,7 @@ public class RestaurantController {
     // return ResponseEntity.ok(jsonString);
     // }
 
-    @GetMapping("restaurants/{id}")
+    @GetMapping("restaurant/{id}")
     public ResponseEntity<String> returnRestaurant(@PathVariable("id") int id) {
 
         ObjectMapper mapper = new ObjectMapper();
