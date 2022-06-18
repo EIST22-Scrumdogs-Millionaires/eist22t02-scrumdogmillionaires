@@ -255,4 +255,11 @@ public class RestaurantOverview {
             reservation.getRestaurant().cancelReservation(reservation, secretCancelKey);
         }
     }
+
+    public static void addReview(int id, Review review) {
+        Reservation reservation = getReservation(id);
+        if (reservation != null) {
+            reservation.getRestaurant().addReview(review);
+        }
+    }
 }

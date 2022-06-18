@@ -1,13 +1,6 @@
 package hello.world.demo.restaurant;
 
-import java.time.LocalTime;
 import java.util.List;
-
-import javax.persistence.*;
-import javax.persistence.Table;
-
-import org.apache.catalina.User;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class SmallRestaurant {
 
@@ -106,6 +99,10 @@ public class SmallRestaurant {
 
 	public RestaurantType getRestaurantType() {
 		return restaurantType;
+	}
+
+	public List<String> getPictures() {
+		return pictures;
 	}
 
 }

@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
-import org.apache.catalina.User;
-
 import hello.world.demo.email.EmailServiceImpl;
 
 public class Restaurant {
@@ -23,9 +21,7 @@ public class Restaurant {
 
 	private List<String> pictures;
 
-	private List<Integer> ratings;
-
-	private List<String> comments;
+	private List<Review> reviews;
 
 	private List<LocalTime> openingTimes;
 
@@ -42,8 +38,8 @@ public class Restaurant {
 	private List<Reservation> reservations;
 
 	public Restaurant(int id, String name, String description, Location location, List<String> pictures,
-			List<Integer> ratings,
-			List<String> comments, List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
+			List<Review> reviews,
+			List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
 			String priceCategory,
 			List<Tisch> tables, RestaurantType restaurantType, List<Reservation> reservations) {
 		super();
@@ -52,8 +48,7 @@ public class Restaurant {
 		this.description = description;
 		this.location = location;
 		this.pictures = pictures;
-		this.ratings = ratings;
-		this.comments = comments;
+		this.reviews = reviews;
 		this.openingTimes = openingTimes;
 		this.closingTime = closingTime;
 		this.website = website;
@@ -99,31 +94,23 @@ public class Restaurant {
 		this.pictures = pictures;
 	}
 
-	public List<Integer> getRatings() {
-		return ratings;
-	}
-
-	public void setRatings(List<Integer> ratings) {
-		this.ratings = ratings;
-	}
-
 	public double getAverageRating() {
-		if(ratings==null){
+		if (reviews == null) {
 			return 0;
 		}
 		double ret = 0;
-		for (Integer i : ratings) {
-			ret += i;
+		for (Review i : reviews) {
+			ret += i.getRating();
 		}
-		return ret / (double) ratings.size();
+		return ret / (double) reviews.size();
 	}
 
-	public List<String> getComments() {
-		return comments;
+	public List<Review> getReviews() {
+		return reviews;
 	}
 
-	public void setComments(List<String> comments) {
-		this.comments = comments;
+	public void addReview(Review review) {
+		reviews.add(review);
 	}
 
 	public List<LocalTime> getOpeningTimes() {

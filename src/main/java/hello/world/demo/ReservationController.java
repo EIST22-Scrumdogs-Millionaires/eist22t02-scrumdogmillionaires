@@ -50,41 +50,41 @@ public class ReservationController {
         RestaurantOverview.cancelReservation(id, cancleSecretKey);
     }
 
-    //Open question about how the user gets transmitted
-     @PostMapping("reservations")
-     public ResponseEntity<String> postReservation(@RequestBody Reservation reservation,
-                                                   @RequestBody Visitor visitor)
-     {
+    // Open question about how the user gets transmitted
+    @PostMapping("reservations")
+    public ResponseEntity<String> postReservation(@RequestBody Reservation reservation,
+            @RequestBody Visitor visitor) {
 
-     ObjectMapper mapper = new ObjectMapper();
-     mapper.registerModule(new JavaTimeModule());
-     mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
-     String jsonString = "didn't find anything";
-     try {
-     jsonString = mapper.writeValueAsString(RestaurantOverview.postReservation(reservation,visitor));
-     } catch (JsonProcessingException e) {
-     e.printStackTrace();
-     }
-     return ResponseEntity.ok(jsonString);
-     }
+        String jsonString = "didn't find anything";
+        try {
+            jsonString = mapper.writeValueAsString(RestaurantOverview.postReservation(reservation, visitor));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(jsonString);
+    }
 
     @GetMapping(value = "/sendmail")
     public String sendmail() {
 
-
         EmailThread t = new EmailThread();
 
         for (int i = 0; i < 100; i++) {
-            EmailThread.addEmail(new Email("simone.domenici@aol.com", "Spam", "Spam" +i, LocalDate.now(), LocalTime.now()));
+            EmailThread.addEmail(
+                    new Email("simone.domenici@aol.com", "Spam", "Spam" + i, LocalDate.now(), LocalTime.now()));
         }
 
         t.start();
 
-       // EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject", "Test mail");
+        // EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject",
+        // "Test mail");
 
-        EmailServiceImpl.sendMail("rico.finkbeiner@tum.de", "100 Euro Rabatt - Klicken Sie jetzt schnell", "100 Euro Rabatt - Klicken Sie jetzt schnell: https://is.gd/WVZvnI");
-
+        EmailServiceImpl.sendMail("rico.finkbeiner@tum.de", "100 Euro Rabatt - Klicken Sie jetzt schnell",
+                "100 Euro Rabatt - Klicken Sie jetzt schnell: https://is.gd/WVZvnI");
 
         return "emailsent";
     }
