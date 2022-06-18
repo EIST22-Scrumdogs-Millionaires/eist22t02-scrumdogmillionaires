@@ -63,7 +63,7 @@ export default function SearchResultComp(props) {
           {props.restaurant.description}
         </Typography>
         <Typography color="text.secondary">
-            <Rating number={props.restaurant.stars}/>
+            <Rating number={props.restaurant.averageRating}/>
         </Typography>
        
         <Button  color="secondary" variant="contained" component={Link} to={`/search/detail/${props.restaurant.name}`}>More</Button>
