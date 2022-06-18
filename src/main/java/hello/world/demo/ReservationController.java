@@ -6,10 +6,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import hello.world.demo.email.EmailServiceImpl;
+import hello.world.demo.email.EmailThread;
+import hello.world.demo.restaurant.Email;
 import hello.world.demo.restaurant.Reservation;
 import hello.world.demo.restaurant.RestaurantOverview;
 
 import hello.world.demo.restaurant.Visitor;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,7 +69,15 @@ public class ReservationController {
     @GetMapping(value = "/sendmail")
     public String sendmail() {
 
-        EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject", "Test mail");
+        EmailThread t = new EmailThread();
+
+        for (int i = 0; i < 10; i++) {
+            EmailThread.addEmail(new Email("simone.domenici@aol.com", "Spam", "Spam" +i, LocalDate.now(), LocalTime.now()));
+        }
+
+        t.start();
+
+       // EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject", "Test mail");
 
         return "emailsent";
     }
