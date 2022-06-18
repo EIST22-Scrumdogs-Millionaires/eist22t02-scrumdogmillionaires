@@ -19,6 +19,8 @@ export default function Home() {
 
   const [query, handleSearchBox] = React.useState("");
 
+
+
   const handleFilterChange = (newFilters) => {
     filters = newFilters ;
   };
@@ -52,7 +54,7 @@ export default function Home() {
                   color="secondary"
                   variant="contained"
                   component={Link}
-                  to={`/search/${query}`}
+                  to={`/search/${query === "" ? "all" : query}`}
                 >
                   Search
                 </Button>

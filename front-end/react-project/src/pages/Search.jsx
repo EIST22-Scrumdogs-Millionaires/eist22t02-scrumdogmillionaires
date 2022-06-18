@@ -13,9 +13,8 @@ export default function Search() {
   const [data, setData] = useState([]);
   const { query } = useParams();
   useEffect(() => {
-    Axios.get(`http://localhost:8080/restaurants/search/hello`)
+    Axios.get(`http://localhost:8080/restaurants/search/${query}`)
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
       })
       .catch((err) => console.log(err));
@@ -43,9 +42,17 @@ export default function Search() {
       <div className="content">
         <Container maxWidth="xl">
           <div className="title-wrapper">
-            <h1 className="title">
-              Search results for <em>"{query}"</em>
-            </h1>
+            {query === "all" ? (
+              <div>
+                <h1 className="title">All restaurants</h1>
+              </div>
+            ) : (
+              <div>
+                <h1>
+                  Search results for <em>"{query}"</em>
+                </h1>
+              </div>
+            )}
           </div>
 
           <div className="search-result-wrapper">

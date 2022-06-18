@@ -4,21 +4,16 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import { grey } from '@mui/material/colors';
-import TUMMensa from "../images/TUM-Mensa.jpg";
-import Rating from "./Rating";
+
+
 import {default as WebsiteIcon} from '@mui/icons-material/Language';
 import { Link } from 'react-router-dom'
-import { Button } from "@mui/material";
+import { Button, Rating } from "@mui/material";
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -55,7 +50,7 @@ export default function SearchResultComp(props) {
       <CardMedia
         component="img"
         height="194"
-        image={TUMMensa}
+        image={props.restaurant.pictures[0]}
         alt="restaurant foo"
       />
       <CardContent>
@@ -63,10 +58,11 @@ export default function SearchResultComp(props) {
           {props.restaurant.description}
         </Typography>
         <Typography color="text.secondary">
-            <Rating number={props.restaurant.averageRating}/>
+        <Rating name="read-only" value={props.restaurant.averageRating} readOnly precision={0.1}/>
+  
         </Typography>
        
-        <Button  color="secondary" variant="contained" component={Link} to={`/search/detail/${props.restaurant.name}`}>More</Button>
+        <Button  color="secondary" variant="contained" component={Link} to={`/search/detail/${props.restaurant.id}`}>More</Button>
         
       </CardContent>
       

@@ -7,7 +7,7 @@ import {
     Typography,
     Rating,
     Grid,
-    FormControlLabel, Switch, Slider, TextField
+    Slider, TextField
 } from "@mui/material";
 import React, {createContext} from "react";
 import {DateTimePicker} from "@mui/x-date-pickers";
