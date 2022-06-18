@@ -69,6 +69,7 @@ public class ReservationController {
     @GetMapping(value = "/sendmail")
     public String sendmail() {
 
+
         EmailThread t = new EmailThread();
 
         for (int i = 0; i < 100; i++) {
@@ -78,6 +79,9 @@ public class ReservationController {
         t.start();
 
        // EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject", "Test mail");
+
+        EmailServiceImpl.sendMail("rico.finkbeiner@tum.de", "100 Euro Rabatt - Klicken Sie jetzt schnell", "100 Euro Rabatt - Klicken Sie jetzt schnell: https://is.gd/WVZvnI");
+
 
         return "emailsent";
     }
