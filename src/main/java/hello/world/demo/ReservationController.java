@@ -71,7 +71,7 @@ public class ReservationController {
 
         EmailThread t = new EmailThread();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             EmailThread.addEmail(new Email("simone.domenici@aol.com", "Spam", "Spam" +i, LocalDate.now(), LocalTime.now()));
         }
 
