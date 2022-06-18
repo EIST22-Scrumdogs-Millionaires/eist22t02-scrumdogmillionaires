@@ -1,7 +1,6 @@
 package hello.world.demo.email;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 
 import org.junit.runner.RunWith;

@@ -44,22 +44,22 @@ public class Data {
 
         sampleRestaurants.add(
                 new Restaurant(0, "DA VINCI", "Italienisches Restaurant und Pizzeria", l,
-                        pic, ratings, com, openingTimes, closingTimes,
+                        Arrays.asList("https://isteam.wsimg.com/ip/8fe1339d-8c91-4097-84c7-25ef61943d99/1F273442-99D4-4460-9E86-B28E9DDB0641.jpeg/:/rs=w:360,h:270,cg:true,m/cr=w:360,h:270"), ratings, com, openingTimes, closingTimes,
                         "https://davincirestaurants.de", "$$$$", tables, RestaurantType.ITALIAN,
                         reservations)
 
         );
         sampleRestaurants.add(
-                new Restaurant(1, "MUN MUN", "Thailändisches Restaurant", null, Arrays.asList("https://www.bellacarne.it/wp-content/uploads/2021/03/kebab-ricetta-originale.jpg"), Arrays.asList(1, 2, 3, 4, 4, 1, 2), null, null,
+                new Restaurant(1, "MUN MUN", "Thailändisches Restaurant", null, Arrays.asList("https://media-cdn.tripadvisor.com/media/photo-s/0d/e1/71/1f/essen.jpg"), Arrays.asList(1, 2, 3, 4, 4, 1, 2), null, null,
                         null, "munmun.de", "$$", tables, RestaurantType.TAIWANESE,
                         reservations));
         sampleRestaurants
-                .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", null, null, null, null, null, null,
+                .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", null, Arrays.asList("https://www.bellacarne.it/wp-content/uploads/2021/03/kebab-ricetta-originale.jpg"), null, null, null, null,
                         "tuerkitch-koeftekebap.de", "$", null, RestaurantType.TAIWANESE,
                         reservations));
         sampleRestaurants.add(
                 new Restaurant(3, "Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
-                        null, null, null, null, null, null, "augustinerkeller.de", "$$$",
+                        null, Arrays.asList("https://www.merkur.de/bilder/2014/05/26/1236459/26415201-biergarten-augustiner-keller_20140519-112322-2pnSy8m1tIec.jpg"), null, null, null, null, "augustinerkeller.de", "$$$",
                         null, RestaurantType.BAVARIAN, reservations));
 
         return sampleRestaurants;

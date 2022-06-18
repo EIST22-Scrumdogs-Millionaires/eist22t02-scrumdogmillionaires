@@ -22,13 +22,13 @@ public class RestaurantOverview {
     //TODO: null checks
     public static List<SmallRestaurant> getAllRestaurants() {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType()))
+                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),x.getPictures()))
                 .toList();
     }
 
     public static List<SmallRestaurant> getTopTen() {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType()))
+                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),x.getPictures()))
                 .sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
                 .toList();
 
@@ -85,7 +85,7 @@ public class RestaurantOverview {
             }
         }
         return ret.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType()))
+                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),x.getPictures()))
                 .toList();
 
     }
