@@ -5,8 +5,8 @@ import StarOutlineIcon from "@mui/icons-material/StarOutline";
 export default function Rating(props) {
   return (
     <div>
-      {Array(props.number).fill(<StarIcon/>)}
-      {Array(5 - props.number).fill(<StarOutlineIcon />)}
+      {Array(parseInt(props.number)).fill(<StarIcon/>)}
+      {Array(5 - parseInt(props.number)).fill(<StarOutlineIcon />)}
     </div>
   );
 }
