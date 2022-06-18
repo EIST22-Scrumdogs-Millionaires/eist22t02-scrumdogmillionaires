@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import hello.world.demo.email.EmailServiceImpl;
 import hello.world.demo.email.EmailThread;
@@ -31,6 +32,7 @@ public class ReservationController {
     public ResponseEntity<String> returnReservation(@PathVariable("id") int id) {
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
         String jsonString = "didn't find anything";
@@ -55,6 +57,7 @@ public class ReservationController {
      {
 
      ObjectMapper mapper = new ObjectMapper();
+     mapper.registerModule(new JavaTimeModule());
      mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
      String jsonString = "didn't find anything";

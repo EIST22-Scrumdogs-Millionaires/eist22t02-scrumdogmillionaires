@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import hello.world.demo.restaurant.RestaurantOverview;
 import hello.world.demo.restaurant.RestaurantType;
@@ -22,6 +23,7 @@ public class RestaurantController {
     public ResponseEntity<String> returngetTopTen() {
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
         String jsonString = "didn't find anything";
@@ -38,6 +40,7 @@ public class RestaurantController {
     public ResponseEntity<String> returnRestaurant(@PathVariable("search") String search) {
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
         String jsonString = "didn't find anything";
@@ -53,6 +56,7 @@ public class RestaurantController {
     public ResponseEntity<String> getRestaurantTypes() {
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
         String jsonString = "didn't find anything";
@@ -69,6 +73,7 @@ public class RestaurantController {
             @PathVariable("filter") List<String> filter) {
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
         String jsonString = "didn't find anything";
@@ -102,6 +107,7 @@ public class RestaurantController {
     public ResponseEntity<String> returnRestaurant(@PathVariable("id") int id) {
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
         String jsonString = "didn't find anything";
