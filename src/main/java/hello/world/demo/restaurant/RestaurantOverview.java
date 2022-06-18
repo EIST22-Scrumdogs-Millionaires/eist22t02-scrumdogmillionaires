@@ -19,16 +19,19 @@ public class RestaurantOverview {
         }
         return ret.get(0);
     }
-    //TODO: null checks
+
+    // TODO: null checks
     public static List<SmallRestaurant> getAllRestaurants() {
-        return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),x.getPictures()))
+        return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
+                x.getPictures()))
                 .toList();
     }
 
     public static List<SmallRestaurant> getTopTen() {
-        return restaurants.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),x.getPictures()))
+        return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
+                x.getPictures()))
                 .sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
                 .toList();
 
@@ -84,8 +87,9 @@ public class RestaurantOverview {
                 }
             }
         }
-        return ret.stream().map(x -> new SmallRestaurant(x.getName(), x.getDescription(),
-                        x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),x.getPictures()))
+        return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
+                x.getPictures()))
                 .toList();
 
     }
@@ -110,12 +114,12 @@ public class RestaurantOverview {
      * @param lat2 Latidue two
      * @param lon1 Longitude one
      * @param lon2 Longitude one
-     * @param dis maximal distance
+     * @param dis  maximal distance
      * @returns true if distance in KM is smaller equal than the passed distance,
-     * otherwise false
+     *          otherwise false
      */
     public static boolean distance(double lat1, double lat2, double lon1,
-                                   double lon2, double dis) {
+            double lon2, double dis) {
 
         final int R = 6371; // Radius of the earth in km
 
@@ -123,7 +127,7 @@ public class RestaurantOverview {
         double lonDistance = Math.toRadians(lon2 - lon1);
         double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
                 + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
-                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+                        * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
         return (R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))) <= dis;
     }
 
@@ -169,6 +173,7 @@ public class RestaurantOverview {
 
     /**
      * calculates the difference between 2 strings
+     * 
      * @param x
      * @param y
      * @return
@@ -184,7 +189,7 @@ public class RestaurantOverview {
                     dp[i][j] = i;
                 } else {
                     dp[i][j] = min(dp[i - 1][j - 1]
-                                    + costOfSubstitution(x.charAt(i - 1), y.charAt(j - 1)),
+                            + costOfSubstitution(x.charAt(i - 1), y.charAt(j - 1)),
                             dp[i - 1][j] + 1,
                             dp[i][j - 1] + 1);
                 }
@@ -198,7 +203,6 @@ public class RestaurantOverview {
         return Arrays.stream(numbers)
                 .min().orElse(Integer.MAX_VALUE);
     }
-
 
     public static int costOfSubstitution(char a, char b) {
         if (a == b) {
@@ -224,7 +228,9 @@ public class RestaurantOverview {
     }
 
     /**
-     * Finds the restaurant in the list of restaurants and adds the new reservation to it
+     * Finds the restaurant in the list of restaurants and adds the new reservation
+     * to it
+     * 
      * @param reservation
      * @param visitor
      * @return

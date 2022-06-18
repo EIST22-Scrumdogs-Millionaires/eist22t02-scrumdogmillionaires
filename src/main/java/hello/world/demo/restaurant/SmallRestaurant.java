@@ -30,7 +30,9 @@ public class SmallRestaurant {
 	private List<String> pictures;
 
 	/**
-	 * This model of a restaurant has less data and is used when the restaurant is visible in the overview
+	 * This model of a restaurant has less data and is used when the restaurant is
+	 * visible in the overview
+	 * 
 	 * @param name
 	 * @param description
 	 * @param location
@@ -39,8 +41,10 @@ public class SmallRestaurant {
 	 * @param averageRating
 	 * @param restaurantType
 	 */
-	public SmallRestaurant(String name, String description, Location location,
-			String website, String priceCategory, double averageRating, RestaurantType restaurantType, List<String> pictures) {
+	public SmallRestaurant(int id, String name, String description, Location location,
+			String website, String priceCategory, double averageRating, RestaurantType restaurantType,
+			List<String> pictures) {
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.location = location;
@@ -48,7 +52,7 @@ public class SmallRestaurant {
 		this.priceCategory = priceCategory;
 		this.averageRating = averageRating;
 		this.restaurantType = restaurantType;
-		this.pictures=pictures;
+		this.pictures = pictures;
 
 	}
 
