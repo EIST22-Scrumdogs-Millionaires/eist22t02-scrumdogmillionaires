@@ -12,15 +12,19 @@ import java.util.Properties;
 @Service
 public class EmailServiceImpl {
 
-    private static JavaMailSender mailSender = getJavaMailSender();
+    private static JavaMailSender mailSender;
 
-    public static void sendSimpleMessage(String to, String subject, String text) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@scrumdogmillionaires.com");
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
-        mailSender.send(message);
+    public EmailServiceImpl(JavaMailSender javaMailSender) {
+        mailSender = javaMailSender;
+    }
+
+    public static void sendMail(String toEmail, String subject, String message) {
+        var mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(toEmail);
+        mailMessage.setSubject(subject);
+        mailMessage.setText(message);
+        mailMessage.setFrom("johndoe@example.com");
+        mailSender.send(mailMessage);
     }
 
     public static JavaMailSender getJavaMailSender() {
@@ -47,7 +51,7 @@ public class EmailServiceImpl {
     }
 
     public static void sendEmail(Visitor user, String message) {
-        sendSimpleMessage(user.getEmail(), "moin", "meister");
+        sendMail(user.getEmail(), "moin", "meister");
     }
 
     public static void verifyEmail(Visitor user, String message) {
