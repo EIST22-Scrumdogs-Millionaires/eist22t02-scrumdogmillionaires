@@ -12,33 +12,31 @@ import java.util.Properties;
 @Service
 public class EmailServiceImpl {
 
-    private static JavaMailSender mailSender;
-
-    public EmailServiceImpl(JavaMailSender javaMailSender) {
-        mailSender = javaMailSender;
-    }
+    private static JavaMailSender mailSender = getJavaMailSender();
 
     public static void sendMail(String toEmail, String subject, String message) {
         var mailMessage = new SimpleMailMessage();
         mailMessage.setTo(toEmail);
         mailMessage.setSubject(subject);
         mailMessage.setText(message);
-        mailMessage.setFrom("johndoe@example.com");
+        mailMessage.setFrom("scrumdogmillionaries@yahoo.com");
         mailSender.send(mailMessage);
     }
 
     public static JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.gmail.com");
-        mailSender.setPort(587);
+        mailSender.setHost("smtp.mail.yahoo.com");
+        mailSender.setPort(465);
 
-        mailSender.setUsername("my.gmail@gmail.com");
-        mailSender.setPassword("password");
+        mailSender.setUsername("scrumdogmillionaries@yahoo.com");
+        mailSender.setPassword("gzxvbavnrturnlzm");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.startssl.enable", "true");
+        props.put("mail.smtp.ssl.enable", "true");
         props.put("mail.debug", "true");
 
         return mailSender;

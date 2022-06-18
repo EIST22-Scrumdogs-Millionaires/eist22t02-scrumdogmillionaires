@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hello.world.demo.email.EmailServiceImpl;
 import hello.world.demo.restaurant.Reservation;
 import hello.world.demo.restaurant.RestaurantOverview;
 
@@ -58,4 +59,12 @@ public class ReservationController {
      }
      return ResponseEntity.ok(jsonString);
      }
+
+    @GetMapping(value = "/sendmail")
+    public String sendmail() {
+
+        EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject", "Test mail");
+
+        return "emailsent";
+    }
 }
