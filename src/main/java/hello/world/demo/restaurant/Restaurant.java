@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.*;
 
 import hello.world.demo.email.EmailServiceImpl;
+import hello.world.demo.email.EmailThread;
 
 public class Restaurant {
 
@@ -162,6 +163,8 @@ public class Restaurant {
 	}
 
 	public boolean passReservation(Reservation reservation, Visitor user) {
+		EmailThread.addEmail(e);
+		EmailThread.addEmail(e);
 		reservation.setUser(user);
 		reservations.add(reservation);
 		return true;
