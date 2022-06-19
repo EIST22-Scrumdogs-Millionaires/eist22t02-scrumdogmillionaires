@@ -44,10 +44,10 @@ public class ReservationController {
         return ResponseEntity.ok(jsonString);
     }
 
-    @DeleteMapping("reservations/{id}/{cancleSecretKey}")
+    @DeleteMapping("reservations/{id}/{actionSecretKey}")
     public void removeReservation(@PathVariable("id") int id,
-            @PathVariable("cancleSecretKey") String cancleSecretKey) {
-        RestaurantOverview.cancelReservation(id, cancleSecretKey);
+            @PathVariable("actionSecretKey") String actionSecretKey) {
+        RestaurantOverview.cancelReservation(id, actionSecretKey);
     }
 
     // Open question about how the user gets transmitted

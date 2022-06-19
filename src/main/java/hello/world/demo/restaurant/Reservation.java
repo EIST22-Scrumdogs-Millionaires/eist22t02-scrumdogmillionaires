@@ -18,7 +18,11 @@ public class Reservation {
 
     private int restaurant_id;
 
-    private String cancalSecretKey;
+    private String cancelSecretKey;
+
+    private String confirmSecretKey;
+
+    private boolean confirmed;
 
     public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, int id, int restaurant_id) {
         this.id = id;
@@ -27,7 +31,9 @@ public class Reservation {
         this.user = user;
         this.table = table;
         this.restaurant_id = restaurant_id;
-        this.cancalSecretKey = String.valueOf(Math.random());
+        this.cancelSecretKey = String.valueOf(Math.random());
+        this.confirmSecretKey = String.valueOf(Math.random());
+        this.confirmed = false;
     }
 
     public Visitor getUser() {
@@ -67,7 +73,11 @@ public class Reservation {
     }
 
     public String getCancelSecretKey() {
-        return cancalSecretKey;
+        return cancelSecretKey;
+    }
+
+    public String getConfirmSecretKey() {
+        return confirmSecretKey;
     }
 
     public int getRestaurant_id() {

@@ -6,9 +6,9 @@ public class Review {
 
     private String comment;
 
-    private int rating;
+    private Integer rating;
 
-    public Review(String username, String comment, int rating) {
+    public Review(String username, String comment, Integer rating) {
         this.username = username;
         this.comment = comment;
         this.rating = rating;
