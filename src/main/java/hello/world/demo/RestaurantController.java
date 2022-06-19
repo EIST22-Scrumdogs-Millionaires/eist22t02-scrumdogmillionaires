@@ -124,8 +124,9 @@ public class RestaurantController {
 
     // Open question about how the review gets transmitted
     @PostMapping("comment/{id}")
-    public void commentRestaurant(@PathVariable("id") int id, @RequestBody Review review) {
+    public ResponseEntity<String>  commentRestaurant(@PathVariable("id") int id, @RequestBody Review review) {
         RestaurantOverview.addReview(id, review);
+        return ResponseEntity.ok("Ok");
     }
 
 }

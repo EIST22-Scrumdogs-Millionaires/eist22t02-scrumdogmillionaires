@@ -6,8 +6,10 @@ import java.time.LocalTime;
 import java.util.*;
 
 import hello.world.demo.email.EmailServiceImpl;
+
 import hello.world.demo.email.EmailThread;
-import org.apache.tomcat.jni.Local;
+
+
 
 public class Restaurant {
 
@@ -28,6 +30,8 @@ public class Restaurant {
 	private List<LocalTime> openingTimes;
 
 	private List<LocalTime> closingTime;
+
+	private String openingAndClosingTimesAsFancyString;
 
 	private String website;
 
@@ -58,6 +62,7 @@ public class Restaurant {
 		this.tables = tables;
 		this.restaurantType = restaurantType;
 		this.reservations = reservations;
+		calculateOpeningAndClosingTimesAsFancyString();
 	}
 
 	public int getId() {
@@ -131,6 +136,69 @@ public class Restaurant {
 		this.closingTime = closingTime;
 	}
 
+	public String getOpeningAndClosingTimesAsFancyString() {
+		calculateOpeningAndClosingTimesAsFancyString();
+		return openingAndClosingTimesAsFancyString;
+
+	}
+
+	private void calculateOpeningAndClosingTimesAsFancyString() {
+		if (openingTimes == null || closingTime == null || openingTimes.size() != 7 || closingTime.size() != 7) {
+			return;
+		}
+		openingAndClosingTimesAsFancyString = "";
+		List<Integer> done = new ArrayList<>();
+		int actualDay = 0;
+		while (done.size() != 7) {
+			while (done.contains(actualDay) && actualDay <= 7) {
+				actualDay++;
+			}
+			if (actualDay >= 7) {
+				break;
+			}
+			String temp = getDay(actualDay);
+			done.add(actualDay);
+			int prev = actualDay;
+			boolean first = true;
+			for (int i = actualDay + 1; i < 7; i++) {
+				if (Duration.between(openingTimes.get(actualDay), openingTimes.get(i)).toHours() == 0
+						&& Duration.between(closingTime.get(actualDay), closingTime.get(i)).toHours() == 0) {
+					done.add(i);
+					if (i - 1 == prev) {
+						if (first) {
+							temp = temp.substring(0, temp.length()) + "-" + getDay(i);
+							first = false;
+						} else {
+							temp = temp.substring(0, temp.length() - 3) + getDay(i);
+						}
+					} else {
+						temp = temp.substring(0, temp.length()) + ", " + getDay(i);
+						first = true;
+					}
+					prev = i;
+				}
+			}
+			temp += ": " + openingTimes.get(actualDay).toString() + "-" + closingTime.get(actualDay).toString();
+			openingAndClosingTimesAsFancyString += temp + "\n";
+		}
+		openingAndClosingTimesAsFancyString = openingAndClosingTimesAsFancyString.substring(0,
+				openingAndClosingTimesAsFancyString.length() - 1);
+
+	}
+
+	private String getDay(int id) {
+		return switch (id) {
+			case 0 -> "Mon";
+			case 1 -> "Tue";
+			case 2 -> "Wed";
+			case 3 -> "Thu";
+			case 4 -> "Fri";
+			case 5 -> "Sat";
+			case 6 -> "Sun";
+			default -> "Error 404";
+		};
+	}
+
 	public String getWebsite() {
 		return website;
 	}
@@ -164,6 +232,7 @@ public class Restaurant {
 	}
 
 	public boolean passReservation(Reservation reservation, Visitor user) {
+
 		String emailResConfirmText = " Ihre Reservierung ist bestätigt, " + user.getUsername() + "!\n Vielen Dank dass Sie bei " + this.name + "reserviert haben. \n Tisch " + reservation.getTable().getId() + " für" + reservation.getTable().getSeats() + " Person(en) \n" + reservation.getDate() + " um " + reservation.getTime() + ". \n" + "Reservierungsname: " + reservation.getUser().getUsername() + "\n Bestätigungsnummer: " + reservation.getId() + "\n\n" + "Wir freuen uns auf Sie!" + "\n\n" + "Doch schon etwas Anderes vor? Sie können Ihre Reservierung bis zu 12h vorher stornieren, indem Sie auf den folgenden Link klicken. Es ist kinderleicht. Jetzt Reservierung stornieren:  localhost:8080/reservations/" + reservation.getId() + "/" + reservation.getCancelSecretKey() + " \n\n Was Sie vor Ihrem Besuch wissen sollten\n" +
 				"Der Tisch wird bis zu 15 Minuten nach Ihrer Reservierungszeit für Sie freigehalten. Bitte rufen Sie uns an, wenn Sie sich um mehr als 15 Minuten verspäten.\n" +
 				"Der Tisch wird 2 Stunden für Sie reserviert.";
@@ -172,6 +241,7 @@ public class Restaurant {
 		Email emailResConfirm = new Email(user.getEmail(), "Bitte bestätigen Sie Ihre Reservierung", emailres, reservation.getDate().minusDays(1), reservation.getTime().minusHours(24));
 		EmailThread.addEmail(emailRes);
 		EmailThread.addEmail(emailResConfirm);
+
 		reservation.setUser(user);
 		reservations.add(reservation);
 		return true;
@@ -193,5 +263,4 @@ public class Restaurant {
 
 		return availableTables.size() > possibleReservations.size();
 	}
-
 }
