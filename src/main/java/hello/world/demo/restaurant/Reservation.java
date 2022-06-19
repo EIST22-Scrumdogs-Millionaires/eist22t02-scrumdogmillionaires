@@ -16,17 +16,17 @@ public class Reservation {
 
     private Tisch table;
 
-    private int restauran_id;
+    private int restaurant_id;
 
     private String cancalSecretKey;
 
-    public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, int id, int restauran_id) {
+    public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, int id, int restaurant_id) {
         this.id = id;
         this.time = time;
         this.date = date;
         this.user = user;
         this.table = table;
-        this.restauran_id = restauran_id;
+        this.restaurant_id = restaurant_id;
         this.cancalSecretKey = String.valueOf(Math.random());
     }
 
@@ -71,10 +71,9 @@ public class Reservation {
     }
 
     public int getRestaurant_id() {
-        return restauran_id;
+        return restaurant_id;
     }
 
-    // oder boolean?
     public void confirmReservation() {
 
     }
@@ -90,10 +89,6 @@ public class Reservation {
     }
 
     public void createReservation(Restaurant restaurant, Date date, String email) {
-
-    }
-
-    public void verifyEmail() {
 
     }
 

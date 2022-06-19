@@ -7,6 +7,7 @@ import java.util.*;
 
 import hello.world.demo.email.EmailServiceImpl;
 import hello.world.demo.email.EmailThread;
+import org.apache.tomcat.jni.Local;
 
 public class Restaurant {
 
@@ -163,8 +164,12 @@ public class Restaurant {
 	}
 
 	public boolean passReservation(Reservation reservation, Visitor user) {
-		EmailThread.addEmail(e);
-		EmailThread.addEmail(e);
+		String emailResConfirmText = " Ihre Reservierung ist bestätigt, " + user.getUsername() + "!\n Vielen Dank dass Sie bei " + this.name + "reserviert haben. \n Tisch " + reservation.getTable().getId() + " für" + reservation.getTable().getSeats() + " Person(en) \n" + reservation.getDate() + " um " + reservation.getTime() + ". \n" + "Reservierungsname: " + reservation.getUser().getUsername() + "\n Bestätigungsnummer: " + reservation.getId() + "\n\n" + "Wir freuen uns auf Sie!" + "\n\n" + "Doch schon etwas Anderes vor? Sie können Ihre Reservierung bis zu 12h vorher stornieren, indem Sie auf den folgenden Link klicken. Es ist kinderleicht. Jetzt Reservierung stornieren:  localhost:8080/reservations/" + reservation.getId() + "/" + reservation.getCancelSecretKey() + " \n\n Was Sie vor Ihrem Besuch wissen sollten\n" +
+				"Der Tisch wird bis zu 15 Minuten nach Ihrer Reservierungszeit für Sie freigehalten. Bitte rufen Sie uns an, wenn Sie sich um mehr als 15 Minuten verspäten.\n" +
+				"Der Tisch wird 1 Stunde 30 Minuten für Gruppen von bis zu 4 Personen, 2 Stunden für bis zu 6 Personen und 2 Stunden 30 Minuten für Gruppen von mehr als 7 Personen reserviert.";
+		Email emailResConfirm = new Email(user.getEmail(), "Reservierung bestätigt", emailResConfirmText, LocalDate.now(), LocalTime.now());
+		EmailThread.addEmail(emailResConfirm);
+		EmailThread.addEmail(emailResConfirm);
 		reservation.setUser(user);
 		reservations.add(reservation);
 		return true;
