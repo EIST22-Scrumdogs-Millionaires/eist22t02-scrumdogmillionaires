@@ -17,7 +17,24 @@ public class Data {
         public static List<Restaurant> generateRestaurants() {
                 List<Restaurant> sampleRestaurants = new ArrayList<>();
 
-                Location l = new Location(10, 20, "München", "Horst Straße", "12", "7126");
+                Location l = new Location(10, 20, "München", "Horst Straße", "12", "7126");#List<Review> reviews = new ArrayList<>();
+                reviews.add(new Review("Horst", "Exzellent", 5));
+                reviews.add(new Review("Reinhard", "Sehr gut!", 4));
+
+                List<Tisch> tables = new ArrayList<>();
+                tables.add(new Tisch(0, 5));
+
+                LocalTime opening = LocalTime.of(13, 0);
+
+                List<LocalTime> openingTimes = Util.getLocalTimeList(opening, opening, opening, opening, opening,
+                        opening, opening);
+
+                LocalTime closing = LocalTime.of(13, 0);
+
+                List<LocalTime> closingTimes = Util.getLocalTimeList(closing, closing, closing, closing, closing,
+                        closing, closing);
+
+                List<Reservation> reservations = new ArrayList<>();
 
                 //MunMun Data
                 Location locMunMun = new Location(48, 11, "München", "Münchner Freiheit", "7", "80802");
@@ -40,24 +57,28 @@ public class Data {
                 List<Reservation> reservationsMunMun = new ArrayList<>();
                 // Ende Data MunMun
 
-                List<Review> reviews = new ArrayList<>();
-                reviews.add(new Review("Horst", "Exzellent", 5));
-                reviews.add(new Review("Reinhard", "Sehr gut!", 4));
+                //Augustiner Data
+                Location locAugustiner = new Location(48, 11, "München", "Arnulfstraße", "52", "80335");
+                List<Review> reviewsAug = new ArrayList<>();
+                reviews.add(new Review("Rico", "Exzellente Glasnudeln!", 5));
+                reviews.add(new Review("Patrick", "Sehr authentisches Curry!", 4));
 
-                List<Tisch> tables = new ArrayList<>();
+                List<Tisch> tablesAug = new ArrayList<>();
                 tables.add(new Tisch(0, 5));
 
-                LocalTime opening = LocalTime.of(13, 0);
+                LocalTime openingAug = LocalTime.of(11, 0);
 
-                List<LocalTime> openingTimes = Util.getLocalTimeList(opening, opening, opening, opening, opening,
-                                opening, opening);
+                List<LocalTime> openingTimesAug = Util.getLocalTimeList(opening, opening, opening, opening, opening,
+                        opening, opening);
+                LocalTime closingAug = LocalTime.of(22, 0);
 
-                LocalTime closing = LocalTime.of(13, 0);
+                List<LocalTime> closingTimesAug = Util.getLocalTimeList(closing, closing, closing, closing, closing,
+                        closing, closing);
 
-                List<LocalTime> closingTimes = Util.getLocalTimeList(closing, closing, closing, closing, closing,
-                                closing, closing);
+                List<Reservation> reservationsAug = new ArrayList<>();
+                // Ende Data Augustiner
 
-                List<Reservation> reservations = new ArrayList<>();
+
 
                 sampleRestaurants.add(
                                 new Restaurant(0, "DA VINCI", "Italienisches Restaurant und Pizzeria", l,
