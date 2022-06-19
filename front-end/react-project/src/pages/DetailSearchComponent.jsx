@@ -43,13 +43,15 @@ export default function DetailSearchComponent() {
   if (data == null || data == undefined) {
     return <div>Loading...</div>;
   } else {
+    console.log(data);
+    /*
     for (let [key, value] of Object.entries(data)) {
       console.log(`${key}: ${value}`);
     }
 
     for (let [key, value] of Object.entries(data.reviews[0])) {
       console.log(`${key}: ${value}`);
-    }
+    }*/
     return (
       <div>
         <NavigationBar />
@@ -97,7 +99,7 @@ export default function DetailSearchComponent() {
             <div>
               <ReservateComponent></ReservateComponent>
             </div>
-            <CommentSection reviews={data} />
+            <CommentSection restaurant={data} />
           </Container>
         </div>
         <Footer />

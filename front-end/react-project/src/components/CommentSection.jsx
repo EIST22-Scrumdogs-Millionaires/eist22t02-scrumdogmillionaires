@@ -2,11 +2,39 @@ import React from "react";
 import Divider from "@mui/material/Divider";
 import ProfilPictureComments from "./ProfilPictureComments";
 import Stack from "@mui/material/Stack";
-import { Typography, TextField, Button, Link, Box } from "@mui/material";
+import { Typography, TextField, Button, Box } from "@mui/material";
 import Rating from "@mui/material/Rating";
+import Axios from "axios";
 export default function CommentSection(props) {
-  const [value, setValue] = React.useState(0);
-  const comments = props.reviews.reviews.map((review) => {
+  const [nameComment, handleNameChange] = React.useState("");
+  const [ownComment, handleOwnCommentChange] = React.useState("");
+  const [ownRating, handleOwnRating] = React.useState(3);
+  function handlePostButton() {
+    if (nameComment == ""){
+      handleNameChange("Anonymous");
+    }
+    const review = {
+      username: nameComment,
+      comment: ownComment,
+      rating: ownRating,
+    };
+    console.log(JSON.stringify(review));
+    Axios.post(
+      `http://localhost:8080/comment/${props.restaurant.id}`,
+      JSON.stringify(review)
+    )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+    handleOwnRating(0);
+    handleNameChange("");
+    handleOwnCommentChange("");
+  }
+
+  const comments = props.restaurant.reviews.map((review) => {
     return (
       <div className="comment">
         <Stack spacing={1}>
@@ -17,7 +45,7 @@ export default function CommentSection(props) {
             </strong>
             <div style={{ flex: 1 }} />
             <div style={{ margin: "auto 5px auto 0" }}>
-              <Rating name="read-only" value={review.rating} readOnly/>
+              <Rating name="read-only" value={review.rating} readOnly />
             </div>
           </Stack>
           <div style={{ textAlign: "left", margin: "15px 0 0 0" }}>
@@ -34,7 +62,12 @@ export default function CommentSection(props) {
           <div style={{ flex: 1 }} />
           <h3>Total:</h3>
           <div style={{ margin: "auto 15px" }}>
-            <Rating name="read-only" value={props.reviews.averageRating} readOnly precision={0.1} />
+            <Rating
+              name="read-only"
+              value={props.restaurant.averageRating}
+              readOnly
+              precision={0.1}
+            />
           </div>
         </Stack>
       </div>
@@ -68,6 +101,8 @@ export default function CommentSection(props) {
                 id="standard-basic"
                 label="Name"
                 variant="standard"
+                value={nameComment}
+                onChange={(e) => handleNameChange(e.target.value)}
               />
 
               <p />
@@ -77,6 +112,8 @@ export default function CommentSection(props) {
                 label="Comment"
                 variant="standard"
                 color="secondary"
+                value={ownComment}
+                onChange={(e) => handleOwnCommentChange(e.target.value)}
               />
             </Box>
           </div>
@@ -84,9 +121,9 @@ export default function CommentSection(props) {
         <div style={{ textAlign: "left", margin: "30px 0 5px 10px" }}>
           <Rating
             name="simple-controlled"
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
+            value={ownRating}
+            onChange={(_event, newValue) => {
+              handleOwnRating(newValue);
             }}
           />
         </div>
@@ -98,7 +135,11 @@ export default function CommentSection(props) {
       >
         <div style={{ flex: 1 }} />
 
-        <Button color="secondary" variant="contained" component={Link}>
+        <Button
+          color="secondary"
+          variant="contained"
+          onClick={handlePostButton}
+        >
           Post
         </Button>
       </Stack>
