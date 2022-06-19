@@ -13,6 +13,7 @@ import hello.world.demo.restaurant.Review;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestaurantController {
 
     @GetMapping("restaurants/getTopTen")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> returngetTopTen() {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -124,6 +126,7 @@ public class RestaurantController {
 
     // Open question about how the review gets transmitted
     @PostMapping("comment/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String>  commentRestaurant(@PathVariable("id") int id, @RequestBody Review review) {
         RestaurantOverview.addReview(id, review);
         return ResponseEntity.ok("Ok");
