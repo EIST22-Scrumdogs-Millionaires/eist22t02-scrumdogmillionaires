@@ -38,7 +38,7 @@ public class Data {
                 List<Reservation> reservations = new ArrayList<>();
 
                 //MunMun Data
-                Location locMunMun = new Location(48, 11, "München", "Münchner Freiheit", "7", "80802");
+                Location locMunMun = new Location(48.162570, 11.586730, "München", "Münchner Freiheit", "7", "80802");
                 List<Review> reviewsMunMun = new ArrayList<>();
                 reviewsMunMun.add(new Review("Rico", "Exzellente Glasnudeln!", 5));
                 reviewsMunMun.add(new Review("Patrick", "Sehr authentisches Curry!", 4));
@@ -59,7 +59,7 @@ public class Data {
                 // Ende Data MunMun
 
                 //Augustiner Data
-                Location locAugustiner = new Location(48, 11, "München", "Arnulfstraße", "52", "80335");
+                Location locAugustiner = new Location(48.143500, 11.551940, "München", "Arnulfstraße", "52", "80335");
                 List<Review> reviewsAug = new ArrayList<>();
                 reviewsAug.add(new Review("Rico", "Super Bier!", 3));
                 reviewsAug.add(new Review("Simone", "Bayrisches Ambiente und fantastisches Bier", 4));
