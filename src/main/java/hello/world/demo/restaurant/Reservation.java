@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Reservation {
 
-    private int id;
+    private Integer id;
 
     private LocalTime time;
 
@@ -16,7 +16,7 @@ public class Reservation {
 
     private Tisch table;
 
-    private int restaurant_id;
+    private Integer restaurant_id;
 
     private String cancelSecretKey;
 
@@ -24,7 +24,7 @@ public class Reservation {
 
     private boolean confirmed;
 
-    public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, int id, int restaurant_id) {
+    public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, Integer id, Integer restaurant_id) {
         this.id = id;
         this.time = time;
         this.date = date;
