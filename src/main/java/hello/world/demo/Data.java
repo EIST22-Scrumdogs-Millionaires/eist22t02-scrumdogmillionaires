@@ -39,20 +39,20 @@ public class Data {
                 //MunMun Data
                 Location locMunMun = new Location(48, 11, "München", "Münchner Freiheit", "7", "80802");
                 List<Review> reviewsMunMun = new ArrayList<>();
-                reviews.add(new Review("Rico", "Exzellente Glasnudeln!", 5));
-                reviews.add(new Review("Patrick", "Sehr authentisches Curry!", 4));
+                reviewsMunMun.add(new Review("Rico", "Exzellente Glasnudeln!", 5));
+                reviewsMunMun.add(new Review("Patrick", "Sehr authentisches Curry!", 4));
 
                 List<Tisch> tablesMunMUn = new ArrayList<>();
-                tables.add(new Tisch(0, 5));
+                tablesMunMUn.add(new Tisch(0, 5));
 
                 LocalTime openingMunMun = LocalTime.of(11, 0);
 
-                List<LocalTime> openingTimesMunMun = Util.getLocalTimeList(opening, opening, opening, opening, opening,
-                        opening, opening);
+                List<LocalTime> openingTimesMunMun = Util.getLocalTimeList(openingMunMun, openingMunMun, openingMunMun, openingMunMun, openingMunMun,
+                        openingMunMun, openingMunMun);
                 LocalTime closingMunMun = LocalTime.of(22, 0);
 
-                List<LocalTime> closingTimesMunMun = Util.getLocalTimeList(closing, closing, closing, closing, closing,
-                        closing, closing);
+                List<LocalTime> closingTimesMunMun = Util.getLocalTimeList(closingMunMun, closingMunMun, closingMunMun, closingMunMun, closingMunMun,
+                        closingMunMun, closingMunMun);
 
                 List<Reservation> reservationsMunMun = new ArrayList<>();
                 // Ende Data MunMun
@@ -60,20 +60,20 @@ public class Data {
                 //Augustiner Data
                 Location locAugustiner = new Location(48, 11, "München", "Arnulfstraße", "52", "80335");
                 List<Review> reviewsAug = new ArrayList<>();
-                reviews.add(new Review("Rico", "Exzellente Glasnudeln!", 5));
-                reviews.add(new Review("Patrick", "Sehr authentisches Curry!", 4));
+                reviewsAug.add(new Review("Rico", "Exzellente Glasnudeln!", 5));
+                reviewsAug.add(new Review("Patrick", "Sehr authentisches Curry!", 4));
 
                 List<Tisch> tablesAug = new ArrayList<>();
-                tables.add(new Tisch(0, 5));
+                tablesAug.add(new Tisch(0, 5));
 
                 LocalTime openingAug = LocalTime.of(11, 0);
 
-                List<LocalTime> openingTimesAug = Util.getLocalTimeList(opening, opening, opening, opening, opening,
-                        opening, opening);
+                List<LocalTime> openingTimesAug = Util.getLocalTimeList(openingAug, openingAug, openingAug, openingAug, openingAug,
+                        openingAug, openingAug);
                 LocalTime closingAug = LocalTime.of(22, 0);
 
-                List<LocalTime> closingTimesAug = Util.getLocalTimeList(closing, closing, closing, closing, closing,
-                        closing, closing);
+                List<LocalTime> closingTimesAug = Util.getLocalTimeList(closingAug, closingAug, closingAug, closingAug, closingAug,
+                        closingAug, closingAug);
 
                 List<Reservation> reservationsAug = new ArrayList<>();
                 // Ende Data Augustiner
@@ -102,10 +102,10 @@ public class Data {
                                                 reservations));
                 sampleRestaurants.add(
                                 new Restaurant(3, "Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
-                                                null,
+                                                locAugustiner,
                                                 Arrays.asList("https://www.merkur.de/bilder/2014/05/26/1236459/26415201-biergarten-augustiner-keller_20140519-112322-2pnSy8m1tIec.jpg"),
-                                                null, null, null, "augustinerkeller.de", "$$$",
-                                                null, RestaurantType.BAVARIAN, reservations));
+                                                reservationsAug, openingTimesAug, closingTimesAug, "augustinerkeller.de", "$$$",
+                                                tablesAug, RestaurantType.BAVARIAN, reservations));
 
                 return sampleRestaurants;
         }
