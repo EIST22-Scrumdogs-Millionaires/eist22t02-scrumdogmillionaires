@@ -56,7 +56,9 @@ public class Data {
                         closingMunMun, closingMunMun);
 
                 List<Reservation> reservationsMunMun = new ArrayList<>();
+
                 // Ende Data MunMun
+
 
                 //Augustiner Data
                 Location locAugustiner = new Location(48.143500, 11.551940, "München", "Arnulfstraße", "52", "80335");
@@ -79,6 +81,27 @@ public class Data {
                 List<Reservation> reservationsAug = new ArrayList<>();
                 // Ende Data Augustiner
 
+                // Data Türkitchen
+                Location locTurkitch = new Location(48.162570, 10.567500, "München", "Türkenstraße", "21", "80799");
+                List<Review> reviewsTurkitch = new ArrayList<>();
+                reviewsTurkitch.add(new Review("Ali", "Gute Falafel", 5));
+                reviewsTurkitch.add(new Review("Tina", "Sehr gute Dönerbox!", 4));
+
+                List<Tisch> tablesTurkitch = new ArrayList<>();
+                tablesTurkitch.add(new Tisch(0, 5));
+
+                LocalTime openingTurkitch = LocalTime.of(11, 0);
+
+                List<LocalTime> openingTimesTurkitch = Util.getLocalTimeList(openingTurkitch, openingTurkitch, openingTurkitch, openingTurkitch, openingTurkitch,
+                        openingTurkitch, openingTurkitch);
+
+                LocalTime closingTurkitch = LocalTime.of(22, 0);
+
+                List<LocalTime> closingTimesTurkitch = Util.getLocalTimeList(closingTurkitch, closingTurkitch, closingTurkitch, closingTurkitch, closingTurkitch,
+                        closingTurkitch, closingTurkitch);
+
+                List<Reservation> reservationsTurkitch = new ArrayList<>();
+
 
 
                 sampleRestaurants.add(
@@ -96,11 +119,11 @@ public class Data {
                                 closingTimesMunMun, "munmun.de", "$$", tablesMunMUn, RestaurantType.TAIWANESE,
                                 reservationsMunMun));
                 sampleRestaurants
-                        .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", null, Arrays.asList(
+                        .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", locTurkitch, Arrays.asList(
                                 "https://www.bellacarne.it/wp-content/uploads/2021/03/kebab-ricetta-originale.jpg"),
-                                null, null, null,
-                                "tuerkitch-koeftekebap.de", "$", null, RestaurantType.TAIWANESE,
-                                reservations));
+                                reviewsTurkitch, openingTimesTurkitch, closingTimesTurkitch,
+                                "tuerkitch-koeftekebap.de", "$", tablesTurkitch, RestaurantType.TAIWANESE,
+                                reservationsTurkitch));
                 sampleRestaurants.add(
                         new Restaurant(3, "Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
                                 locAugustiner,
