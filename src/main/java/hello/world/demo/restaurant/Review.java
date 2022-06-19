@@ -6,7 +6,7 @@ public class Review {
 
     private String comment;
 
-    private Integer rating;
+    private int rating;
 
     public Review(String username, String comment, Integer rating) {
         this.username = username;
