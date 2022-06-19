@@ -84,13 +84,14 @@ public class Reservation {
         return restaurant_id;
     }
 
-    public void confirmReservation() {
-
+    public boolean getConfirmed() {
+        return confirmed;
     }
 
-    // oder boolean?
-    public void cancelReservation() {
-
+    public void confirmReservation(String actionSecretKey) {
+        if (actionSecretKey.compareTo(confirmSecretKey) == 0) {
+            confirmed = true;
+        }
     }
 
     // oder boolean?

@@ -47,7 +47,7 @@ public class ReservationController {
     @DeleteMapping("reservations/{id}/{actionSecretKey}")
     public void removeReservation(@PathVariable("id") int id,
             @PathVariable("actionSecretKey") String actionSecretKey) {
-        RestaurantOverview.cancelReservation(id, actionSecretKey);
+        RestaurantOverview.performActionOnReservation(id, actionSecretKey);
     }
 
     // Open question about how the user gets transmitted

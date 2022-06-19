@@ -249,17 +249,20 @@ public class RestaurantOverview {
      * @param id
      * @param secretCancelKey
      */
-    public static void cancelReservation(int id, String secretCancelKey) {
+    public static void performActionOnReservation(int id, String actionSecretKey) {
         Reservation reservation = getReservation(id);
         if (reservation != null) {
-            getRestaurantById(reservation.getId()).cancelReservation(reservation, secretCancelKey);
+            if (reservation.getCancelSecretKey().compareTo(actionSecretKey) == 0) {
+                getRestaurantById(reservation.getId()).cancelReservation(reservation, actionSecretKey);
+            } else if (reservation.getConfirmSecretKey().compareTo(actionSecretKey) == 0) {
+                reservation.confirmReservation(actionSecretKey);
+            }
         }
     }
 
     public static void addReview(int id, Review review) {
-        Reservation reservation = getReservation(id);
-        if (reservation != null) {
-            getRestaurantById(reservation.getId()).addReview(review);
+        if (getRestaurantById(id) != null) {
+            getRestaurantById(id).addReview(review);
         }
     }
 }
