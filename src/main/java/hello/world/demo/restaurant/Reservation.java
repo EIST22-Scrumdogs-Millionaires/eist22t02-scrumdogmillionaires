@@ -16,19 +16,18 @@ public class Reservation {
 
     private Tisch table;
 
-    private Restaurant restaurant;
+    private int restauran_id;
 
     private String cancalSecretKey;
 
-    public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, int id, Restaurant restaurant) {
+    public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, int id, int restauran_id) {
         this.id = id;
         this.time = time;
         this.date = date;
         this.user = user;
         this.table = table;
-        this.restaurant = restaurant;
+        this.restauran_id = restauran_id;
         this.cancalSecretKey = String.valueOf(Math.random());
-
     }
 
     public Visitor getUser() {
@@ -71,8 +70,8 @@ public class Reservation {
         return cancalSecretKey;
     }
 
-    public Restaurant getRestaurant() {
-        return restaurant;
+    public int getRestaurant_id() {
+        return restauran_id;
     }
 
     // oder boolean?

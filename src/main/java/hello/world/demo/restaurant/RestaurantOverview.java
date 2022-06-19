@@ -236,7 +236,7 @@ public class RestaurantOverview {
      * @return
      */
     public static Reservation postReservation(Reservation reservation, Visitor visitor) {
-        if (restaurants.stream().filter(res -> reservation.getRestaurant().equals(res)).toList().get(0)
+        if (restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
                 .passReservation(reservation, visitor))
             return reservation;
         else {
@@ -252,14 +252,14 @@ public class RestaurantOverview {
     public static void cancelReservation(int id, String secretCancelKey) {
         Reservation reservation = getReservation(id);
         if (reservation != null) {
-            reservation.getRestaurant().cancelReservation(reservation, secretCancelKey);
+            getRestaurantById(reservation.getId()).cancelReservation(reservation, secretCancelKey);
         }
     }
 
     public static void addReview(int id, Review review) {
         Reservation reservation = getReservation(id);
         if (reservation != null) {
-            reservation.getRestaurant().addReview(review);
+            getRestaurantById(reservation.getId()).addReview(review);
         }
     }
 }
