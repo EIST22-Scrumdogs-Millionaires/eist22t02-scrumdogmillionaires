@@ -127,7 +127,7 @@ public class RestaurantController {
     // Open question about how the review gets transmitted
     @PostMapping("comment/{id}")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<String>  commentRestaurant(@PathVariable("id") int id, @RequestBody Review review) {
+    public ResponseEntity<String>  commentRestaurant(@PathVariable("id") int id, Review review) {
         RestaurantOverview.addReview(id, review);
         return ResponseEntity.ok("Ok");
     }
