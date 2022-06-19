@@ -42,6 +42,7 @@ public class RestaurantController {
     }
 
     @GetMapping("restaurants/search/{search}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> returnRestaurant(@PathVariable("search") String search) {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -58,6 +59,7 @@ public class RestaurantController {
     }
 
     @GetMapping("restaurants/getRestaurantTypes")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> getRestaurantTypes() {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -74,6 +76,7 @@ public class RestaurantController {
     }
 
     @GetMapping("restaurants/search/{search}/{filter}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> filterRestaurants(@PathVariable("search") String search,
             @PathVariable("filter") List<String> filter) {
 
@@ -109,6 +112,7 @@ public class RestaurantController {
     // }
 
     @GetMapping("restaurant/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> returnRestaurant(@PathVariable("id") int id) {
 
         ObjectMapper mapper = new ObjectMapper();

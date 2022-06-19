@@ -18,6 +18,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReservationController {
 
     @GetMapping("reservations/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> returnReservation(@PathVariable("id") int id) {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -45,6 +47,7 @@ public class ReservationController {
     }
 
     @DeleteMapping("reservations/{id}/{actionSecretKey}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public void removeReservation(@PathVariable("id") int id,
             @PathVariable("actionSecretKey") String actionSecretKey) {
         RestaurantOverview.performActionOnReservation(id, actionSecretKey);
@@ -52,6 +55,7 @@ public class ReservationController {
 
     // Open question about how the user gets transmitted
     @PostMapping("reservations")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> postReservation(@RequestBody Reservation reservation,
             @RequestBody Visitor visitor) {
 
@@ -69,6 +73,7 @@ public class ReservationController {
     }
 
     @GetMapping(value = "/sendmail")
+    @CrossOrigin(origins = "http://localhost:3000")
     public String sendmail() {
 
         EmailThread t = new EmailThread();
