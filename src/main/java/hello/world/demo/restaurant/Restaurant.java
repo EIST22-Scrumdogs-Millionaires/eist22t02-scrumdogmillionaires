@@ -6,7 +6,6 @@ import java.time.LocalTime;
 import java.util.*;
 
 import hello.world.demo.email.EmailServiceImpl;
-import hello.world.demo.email.EmailThread;
 
 public class Restaurant {
 
@@ -27,6 +26,8 @@ public class Restaurant {
 	private List<LocalTime> openingTimes;
 
 	private List<LocalTime> closingTime;
+
+	private String openingAndClosingTimesAsFancyString;
 
 	private String website;
 
@@ -57,6 +58,7 @@ public class Restaurant {
 		this.tables = tables;
 		this.restaurantType = restaurantType;
 		this.reservations = reservations;
+		calculateOpeningAndClosingTimesAsFancyString();
 	}
 
 	public int getId() {
@@ -130,6 +132,69 @@ public class Restaurant {
 		this.closingTime = closingTime;
 	}
 
+	public String getOpeningAndClosingTimesAsFancyString() {
+		calculateOpeningAndClosingTimesAsFancyString();
+		return openingAndClosingTimesAsFancyString;
+
+	}
+
+	private void calculateOpeningAndClosingTimesAsFancyString() {
+		if (openingTimes == null || closingTime == null || openingTimes.size() != 7 || closingTime.size() != 7) {
+			return;
+		}
+		openingAndClosingTimesAsFancyString = "";
+		List<Integer> done = new ArrayList<>();
+		int actualDay = 0;
+		while (done.size() != 7) {
+			while (done.contains(actualDay) && actualDay <= 7) {
+				actualDay++;
+			}
+			if (actualDay >= 7) {
+				break;
+			}
+			String temp = getDay(actualDay);
+			done.add(actualDay);
+			int prev = actualDay;
+			boolean first = true;
+			for (int i = actualDay + 1; i < 7; i++) {
+				if (Duration.between(openingTimes.get(actualDay), openingTimes.get(i)).toHours() == 0
+						&& Duration.between(closingTime.get(actualDay), closingTime.get(i)).toHours() == 0) {
+					done.add(i);
+					if (i - 1 == prev) {
+						if (first) {
+							temp = temp.substring(0, temp.length()) + "-" + getDay(i);
+							first = false;
+						} else {
+							temp = temp.substring(0, temp.length() - 3) + getDay(i);
+						}
+					} else {
+						temp = temp.substring(0, temp.length()) + ", " + getDay(i);
+						first = true;
+					}
+					prev = i;
+				}
+			}
+			temp += ": " + openingTimes.get(actualDay).toString() + "-" + closingTime.get(actualDay).toString();
+			openingAndClosingTimesAsFancyString += temp + "\n";
+		}
+		openingAndClosingTimesAsFancyString = openingAndClosingTimesAsFancyString.substring(0,
+				openingAndClosingTimesAsFancyString.length() - 1);
+
+	}
+
+	private String getDay(int id) {
+		return switch (id) {
+			case 0 -> "Mon";
+			case 1 -> "Tue";
+			case 2 -> "Wed";
+			case 3 -> "Thu";
+			case 4 -> "Fri";
+			case 5 -> "Sat";
+			case 6 -> "Sun";
+			default -> "Error 404";
+		};
+	}
+
 	public String getWebsite() {
 		return website;
 	}
@@ -163,8 +228,6 @@ public class Restaurant {
 	}
 
 	public boolean passReservation(Reservation reservation, Visitor user) {
-		EmailThread.addEmail(e);
-		EmailThread.addEmail(e);
 		reservation.setUser(user);
 		reservations.add(reservation);
 		return true;
@@ -186,5 +249,4 @@ public class Restaurant {
 
 		return availableTables.size() > possibleReservations.size();
 	}
-
 }
