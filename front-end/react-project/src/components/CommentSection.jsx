@@ -6,6 +6,27 @@ import { Typography, TextField, Button, Link, Box } from "@mui/material";
 import Rating from "@mui/material/Rating";
 export default function CommentSection(props) {
   const [value, setValue] = React.useState(0);
+  const comments = props.reviews.reviews.map((review) => {
+    return (
+      <div className="comment">
+        <Stack spacing={1}>
+          <Stack direction="row" spacing={1}>
+            <ProfilPictureComments name={review.username} />
+            <strong style={{ margin: "auto 0 auto 15px" }}>
+              {review.username}:
+            </strong>
+            <div style={{ flex: 1 }} />
+            <div style={{ margin: "auto 5px auto 0" }}>
+              <Rating name="read-only" value={review.rating} readOnly/>
+            </div>
+          </Stack>
+          <div style={{ textAlign: "left", margin: "15px 0 0 0" }}>
+            <Typography>{review.comment}</Typography>
+          </div>
+        </Stack>
+      </div>
+    );
+  });
   return (
     <div className="comment-section">
       <div style={{ margin: "15px 0px" }}>
@@ -13,7 +34,7 @@ export default function CommentSection(props) {
           <div style={{ flex: 1 }} />
           <h3>Total:</h3>
           <div style={{ margin: "auto 15px" }}>
-            <Rating name="read-only" value={3} readOnly />
+            <Rating name="read-only" value={props.reviews.averageRating} readOnly precision={0.1} />
           </div>
         </Stack>
       </div>
@@ -22,64 +43,7 @@ export default function CommentSection(props) {
         spacing={2}
         divider={<Divider orientation="horizontal" flexItem />}
       >
-        <div className="comment">
-          <Stack spacing={1}>
-            <Stack direction="row" spacing={1}>
-              <ProfilPictureComments name="Max Mustermann" />
-              <strong style={{ margin: "auto 0 auto 15px" }}>
-                Max Mustermann:
-              </strong>
-              <div style={{ flex: 1 }} />
-              <div style={{ margin: "auto 5px auto 0" }}>
-                <Rating name="read-only" value={3} readOnly />
-              </div>
-            </Stack>
-            <div style={{ textAlign: "left", margin: "15px 0 0 0" }}>
-              <Typography>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-              </Typography>
-            </div>
-          </Stack>
-        </div>
-
-        <div className="comment">
-          <Stack spacing={1}>
-            <Stack direction="row" spacing={1}>
-              <ProfilPictureComments name="Erika Mustermann:" />
-              <strong style={{ margin: "auto 0 auto 15px" }}>
-                Erika Mustermann:
-              </strong>
-              <div style={{ flex: 1 }} />
-              <div style={{ margin: "auto 5px auto 0" }}>
-                <Rating name="read-only" value={3} readOnly />
-              </div>
-            </Stack>
-            <div style={{ textAlign: "left", margin: "15px 0 0 0" }}>
-              <Typography>
-              Lorem ipsum dolor sit amet.
-              </Typography>
-            </div>
-          </Stack>
-        </div>
-        <div className="comment">
-          <Stack spacing={1}>
-            <Stack direction="row" spacing={1}>
-              <ProfilPictureComments name="Anonymous" />
-              <strong style={{ margin: "auto 0 auto 15px" }}>
-              Anonymous User:
-              </strong>
-              <div style={{ flex: 1 }} />
-              <div style={{ margin: "auto 5px auto 0" }}>
-                <Rating name="read-only" value={3} readOnly />
-              </div>
-            </Stack>
-            <div style={{ textAlign: "left", margin: "15px 0 0 0" }}>
-              <Typography>
-              Lorem ipsum dolor sit amet.
-              </Typography>
-            </div>
-          </Stack>
-        </div>
+        {comments}
       </Stack>
       <Stack
         direction="row"
