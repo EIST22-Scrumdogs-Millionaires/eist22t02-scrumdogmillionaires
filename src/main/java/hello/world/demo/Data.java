@@ -17,7 +17,8 @@ public class Data {
         public static List<Restaurant> generateRestaurants() {
                 List<Restaurant> sampleRestaurants = new ArrayList<>();
 
-                Location l = new Location(10, 20, "München", "Horst Straße", "12", "7126");#List<Review> reviews = new ArrayList<>();
+                Location l = new Location(10, 20, "München", "Horst Straße", "12", "7126");
+                List<Review> reviews = new ArrayList<>();
                 reviews.add(new Review("Horst", "Exzellent", 5));
                 reviews.add(new Review("Reinhard", "Sehr gut!", 4));
 
@@ -60,17 +61,17 @@ public class Data {
                 //Augustiner Data
                 Location locAugustiner = new Location(48, 11, "München", "Arnulfstraße", "52", "80335");
                 List<Review> reviewsAug = new ArrayList<>();
-                reviewsAug.add(new Review("Rico", "Exzellente Glasnudeln!", 5));
-                reviewsAug.add(new Review("Patrick", "Sehr authentisches Curry!", 4));
+                reviewsAug.add(new Review("Rico", "Super Bier!", 3));
+                reviewsAug.add(new Review("Simone", "Bayrisches Ambiente und fantastisches Bier", 4));
 
                 List<Tisch> tablesAug = new ArrayList<>();
                 tablesAug.add(new Tisch(0, 5));
 
-                LocalTime openingAug = LocalTime.of(11, 0);
+                LocalTime openingAug = LocalTime.of(10, 0);
 
                 List<LocalTime> openingTimesAug = Util.getLocalTimeList(openingAug, openingAug, openingAug, openingAug, openingAug,
                         openingAug, openingAug);
-                LocalTime closingAug = LocalTime.of(22, 0);
+                LocalTime closingAug = LocalTime.of(1, 0);
 
                 List<LocalTime> closingTimesAug = Util.getLocalTimeList(closingAug, closingAug, closingAug, closingAug, closingAug,
                         closingAug, closingAug);
@@ -89,23 +90,23 @@ public class Data {
 
                 );
                 sampleRestaurants.add(
-                                new Restaurant(1, "MUN MUN", "Thailändisches Restaurant", locMunMun, Arrays.asList(
-                                                "https://media-cdn.tripadvisor.com/media/photo-s/0d/e1/71/1f/essen.jpg"),
-                                                reviewsMunMun, openingTimesMunMun,
-                                                closingTimesMunMun, "munmun.de", "$$", tablesMunMUn, RestaurantType.TAIWANESE,
-                                                reservationsMunMun));
+                        new Restaurant(1, "MUN MUN", "Thailändisches Restaurant", locMunMun, Arrays.asList(
+                                "https://media-cdn.tripadvisor.com/media/photo-s/0d/e1/71/1f/essen.jpg"),
+                                reviewsMunMun, openingTimesMunMun,
+                                closingTimesMunMun, "munmun.de", "$$", tablesMunMUn, RestaurantType.TAIWANESE,
+                                reservationsMunMun));
                 sampleRestaurants
-                                .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", null, Arrays.asList(
-                                                "https://www.bellacarne.it/wp-content/uploads/2021/03/kebab-ricetta-originale.jpg"),
-                                                null, null, null,
-                                                "tuerkitch-koeftekebap.de", "$", null, RestaurantType.TAIWANESE,
-                                                reservations));
+                        .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", null, Arrays.asList(
+                                "https://www.bellacarne.it/wp-content/uploads/2021/03/kebab-ricetta-originale.jpg"),
+                                null, null, null,
+                                "tuerkitch-koeftekebap.de", "$", null, RestaurantType.TAIWANESE,
+                                reservations));
                 sampleRestaurants.add(
-                                new Restaurant(3, "Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
-                                                locAugustiner,
-                                                Arrays.asList("https://www.merkur.de/bilder/2014/05/26/1236459/26415201-biergarten-augustiner-keller_20140519-112322-2pnSy8m1tIec.jpg"),
-                                                reservationsAug, openingTimesAug, closingTimesAug, "augustinerkeller.de", "$$$",
-                                                tablesAug, RestaurantType.BAVARIAN, reservations));
+                        new Restaurant(3, "Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
+                                locAugustiner,
+                                Arrays.asList("https://www.merkur.de/bilder/2014/05/26/1236459/26415201-biergarten-augustiner-keller_20140519-112322-2pnSy8m1tIec.jpg"),
+                                reviewsAug, openingTimesAug, closingTimesAug, "augustinerkeller.de", "$$$",
+                                tablesAug, RestaurantType.BAVARIAN, reservationsAug));
 
                 return sampleRestaurants;
         }
