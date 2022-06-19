@@ -97,6 +97,7 @@ footer {
 }
 
 .picture-map-wrapper{
+  height: 270px;
   padding: 20px 20px;
   border-radius: 7px;
   background: #f7f7f7;
@@ -133,17 +134,8 @@ footer {
 }
 
 .picture{
-  max-height: 500px;
-}
-
-.picture-wrapper{
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: 100%;
-  width: 100%;
-  width: 400px;
-  height: 200px;
+  border-radius: 15px;
 }
 
 .content{

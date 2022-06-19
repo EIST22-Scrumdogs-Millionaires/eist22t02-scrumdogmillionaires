@@ -26,6 +26,7 @@ export default function Search() {
       </Grid>
     );
   });
+  console.log(data);
   const restaurants_dummy_local = restaurant_data["restaurants"].map(
     (restaurant) => {
       return (
