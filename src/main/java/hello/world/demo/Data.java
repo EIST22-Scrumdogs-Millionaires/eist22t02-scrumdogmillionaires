@@ -19,6 +19,27 @@ public class Data {
 
                 Location l = new Location(10, 20, "München", "Horst Straße", "12", "7126");
 
+                //MunMun Data
+                Location locMunMun = new Location(48, 11, "München", "Münchner Freiheit", "7", "80802");
+                List<Review> reviewsMunMun = new ArrayList<>();
+                reviews.add(new Review("Rico", "Exzellente Glasnudeln!", 5));
+                reviews.add(new Review("Patrick", "Sehr authentisches Curry!", 4));
+
+                List<Tisch> tablesMunMUn = new ArrayList<>();
+                tables.add(new Tisch(0, 5));
+
+                LocalTime openingMunMun = LocalTime.of(11, 0);
+
+                List<LocalTime> openingTimesMunMun = Util.getLocalTimeList(opening, opening, opening, opening, opening,
+                        opening, opening);
+                LocalTime closingMunMun = LocalTime.of(22, 0);
+
+                List<LocalTime> closingTimesMunMun = Util.getLocalTimeList(closing, closing, closing, closing, closing,
+                        closing, closing);
+
+                List<Reservation> reservationsMunMun = new ArrayList<>();
+                // Ende Data MunMun
+
                 List<Review> reviews = new ArrayList<>();
                 reviews.add(new Review("Horst", "Exzellent", 5));
                 reviews.add(new Review("Reinhard", "Sehr gut!", 4));
@@ -47,11 +68,11 @@ public class Data {
 
                 );
                 sampleRestaurants.add(
-                                new Restaurant(1, "MUN MUN", "Thailändisches Restaurant", null, Arrays.asList(
+                                new Restaurant(1, "MUN MUN", "Thailändisches Restaurant", locMunMun, Arrays.asList(
                                                 "https://media-cdn.tripadvisor.com/media/photo-s/0d/e1/71/1f/essen.jpg"),
-                                                null, null,
-                                                null, "munmun.de", "$$", tables, RestaurantType.TAIWANESE,
-                                                reservations));
+                                                reviewsMunMun, openingTimesMunMun,
+                                                closingTimesMunMun, "munmun.de", "$$", tablesMunMUn, RestaurantType.TAIWANESE,
+                                                reservationsMunMun));
                 sampleRestaurants
                                 .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", null, Arrays.asList(
                                                 "https://www.bellacarne.it/wp-content/uploads/2021/03/kebab-ricetta-originale.jpg"),
