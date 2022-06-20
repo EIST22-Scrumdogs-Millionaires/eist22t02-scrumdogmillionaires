@@ -29,7 +29,6 @@ public class EmailThread extends Thread {
                         EmailServiceImpl.sendMail(x.getTo(), x.getSubject(), x.getText());
                         toRemove.add(x);
                     });
-
             toSend.removeAll(toRemove);
             try {
                 Thread.sleep(UPDATE_TIME);
@@ -37,9 +36,7 @@ public class EmailThread extends Thread {
 
                 e.printStackTrace();
             }
-
         }
-
     }
 
 }
