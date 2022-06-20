@@ -84,11 +84,12 @@ function SelectCategory(props) {
     );
 }
 
-function ReservationTimePicker() {
+function ReservationTimePicker(props) {
     const [value, setValue] = React.useState(null);
 
     const handleChange = (date) => {
         setValue(date);
+        props.callback(date);
     }
 
     return (
@@ -148,6 +149,19 @@ export default function FilterBar(props) {
         });
     }
 
+    const handleTimeChange = (newTime) => {
+          const d = new Date(newTime);
+          var hours = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+          var minutes = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
+          var month = (d.getMonth()+1) < 10 ? "0" + (d.getMonth()+1) : (d.getMonth()+1);
+          var day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+          setFilters({
+                ...filters,
+                time: hours + ":" + minutes + "_" + d.getFullYear() + "-" + month + "-" + day
+          })
+        console.log(filters.time);
+    }
+
     return (
             <div>
                 <Grid container spacing={3} justifyContent="space-around">
@@ -173,7 +187,7 @@ export default function FilterBar(props) {
 
                     <Grid item xs={4}>
                         <Box>
-                            <ReservationTimePicker/>
+                            <ReservationTimePicker callback={handleTimeChange} />
                         </Box>
                     </Grid>
                 </Grid>
