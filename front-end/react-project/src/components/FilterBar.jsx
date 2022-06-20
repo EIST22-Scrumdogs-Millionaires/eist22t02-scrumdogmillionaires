@@ -9,7 +9,7 @@ import {
     Grid,
     Slider, TextField
 } from "@mui/material";
-import React, {createContext} from "react";
+import React, {createContext, useEffect} from "react";
 import {DateTimePicker} from "@mui/x-date-pickers";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
@@ -33,8 +33,6 @@ const marks = [
     },
 ];
 
-const Filters = createContext();
-
 function SelectPreisklasse() {
     const [preisklasse, setPreisklasse] = React.useState("");
 
@@ -57,11 +55,12 @@ function SelectPreisklasse() {
     );
 }
 
-function SelectCategory() {
+function SelectCategory(props) {
     const [category, setCategory] = React.useState("");
 
     const handleChange = (event) => {
         setCategory(event.target.value);
+        props.callback(event.target.value);
     }
 
     return (
@@ -101,36 +100,40 @@ function ReservationTimePicker() {
     )
 }
 
-export class FilterBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            filters: {
-                category: "",
-                price: "",
-                rating: "",
-                distance: "",
-                time: ""
+export default function FilterBar(props) {
+        const [filters, setFilters] = React.useState({
+            category: "",
+            price: "",
+            rating: "",
+            distance: "",
+            time: ""
+        });
+
+      useEffect(() => {
+          props.filterCallback(filters);
+      }, [filters])
+
+    const handleSliderChange = (event, value) => {
+        setFilters({
+            ...filters,
+            distance: value*1000
             }
-        }
+        )
+        props.filterCallback(filters);
     }
 
-    handleSliderChange = (event, value) => {
-        this.setState({
-            filters: {
-                distance: value*1000
-            }
-        })
-        this.props.filterCallback(this.state.filters);
-        console.log(value);
+    const handleCategoryChange = (newCategory) => {
+        setFilters({
+            ...filters,
+            category: newCategory
+        });
     }
 
-    render() {
-        return (
+    return (
             <div>
                 <Grid container spacing={3} justifyContent="space-around">
                     <Grid item xs={2}>
-                        <SelectCategory/>
+                        <SelectCategory callback={handleCategoryChange}/>
                     </Grid>
                     <Grid item xs={2}>
                         <SelectPreisklasse/>
@@ -145,7 +148,7 @@ export class FilterBar extends React.Component {
                         <Box>
                             <Typography>Distanz</Typography>
                             <Slider
-                                defaultValue={20} min={1} max={30} marks={marks} onChange={this.handleSliderChange}/>
+                                defaultValue={5} min={1} max={30} marks={marks} onChange={handleSliderChange}/>
                         </Box>
                     </Grid>
 
@@ -158,6 +161,3 @@ export class FilterBar extends React.Component {
             </div>
         )
     }
-}
-
-export default FilterBar

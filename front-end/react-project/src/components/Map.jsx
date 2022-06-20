@@ -19,15 +19,7 @@ export class MapContainer extends Component {
                 lng: 11.56745
             },
             filters: props.filters,
-            restaurants: [
-                {
-                    name: "TUM Mensa",
-                    position: {
-                        lat: 48.142166098,
-                        lng: 11.56745
-                    },
-                }
-            ]
+            restaurants: props.restaurants,
         }
     }
 
@@ -70,6 +62,13 @@ export class MapContainer extends Component {
         }
     }
 
+    getPosition (restaurant) {
+        return {
+            lat: restaurant.location.Xcoordinate,
+            lng: restaurant.location.Ycoordinate
+        }
+    }
+
     render() {
         return (
             <Map
@@ -87,7 +86,7 @@ export class MapContainer extends Component {
                 <Marker onClick={this.onMarkerClick} title={"CurLoc"} name={"CurrentLocation"} position={this.state.currentLocation} />
 
                 {this.state.restaurants.map(restaurant => (
-                    <Marker onClick={this.onMarkerClick} title={restaurant.name} name={restaurant.name} position={restaurant.position} />
+                    <Marker onClick={this.onMarkerClick} title={restaurant.name} name={restaurant.name} position={this.getPosition(restaurant)} />
                 ))}
 
                 <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onClose={this.onInfoWindowClose}>
