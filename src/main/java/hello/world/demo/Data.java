@@ -25,6 +25,13 @@ public class Data {
 
                 List<Tisch> tables = new ArrayList<>();
                 tables.add(new Tisch(0, 5));
+                tables.add(new Tisch(1, 5));
+                tables.add(new Tisch(2, 7));
+                tables.add(new Tisch(3, 8));
+                tables.add(new Tisch(4, 5));
+                tables.add(new Tisch(5, 5));
+                tables.add(new Tisch(6, 5));
+                tables.add(new Tisch(7, 12));
 
                 LocalTime opening = LocalTime.of(13, 0);
 
@@ -33,7 +40,7 @@ public class Data {
                 List<LocalTime> openingTimes = Util.getLocalTimeList(openingTwo, openingTwo, openingTwo, opening, opening,
                         opening, openingTwo);
 
-                LocalTime closing = LocalTime.of(16, 0);
+                LocalTime closing = LocalTime.of(23, 0);
        
                 List<LocalTime> closingTimes = Util.getLocalTimeList(closing, closing, closing, closing, closing,
                         closing, closing);
