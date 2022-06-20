@@ -9,7 +9,7 @@ import {
     Grid,
     Slider, TextField
 } from "@mui/material";
-import React, {createContext, useEffect} from "react";
+import React, {useEffect} from "react";
 import {DateTimePicker} from "@mui/x-date-pickers";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
@@ -113,7 +113,8 @@ export default function FilterBar(props) {
             price: "",
             rating: "",
             distance: "",
-            time: ""
+            time: "",
+            persons: 2,
         });
 
       useEffect(() => {
@@ -149,17 +150,24 @@ export default function FilterBar(props) {
         });
     }
 
+    const handlePersonsChange = (event, newPersons) => {
+        setFilters({
+            ...filters,
+            persons: newPersons
+        });
+    }
+
     const handleTimeChange = (newTime) => {
           const d = new Date(newTime);
+          var persons = filters.persons;
           var hours = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
           var minutes = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
           var month = (d.getMonth()+1) < 10 ? "0" + (d.getMonth()+1) : (d.getMonth()+1);
           var day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
           setFilters({
                 ...filters,
-                time: hours + ":" + minutes + "_" + d.getFullYear() + "-" + month + "-" + day
+                time: hours + ":" + minutes + "_" + d.getFullYear() + "-" + month + "-" + day+"_"+persons
           })
-        console.log(filters.time);
     }
 
     return (
@@ -185,9 +193,22 @@ export default function FilterBar(props) {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={4}>
+                    <Grid item xs={3}>
                         <Box>
                             <ReservationTimePicker callback={handleTimeChange} />
+                        </Box>
+                    </Grid>
+
+                    <Grid item xs={1}>
+                        <Box>
+                            <TextField id="persons" label="Personen" type="number" value={filters.persons}
+                                       InputLabelProps={{
+                                           shrink: true,
+                                       }} InputProps={{
+                                inputProps:
+                                    {min:0,max: 10}
+                            }}
+                                       onChange={handlePersonsChange} />
                         </Box>
                     </Grid>
                 </Grid>

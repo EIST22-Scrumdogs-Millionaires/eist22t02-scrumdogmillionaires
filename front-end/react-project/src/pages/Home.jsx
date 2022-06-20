@@ -25,6 +25,7 @@ export default function Home() {
     rating: "",
     distance: 1000,
     time: "",
+    persons: 2,
   });
 
 
