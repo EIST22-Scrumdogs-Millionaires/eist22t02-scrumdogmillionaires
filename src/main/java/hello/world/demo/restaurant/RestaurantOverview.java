@@ -2,17 +2,37 @@ package hello.world.demo.restaurant;
 
 import hello.world.demo.Data;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
-import org.testng.internal.collections.Pair;
-
-public class RestaurantOverview {
+public class RestaurantOverview extends Thread {
     private static List<Restaurant> restaurants = Data.generateRestaurants();
 
     private final static int MAX_LEVENSTHEIN_DIFFERENCE = 40;
     private final static int TOP_TEN = 10;
+
+    private static final int UPDATE_TIME = 100_000;
+
+    // Deletes all unconfirmed Reservations 12 Hours before the reserved time
+    @Override
+    public void run() {
+        while (true) {
+            restaurants.stream().forEach(x -> {
+                x.getReservations().stream()
+                        .filter(y -> !y.getConfirmed() && (Duration.between(y.getDate(), LocalDate.now()).toHours()
+                                + Duration.between(y.getTime(), LocalTime.now()).toHours() < 12))
+                        .forEach(y -> x.cancelReservation(y, y.getCancelSecretKey()));
+            });
+            try {
+                Thread.sleep(UPDATE_TIME);
+            } catch (InterruptedException e) {
+
+                e.printStackTrace();
+            }
+        }
+    }
 
     public static Restaurant getRestaurantById(int id) {
         List<Restaurant> ret = restaurants.stream().filter(x -> x.getId() == id).toList();
@@ -224,12 +244,10 @@ public class RestaurantOverview {
      * @return
      */
     public static Reservation postReservation(Reservation reservation, Visitor visitor) {
-        if (restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
-                .passReservation(reservation, visitor))
-            return reservation;
-        else {
-            return null;
-        }
+        restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
+                .passReservation(reservation, visitor);
+        return reservation;
+
     }
 
     /**

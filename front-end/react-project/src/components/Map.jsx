@@ -77,36 +77,43 @@ export function MapContainer(props) {
         }
     }
         var dis = state.filters.distance === ""? 2000 : state.filters.distance;
-        return (
-            <Map
-                google={props.google}
-                zoom={14}
-                style={mapStyles}
-                onClick={onMapClicked}
-                initialCenter={
-                    {
-                        lat: state.currentLocation.lat,
-                        lng: state.currentLocation.lng
-                    }
-                }>
 
-                <Marker onClick={onMarkerClick} title={"CurLoc"} name={"CurrentLocation"} position={state.currentLocation} />
+        if (typeof (state.restaurants) === "undefined") {
+            return <div>Loading...</div>
+        } else {
+            return (
+                <Map
+                    google={props.google}
+                    zoom={14}
+                    style={mapStyles}
+                    onClick={onMapClicked}
+                    initialCenter={
+                        {
+                            lat: state.currentLocation.lat,
+                            lng: state.currentLocation.lng
+                        }
+                    }>
 
-                {state.restaurants.map(restaurant => (
-                    <Marker onClick={onMarkerClick} title={restaurant.name} name={restaurant.name} position={getPosition(restaurant)} />
-                ))}
+                    <Marker onClick={onMarkerClick} title={"CurLoc"} name={"CurrentLocation"} position={state.currentLocation} />
 
-                <InfoWindow marker={state.activeMarker} visible={state.showingInfoWindow} onClose={onInfoWindowClose}>
-                    <div>
-                        <p>{state.selectedPlace.name}</p>
-                    </div>
-                </InfoWindow>
+                    {state.restaurants.map(restaurant => (
+                        <Marker onClick={onMarkerClick} title={restaurant.name} name={restaurant.name} position={getPosition(restaurant)} />
+                    ))}
 
-                <Circle radius={dis} center={state.currentLocation} onClick={onMapClicked}
-                        fillOpacity={0.2} strokeOpacity={1} strokeWeight={3}/>
 
-            </Map>
-        );
+                    <InfoWindow marker={state.activeMarker} visible={state.showingInfoWindow} onClose={onInfoWindowClose}>
+                        <div>
+                            <p>{state.selectedPlace.name}</p>
+                        </div>
+                    </InfoWindow>
+
+                    <Circle radius={dis} center={state.currentLocation} onClick={onMapClicked}
+                            fillOpacity={0.2} strokeOpacity={1} strokeWeight={3}/>
+
+                </Map>
+            );
+        }
+
     }
 
 

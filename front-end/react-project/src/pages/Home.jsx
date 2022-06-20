@@ -10,6 +10,8 @@ import Axios from "axios";
 
 export default function Home() {
 
+
+
   const [query, handleSearchBox] = React.useState("");
   const [restaurants, setRestaurants] = React.useState( () => {
         Axios.get(`http://localhost:8080/restaurants/getTopTen`)
@@ -30,31 +32,31 @@ export default function Home() {
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
-    var filterString = [];
-    //TODO: Get CurrentLocation and number of persons
+    var filterTypes = [];
     for (let [key, value] of Object.entries(newFilters)) {
       switch (key) {
         case "category": {
-          filterString.push(`T_${value}`);
+          filterTypes.push(`T_${value}`);
           break;
         }
         case "price": {
-            filterString.push(`P_${value}`);
-            break;
+          filterTypes.push(`P_${value}`);
+          break;
         }
         case "rating": {
-            filterString.push(`A_${value}`);
-            break;
-        } case "distance": {
-            filterString.push(`D_${value}`);
-            break;
-        } case "time": {
-            filterString.push(`F_${value}`);
-            break;
+          filterTypes.push(`A_${value}`);
+          break;
+        }
+        case "distance": {
+          filterTypes.push(`D_${value}`);
+          break;
+        }
+        case "time": {
+          filterTypes.push(`F_${value}`);
+          break;
         }
       }
     }
-    console.log(filterString);
   };
 
   return (

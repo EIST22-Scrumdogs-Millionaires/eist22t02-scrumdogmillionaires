@@ -92,7 +92,7 @@ public class ReservationController {
         return ResponseEntity.ok(jsonString);
     }
 
-    @GetMapping(value = "/sendmail")
+    @GetMapping(value = "/sendmailTest")
     @CrossOrigin(origins = "http://localhost:3000")
     public String sendmail() {
 

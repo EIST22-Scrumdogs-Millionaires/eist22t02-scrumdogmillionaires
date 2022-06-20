@@ -3,6 +3,7 @@ package hello.world.demo.restaurant;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.TemporalAmount;
 import java.util.*;
 
 import hello.world.demo.email.EmailServiceImpl;
@@ -242,6 +243,12 @@ public class Restaurant {
 	}
 
 	public List<Tisch> getAvailableTables(LocalTime from, LocalDate date, int persons) {
+		if (from.isBefore(openingTimes.get(date.getDayOfWeek().getValue() - 1))
+				|| from.isAfter(LocalTime.of(
+						closingTime.get(date.getDayOfWeek().getValue() - 1).getHour() - RESERVATION_DURATION,
+						closingTime.get(date.getDayOfWeek().getValue() - 1).getMinute()))) {
+			return new ArrayList<>();
+		}
 		List<Tisch> availableTables = this.tables.stream().filter(x -> x.getSeats() >= persons).toList();
 
 		List<Reservation> possibleReservations = this.reservations.stream().filter(x -> x.getDate().equals(date))
@@ -252,7 +259,7 @@ public class Restaurant {
 				.filter(x -> !possibleReservations.stream().anyMatch(y -> y.getTable().getId() == x.getId())).toList();
 	}
 
-	public boolean passReservation(Reservation reservation, Visitor user) {
+	public void passReservation(Reservation reservation, Visitor user) {
 
 		String emailResConfirmText = " Ihre Reservierung ist bestätigt, " + user.getUsername()
 				+ "!\n Vielen Dank dass Sie bei " + this.name + "reserviert haben. \n Tisch "
@@ -789,6 +796,5 @@ public class Restaurant {
 
 		reservation.setUser(user);
 		reservations.add(reservation);
-		return true;
 	}
 }
