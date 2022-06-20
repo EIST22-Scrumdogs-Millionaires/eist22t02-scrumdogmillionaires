@@ -68,10 +68,15 @@ function SelectCategory(props) {
             <FormControl fullWidth>
                 <InputLabel>Kategorie</InputLabel>
                 <Select labelId="category" label="Category" value={category} onChange={handleChange}>
-                    <MenuItem value={"1"}>Italienisch</MenuItem>
-                    <MenuItem value={"2"}>Amerikanisch</MenuItem>
-                    <MenuItem value={"3"}>Deutsch</MenuItem>
-                    <MenuItem value={"4"}>Indisch</MenuItem>
+                    <MenuItem value={"1"}>Chinese</MenuItem>
+                    <MenuItem value={"2"}>German</MenuItem>
+                    <MenuItem value={"3"}>Bavarian</MenuItem>
+                    <MenuItem value={"4"}>Taiwanese</MenuItem>
+                    <MenuItem value={"5"}>Italian</MenuItem>
+                    <MenuItem value={"6"}>Fast Food</MenuItem>
+                    <MenuItem value={"7"}>Pizza</MenuItem>
+                    <MenuItem value={"8"}>Kebab</MenuItem>
+                    <MenuItem value={"9"}>Gourmet</MenuItem>
                 </Select>
             </FormControl>
         </Box>
