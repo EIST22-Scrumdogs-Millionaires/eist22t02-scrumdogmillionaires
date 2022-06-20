@@ -96,8 +96,8 @@ footer {
   -8px -8px 24px #f0f0f0;
 }
 
-.picture-map-wrapper{
-  height: 270px;
+.picture-wrapper{
+  height: 200px;
   padding: 20px 20px;
   border-radius: 7px;
   background: #f7f7f7;
@@ -125,7 +125,7 @@ footer {
 }
 
 .input-reservate{
-  margin: 30px auto;
+  margin: 20px auto;
   width: 300px;
 }
 
@@ -149,4 +149,33 @@ footer {
 
 .search-button{
   margin-top: 20px;
+}
+
+.tables-wrapper{
+  max-width: 210px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin: 0 auto;
+  padding: 10px; 
+  border-radius: 10px;
+  border-color: rgb(134, 134, 134);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.tableStyleAvailable{
+  padding: 2px;
+  border-radius: 5px;
+  border-color: green;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.tableStyleNonavailable{
+  padding: 2px;
+  border-radius: 5px;
+  border-color: red;
+  background-color: #ffaeae;
+  border-width: 2px;
+  border-style: solid;
 }

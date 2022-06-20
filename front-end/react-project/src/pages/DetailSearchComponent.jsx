@@ -93,7 +93,7 @@ export default function DetailSearchComponent() {
                 </p>
               )}
             </div>
-            <div className="picture-map-wrapper">
+            <div className="picture-wrapper">
               <img
                 src={`${data.pictures}`}
                 alt="restaurant picture"
@@ -101,7 +101,7 @@ export default function DetailSearchComponent() {
               />
             </div>
             <div>
-              <ReservateComponent></ReservateComponent>
+              <ReservateComponent restaurant={data}></ReservateComponent>
             </div>
             <CommentSection restaurant={data} />
           </Container>
