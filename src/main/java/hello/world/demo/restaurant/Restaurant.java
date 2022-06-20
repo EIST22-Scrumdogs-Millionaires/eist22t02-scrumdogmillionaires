@@ -117,6 +117,7 @@ public class Restaurant {
 	}
 
 	public void addReview(Review review) {
+		System.out.println("adding :"+review.getComment());
 		reviews.add(review);
 	}
 

@@ -15,6 +15,18 @@ public class Review {
 
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
     public String getUsername() {
         return username;
     }
