@@ -251,7 +251,7 @@ public class Restaurant {
 				.filter(x -> !possibleReservations.stream().anyMatch(y -> y.getTable().getId() == x.getId())).toList();
 	}
 
-	public boolean passReservation(Reservation reservation, Visitor user) {
+	public void passReservation(Reservation reservation, Visitor user) {
 
 		String emailResConfirmText = " Ihre Reservierung ist bestätigt, " + user.getUsername()
 				+ "!\n Vielen Dank dass Sie bei " + this.name + "reserviert haben. \n Tisch "
@@ -788,6 +788,5 @@ public class Restaurant {
 
 		reservation.setUser(user);
 		reservations.add(reservation);
-		return true;
 	}
 }

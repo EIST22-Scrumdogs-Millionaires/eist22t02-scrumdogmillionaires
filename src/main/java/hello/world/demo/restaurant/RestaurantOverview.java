@@ -244,12 +244,10 @@ public class RestaurantOverview extends Thread {
      * @return
      */
     public static Reservation postReservation(Reservation reservation, Visitor visitor) {
-        if (restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
-                .passReservation(reservation, visitor))
-            return reservation;
-        else {
-            return null;
-        }
+        restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
+                .passReservation(reservation, visitor);
+        return reservation;
+
     }
 
     /**
