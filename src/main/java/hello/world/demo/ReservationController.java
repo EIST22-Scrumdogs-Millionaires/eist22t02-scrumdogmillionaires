@@ -46,6 +46,26 @@ public class ReservationController {
         return ResponseEntity.ok(jsonString);
     }
 
+    @GetMapping("reservations/getAvailableTables/{restaurant_id}/{date}/{time}/{seats}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<String> AvailableTables(@PathVariable("restaurant_id") int restaurant_id,
+            @PathVariable("date") LocalDate date, @PathVariable("time") LocalTime time,
+            @PathVariable("seats") int seats) {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+        String jsonString = "didn't find anything";
+        try {
+            jsonString = mapper
+                    .writeValueAsString(RestaurantOverview.getAvailableTables(restaurant_id, date, time, seats));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(jsonString);
+    }
+
     @DeleteMapping("reservations/{id}/{actionSecretKey}")
     @CrossOrigin(origins = "http://localhost:3000")
     public void removeReservation(@PathVariable("id") int id,

@@ -265,4 +265,11 @@ public class RestaurantOverview {
             getRestaurantById(id).addReview(review);
         }
     }
+
+    public static List<Tisch> getAvailableTables(int restaurant_id, LocalDate date, LocalTime time, int seats) {
+        if (getRestaurantById(restaurant_id) != null) {
+            getRestaurantById(restaurant_id).getAvailableTables(time, date, seats);
+        }
+        return null;
+    }
 }
