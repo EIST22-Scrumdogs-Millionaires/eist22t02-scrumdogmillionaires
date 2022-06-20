@@ -33,11 +33,12 @@ const marks = [
     },
 ];
 
-function SelectPreisklasse() {
+function SelectPreisklasse(props) {
     const [preisklasse, setPreisklasse] = React.useState("");
 
     const handleChange = (event) => {
         setPreisklasse(event.target.value);
+        props.callback(event.target.value);
     }
 
     return (
@@ -124,13 +125,26 @@ export default function FilterBar(props) {
             distance: value*1000
             }
         )
-        props.filterCallback(filters);
     }
 
     const handleCategoryChange = (newCategory) => {
         setFilters({
             ...filters,
             category: newCategory
+        });
+    }
+
+    const handlePriceChange = (newPrice) => {
+        setFilters({
+            ...filters,
+            price: newPrice
+        });
+    }
+
+    const handleRatingChange = (event, newRating) => {
+        setFilters({
+            ...filters,
+            rating: newRating
         });
     }
 
@@ -141,12 +155,12 @@ export default function FilterBar(props) {
                         <SelectCategory callback={handleCategoryChange}/>
                     </Grid>
                     <Grid item xs={2}>
-                        <SelectPreisklasse/>
+                        <SelectPreisklasse callback={handlePriceChange}/>
                     </Grid>
                     <Grid item xs={2}>
                         <Box>
                             <Typography>Rating (mind.)</Typography>
-                            <Rating/>
+                            <Rating onChange={handleRatingChange} />
                         </Box>
                     </Grid>
                     <Grid item xs={2}>
