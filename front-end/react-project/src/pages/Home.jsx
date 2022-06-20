@@ -23,11 +23,10 @@ export default function Home() {
     category: "",
     price: "",
     rating: "",
-    distance: 1000,
+    distance: 2000,
     time: "",
     persons: 2,
   });
-
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
@@ -60,7 +59,7 @@ export default function Home() {
 
   return (
     <div>
-      <NavigationBar></NavigationBar>
+      <NavigationBar />
       <div className="content">
         <Container maxWidth="xl">
           <div className="title-wrapper">
