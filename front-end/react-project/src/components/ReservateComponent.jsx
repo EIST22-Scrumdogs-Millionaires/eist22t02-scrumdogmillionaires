@@ -4,16 +4,61 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, Grid } from "@mui/material";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 //contains much code from https://mui.com/material-ui/react-stepper/
 
-const steps = ["Select", "Your Data", "Confirm"];
-const DetailRestaurantInfos = () => {
+const steps = ["Your Data", "Select", "Confirm"];
+const DetailRestaurantInfos = (props) => {
   const [value, setValue] = React.useState(new Date());
+  const [table, setTable] = React.useState("");
+  const tablesDummy = [{id: 0, seats: 5, available: true}, {id: 1, seats: 2, available: false}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: false}, {id: 0, seats: 5, available: false}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: true}]
+  
+
+
+  const classNameAvailable = "tableStyleAvailable";
+  const classNameNonavailable = "tableStyleNonavailable"
+  //props.restaurant.tables.map ... 
+  const tables = tablesDummy.map((table) => {
+    // id, seats
+    return (
+      <Grid item xs={3} sm={3} md={3} lg={3}>
+        <div className={table.available === true ? classNameAvailable : classNameNonavailable}> 
+        {table.id}
+        </div>
+      </Grid>
+    );
+  });
+  const tableIdsFree = tablesDummy.filter ((table) => table.available).map((table) => {
+    return <MenuItem value={table.id}>{table.id}</MenuItem>;
+  });
+
+  const chooseTable = (
+    <div>
+      <FormControl sx={{ m: 1, minWidth: 80 }}>
+        <InputLabel>Table</InputLabel>
+        <Select
+          value={table}
+          onChange={setTable}
+          autoWidth
+          label="Table"
+          color="secondary"
+          defaultValue=""
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+         {tableIdsFree}
+        </Select>
+      </FormControl>
+    </div>
+  );
 
   const handleChange = (newValue) => {
     setValue(newValue);
@@ -75,6 +120,31 @@ const DetailRestaurantInfos = () => {
   } else if (activeStep === 0) {
     content = (
       <div>
+      <div className="input-reservate">
+          <TextField
+            color="secondary"
+            required
+            id="standard-basic"
+            label="Name"
+            variant="outlined"
+          />
+        </div>
+        <div className="input-reservate">
+          <TextField
+            color="secondary"
+            required
+            id="standard-basic"
+            label="E-Mail"
+            variant="outlined"
+          />
+        </div>
+        
+      </div>
+    );
+  } else if (activeStep === 1) {
+    content = (
+      
+      <div>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <div className="input-reservate">
             <DesktopDatePicker
@@ -96,36 +166,22 @@ const DetailRestaurantInfos = () => {
             />
           </div>
         </LocalizationProvider>
-      </div>
-    );
-  } else if (activeStep === 1) {
-    content = (
-      <div>
-        <div className="input-reservate">
-          <TextField
-            color="secondary"
-            required
-            id="standard-basic"
-            label="Name"
-            variant="outlined"
-          />
+        
+        Tables:
+        
+        <div className="tables-wrapper">
+          <Grid
+              container
+              alignItems="center"
+              rowSpacing={{ xs: 2}}
+              columnSpacing={{ xs: 2}}
+            >
+        {tables}
+       </Grid>
         </div>
+        
         <div className="input-reservate">
-          <TextField
-            color="secondary"
-            required
-            id="standard-basic"
-            label="E-Mail"
-            variant="outlined"
-          />
-        </div>
-        <div className="input-reservate">
-          <TextField
-            color="secondary"
-            id="standard-basic"
-            label="Preferred table"
-            variant="outlined"
-          />
+        {chooseTable}
         </div>
       </div>
     );
