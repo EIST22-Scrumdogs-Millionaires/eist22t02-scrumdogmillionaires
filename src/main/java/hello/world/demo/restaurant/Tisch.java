@@ -6,10 +6,13 @@ public class Tisch {
 
 	private int seats;
 
+	private boolean available;
+
 
 	public Tisch(int id, int seats) {
 		this.id = id;
 		this.seats = seats;
+		this.available = true;
 		
 	}
 
@@ -23,5 +26,13 @@ public class Tisch {
 
 	public void setSeats(int seats) {
 		this.seats = seats;
+	}
+
+	public boolean getAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

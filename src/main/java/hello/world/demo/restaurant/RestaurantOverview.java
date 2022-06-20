@@ -2,15 +2,37 @@ package hello.world.demo.restaurant;
 
 import hello.world.demo.Data;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
-public class RestaurantOverview {
+public class RestaurantOverview extends Thread {
     private static List<Restaurant> restaurants = Data.generateRestaurants();
 
-    private final static int MAX_DIFFERENCE = 30;
+    private final static int MAX_LEVENSTHEIN_DIFFERENCE = 40;
     private final static int TOP_TEN = 10;
+
+    private static final int UPDATE_TIME = 100_000;
+
+    // Deletes all unconfirmed Reservations 12 Hours before the reserved time
+    @Override
+    public void run() {
+        while (true) {
+            restaurants.stream().forEach(x -> {
+                x.getReservations().stream()
+                        .filter(y -> !y.getConfirmed() && (Duration.between(y.getDate(), LocalDate.now()).toHours()
+                                + Duration.between(y.getTime(), LocalTime.now()).toHours() < 12))
+                        .forEach(y -> x.cancelReservation(y, y.getCancelSecretKey()));
+            });
+            try {
+                Thread.sleep(UPDATE_TIME);
+            } catch (InterruptedException e) {
+
+                e.printStackTrace();
+            }
+        }
+    }
 
     public static Restaurant getRestaurantById(int id) {
         List<Restaurant> ret = restaurants.stream().filter(x -> x.getId() == id).toList();
@@ -132,43 +154,29 @@ public class RestaurantOverview {
     }
 
     public static List<Restaurant> searchB(String searchQuery) {
-        int difference = 0;
-        List<Restaurant> results = new ArrayList<>();
-        for (Restaurant restaurant : restaurants) {
-            String restaurantName = restaurant.getName();
-            difference = calculate(searchQuery, restaurantName);
-            if (difference <= MAX_DIFFERENCE) {
-                results.add(restaurant);
-            }
-        }
-        Collections.reverse(results);
-
-        // gib top ten 10
-        if (results.size() > TOP_TEN) {
-            ((ArrayList<Restaurant>) results).subList(0, TOP_TEN);
-        }
-
-        return results;
+        return restaurants.stream()
+                .filter(x -> calculateLevenstheinDistance(searchQuery,
+                        x.getName() + " " + x.getDescription()) <= MAX_LEVENSTHEIN_DIFFERENCE)
+                .sorted((a, b) -> calculateLevenstheinDistance(searchQuery, a.getName() + " " + a.getDescription())
+                        - calculateLevenstheinDistance(searchQuery, b.getName() + " " + b.getDescription()))
+                .limit(10).toList();
     }
 
     public static List<SmallRestaurant> search(String searchQuery) {
-        int difference = 0;
-        List<SmallRestaurant> results = new ArrayList<>();
-        for (SmallRestaurant restaurant : getAllRestaurants()) {
-            String restaurantName = restaurant.getName();
-            difference = calculate(searchQuery, restaurantName);
-            if (difference <= MAX_DIFFERENCE) {
-                results.add(restaurant);
-            }
-        }
-        Collections.reverse(results);
-
-        // gib top ten 10
-        if (results.size() > TOP_TEN) {
-            ((ArrayList<SmallRestaurant>) results).subList(0, TOP_TEN);
-        }
-
-        return results;
+        return getAllRestaurants().stream()
+                .filter(x -> Math.min(calculateLevenstheinDistance(searchQuery,
+                        x.getName()),
+                        calculateLevenstheinDistance(searchQuery,
+                                x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
+                .sorted((a, b) -> Math.min(calculateLevenstheinDistance(searchQuery,
+                        a.getName()),
+                        calculateLevenstheinDistance(searchQuery,
+                                a.getDescription()))
+                        - Math.min(calculateLevenstheinDistance(searchQuery,
+                                b.getName()),
+                                calculateLevenstheinDistance(searchQuery,
+                                        b.getDescription())))
+                .limit(10).toList();
     }
 
     /**
@@ -178,7 +186,7 @@ public class RestaurantOverview {
      * @param y
      * @return
      */
-    public static int calculate(String x, String y) {
+    private static int calculateLevenstheinDistance(String x, String y) {
         int[][] dp = new int[x.length() + 1][y.length() + 1];
 
         for (int i = 0; i <= x.length(); i++) {
@@ -236,12 +244,10 @@ public class RestaurantOverview {
      * @return
      */
     public static Reservation postReservation(Reservation reservation, Visitor visitor) {
-        if (restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
-                .passReservation(reservation, visitor))
-            return reservation;
-        else {
-            return null;
-        }
+        restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
+                .passReservation(reservation, visitor);
+        return reservation;
+
     }
 
     /**
@@ -264,5 +270,23 @@ public class RestaurantOverview {
         if (getRestaurantById(id) != null) {
             getRestaurantById(id).addReview(review);
         }
+    }
+
+    public synchronized static List<Tisch> getAvailableTables(int restaurant_id, LocalDate date, LocalTime time,
+            int seats) {
+        Restaurant restaurant = getRestaurantById(restaurant_id);
+        if (restaurant != null) {
+            List<Tisch> available = getRestaurantById(restaurant_id).getAvailableTables(time, date, seats);
+            return restaurant.getTables().stream().map(x -> {
+                if (available.stream().anyMatch(y -> y.getId() == x.getId())) {
+                    x.setAvailable(true);
+                } else {
+                    x.setAvailable(false);
+                }
+                return x;
+            }).toList();
+
+        }
+        return null;
     }
 }
