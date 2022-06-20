@@ -1,7 +1,8 @@
 {
     "Augustiner-Keller": {
         "place_id": "ChIJe8ga9v11nkcRX8CtPNbgTJs",
-        "description": 
+        "description": "Historisches Restaurant mit großem Biergarten & Bierstüberl, das bayerische & internationale Speisen anbietet.",
+        "category" : "BAVARIAN",
         "name": "Augustiner-Keller",
         "location": {
             "lat": 48.14353229999999,
