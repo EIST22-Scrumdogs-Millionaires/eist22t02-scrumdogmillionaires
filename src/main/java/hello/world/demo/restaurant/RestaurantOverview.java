@@ -266,9 +266,20 @@ public class RestaurantOverview {
         }
     }
 
-    public static List<Tisch> getAvailableTables(int restaurant_id, LocalDate date, LocalTime time, int seats) {
-        if (getRestaurantById(restaurant_id) != null) {
-            getRestaurantById(restaurant_id).getAvailableTables(time, date, seats);
+    public synchronized static List<Tisch> getAvailableTables(int restaurant_id, LocalDate date, LocalTime time,
+            int seats) {
+        Restaurant restaurant = getRestaurantById(restaurant_id);
+        if (restaurant != null) {
+            List<Tisch> available = getRestaurantById(restaurant_id).getAvailableTables(time, date, seats);
+            return restaurant.getTables().stream().map(x -> {
+                if (available.stream().anyMatch(y -> y.getId() == x.getId())) {
+                    x.setAvailable(true);
+                } else {
+                    x.setAvailable(false);
+                }
+                return x;
+            }).toList();
+
         }
         return null;
     }
