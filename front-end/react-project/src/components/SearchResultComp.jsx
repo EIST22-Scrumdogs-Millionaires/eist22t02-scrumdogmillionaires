@@ -36,7 +36,7 @@ export default function SearchResultComp(props) {
           </Avatar>
         }
         action={
-          <a href={props.restaurant.website}>
+          <a href={`https://${props.restaurant.website}`}>
           <IconButton aria-label="website">
           <WebsiteIcon />
         </IconButton>
