@@ -32,9 +32,13 @@ export default function CommentSection(props) {
     handleOwnRating(0);
     handleNameChange("");
     handleOwnCommentChange("");
+    window.location.reload(false);
   }
 
   const comments = props.restaurant.reviews.map((review) => {
+    if (review.username === null) {
+      review.username = "Anonymous";
+    }
     return (
       <div className="comment">
         <Stack spacing={1}>

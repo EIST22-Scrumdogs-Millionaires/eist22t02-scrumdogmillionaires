@@ -43,7 +43,7 @@ export default function DetailSearchComponent() {
   if (data == null || data == undefined) {
     return <div>Loading...</div>;
   } else {
-    console.log(data);
+    
 
     for (let [key, value] of Object.entries(data)) {
       console.log(`${key}: ${value}`);
@@ -52,6 +52,7 @@ export default function DetailSearchComponent() {
     for (let [key, value] of Object.entries(data.reviews[0])) {
       console.log(`${key}: ${value}`);
     }
+    console.log(data.reviews);
     return (
       <div>
         <NavigationBar />
@@ -62,9 +63,11 @@ export default function DetailSearchComponent() {
                 <h1>{data.name}</h1>
                 {data.description}
                 <p>
-                  <em>Price Category: </em>
-                  {data.priceCategory}, <em>Type: </em>
-                  {data.restaurantType}
+                {data.priceCategory === undefined ? null :  (<span><em>Price Category: </em>{data.priceCategory}</span>)
+                  }
+                  {data.priceCategory === undefined || data.restaurantType === undefined ? null : <span>,</span>}
+                 {data.restaurantType === undefined ? null : (<span><em>Type: </em>
+                  {data.restaurantType}</span>)}
                 </p>
               </div>
             </div>

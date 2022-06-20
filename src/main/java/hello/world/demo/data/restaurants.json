@@ -166,6 +166,8 @@
     },
     "Hofbr\u00e4uhaus M\u00fcnchen": {
         "place_id": "ChIJxfxSz4t1nkcRLxq9ze1wwak",
+        "description": "Brauhaus aus dem 16. Jahrhundert über 3 Ebenen, mit bayerischem Restaurant, Shows & guter Stimmung.",
+        "category" : "BAVARIAN",
         "name": "Hofbr\u00e4uhaus M\u00fcnchen",
         "location": {
             "lat": 48.1376098,
@@ -329,6 +331,8 @@
     },
     "Prinz Myshkin": {
         "place_id": "ChIJl3c4nfV1nkcR1SU_EWw5T28",
+        "description": "Vegetarisches Edelrestaurant mit minimalistischer, moderner Deko & Fokus auf kreativer internationaler Küche.",
+        "category" : "GOURMET",
         "name": "Prinz Myshkin",
         "location": {
             "lat": 48.13596019999999,
@@ -492,6 +496,8 @@
     },
     "Kilians Irish Pub": {
         "place_id": "ChIJo-2ZufR1nkcRWEZYKjOWbio",
+        "description": "Regionale und internationale Biere, Pubgerichte, Livemusikabende und Sport-TV in einem angesagten Lokal.\n",
+        "category" : "FAST_FOOD",
         "name": "Kilians Irish Pub",
         "location": {
             "lat": 48.13877970000001,
@@ -655,6 +661,8 @@
     },
     "Spatenhaus at the opera": {
         "place_id": "ChIJjRBYoIx1nkcRskPWyC0TqOk",
+        "description": "Rustikales Restaurant für bayerische Gerichte, selbstgebrautes Bier und eleganter Speiseraum in oberer Etage.",
+        "category" : "BAVARIAN",
         "name": "Spatenhaus at the opera",
         "location": {
             "lat": 48.1398456,
@@ -818,6 +826,8 @@
     },
     "Brenner Opengrill": {
         "place_id": "ChIJKxwhCIx1nkcReLTa4aab6-I",
+        "description": "Italienische Speisen in imposanter Halle mit Marmorsäulen und modernem Dekor, durchgängige Küche & Bar.",
+        "category" : "ITALIAN",
         "name": "Brenner Opengrill",
         "location": {
             "lat": 48.1391656,
@@ -971,6 +981,8 @@
     },
     "Wirtshaus Zum Straubinger": {
         "place_id": "ChIJ0dAODmDfnUcRj9XljXyikUk",
+        "description": "Traditionelles bayerisches Wirtshaus & Biergarten mit gemütlicher Holzvertäfelung und regionalen Gerichten.",
+        "category" : "BAVARIAN",
         "name": "Wirtshaus Zum Straubinger",
         "location": {
             "lat": 48.1337514,
@@ -1134,6 +1146,8 @@
     },
     "Cafe Kranich": {
         "place_id": "ChIJV4bg0fd1nkcRJpnnc_xQ30M",
+        "description": "Café mit pfiffigem Ambiente & großer Terrasse, das deutsche & internationale Gerichte und Sandwiches anbietet.",
+        "category" : "GERMAN",
         "name": "Cafe Kranich",
         "location": {
             "lat": 48.1363486,
@@ -1297,6 +1311,8 @@
     },
     "Zum Franziskaner": {
         "place_id": "ChIJl3MdX4t1nkcR_b2vJ4wLuKM",
+        "description": "Bayerisches, familiengeführtes Restaurant, lokale Wurstspezialitäten, mit formellen & rustikalen Speiseräumen.",
+        "category" : "BAVARIAN",
         "name": "Zum Franziskaner",
         "location": {
             "lat": 48.1393887,
@@ -1460,6 +1476,8 @@
     },
     "L'Osteria": {
         "place_id": "ChIJSQbzt_Z1nkcR-FyOQcmfG9s",
+        "description": "Bekanntes italienisches Restaurant in München. 1999 in Italien gegründet und seitdem international geführt.",
+        "category" : "ITALIAN",
         "name": "L'Osteria",
         "location": {
             "lat": 48.1402368,
@@ -1623,6 +1641,8 @@
     },
     "Schneider Br\u00e4uhaus M\u00fcnchen": {
         "place_id": "ChIJWSpmWop1nkcRZSRCDS-wOeU",
+        "description": "Restaurant, das von einer renommierten Weißbierbrauerei betrieben wird, mit zahlreichen klassischen Gerichten.",
+        "category" : "BAVARIAN",
         "name": "Schneider Br\u00e4uhaus M\u00fcnchen",
         "location": {
             "lat": 48.1364479,
@@ -1786,6 +1806,8 @@
     },
     "Augustiner am Platzl": {
         "place_id": "ChIJ_TjDuot1nkcRVuLxp3RKrS0",
+        "description": "Restaurant, das von einer renommierten Münchner Brauerei betrieben wird, mit zahlreichen klassischen Gerichten.",
+        "category" : "BAVARIAN",
         "name": "Augustiner am Platzl",
         "location": {
             "lat": 48.1375632,
@@ -1939,6 +1961,8 @@
     },
     "Gastst\u00e4tte FAUN": {
         "place_id": "ChIJezrlvV3fnUcRdvQM-1CEhlQ",
+        "description": "Bistroähnliches Restaurant mit klassischem Ambiente, internationale & deutsche Gerichte und Augustiner-Bier.",
+        "category" : "GERMAN",
         "name": "Gastst\u00e4tte FAUN",
         "location": {
             "lat": 48.1287818,
@@ -2102,6 +2126,8 @@
     },
     "Caf\u00e9 Luitpold": {
         "place_id": "ChIJnXCJ7_J1nkcR6vRc2lazYME",
+        "description": "Modernes Kaffeehaus in prunkvollem Gebäude aus dem 19. Jh., spezialisiert auf Kuchen & Gourmetschokoladen.",
+        "category" : "GOURMET",
         "name": "Caf\u00e9 Luitpold",
         "location": {
             "lat": 48.1429452,
@@ -2265,6 +2291,8 @@
     },
     "Sushi+Soul": {
         "place_id": "ChIJNWfeiF3fnUcRt5xTeHkBeRA",
+        "description": "Großes japanisches Restaurant und Bar mit stylisher, minimalistischer Einrichtung, Whisky- und Rumverkostung.",
+        "category" : "CHINESE",
         "name": "Sushi+Soul",
         "location": {
             "lat": 48.1284262,

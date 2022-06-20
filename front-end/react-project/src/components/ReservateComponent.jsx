@@ -8,40 +8,90 @@ import { Box, Typography, Button, Grid } from "@mui/material";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import useState from "react-hook-use-state";
+import { useEffect } from "react";
+import Axios from "axios";
 //contains much code from https://mui.com/material-ui/react-stepper/
-
 const steps = ["Your Data", "Select", "Confirm"];
-const DetailRestaurantInfos = (props) => {
-  const [value, setValue] = React.useState(new Date());
-  const [table, setTable] = React.useState("");
-  const tablesDummy = [{id: 0, seats: 5, available: true}, {id: 1, seats: 2, available: false}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: false}, {id: 0, seats: 5, available: false}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: true}, {id: 0, seats: 5, available: true}]
-  
+const optionsDate = { year: "numeric", month: "2-digit", day: "2-digit" };
+const optionsTime = { hour: "2-digit", minute: "2-digit" };
 
+const DetailRestaurantInfos = (props) => {
+  const [name, handleNameChange] = useState("");
+  const [email, handleEmailChange] = useState("");
+  const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+  const [table, setTable] = useState(null);
+  const [numberPersons, setNumberPersons] = useState(0);
+  const [availableTables, setAvailableTables] = useState([]);
+  useEffect(() => {
+    const dummyDate = new Date();
+    var inputDate = dummyDate
+      .toLocaleDateString("de-De", optionsDate)
+      .replaceAll(".", "-");
+    var inputTime = dummyDate.toLocaleTimeString("de-De", optionsTime);
+
+    //TODO 5 ändern
+    Axios.get(
+      `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/5`
+    )
+      .then((res) => {
+        setAvailableTables(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(availableTables);
+
+  const tablesDummy = [
+    { id: 0, seats: 5, available: true },
+    { id: 1, seats: 2, available: false },
+    { id: 0, seats: 5, available: true },
+    { id: 0, seats: 5, available: false },
+    { id: 0, seats: 5, available: false },
+    { id: 0, seats: 5, available: true },
+    { id: 0, seats: 5, available: true },
+    { id: 0, seats: 5, available: true },
+    { id: 0, seats: 5, available: true },
+    { id: 0, seats: 5, available: true },
+  ];
+  console.log(props.restaurant.tables);
+
+  for (let [key, value1] of Object.entries(props.restaurant.tables)) {
+    console.log(`${key}: ${value1}`);
+  }
 
   const classNameAvailable = "tableStyleAvailable";
-  const classNameNonavailable = "tableStyleNonavailable"
-  //props.restaurant.tables.map ... 
+  const classNameNonavailable = "tableStyleNonavailable";
+  //props.restaurant.tables.map ...
   const tables = tablesDummy.map((table) => {
     // id, seats
     return (
       <Grid item xs={3} sm={3} md={3} lg={3}>
-        <div className={table.available === true ? classNameAvailable : classNameNonavailable}> 
-        {table.id}
+        <div
+          className={
+            table.available === true
+              ? classNameAvailable
+              : classNameNonavailable
+          }
+        >
+          {table.id}
         </div>
       </Grid>
     );
   });
-  const tableIdsFree = tablesDummy.filter ((table) => table.available).map((table) => {
-    return <MenuItem value={table.id}>{table.id}</MenuItem>;
-  });
+  const tableIdsFree = tablesDummy
+    .filter((table) => table.available)
+    .map((table) => {
+      return <MenuItem value={table.id}>{table.id}</MenuItem>;
+    });
 
   const chooseTable = (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
+      <FormControl sx={{ m: 1, width: 266 }}>
         <InputLabel>Table</InputLabel>
         <Select
           value={table}
@@ -54,18 +104,22 @@ const DetailRestaurantInfos = (props) => {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-         {tableIdsFree}
+          {tableIdsFree}
         </Select>
       </FormControl>
     </div>
   );
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const handleTimePickerChange = (newTime) => {
+    setTime(newTime);
   };
 
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set());
+  const handleDatePickerChange = (newDate) => {
+    setDate(newDate);
+  };
+
+  const [activeStep, setActiveStep] = useState(0);
+  const [skipped, setSkipped] = useState(new Set());
   const isStepOptional = (step) => {
     //return step === 1;
     return false;
@@ -120,13 +174,15 @@ const DetailRestaurantInfos = (props) => {
   } else if (activeStep === 0) {
     content = (
       <div>
-      <div className="input-reservate">
+        <div className="input-reservate">
           <TextField
             color="secondary"
             required
             id="standard-basic"
             label="Name"
             variant="outlined"
+            onChange={(e) => handleNameChange(e.target.value)}
+            sx={{ width: 266 }}
           />
         </div>
         <div className="input-reservate">
@@ -136,14 +192,14 @@ const DetailRestaurantInfos = (props) => {
             id="standard-basic"
             label="E-Mail"
             variant="outlined"
+            onChange={(e) => handleEmailChange(e.target.value)}
+            sx={{ width: 266 }}
           />
         </div>
-        
       </div>
     );
   } else if (activeStep === 1) {
     content = (
-      
       <div>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <div className="input-reservate">
@@ -151,51 +207,70 @@ const DetailRestaurantInfos = (props) => {
               color="secondary"
               label="Date"
               inputFormat="MM/dd/yyyy"
-              value={value}
-              onChange={handleChange}
-              renderInput={(params) => <TextField {...params} />}
-            />
+              value={date}
+              onChange={handleDatePickerChange}
+              renderInput={(params) => (
+                <TextField {...params} sx={{ width: 266 }} />
+              )}
+            >
+              {" "}
+            </DesktopDatePicker>
           </div>
           <div className="input-reservate">
             <TimePicker
+              sx={{ m: 1, width: 806 }}
               ampm={false}
               label="Time"
-              value={value}
-              onChange={handleChange}
-              renderInput={(params) => <TextField {...params} />}
+              value={time}
+              onChange={handleTimePickerChange}
+              renderInput={(params) => (
+                <TextField {...params} sx={{ width: 266 }} />
+              )}
             />
           </div>
         </LocalizationProvider>
-        
-        Tables:
-        
+        <div className="input-reservate">
+          <TextField
+            label="Personen"
+            type="number"
+            value={numberPersons}
+            InputProps={{
+              inputProps: { min: 0, max: 10 },
+            }}
+            onChange={(e) => setNumberPersons(e.target.value)}
+            sx={{ width: 266 }}
+          />
+        </div>
+        <div>Tables:</div>
+
         <div className="tables-wrapper">
           <Grid
-              container
-              alignItems="center"
-              rowSpacing={{ xs: 2}}
-              columnSpacing={{ xs: 2}}
-            >
-        {tables}
-       </Grid>
+            container
+            alignItems="center"
+            rowSpacing={{ xs: 2 }}
+            columnSpacing={{ xs: 2 }}
+          >
+            {tables}
+          </Grid>
         </div>
-        
-        <div className="input-reservate">
-        {chooseTable}
-        </div>
+        <div className="input-reservate">{chooseTable}</div>
       </div>
     );
   } else if (activeStep === 2) {
     content = (
       <div style={{ textAlign: "left", width: "300px", margin: "auto" }}>
         <h3>Confirm:</h3>
-        <strong>Name: </strong>Max Mustermann
+        <strong>Name: </strong>
+        {name}
         <br />
-        <strong>Email: </strong>max_mustermann@gmail.com
+        <strong>Email: </strong>
+        {email}
         <br />
-        <strong>Date: </strong>xx/xx/20222
+        <strong>Date: </strong>
+        {date.toLocaleDateString("de-De", optionsDate).replaceAll(".", "-")}
         <br />
-        <strong>Time: </strong>12:00
+        <strong>Time: </strong>
+        {time.toLocaleTimeString("de-De", optionsTime)}
       </div>
     );
   }
@@ -254,7 +329,14 @@ const DetailRestaurantInfos = (props) => {
                 </Button>
               )}
 
-              <Button onClick={handleNext} color="secondary">
+              <Button
+                onClick={handleNext}
+                color="secondary"
+                disabled={
+                  (activeStep === 0 && (name === "" || email === "")) ||
+                  (activeStep === 1 && (table === null || numberPersons === 0))
+                }
+              >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
             </Box>
