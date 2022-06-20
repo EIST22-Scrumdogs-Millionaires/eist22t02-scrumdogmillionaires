@@ -43,6 +43,8 @@ export default function DetailSearchComponent() {
   if (data == null || data == undefined) {
     return <div>Loading...</div>;
   } else {
+    console.log(data);
+
     for (let [key, value] of Object.entries(data)) {
       console.log(`${key}: ${value}`);
     }
@@ -71,21 +73,25 @@ export default function DetailSearchComponent() {
                 <h3>Address:</h3>
                 {`${data.location.street} ${data.location.streetnumber}, ${data.location.city} ${data.location.plz}`}
               </p>
-              <p>
-                <h3>Opening hours:</h3>TODO
-              </p>
-
-              <p>
-                <h3>More:</h3> Website
-                <a href={`https://${data.website}`}>
-                  <IconButton
-                    aria-label="website"
-                    style={{ margin: "0", padding: "0 0 0 10px " }}
-                  >
-                    <WebsiteIcon />
-                  </IconButton>
-                </a>
-              </p>
+              {data.openingAndClosingTimesAsFancyString === undefined ? null : (
+                <p>
+                  <h3>Opening hours:</h3>
+                  {data.openingAndClosingTimesAsFancyString}
+                </p>
+              )}
+              {data.website === undefined ? null : (
+                <p>
+                  <h3>More:</h3> Website
+                  <a href={`https://${data.website}`}>
+                    <IconButton
+                      aria-label="website"
+                      style={{ margin: "0", padding: "0 0 0 10px " }}
+                    >
+                      <WebsiteIcon />
+                    </IconButton>
+                  </a>
+                </p>
+              )}
             </div>
             <div className="picture-map-wrapper">
               <img
@@ -97,7 +103,7 @@ export default function DetailSearchComponent() {
             <div>
               <ReservateComponent></ReservateComponent>
             </div>
-            <CommentSection reviews={data} />
+            <CommentSection restaurant={data} />
           </Container>
         </div>
         <Footer />

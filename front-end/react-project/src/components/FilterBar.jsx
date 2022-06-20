@@ -9,7 +9,7 @@ import {
     Grid,
     Slider, TextField
 } from "@mui/material";
-import React, {createContext} from "react";
+import React, {useEffect} from "react";
 import {DateTimePicker} from "@mui/x-date-pickers";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
@@ -33,13 +33,12 @@ const marks = [
     },
 ];
 
-const Filters = createContext();
-
-function SelectPreisklasse() {
+function SelectPreisklasse(props) {
     const [preisklasse, setPreisklasse] = React.useState("");
 
     const handleChange = (event) => {
         setPreisklasse(event.target.value);
+        props.callback(event.target.value);
     }
 
     return (
@@ -57,11 +56,12 @@ function SelectPreisklasse() {
     );
 }
 
-function SelectCategory() {
+function SelectCategory(props) {
     const [category, setCategory] = React.useState("");
 
     const handleChange = (event) => {
         setCategory(event.target.value);
+        props.callback(event.target.value);
     }
 
     return (
@@ -69,21 +69,27 @@ function SelectCategory() {
             <FormControl fullWidth>
                 <InputLabel>Kategorie</InputLabel>
                 <Select labelId="category" label="Category" value={category} onChange={handleChange}>
-                    <MenuItem value={"1"}>Italienisch</MenuItem>
-                    <MenuItem value={"2"}>Amerikanisch</MenuItem>
-                    <MenuItem value={"3"}>Deutsch</MenuItem>
-                    <MenuItem value={"4"}>Indisch</MenuItem>
+                    <MenuItem value={"1"}>Chinese</MenuItem>
+                    <MenuItem value={"2"}>German</MenuItem>
+                    <MenuItem value={"3"}>Bavarian</MenuItem>
+                    <MenuItem value={"4"}>Taiwanese</MenuItem>
+                    <MenuItem value={"5"}>Italian</MenuItem>
+                    <MenuItem value={"6"}>Fast Food</MenuItem>
+                    <MenuItem value={"7"}>Pizza</MenuItem>
+                    <MenuItem value={"8"}>Kebab</MenuItem>
+                    <MenuItem value={"9"}>Gourmet</MenuItem>
                 </Select>
             </FormControl>
         </Box>
     );
 }
 
-function ReservationTimePicker() {
+function ReservationTimePicker(props) {
     const [value, setValue] = React.useState(null);
 
     const handleChange = (date) => {
         setValue(date);
+        props.callback(date);
     }
 
     return (
@@ -101,63 +107,111 @@ function ReservationTimePicker() {
     )
 }
 
-export class FilterBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            filters: {
-                category: "",
-                price: "",
-                rating: "",
-                distance: "",
-                time: ""
+export default function FilterBar(props) {
+        const [filters, setFilters] = React.useState({
+            category: "",
+            price: "",
+            rating: "",
+            distance: "",
+            time: "",
+            persons: 2,
+        });
+
+      useEffect(() => {
+          props.filterCallback(filters);
+      }, [filters])
+
+    const handleSliderChange = (event, value) => {
+        setFilters({
+            ...filters,
+            distance: value*1000
             }
-        }
+        )
     }
 
-    handleSliderChange = (event, value) => {
-        this.setState({
-            filters: {
-                distance: value*1000
-            }
-        })
-        this.props.filterCallback(this.state.filters);
-        console.log(value);
+    const handleCategoryChange = (newCategory) => {
+        setFilters({
+            ...filters,
+            category: newCategory
+        });
     }
 
-    render() {
-        return (
+    const handlePriceChange = (newPrice) => {
+        setFilters({
+            ...filters,
+            price: newPrice
+        });
+    }
+
+    const handleRatingChange = (event, newRating) => {
+        setFilters({
+            ...filters,
+            rating: newRating
+        });
+    }
+
+    const handlePersonsChange = (event, newPersons) => {
+        setFilters({
+            ...filters,
+            persons: newPersons
+        });
+    }
+
+    const handleTimeChange = (newTime) => {
+          const d = new Date(newTime);
+          var persons = filters.persons;
+          var hours = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+          var minutes = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
+          var month = (d.getMonth()+1) < 10 ? "0" + (d.getMonth()+1) : (d.getMonth()+1);
+          var day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+          setFilters({
+                ...filters,
+                time: hours + ":" + minutes + "_" + d.getFullYear() + "-" + month + "-" + day+"_"+persons
+          })
+    }
+
+    return (
             <div>
                 <Grid container spacing={3} justifyContent="space-around">
                     <Grid item xs={2}>
-                        <SelectCategory/>
+                        <SelectCategory callback={handleCategoryChange}/>
                     </Grid>
                     <Grid item xs={2}>
-                        <SelectPreisklasse/>
+                        <SelectPreisklasse callback={handlePriceChange}/>
                     </Grid>
                     <Grid item xs={2}>
                         <Box>
                             <Typography>Rating (mind.)</Typography>
-                            <Rating/>
+                            <Rating onChange={handleRatingChange} />
                         </Box>
                     </Grid>
                     <Grid item xs={2}>
                         <Box>
                             <Typography>Distanz</Typography>
                             <Slider
-                                defaultValue={20} min={1} max={30} marks={marks} onChange={this.handleSliderChange}/>
+                                defaultValue={5} min={1} max={30} marks={marks} onChange={handleSliderChange}/>
                         </Box>
                     </Grid>
 
-                    <Grid item xs={4}>
+                    <Grid item xs={3}>
                         <Box>
-                            <ReservationTimePicker/>
+                            <ReservationTimePicker callback={handleTimeChange} />
+                        </Box>
+                    </Grid>
+
+                    <Grid item xs={1}>
+                        <Box>
+                            <TextField id="persons" label="Personen" type="number" value={filters.persons}
+                                       InputLabelProps={{
+                                           shrink: true,
+                                       }} InputProps={{
+                                inputProps:
+                                    {min:0,max: 10}
+                            }}
+                                       onChange={handlePersonsChange} />
                         </Box>
                     </Grid>
                 </Grid>
             </div>
         )
     }
-}
-
-export default FilterBar
