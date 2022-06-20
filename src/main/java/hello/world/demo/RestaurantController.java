@@ -5,19 +5,16 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import hello.world.demo.restaurant.RestaurantOverview;
 import hello.world.demo.restaurant.RestaurantType;
 import hello.world.demo.restaurant.Review;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RestaurantController {
@@ -128,9 +125,10 @@ public class RestaurantController {
     }
 
     // Open question about how the review gets transmitted
-    @PostMapping("comment/{id}")
+    @PostMapping(value ="comment/{id}", consumes = "application/x-www-form-urlencoded")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<String>  commentRestaurant(@PathVariable("id") int id, Review review) {
+    public ResponseEntity<String>  commentRestaurant( @RequestParam Review review, @PathVariable("id") int id) {
+        System.out.println("adding :"+review.getRating());
         RestaurantOverview.addReview(id, review);
         return ResponseEntity.ok("Ok");
     }

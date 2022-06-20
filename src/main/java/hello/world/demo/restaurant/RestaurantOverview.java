@@ -268,6 +268,7 @@ public class RestaurantOverview extends Thread {
 
     public static void addReview(int id, Review review) {
         if (getRestaurantById(id) != null) {
+            System.out.println("adding commi");
             getRestaurantById(id).addReview(review);
         }
     }
