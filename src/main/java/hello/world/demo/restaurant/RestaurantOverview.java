@@ -6,10 +6,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
+import org.testng.internal.collections.Pair;
+
 public class RestaurantOverview {
     private static List<Restaurant> restaurants = Data.generateRestaurants();
 
-    private final static int MAX_DIFFERENCE = 30;
+    private final static int MAX_LEVENSTHEIN_DIFFERENCE = 40;
     private final static int TOP_TEN = 10;
 
     public static Restaurant getRestaurantById(int id) {
@@ -132,43 +134,29 @@ public class RestaurantOverview {
     }
 
     public static List<Restaurant> searchB(String searchQuery) {
-        int difference = 0;
-        List<Restaurant> results = new ArrayList<>();
-        for (Restaurant restaurant : restaurants) {
-            String restaurantName = restaurant.getName();
-            difference = calculate(searchQuery, restaurantName);
-            if (difference <= MAX_DIFFERENCE) {
-                results.add(restaurant);
-            }
-        }
-        Collections.reverse(results);
-
-        // gib top ten 10
-        if (results.size() > TOP_TEN) {
-            ((ArrayList<Restaurant>) results).subList(0, TOP_TEN);
-        }
-
-        return results;
+        return restaurants.stream()
+                .filter(x -> calculateLevenstheinDistance(searchQuery,
+                        x.getName() + " " + x.getDescription()) <= MAX_LEVENSTHEIN_DIFFERENCE)
+                .sorted((a, b) -> calculateLevenstheinDistance(searchQuery, a.getName() + " " + a.getDescription())
+                        - calculateLevenstheinDistance(searchQuery, b.getName() + " " + b.getDescription()))
+                .limit(10).toList();
     }
 
     public static List<SmallRestaurant> search(String searchQuery) {
-        int difference = 0;
-        List<SmallRestaurant> results = new ArrayList<>();
-        for (SmallRestaurant restaurant : getAllRestaurants()) {
-            String restaurantName = restaurant.getName();
-            difference = calculate(searchQuery, restaurantName);
-            if (difference <= MAX_DIFFERENCE) {
-                results.add(restaurant);
-            }
-        }
-        Collections.reverse(results);
-
-        // gib top ten 10
-        if (results.size() > TOP_TEN) {
-            ((ArrayList<SmallRestaurant>) results).subList(0, TOP_TEN);
-        }
-
-        return results;
+        return getAllRestaurants().stream()
+                .filter(x -> Math.min(calculateLevenstheinDistance(searchQuery,
+                        x.getName()),
+                        calculateLevenstheinDistance(searchQuery,
+                                x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
+                .sorted((a, b) -> Math.min(calculateLevenstheinDistance(searchQuery,
+                        a.getName()),
+                        calculateLevenstheinDistance(searchQuery,
+                                a.getDescription()))
+                        - Math.min(calculateLevenstheinDistance(searchQuery,
+                                b.getName()),
+                                calculateLevenstheinDistance(searchQuery,
+                                        b.getDescription())))
+                .limit(10).toList();
     }
 
     /**
@@ -178,7 +166,7 @@ public class RestaurantOverview {
      * @param y
      * @return
      */
-    public static int calculate(String x, String y) {
+    private static int calculateLevenstheinDistance(String x, String y) {
         int[][] dp = new int[x.length() + 1][y.length() + 1];
 
         for (int i = 0; i <= x.length(); i++) {
