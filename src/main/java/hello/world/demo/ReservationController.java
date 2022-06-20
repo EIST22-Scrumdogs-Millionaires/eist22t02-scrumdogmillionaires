@@ -49,7 +49,7 @@ public class ReservationController {
     @GetMapping("reservations/getAvailableTables/{restaurant_id}/{date}/{time}/{seats}")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> AvailableTables(@PathVariable("restaurant_id") int restaurant_id,
-            @PathVariable("date") LocalDate date, @PathVariable("time") LocalTime time,
+            @PathVariable("date") String date, @PathVariable("time") String time,
             @PathVariable("seats") int seats) {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -59,7 +59,7 @@ public class ReservationController {
         String jsonString = "didn't find anything";
         try {
             jsonString = mapper
-                    .writeValueAsString(RestaurantOverview.getAvailableTables(restaurant_id, date, time, seats));
+                    .writeValueAsString(RestaurantOverview.getAvailableTables(restaurant_id, LocalDate.parse(date), LocalTime.parse(time), seats));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
