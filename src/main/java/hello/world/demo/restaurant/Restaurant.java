@@ -101,11 +101,12 @@ public class Restaurant {
 	}
 
 	public double getAverageRating() {
-		if (reviews == null) {
+		if (reviews == null||reviews.size()==0) {
 			return 0;
 		}
 		double ret = 0;
 		for (Review i : reviews) {
+			if(i!=null&&i.getRating()!=null)
 			ret += i.getRating();
 		}
 		return ret / (double) reviews.size();
