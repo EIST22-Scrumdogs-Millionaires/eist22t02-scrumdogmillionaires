@@ -124,12 +124,13 @@ public class RestaurantController {
         return ResponseEntity.ok(jsonString);
     }
 
+
+
     // Open question about how the review gets transmitted
-    @PostMapping(value ="comment/{id}", consumes = "application/x-www-form-urlencoded")
+    @PostMapping("comment/{id}")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<String>  commentRestaurant( @RequestParam Review review, @PathVariable("id") int id) {
-        System.out.println("adding :"+review.getRating());
-        RestaurantOverview.addReview(id, review);
+    public ResponseEntity<String>  commentRestaurant( @RequestBody Review rev, @PathVariable("id") Integer id) {
+        RestaurantOverview.addReview(id, rev);
         return ResponseEntity.ok("Ok");
     }
 
