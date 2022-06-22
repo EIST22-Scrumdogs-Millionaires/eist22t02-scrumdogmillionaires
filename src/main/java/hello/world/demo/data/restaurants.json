@@ -4256,6 +4256,8 @@
       "lat": 48.1348159,
       "lng": 11.5751526
     },
+    "description": "Habt Ihr Lust auf gutes Essen mit nettem Service? Dann kommts vorbei, wir kochen wieder für Euch, schenken ein und sorgen für Euer Wohl und Vertrautheit. Euer Pschorr-Team.",
+    "category": "BAVARIAN",
     "price": 2,
     "website": "https://www.der-pschorr.de/",
     "rating": 4.2,
@@ -4419,6 +4421,8 @@
       "lat": 48.1289862,
       "lng": 11.5864746
     },
+    "description": "Bier und Knödel seit 1901",
+    "category": "BAVARIAN",
     "price": 2,
     "website": "https://wirtshausinderau.de/",
     "rating": 4.5,
@@ -4582,6 +4586,8 @@
       "lat": 48.12648009999999,
       "lng": 11.5953801
     },
+    "description" : "Das Teatro ist die Bühne für Menschen, die das Leben lieben. Gerne Wein und Tapas genießen. Nette Leute kennen lernen. Plaudern und lachen. Und vor allem: echte Gastfreundschaft zu schätzen wissen. Seit 1998 ist die Tapas-Bar im ehemaligen Theater Drehleier der kulinarische Anziehungspunkt in München Haidhausen.",
+    "category": "SPANISH",
     "price": 2,
     "website": "http://www.teatro-bar-tapas.de/",
     "rating": 4.4,
@@ -4735,6 +4741,8 @@
       "lat": 48.1308984,
       "lng": 11.5944903
     },
+    "description": "Irish Pub Munich",
+    "category": "IRISH",
     "price": 2,
     "website": "http://www.molly-malones.org/",
     "rating": 4.4,
@@ -4898,6 +4906,8 @@
       "lat": 48.121351,
       "lng": 11.5599685
     },
+    "description": "In liebevoll renovierter Architektur erwartet Sie ein aufmerksamer und freundlicher Service und eine engagierte, kreative Küchencrew, die Ihnen einen angenehmen Aufenthalt bereiten möchte.",
+    "category": "CAFE", 
     "price": 2,
     "website": "http://www.cafezimt.de/",
     "rating": 4.3,
@@ -5041,6 +5051,8 @@
       "lat": 48.1311487,
       "lng": 11.5714029
     },
+    "description": "Burger & Drinks",
+    "category": "BURGER",
     "price": 2,
     "website": "http://www.mcmueller.org/",
     "rating": 4.3,
@@ -5194,6 +5206,8 @@
       "lat": 48.129198,
       "lng": 11.5759785
     },
+    "description": "Speisecafé",
+    "category": "CAFE",
     "price": 2,
     "website": "http://www.trachtenvogl.de/",
     "rating": 4.4,
@@ -5357,6 +5371,8 @@
       "lat": 48.1276759,
       "lng": 11.5585656
     },
+    "description": "Wir vom Olé Madrid möchten Sie in München mit mediterraner Lebensfreude willkommen heißen und mit wunderbaren Speisen begeistern.",
+    "category": "SPANISH",
     "price": 2,
     "website": "http://www.ole-madrid.com/",
     "rating": 4,
@@ -5520,6 +5536,8 @@
       "lat": 48.12630489999999,
       "lng": 11.5588321
     },
+    "description": "Hausgebraute Lebenslust… Vitali ist am Hahn!",
+    "category": "GERMAN",
     "price": 2,
     "website": "https://www.paulaner-brauhaus.de/",
     "rating": 4.2,
@@ -5684,6 +5702,8 @@
       "lng": 11.5578634
     },
     "price": 2,
+    "description": "Herzlich willkommen bei uns im Birkenwald in München. Genieße unvergleichliche kulinarische Glücksmomente mit Deinen Liebsten in einer entspannten Atmosphäre.",
+    "category": "BURGER",
     "website": "https://hansimglueck-burgergrill.de/burger-restaurant/muenchen-goetheplatz/?utm_source=google&utm_medium=yext&utm_campaign=9",
     "rating": 4,
     "street": "Goetheplatz",
