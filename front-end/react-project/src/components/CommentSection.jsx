@@ -18,10 +18,10 @@ export default function CommentSection(props) {
       comment: ownComment,
       rating: ownRating,
     };
-    console.log(JSON.stringify(review));
+    console.log("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"+JSON.stringify(review));
     Axios.post(
       `http://localhost:8080/comment/${props.restaurant.id}`,
-      JSON.stringify(review)
+      review
     )
       .then((res) => {
         console.log(res);
