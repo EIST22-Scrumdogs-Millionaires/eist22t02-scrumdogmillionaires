@@ -67,6 +67,7 @@ public class ReservationController {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        System.out.println(jsonString);
         return ResponseEntity.ok(jsonString);
     }
 
