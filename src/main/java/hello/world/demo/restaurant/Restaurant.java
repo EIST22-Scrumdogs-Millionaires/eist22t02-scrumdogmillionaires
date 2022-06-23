@@ -101,13 +101,13 @@ public class Restaurant {
 	}
 
 	public double getAverageRating() {
-		if (reviews == null||reviews.size()==0) {
+		if (reviews == null || reviews.size() == 0) {
 			return 0;
 		}
 		double ret = 0;
 		for (Review i : reviews) {
-			if(i!=null&&i.getRating()!=null)
-			ret += i.getRating();
+			if (i != null && i.getRating() != null)
+				ret += i.getRating();
 		}
 		return ret / (double) reviews.size();
 	}
@@ -117,7 +117,7 @@ public class Restaurant {
 	}
 
 	public void addReview(Review review) {
-		System.out.println("adding :"+review.getComment());
+		System.out.println("adding :" + review.getComment());
 		reviews.add(review);
 	}
 
@@ -243,13 +243,13 @@ public class Restaurant {
 	}
 
 	public List<Tisch> getAvailableTables(LocalTime from, LocalDate date, int persons) {
-		LocalTime lol = LocalTime.of(
-						closingTime.get(date.getDayOfWeek().getValue() - 1).getHour(),
-						closingTime.get(date.getDayOfWeek().getValue() - 1).getMinute());
-						lol.minusHours(RESERVATION_DURATION);
+		LocalTime closing = LocalTime.of(
+				closingTime.get(date.getDayOfWeek().getValue() - 1).getHour(),
+				closingTime.get(date.getDayOfWeek().getValue() - 1).getMinute());
+		closing = closing.minusHours(RESERVATION_DURATION);
 
 		if (from.isBefore(openingTimes.get(date.getDayOfWeek().getValue() - 1))
-				|| from.isAfter(lol)) {
+				|| from.isAfter(closing)) {
 			return new ArrayList<>();
 		}
 		List<Tisch> availableTables = this.tables.stream().filter(x -> x.getSeats() >= persons).toList();

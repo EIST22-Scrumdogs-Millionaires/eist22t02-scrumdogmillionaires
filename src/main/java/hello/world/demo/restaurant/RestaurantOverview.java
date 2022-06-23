@@ -285,7 +285,6 @@ public class RestaurantOverview extends Thread {
                 }
                 return x;
             }).toList();
-
         }
         return null;
     }
