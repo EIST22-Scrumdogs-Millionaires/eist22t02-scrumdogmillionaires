@@ -36,14 +36,14 @@ const DetailRestaurantInfos = (props) => {
     
     //TODO 5 ändern
     Axios.get(
-      `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/${numberPersons}`
+      `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/1`
     )
       .then((res) => {
         setAvailableTables(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log("Available Tables: " + availableTables);
+  console.log(availableTables);
 
   const tablesDummy = [
     { id: 0, seats: 5, available: true },
