@@ -1,5 +1,9 @@
 package hello.world.demo;
 
+import hello.world.demo.restaurant.Reservation;
+import hello.world.demo.restaurant.Restaurant;
+import hello.world.demo.restaurant.Visitor;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +23,32 @@ public class Util {
                 return times;
         }
 
+        public static String reservationMail(Visitor user, Reservation reservation){
+                String mailText = "Bitte bestätigen Sie Ihre Reservierung, " + user.getUsername() + "\n Tisch "
+                        + reservation.getTable().getId() + " für " + reservation.getTable().getSeats() + " Person(en) \n"
+                        + reservation.getDate() + " um " + reservation.getTime() + ". \n" + "Reservierungsname:"
+                        + reservation.getUser().getUsername() + "\n Bestätigungsnummer: " + reservation.getId() + "\n"
+                        + "Bitte bestätigen Sie Ihre Reservierung, indem Sie auf den folgenden Link klicken: LINK EINFÜGEN"
+                        + "\n Wir freuen uns auf Sie!" + "\n\n"
+                        + "Doch schon etwas Anderes vor? Sie können Ihre Reservierung bis zu 12h vorher stornieren, indem Sie auf den folgenden Link klicken. Es ist kinderleicht. Jetzt Reservierung stornieren:  localhost:8080/reservations/"
+                        + reservation.getId() + "/" + reservation.getCancelSecretKey();
+                return mailText;
+        }
 
-        //Parameter übergeben
-        public static String reservationMail(){
-                return null;
+        public static String confirmMail(Visitor user, Reservation reservation, Restaurant restaurant){
+                String mailText = " Ihre Reservierung ist bestätigt, " + user.getUsername()
+                        + "!\n Vielen Dank dass Sie bei " + restaurant.getName() + "reserviert haben. \n Tisch "
+                        + reservation.getTable().getId() + " für" + reservation.getTable().getSeats() + " Person(en) \n"
+                        + reservation.getDate() + " um " + reservation.getTime() + ". \n" + "Reservierungsname: "
+                        + reservation.getUser().getUsername() + "\n Bestätigungsnummer: " + reservation.getId() + "\n\n"
+                        + "Wir freuen uns auf Sie!" + "\n\n"
+                        + "Doch schon etwas Anderes vor? Sie können Ihre Reservierung bis zu 12h vorher stornieren, indem Sie auf den folgenden Link klicken. Es ist kinderleicht. Jetzt Reservierung stornieren:  localhost:8080/reservations/"
+                        + reservation.getId() + "/" + reservation.getCancelSecretKey()
+                        + " \n\n Was Sie vor Ihrem Besuch wissen sollten\n" +
+                        "Der Tisch wird bis zu 15 Minuten nach Ihrer Reservierungszeit für Sie freigehalten. Bitte rufen Sie uns an, wenn Sie sich um mehr als 15 Minuten verspäten.\n"
+                        +
+                        "Der Tisch wird 2 Stunden für Sie reserviert.";
+                return mailText;
         }
 
 }
