@@ -234,7 +234,6 @@ public class Restaurant {
 
 	public void cancelReservation(Reservation reservation, String cancelSecretKey) {
 		if (reservation.getCancelSecretKey().compareTo(cancelSecretKey) == 0) {
-			EmailServiceImpl.confirmCancellation(reservation);
 			reservations.remove(reservation);
 		}
 	}

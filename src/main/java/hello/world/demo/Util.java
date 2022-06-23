@@ -19,4 +19,10 @@ public class Util {
                 return times;
         }
 
+
+        //Parameter übergeben
+        public static String reservationMail(){
+                return null;
+        }
+
 }

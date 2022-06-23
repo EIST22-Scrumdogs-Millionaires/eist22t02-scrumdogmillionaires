@@ -42,16 +42,5 @@ public class EmailServiceImpl {
         return mailSender;
     }
 
-    public static void confirmReservation(Reservation reservation) {
-    }
 
-    public static void confirmCancellation(Reservation reservation) {
-    }
-
-    public static void sendEmail(Visitor user, String message) {
-        sendMail(user.getEmail(), "moin", "meister");
-    }
-
-    public static void verifyEmail(Visitor user, String message) {
-    }
 }

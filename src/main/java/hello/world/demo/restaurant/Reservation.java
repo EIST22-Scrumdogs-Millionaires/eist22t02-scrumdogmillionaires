@@ -98,12 +98,4 @@ public class Reservation {
     public void saveCalendarEvent() {
 
     }
-
-    public void createReservation(Restaurant restaurant, Date date, String email) {
-
-    }
-
-    public void confirmCancellation() {
-
-    }
 }
