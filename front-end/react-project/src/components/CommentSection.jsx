@@ -10,7 +10,7 @@ export default function CommentSection(props) {
   const [ownComment, handleOwnCommentChange] = React.useState("");
   const [ownRating, handleOwnRating] = React.useState(3);
   function handlePostButton() {
-    if (nameComment == ""){
+    if (nameComment === ""){
       handleNameChange("Anonymous");
     }
     const review = {

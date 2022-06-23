@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -13,7 +13,6 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import useState from "react-hook-use-state";
-import { useEffect } from "react";
 import Axios from "axios";
 //contains much code from https://mui.com/material-ui/react-stepper/
 const steps = ["Your Data", "Select", "Confirm"];
@@ -34,17 +33,17 @@ const DetailRestaurantInfos = (props) => {
       .toLocaleDateString("de-De", optionsDate)
       .replaceAll(".", "-");
     var inputTime = dummyDate.toLocaleTimeString("de-De", optionsTime);
-
+    
     //TODO 5 ändern
     Axios.get(
-      `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/5`
+      `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/${numberPersons}`
     )
       .then((res) => {
         setAvailableTables(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(availableTables);
+  console.log("Available Tables: " + availableTables);
 
   const tablesDummy = [
     { id: 0, seats: 5, available: true },
