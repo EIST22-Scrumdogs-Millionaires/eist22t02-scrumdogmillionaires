@@ -104,7 +104,8 @@ export default function DetailSearchComponent() {
               />
             </div>
             <div>
-              <ReservateComponent restaurant={data}></ReservateComponent>
+            {data.reviews ? <ReservateComponent restaurant={data}></ReservateComponent> : null}
+             
             </div>
             <CommentSection restaurant={data} />
           </Container>

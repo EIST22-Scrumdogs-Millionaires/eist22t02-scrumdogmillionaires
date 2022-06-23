@@ -10,7 +10,7 @@ export default function CommentSection(props) {
   const [ownComment, handleOwnCommentChange] = React.useState("");
   const [ownRating, handleOwnRating] = React.useState(3);
   function handlePostButton() {
-    if (nameComment === ""){
+    if (!nameComment){
       handleNameChange("Anonymous");
     }
     const review = {
@@ -18,7 +18,6 @@ export default function CommentSection(props) {
       comment: ownComment,
       rating: ownRating,
     };
-    console.log("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"+JSON.stringify(review));
     Axios.post(
       `http://localhost:8080/comment/${props.restaurant.id}`,
       review
@@ -36,7 +35,7 @@ export default function CommentSection(props) {
   }
 
   const comments = props.restaurant.reviews.map((review) => {
-    if (review.username === null) {
+    if (!review.username) {
       review.username = "Anonymous";
     }
     return (

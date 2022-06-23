@@ -19,73 +19,64 @@ const steps = ["Your Data", "Select", "Confirm"];
 const optionsDate = { year: "numeric", month: "2-digit", day: "2-digit" };
 const optionsTime = { hour: "2-digit", minute: "2-digit" };
 
+
 const DetailRestaurantInfos = (props) => {
   const [name, handleNameChange] = useState("");
   const [email, handleEmailChange] = useState("");
-  const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
-  const [table, setTable] = useState(null);
-  const [numberPersons, setNumberPersons] = useState(0);
+  const [date, handleDateChange] = useState(new Date());
+  const [time, handleChangeTime] = useState(new Date());
+  const [table, setTable] = useState(0);
+  const [numberPersons, handleNumberPersonsChange] = useState(1);
   const [availableTables, setAvailableTables] = useState([]);
+
+
+
   useEffect(() => {
-    const dummyDate = new Date();
-    var inputDate = dummyDate
+    var inputDate = date
       .toLocaleDateString("de-De", optionsDate)
       .replaceAll(".", "-");
-    var inputTime = dummyDate.toLocaleTimeString("de-De", optionsTime);
-    
-    //TODO 5 ändern
+    var inputTime = time.toLocaleTimeString("de-De", optionsTime);
+
     Axios.get(
-      `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/1`
+      `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/${numberPersons}`
     )
       .then((res) => {
         setAvailableTables(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
-  console.log(availableTables);
+  }, [date, time, numberPersons]);
 
-  const tablesDummy = [
-    { id: 0, seats: 5, available: true },
-    { id: 1, seats: 2, available: false },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: false },
-    { id: 0, seats: 5, available: false },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: true },
-  ];
-  console.log(props.restaurant.tables);
-
-  for (let [key, value1] of Object.entries(props.restaurant.tables)) {
-    console.log(`${key}: ${value1}`);
+  const makeReservation = () => {
+    //TODO
   }
+
+  const handleTableChange = (event) => setTable(event.target.value);
 
   const classNameAvailable = "tableStyleAvailable";
   const classNameNonavailable = "tableStyleNonavailable";
   //props.restaurant.tables.map ...
-  const tables = tablesDummy.map((table) => {
+  const tables = availableTables.map((currentTable) => {
     // id, seats
     return (
-      <Grid item xs={3} sm={3} md={3} lg={3}>
+      <Grid item xs={4} sm={4} md={4} lg={4}>
         <div
           className={
-            table.available === true
+            currentTable.available === true
               ? classNameAvailable
               : classNameNonavailable
           }
         >
-          {table.id}
+         Nr.{currentTable.id}: <strong>{currentTable.seats}</strong>
         </div>
       </Grid>
     );
   });
-  const tableIdsFree = tablesDummy
-    .filter((table) => table.available)
-    .map((table) => {
-      return <MenuItem value={table.id}>{table.id}</MenuItem>;
+  const tableIdsFree = availableTables
+    .filter((currentTable) => currentTable.available)
+    .map((currentTable) => {
+      console.log(currentTable.id);
+      console.log(typeof(currentTable.id));
+      return <MenuItem value={currentTable.id}>{currentTable.id}</MenuItem>;
     });
 
   const chooseTable = (
@@ -94,13 +85,12 @@ const DetailRestaurantInfos = (props) => {
         <InputLabel>Table</InputLabel>
         <Select
           value={table}
-          onChange={setTable}
-          autoWidth
+          onChange={handleTableChange}
           label="Table"
           color="secondary"
-          defaultValue=""
+          defaultValue={0}
         >
-          <MenuItem value="">
+          <MenuItem value={0}>
             <em>None</em>
           </MenuItem>
           {tableIdsFree}
@@ -110,11 +100,11 @@ const DetailRestaurantInfos = (props) => {
   );
 
   const handleTimePickerChange = (newTime) => {
-    setTime(newTime);
+    handleChangeTime(newTime);
   };
 
   const handleDatePickerChange = (newDate) => {
-    setDate(newDate);
+    handleDateChange(newDate);
   };
 
   const [activeStep, setActiveStep] = useState(0);
@@ -129,6 +119,9 @@ const DetailRestaurantInfos = (props) => {
   };
 
   const handleNext = () => {
+    if (activeStep === steps.length - 1) {
+      makeReservation();
+    }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -159,6 +152,10 @@ const DetailRestaurantInfos = (props) => {
   };
 
   const handleReset = () => {
+    handleEmailChange("");
+    handleNameChange("");
+    handleTableChange(1);
+    handleNumberPersonsChange(0);
     setActiveStep(0);
   };
 
@@ -236,7 +233,9 @@ const DetailRestaurantInfos = (props) => {
             InputProps={{
               inputProps: { min: 0, max: 10 },
             }}
-            onChange={(e) => setNumberPersons(e.target.value)}
+            onChange={(e) => {
+              handleNumberPersonsChange(e.target.value);
+            }}
             sx={{ width: 266 }}
           />
         </div>
@@ -246,8 +245,8 @@ const DetailRestaurantInfos = (props) => {
           <Grid
             container
             alignItems="center"
-            rowSpacing={{ xs: 2 }}
-            columnSpacing={{ xs: 2 }}
+            rowSpacing={{ xs: 1 }}
+            columnSpacing={{ xs: 1 }}
           >
             {tables}
           </Grid>
@@ -270,6 +269,12 @@ const DetailRestaurantInfos = (props) => {
         <br />
         <strong>Time: </strong>
         {time.toLocaleTimeString("de-De", optionsTime)}
+        <br />
+        <strong>Number Persons: </strong>
+        {numberPersons}
+        <br />
+        <strong>Table Number: </strong>
+        {table}
       </div>
     );
   }

@@ -3,6 +3,9 @@ import Avatar from '@mui/material/Avatar';
 
 // Code from https://mui.com/material-ui/react-avatar/
 function stringToColor(string) {
+  if (!string) {
+    string = "Anonymous";
+  }
   let hash = 0;
   let i;
 

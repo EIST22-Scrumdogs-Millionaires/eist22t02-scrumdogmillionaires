@@ -11,7 +11,7 @@ public class RestaurantOverview extends Thread {
     private static List<Restaurant> restaurants = Data.generateRestaurants();
 
     private final static int MAX_LEVENSTHEIN_DIFFERENCE = 40;
-    private final static int TOP_TEN = 10;
+    private final static int TOP_X = 10;
 
     private static final int UPDATE_TIME = 100_000;
 
@@ -54,7 +54,7 @@ public class RestaurantOverview extends Thread {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
                 x.getPictures()))
-                .sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
+                .sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(TOP_X)
                 .toList();
 
     }
