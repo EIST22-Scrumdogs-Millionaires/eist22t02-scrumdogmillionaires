@@ -59,7 +59,11 @@ public class ReservationController {
         String jsonString = "didn't find anything";
         try {
             jsonString = mapper
-                    .writeValueAsString(RestaurantOverview.getAvailableTables(restaurant_id, LocalDate.parse(date), LocalTime.parse(time), seats));
+                   .writeValueAsString(RestaurantOverview.getAvailableTables(restaurant_id,
+                           LocalDate.of(Integer.parseInt(date.substring(6,10)),Integer.parseInt(date.substring(3,5)),Integer.parseInt(date.substring(0,2))),
+                           LocalTime.of(Integer.parseInt(time.substring(0,2)),Integer.parseInt(time.substring(3,5))),
+                           seats));
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
