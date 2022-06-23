@@ -78,6 +78,8 @@ public class ReservationController {
         RestaurantOverview.performActionOnReservation(id, actionSecretKey);
     }
 
+    
+
     // Open question about how the user gets transmitted
     @PostMapping("reservations")
     @CrossOrigin(origins = "http://localhost:3000")
