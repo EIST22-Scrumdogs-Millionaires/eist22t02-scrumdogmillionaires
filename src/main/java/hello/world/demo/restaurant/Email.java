@@ -15,6 +15,9 @@ public class Email {
 
     private LocalTime sendTime;
 
+    public Email() {
+    }
+
     public Email(String to, String subject, String text, LocalDate sendDate, LocalTime sendTime) {
         this.to = to;
         this.subject = subject;

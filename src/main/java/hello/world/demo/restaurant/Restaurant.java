@@ -3,11 +3,9 @@ package hello.world.demo.restaurant;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.temporal.TemporalAmount;
 import java.util.*;
 
 import hello.world.demo.Util;
-import hello.world.demo.email.EmailServiceImpl;
 
 import hello.world.demo.email.EmailThread;
 
@@ -43,6 +41,9 @@ public class Restaurant {
 
 	private List<Reservation> reservations;
 
+	public Restaurant() {
+	}
+
 	public Restaurant(int id, String name, String description, Location location, List<String> pictures,
 			List<Review> reviews,
 			List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
@@ -67,6 +68,10 @@ public class Restaurant {
 
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -101,7 +106,7 @@ public class Restaurant {
 		this.pictures = pictures;
 	}
 
-	public double getAverageRating() {
+	public double averageRating() {
 		if (reviews == null || reviews.size() == 0) {
 			return 0;
 		}
@@ -115,6 +120,10 @@ public class Restaurant {
 
 	public List<Review> getReviews() {
 		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	public void addReview(Review review) {
@@ -138,7 +147,7 @@ public class Restaurant {
 		this.closingTime = closingTime;
 	}
 
-	public String getOpeningAndClosingTimesAsFancyString() {
+	public String OpeningAndClosingTimesAsFancyString() {
 		calculateOpeningAndClosingTimesAsFancyString();
 		return openingAndClosingTimesAsFancyString;
 
@@ -229,8 +238,16 @@ public class Restaurant {
 		return restaurantType;
 	}
 
+	public void setRestaurantType(RestaurantType restaurantType) {
+		this.restaurantType = restaurantType;
+	}
+
 	public List<Reservation> getReservations() {
 		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 	public void cancelReservation(Reservation reservation, String cancelSecretKey) {
@@ -270,7 +287,8 @@ public class Restaurant {
 
 		Email emailRes = new Email(user.getEmail(), "Reservierung bestätigt", emailResText, LocalDate.now(),
 				LocalTime.now());
-		Email emailResConfirm = new Email(user.getEmail(), "Bitte bestätigen Sie Ihre Reservierung", emailResConfirmText,
+		Email emailResConfirm = new Email(user.getEmail(), "Bitte bestätigen Sie Ihre Reservierung",
+				emailResConfirmText,
 				reservation.getDate().minusDays(1), reservation.getTime().minusHours(24));
 		EmailThread.addEmail(emailRes);
 		EmailThread.addEmail(emailResConfirm);

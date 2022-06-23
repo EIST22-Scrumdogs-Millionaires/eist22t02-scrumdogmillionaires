@@ -2,9 +2,9 @@ package hello.world.demo.restaurant;
 
 public class Location {
 
-    private double Xcoordinate;
+    private double xcoordinate;
 
-    private double Ycoordinate;
+    private double ycoordinate;
 
     private String city;
 
@@ -14,10 +14,13 @@ public class Location {
 
     private String plz;
 
+    public Location() {
+    }
+
     public Location(double xcoordinate, double ycoordinate, String city, String street, String streetnumber,
             String plz) {
-        this.Xcoordinate = xcoordinate;
-        this.Ycoordinate = ycoordinate;
+        this.xcoordinate = xcoordinate;
+        this.ycoordinate = ycoordinate;
         this.city = city;
         this.street = street;
         this.streetnumber = streetnumber;
@@ -25,19 +28,19 @@ public class Location {
     }
 
     public double getXcoordinate() {
-        return Xcoordinate;
+        return xcoordinate;
     }
 
     public void setXcoordinate(double xcoordinate) {
-        this.Xcoordinate = xcoordinate;
+        this.xcoordinate = xcoordinate;
     }
 
     public double getYcoordinate() {
-        return Ycoordinate;
+        return ycoordinate;
     }
 
     public void setYcoordinate(double ycoordinate) {
-        this.Ycoordinate = ycoordinate;
+        this.ycoordinate = ycoordinate;
     }
 
     public String getCity() {

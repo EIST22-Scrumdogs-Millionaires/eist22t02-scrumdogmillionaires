@@ -8,16 +8,21 @@ public class Tisch {
 
 	private boolean available;
 
+	public Tisch() {
+	}
 
 	public Tisch(int id, int seats) {
 		this.id = id;
 		this.seats = seats;
 		this.available = true;
-		
 	}
 
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getSeats() {
