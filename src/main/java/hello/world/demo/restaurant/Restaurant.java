@@ -243,10 +243,13 @@ public class Restaurant {
 	}
 
 	public List<Tisch> getAvailableTables(LocalTime from, LocalDate date, int persons) {
+		LocalTime lol = LocalTime.of(
+						closingTime.get(date.getDayOfWeek().getValue() - 1).getHour(),
+						closingTime.get(date.getDayOfWeek().getValue() - 1).getMinute());
+						lol.minusHours(RESERVATION_DURATION);
+
 		if (from.isBefore(openingTimes.get(date.getDayOfWeek().getValue() - 1))
-				|| from.isAfter(LocalTime.of(
-						closingTime.get(date.getDayOfWeek().getValue() - 1).getHour() - RESERVATION_DURATION,
-						closingTime.get(date.getDayOfWeek().getValue() - 1).getMinute()))) {
+				|| from.isAfter(lol)) {
 			return new ArrayList<>();
 		}
 		List<Tisch> availableTables = this.tables.stream().filter(x -> x.getSeats() >= persons).toList();
