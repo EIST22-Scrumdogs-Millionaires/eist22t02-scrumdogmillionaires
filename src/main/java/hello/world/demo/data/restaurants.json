@@ -2292,7 +2292,7 @@
   "Sushi+Soul": {
     "place_id": "ChIJNWfeiF3fnUcRt5xTeHkBeRA",
     "description": "Großes japanisches Restaurant und Bar mit stylisher, minimalistischer Einrichtung, Whisky- und Rumverkostung.",
-    "category": "CHINESE",
+    "category": "SUSHI",
     "name": "Sushi+Soul",
     "location": {
       "lat": 48.1284262,
@@ -5862,6 +5862,8 @@
   "Hofbr\u00e4ukeller": {
     "place_id": "ChIJ29wi64B1nkcRR5UyRpxvUm4",
     "name": "Hofbr\u00e4ukeller",
+    "description": "Klassisches bayerisches Restaurant im Neorenaissance-Gebäude mit großem Biergarten & Hofbräuhaus-Bier.",
+    "category": "BAVARIAN",
     "location": {
       "lat": 48.1341864,
       "lng": 11.5954042
@@ -6025,6 +6027,8 @@
   "Leo`s Lounge Restaurant Happy Hour Cocktailbar M\u00fcnchen": {
     "place_id": "ChIJf4H2aoLfnUcRTkLFVO4Gl1w",
     "name": "Leo`s Lounge Restaurant Happy Hour Cocktailbar M\u00fcnchen",
+    "description": "Gemütliches Brunchlokal & Bar mit traditioneller Dekoration, internationaler Küche und Sport im TV.",
+    "category" : "BURGER",
     "location": {
       "lat": 48.1259573,
       "lng": 11.597931
@@ -6238,6 +6242,8 @@
   "YUM thai kitchen & bar": {
     "place_id": "ChIJowXiPGDfnUcRyUr3xptlMnM",
     "name": "YUM thai kitchen & bar",
+    "description" : "Thairestaurant mit traditionellem Edeldekor, in dem klassische Gerichte serviert werden, mit Cocktailkarte.",
+    "category": "ASIAN",
     "location": {
       "lat": 48.1340185,
       "lng": 11.575383
@@ -6401,6 +6407,8 @@
   "Gastst\u00e4tte Lucullus": {
     "place_id": "ChIJIdDpBmvfnUcR92XP0ZcB_Rg",
     "name": "Gastst\u00e4tte Lucullus",
+    "description": "Traditionelle griechische Gerichte in einem zwanglosen, freundlich eingerichteten Restaurant mit Terrasse.",
+    "category": "GREEK",
     "location": {
       "lat": 48.1173138,
       "lng": 11.5704604
@@ -6564,6 +6572,8 @@
   "China Restaurant Global Wok": {
     "place_id": "ChIJFQ0aRctznkcRxS8SdHYbF2c",
     "name": "China Restaurant Global Wok",
+    "description": "Das Restaurant mit Holzschnitzereien serviert asiatische Spezialitäten auch vom Buffet und mongolischen Grill.",
+    "category": "ASIAN",
     "location": {
       "lat": 48.25071529999999,
       "lng": 11.6158878
@@ -6797,6 +6807,8 @@
   "Farmers Steakhouse": {
     "place_id": "ChIJwVrzjv9ynkcR45x408cJotc",
     "name": "Farmers Steakhouse",
+    "description": "Burger und Steaks von argentinischen Rindern im rot gestrichenen Lokal oder auf der Sonnenterrasse.",
+    "category": "BURGER",
     "location": {
       "lat": 48.2497321,
       "lng": 11.6481759
@@ -6950,6 +6962,8 @@
   "La Pergola cucina italiana": {
     "place_id": "ChIJoSrsRP5ynkcRjqG5rBuYZTU",
     "name": "La Pergola cucina italiana",
+    "description": "Das rustikale Lokal mit bordeauxfarbenem Interieur serviert italienische Speisen und hausgemachte Pasta.",
+    "category" : "ITALIAN",
     "location": {
       "lat": 48.24951,
       "lng": 11.6522283
@@ -7152,6 +7166,8 @@
   },
   "RAMA Ismaning": {
     "place_id": "ChIJGWAg7zdznkcRVPNxQCF7d-o",
+    "description": "Das indische Lokal serviert auch italienische Speisen und verbindet orientalisches und gutbürgerliches Dekor.",
+    "category": "ASIAN",
     "name": "RAMA Ismaning",
     "location": {
       "lat": 48.2259439,
@@ -7366,6 +7382,8 @@
   "Bakeries Ludwig Riedmair": {
     "place_id": "ChIJRduGDPB0nkcR_-b9CuA0f-4",
     "name": "Bakeries Ludwig Riedmair",
+    "description": "Traditionelle Backwaren & Cafe",
+    "category": "CAFE",
     "location": {
       "lat": 48.2486526,
       "lng": 11.6513292
@@ -7529,6 +7547,8 @@
   "Nano Sushi": {
     "place_id": "ChIJG5xhq_9ynkcRkoCSvv6-pcw",
     "name": "Nano Sushi",
+    "description": "Japanisches Restaurant mit Sushi, Ramen-Nudelsuppen, Udon- und Soba-Nudeln und Online-Bestellung.",
+    "category": "SUSHI",
     "location": {
       "lat": 48.2501413,
       "lng": 11.6511329
@@ -7742,6 +7762,8 @@
   "Freiraum": {
     "place_id": "ChIJpWScaU1ynkcRFy4n-c7yG4Q",
     "name": "Freiraum",
+    "description": "Modernes Kantinen-Restaurant auf Business Campus mit internationalen Gerichten, Selbstbedienung und Terrasse.",
+    "category" : "GERMAN",
     "location": {
       "lat": 48.25102299999999,
       "lng": 11.6342614
@@ -7875,6 +7897,8 @@
   "LA PERLA Cucina Bar Pizzeria": {
     "place_id": "ChIJmf0hPyVznkcRiWFPjtxazH0",
     "name": "LA PERLA Cucina Bar Pizzeria",
+    "description" : "Traditionelle italienische Gerichte in einer kleinen, modernen und kreativen Atmosphäre. ",
+    "category" : "ITALIAN",
     "location": {
       "lat": 48.2360799,
       "lng": 11.6798747
@@ -8018,6 +8042,8 @@
   "Cafe Herr Lichtenberg": {
     "place_id": "ChIJ5SKq3oxynkcRYW1LnwWzX28",
     "name": "Cafe Herr Lichtenberg",
+    "description" : "Kleines und charmantes Cafe am Campus Garching",
+    "category": "CAFE",
     "location": {
       "lat": 48.26777659999999,
       "lng": 11.6659395
@@ -8161,6 +8187,8 @@
   "UNO Pizzeria Ismaning": {
     "place_id": "ChIJQS-F1c8LnkcRePKNDvyixZE",
     "name": "UNO Pizzeria Ismaning",
+    "description": "Traditionelle italienische Gerichte in einer urigen Atmosphäre am Rande Münchens",
+    "category" : "ITALIAN",
     "location": {
       "lat": 48.2247301,
       "lng": 11.6686771
