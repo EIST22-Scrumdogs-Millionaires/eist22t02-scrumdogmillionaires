@@ -53,13 +53,13 @@ export default function Home() {
     for (let [key, value] of Object.entries(filters)) {
       switch (key) {
         case "category": {
-          if (value !== "") {
+          if (value !== "" && value !== "ALL") {
             filterTypes.push("T_"+value);
           }
           break;
         }
         case "price": {
-            if (value !== "") {
+            if (value !== "" && value !== 0) {
               filterTypes.push("P_"+value);
             }
           break;

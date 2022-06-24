@@ -44,8 +44,9 @@ function SelectPreisklasse(props) {
     return (
         <Box sx={{minWidth:100}}>
             <FormControl>
-                <InputLabel >Preisklasse</InputLabel>
+                <InputLabel >Price</InputLabel>
                 <Select labelId="preisklasse" label="Preisklasse" value={preisklasse} onChange={handleChange} sx={{ width: 228 }}>
+                    <MenuItem value={"0"}>All</MenuItem>
                     <MenuItem value={"1"}>€</MenuItem>
                     <MenuItem value={"2"}>€€</MenuItem>
                     <MenuItem value={"3"}>€€€</MenuItem>
@@ -67,8 +68,9 @@ function SelectCategory(props) {
     return (
         <Box sx={{minWidth:150}}>
             <FormControl fullWidth>
-                <InputLabel>Kategorie</InputLabel>
+                <InputLabel>Category</InputLabel>
                 <Select labelId="category" label="Category" value={category} onChange={handleChange} sx={{ width: 228 }}>
+                    <MenuItem value={"ALL"}>All</MenuItem>
                     <MenuItem value={"CHINESE"}>Chinese</MenuItem>
                     <MenuItem value={"GERMAN"}>German</MenuItem>
                     <MenuItem value={"BAVARIAN"}>Bavarian</MenuItem>
@@ -199,7 +201,7 @@ export default function FilterBar(props) {
 
                     <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
-                            <TextField id="persons" label="Personen" type="number" defaultValue={2} onChange={handlePersonsChange} sx={{width: 228}}
+                            <TextField id="persons" label="Persons" type="number" defaultValue={2} onChange={handlePersonsChange} sx={{width: 228}}
                                        InputLabelProps={{
                                            shrink: true,
                                        }} InputProps={{
