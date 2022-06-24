@@ -53,7 +53,7 @@ public class RestaurantOverview extends Thread {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
-                .sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
+                .sorted((a, b) -> (int) ((b.getAverageRating() * 1000d) - (a.getAverageRating() * 1000d))).limit(10)
                 .toList();
 
     }
