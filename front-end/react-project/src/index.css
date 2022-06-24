@@ -97,7 +97,6 @@ footer {
 }
 
 .picture-wrapper{
-  height: auto;
   padding: 20px 20px;
   border-radius: 7px;
   background: #f7f7f7;
@@ -105,10 +104,6 @@ footer {
   -8px -8px 24px #f0f0f0;
 }
 
-.picture{
-  height: 200px;
-  border-radius: 15px;
-}
 
 .restaurant-infos{
   padding: 20px 20px;
