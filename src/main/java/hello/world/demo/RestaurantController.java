@@ -14,6 +14,8 @@ import hello.world.demo.restaurant.Review;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class RestaurantController {
 
@@ -72,7 +74,7 @@ public class RestaurantController {
     @GetMapping("restaurants/search/{search}/{filter}")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> filterRestaurants(@PathVariable("search") String search,
-            @PathVariable("filter") List<String> filter) {
+            @PathVariable("filter") String filter) {
         System.out.println(filter);
 
         ObjectMapper mapper = new ObjectMapper();
