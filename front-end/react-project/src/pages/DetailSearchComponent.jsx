@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import { default as WebsiteIcon } from "@mui/icons-material/Language";
 import useState from "react-hook-use-state";
 import { useEffect, React } from "react";
+import apikey from "../data/apikey";
 import Axios from "axios";
 export default function DetailSearchComponent() {
   const [data, setData] = useState(null);
@@ -80,7 +81,7 @@ export default function DetailSearchComponent() {
             <div className="picture-wrapper">
                 {data.pictures.map((picture) => (
                     <img
-                        src={`${picture}`}
+                        src={`${picture+apikey}`}
                         alt="restaurant picture"
                         className="picture"
                     />
