@@ -50,6 +50,7 @@ public class Restaurant {
 	public Restaurant(int id, String name, String description, Location location, List<String> pictures,
 			List<Review> reviews,
 			List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
+			String openingAndClosingTimesAsFancyString,
 			int priceCategory,
 			List<Tisch> tables, RestaurantType restaurantType, List<Reservation> reservations) {
 		super();
@@ -62,6 +63,7 @@ public class Restaurant {
 		this.openingTimes = openingTimes;
 		this.closingTime = closingTime;
 		this.website = website;
+		this.openingAndClosingTimesAsFancyString = openingAndClosingTimesAsFancyString;
 		this.priceCategory = priceCategory;
 		this.tables = tables;
 		this.restaurantType = restaurantType;
@@ -158,13 +160,15 @@ public class Restaurant {
 		this.closingTime = closingTime;
 	}
 
-	public String OpeningAndClosingTimesAsFancyString() {
-		calculateOpeningAndClosingTimesAsFancyString();
+	public String getOpeningAndClosingTimesAsFancyString() {
 		return openingAndClosingTimesAsFancyString;
-
 	}
 
-	private void calculateOpeningAndClosingTimesAsFancyString() {
+	public void setOpeningAndClosingTimesAsFancyString(String openingAndClosingTimesAsFancyString) {
+		this.openingAndClosingTimesAsFancyString = openingAndClosingTimesAsFancyString;
+	}
+
+	public void calculateOpeningAndClosingTimesAsFancyString() {
 		if (openingTimes == null || closingTime == null || openingTimes.size() != 7 || closingTime.size() != 7) {
 			return;
 		}

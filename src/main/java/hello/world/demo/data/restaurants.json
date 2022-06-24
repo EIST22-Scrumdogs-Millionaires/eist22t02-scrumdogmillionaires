@@ -68,7 +68,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": "Mon-Wed, Sun: 15:00-23:00\nThu-Sat: 13:00-23:00",
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 13:00-22:00\nThu-Fri: 10:00-22:00\nSat-Sun: 05:00-21:00",
     "website": "http://www.augustinerkeller.de/",
     "priceCategory": 2,
     "averageRating": 5.0,
@@ -172,7 +172,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 10:00-21:00\nThu-Fri: 11:00-20:00\nSat-Sun: 06:00-20:00",
     "website": "https://www.hofbraeuhaus.de/de/hofbraeuhaus.html",
     "priceCategory": 1,
     "averageRating": 4.4,
@@ -275,7 +275,7 @@
       [21, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 05:00-22:00\nThu-Sat: 18:00-21:00\nSun: 13:00-20:00",
     "website": "http://prinzmyshkin.com/",
     "priceCategory": 2,
     "averageRating": 4.2,
@@ -374,7 +374,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 10:00-21:00",
     "website": "https://www.kiliansirishpub.de/",
     "priceCategory": 4,
     "averageRating": 4.4,
@@ -471,7 +471,7 @@
       [22, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sat: 05:00-22:00\nSun: 07:00-21:00",
     "website": "https://www.kuffler.de/de/restaurant/spatenhaus/",
     "priceCategory": 2,
     "averageRating": 3.6,
@@ -567,7 +567,7 @@
       [20, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sat: 16:00-20:00\nSun: 16:00-21:00",
     "website": "https://www.brennergrill.de/",
     "priceCategory": 1,
     "averageRating": 4.4,
@@ -671,7 +671,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 09:00-21:00",
     "website": "http://www.zumstraubinger.de/",
     "priceCategory": 1,
     "averageRating": 4.0,
@@ -773,7 +773,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Thu: 12:00-22:00\nFri-Sun: 16:00-22:00",
     "website": "http://www.cafe-kranich.de/",
     "priceCategory": 1,
     "averageRating": 4.2,
@@ -872,7 +872,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sat: 10:00-22:00\nSun: 17:00-22:00",
     "website": "https://www.zum-franziskaner.de/",
     "priceCategory": 1,
     "averageRating": 3.8,
@@ -966,7 +966,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 11:00-20:00\nThu-Sun: 10:00-22:00",
     "website": "https://losteria.net/de/restaurants/restaurant/muenchen-kuenstlerhaus/?utm_source=google&utm_medium=Yext",
     "priceCategory": 5,
     "averageRating": 3.8,
@@ -1063,7 +1063,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 13:00-22:00",
     "website": "https://www.schneider-brauhaus.de/",
     "priceCategory": 5,
     "averageRating": 5.0,
@@ -1160,7 +1160,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 09:00-21:00",
     "website": "http://www.augustiner-am-platzl.de/",
     "priceCategory": 2,
     "averageRating": 2.6,
@@ -1260,7 +1260,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 07:00-21:00",
     "website": "https://faun-muenchen.de/",
     "priceCategory": 4,
     "averageRating": 4.4,
@@ -1364,7 +1364,7 @@
       [22, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sat: 16:00-22:00\nSun: 05:00-21:00",
     "website": "http://www.cafe-luitpold.de/",
     "priceCategory": 4,
     "averageRating": 3.8,
@@ -1465,7 +1465,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Thu: 07:00-20:00\nFri-Sun: 15:00-22:00",
     "website": "http://www.sushi-soul.de/",
     "priceCategory": 5,
     "averageRating": 4.8,
@@ -1570,7 +1570,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 18:00-21:00",
     "website": "https://www.vapiano.de/",
     "priceCategory": 1,
     "averageRating": 3.6,
@@ -1677,7 +1677,7 @@
       [20, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sat: 18:00-20:00\nSun: 15:00-21:00",
     "website": "https://www.parkcafe089.de/",
     "priceCategory": 1,
     "averageRating": 4.4,
@@ -1772,7 +1772,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Thu: 05:00-22:00\nFri-Sun: 10:00-22:00",
     "website": "http://www.ratskeller.com/",
     "priceCategory": 3,
     "averageRating": 4.8,
@@ -1870,7 +1870,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Thu: 07:00-20:00\nFri-Sun: 08:00-22:00",
     "website": "https://www.pfistermuehle.de/",
     "priceCategory": 4,
     "averageRating": 5.0,
@@ -1972,7 +1972,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Tue: 06:00-21:00\nWed: 09:00-20:00\nThu-Sun: 17:00-22:00",
     "website": "http://www.zurschwalbe.com/",
     "priceCategory": 3,
     "averageRating": 4.8,
@@ -2071,7 +2071,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 13:00-22:00\nThu-Sun: 12:00-20:00",
     "website": "https://www.kennedysmunich.de/",
     "priceCategory": 2,
     "averageRating": 3.2,
@@ -2170,7 +2170,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Fri: 09:00-20:00\nSat-Sun: 11:00-20:00",
     "website": "https://www.mariandl.com/",
     "priceCategory": 3,
     "averageRating": 4.6,
@@ -2271,7 +2271,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 07:00-20:00",
     "website": "http://www.wildmosers.de/",
     "priceCategory": 2,
     "averageRating": 3.0,
@@ -2371,7 +2371,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Fri: 10:00-21:00\nSat-Sun: 07:00-21:00",
     "website": "http://augustineramdom.de/",
     "priceCategory": 1,
     "averageRating": 3.0,
@@ -2466,7 +2466,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 15:00-21:00\nThu-Sun: 08:00-22:00",
     "website": "http://www.hackerhaus.de/",
     "priceCategory": 2,
     "averageRating": 4.8,
@@ -2572,7 +2572,7 @@
       [21, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sat: 11:00-21:00\nSun: 16:00-20:00",
     "website": "http://www.arabesk.de/",
     "priceCategory": 1,
     "averageRating": 3.8,
@@ -2671,7 +2671,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 18:00-21:00",
     "website": "https://www.der-pschorr.de/",
     "priceCategory": 3,
     "averageRating": 4.0,
@@ -2764,7 +2764,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Thu: 08:00-22:00\nFri-Sun: 06:00-20:00",
     "website": "https://wirtshausinderau.de/",
     "priceCategory": 4,
     "averageRating": 4.8,
@@ -2862,7 +2862,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 14:00-21:00",
     "website": "http://www.teatro-bar-tapas.de/",
     "priceCategory": 5,
     "averageRating": 4.4,
@@ -2964,7 +2964,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 11:00-21:00\nThu-Sun: 14:00-22:00",
     "website": "http://www.molly-malones.org/",
     "priceCategory": 1,
     "averageRating": 5.0,
@@ -3065,7 +3065,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 12:00-21:00\nThu-Fri: 18:00-21:00\nSat-Sun: 17:00-21:00",
     "website": "http://www.cafezimt.de/",
     "priceCategory": 2,
     "averageRating": 3.6,
@@ -3169,7 +3169,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon: 09:00-22:00\nTue-Thu: 13:00-22:00\nFri-Sun: 14:00-22:00",
     "website": "http://www.mcmueller.org/",
     "priceCategory": 5,
     "averageRating": 4.6,
@@ -3266,7 +3266,7 @@
       [20, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sat: 16:00-20:00\nSun: 05:00-21:00",
     "website": "http://www.trachtenvogl.de/",
     "priceCategory": 2,
     "averageRating": 4.8,
@@ -3369,7 +3369,7 @@
       [20, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Tue: 05:00-21:00\nWed-Sat: 11:00-20:00\nSun: 09:00-22:00",
     "website": "http://www.ole-madrid.com/",
     "priceCategory": 1,
     "averageRating": 2.2,
@@ -3470,7 +3470,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 16:00-20:00",
     "website": "https://www.paulaner-brauhaus.de/",
     "priceCategory": 4,
     "averageRating": 4.8,
@@ -3575,7 +3575,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon: 14:00-22:00\nTue-Wed: 09:00-20:00\nThu-Sun: 05:00-21:00",
     "website": "https://hansimglueck-burgergrill.de/burger-restaurant/muenchen-goetheplatz/?utm_source=google&utm_medium=yext&utm_campaign=9",
     "priceCategory": 1,
     "averageRating": 4.2,
@@ -3677,7 +3677,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Fri: 14:00-21:00\nSat-Sun: 07:00-20:00",
     "website": "http://www.hofbraeukeller.de/",
     "priceCategory": 3,
     "averageRating": 4.4,
@@ -3776,7 +3776,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Thu: 17:00-22:00\nFri-Sun: 17:00-21:00",
     "website": "https://www.leos-lounge.de/",
     "priceCategory": 1,
     "averageRating": 4.6,
@@ -3881,7 +3881,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 05:00-22:00\nThu-Sun: 18:00-21:00",
     "website": "https://www.yum-thai.de/",
     "priceCategory": 4,
     "averageRating": 4.6,
@@ -3993,7 +3993,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon: 09:00-20:00\nTue-Fri: 11:00-20:00\nSat: 16:00-21:00\nSun: 10:00-21:00",
     "website": "http://lucullus-muenchen.de/",
     "priceCategory": 5,
     "averageRating": 5.0,
@@ -4092,7 +4092,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 15:00-22:00",
     "website": "http://global-wok.de/m.html",
     "priceCategory": 4,
     "averageRating": 4.2,
@@ -4190,7 +4190,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sat: 11:00-20:00\nSun: 16:00-20:00",
     "website": "http://www.farmerscafeandsteakhouse.de/",
     "priceCategory": 1,
     "averageRating": 3.8,
@@ -4289,7 +4289,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 08:00-20:00",
     "website": "http://www.lapergola-garching.de/",
     "priceCategory": 4,
     "averageRating": 4.8,
@@ -4392,7 +4392,7 @@
       [22, 0],
       [22, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Wed: 10:00-20:00\nThu-Sun: 09:00-22:00",
     "website": "https://www.restaurant-rama-ismaning.de/",
     "priceCategory": 4,
     "averageRating": 4.4,
@@ -4492,7 +4492,7 @@
       [20, 0],
       [20, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Thu: 14:00-22:00\nFri-Sat: 17:00-20:00\nSun: 12:00-20:00",
     "website": "http://www.riedmair.de/",
     "priceCategory": 4,
     "averageRating": 5.0,
@@ -4592,7 +4592,7 @@
       [20, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Fri: 08:00-21:00\nSat: 13:00-20:00\nSun: 12:00-21:00",
     "website": "http://www.nanosushi.de/",
     "priceCategory": 1,
     "averageRating": 4.8,
@@ -4686,7 +4686,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon: 14:00-21:00\nTue-Wed: 17:00-20:00\nThu-Fri: 15:00-21:00\nSat-Sun: 09:00-21:00",
     "website": "http://freiraum.rest/",
     "priceCategory": 2,
     "averageRating": 3.8,
@@ -4788,7 +4788,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Tue: 10:00-21:00\nWed-Fri: 15:00-22:00\nSat-Sun: 17:00-21:00",
     "website": "http://www.cucina-laperla.de/",
     "priceCategory": 5,
     "averageRating": 4.2,
@@ -4880,7 +4880,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Sun: 11:00-21:00",
     "website": "http://www.herr-lichtenberg.de/",
     "priceCategory": 1,
     "averageRating": 4.2,
@@ -4977,7 +4977,7 @@
       [21, 0],
       [21, 0]
     ],
-    "openingAndClosingTimesAsFancyString": null,
+    "openingAndClosingTimesAsFancyString": "Mon-Tue: 15:00-20:00\nWed-Sun: 14:00-21:00",
     "website": "https://www.uno-pizza-ismaning.de/",
     "priceCategory": 2,
     "averageRating": 5.0,

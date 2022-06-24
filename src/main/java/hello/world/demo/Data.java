@@ -208,7 +208,7 @@ public class Data {
                                 new Restaurant(0, "DA VINCI", "Italienisches Restaurant und Pizzeria", l,
                                                 Arrays.asList("https://isteam.wsimg.com/ip/8fe1339d-8c91-4097-84c7-25ef61943d99/1F273442-99D4-4460-9E86-B28E9DDB0641.jpeg/:/rs=w:360,h:270,cg:true,m/cr=w:360,h:270"),
                                                 reviews, openingTimes, closingTimes,
-                                                "https://davincirestaurants.de", 4, tables, RestaurantType.ITALIAN,
+                                                "https://davincirestaurants.de","", 4, tables, RestaurantType.ITALIAN,
                                                 reservations)
 
                 );
@@ -216,21 +216,21 @@ public class Data {
                                 new Restaurant(1, "MUN MUN", "Thailändisches Restaurant", locMunMun, Arrays.asList(
                                                 "https://media-cdn.tripadvisor.com/media/photo-s/0d/e1/71/1f/essen.jpg"),
                                                 reviewsMunMun, openingTimesMunMun,
-                                                closingTimesMunMun, "munmun.de", 2, tablesMunMUn,
+                                                closingTimesMunMun, "munmun.de","", 2, tablesMunMUn,
                                                 RestaurantType.TAIWANESE,
                                                 reservationsMunMun));
                 sampleRestaurants
                                 .add(new Restaurant(2, "TÜRKITCH", "Köfte & Kebap", locTurkitch, Arrays.asList(
                                                 "https://www.bellacarne.it/wp-content/uploads/2021/03/kebab-ricetta-originale.jpg"),
                                                 reviewsTurkitch, openingTimesTurkitch, closingTimesTurkitch,
-                                                "tuerkitch-koeftekebap.de", 1, tablesTurkitch,
+                                                "tuerkitch-koeftekebap.de","", 1, tablesTurkitch,
                                                 RestaurantType.TAIWANESE,
                                                 reservationsTurkitch));
                 sampleRestaurants.add(
                                 new Restaurant(3, "Augustiner Keller", "Historisches Restaurant mit großem Biergarten",
                                                 locAugustiner,
                                                 Arrays.asList("https://www.merkur.de/bilder/2014/05/26/1236459/26415201-biergarten-augustiner-keller_20140519-112322-2pnSy8m1tIec.jpg"),
-                                                reviewsAug, openingTimesAug, closingTimesAug, "augustinerkeller.de",
+                                                reviewsAug, openingTimesAug, closingTimesAug, "augustinerkeller.de","",
                                                 3,
                                                 tablesAug, RestaurantType.BAVARIAN, reservationsAug));
 
