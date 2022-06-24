@@ -50,11 +50,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [10, 0],
+      [10, 0],
+      [5, 0],
+      [5, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": "Mon-Wed, Sun: 15:00-23:00\nThu-Sat: 13:00-23:00",
     "website": "http://www.augustinerkeller.de/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -84,7 +101,7 @@
       { "id": 25, "seats": 10, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 1,
@@ -137,11 +154,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [11, 0],
+      [11, 0],
+      [6, 0],
+      [6, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.hofbraeuhaus.de/de/hofbraeuhaus.html",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -170,7 +204,7 @@
       { "id": 24, "seats": 7, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 2,
@@ -223,11 +257,28 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [13, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://prinzmyshkin.com/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 6, "available": true },
@@ -252,7 +303,7 @@
       { "id": 20, "seats": 6, "available": true }
     ],
     "restaurantType": "GOURMET",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 3,
@@ -305,11 +356,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kiliansirishpub.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -332,7 +400,7 @@
       { "id": 18, "seats": 5, "available": true }
     ],
     "restaurantType": "FAST_FOOD",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 4,
@@ -385,11 +453,28 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kuffler.de/de/restaurant/spatenhaus/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 3.6,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -411,7 +496,7 @@
       { "id": 17, "seats": 8, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 5,
@@ -464,11 +549,28 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.brennergrill.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 3, "available": true },
       { "id": 1, "seats": 3, "available": true },
@@ -498,7 +600,7 @@
       { "id": 25, "seats": 10, "available": true }
     ],
     "restaurantType": "ITALIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 6,
@@ -551,11 +653,28 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.zumstraubinger.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.0,
     "tables": [
       { "id": 0, "seats": 7, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -583,7 +702,7 @@
       { "id": 23, "seats": 5, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 7,
@@ -636,11 +755,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [12, 0],
+      [12, 0],
+      [12, 0],
+      [12, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafe-kranich.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 3, "available": true },
       { "id": 1, "seats": 6, "available": true },
@@ -665,7 +801,7 @@
       { "id": 20, "seats": 11, "available": true }
     ],
     "restaurantType": "GERMAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 8,
@@ -718,11 +854,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.zum-franziskaner.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -742,7 +895,7 @@
       { "id": 15, "seats": 9, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 9,
@@ -795,11 +948,28 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://losteria.net/de/restaurants/restaurant/muenchen-kuenstlerhaus/?utm_source=google&utm_medium=Yext",
-    "priceCategory": 0,
+    "priceCategory": 5,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -822,7 +992,7 @@
       { "id": 18, "seats": 9, "available": true }
     ],
     "restaurantType": "ITALIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 10,
@@ -875,11 +1045,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.schneider-brauhaus.de/",
-    "priceCategory": 0,
+    "priceCategory": 5,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -902,7 +1089,7 @@
       { "id": 18, "seats": 8, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 11,
@@ -955,11 +1142,28 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.augustiner-am-platzl.de/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 2.6,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -985,7 +1189,7 @@
       { "id": 21, "seats": 2, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 12,
@@ -1038,11 +1242,28 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://faun-muenchen.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 9, "available": true },
@@ -1072,7 +1293,7 @@
       { "id": 25, "seats": 3, "available": true }
     ],
     "restaurantType": "GERMAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 13,
@@ -1125,11 +1346,28 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [5, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafe-luitpold.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1156,7 +1394,7 @@
       { "id": 22, "seats": 9, "available": true }
     ],
     "restaurantType": "GOURMET",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 14,
@@ -1209,11 +1447,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.sushi-soul.de/",
-    "priceCategory": 0,
+    "priceCategory": 5,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 7, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1244,7 +1499,7 @@
       { "id": 26, "seats": 7, "available": true }
     ],
     "restaurantType": "SUSHI",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 15,
@@ -1297,11 +1552,28 @@
         "rating": 2
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.vapiano.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 3.6,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1334,7 +1606,7 @@
       { "id": 28, "seats": 11, "available": true }
     ],
     "restaurantType": "ITALIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 16,
@@ -1387,11 +1659,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [15, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.parkcafe089.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1412,7 +1701,7 @@
       { "id": 16, "seats": 8, "available": true }
     ],
     "restaurantType": "KNEIPE",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 17,
@@ -1465,11 +1754,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.ratskeller.com/",
-    "priceCategory": 0,
+    "priceCategory": 3,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -1493,7 +1799,7 @@
       { "id": 19, "seats": 7, "available": true }
     ],
     "restaurantType": "GERMAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 18,
@@ -1546,11 +1852,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.pfistermuehle.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -1578,7 +1901,7 @@
       { "id": 23, "seats": 9, "available": true }
     ],
     "restaurantType": "GERMAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 19,
@@ -1631,11 +1954,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [6, 0],
+      [6, 0],
+      [9, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.zurschwalbe.com/",
-    "priceCategory": 0,
+    "priceCategory": 3,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -1660,7 +2000,7 @@
       { "id": 20, "seats": 9, "available": true }
     ],
     "restaurantType": "GERMAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 20,
@@ -1713,11 +2053,28 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [12, 0],
+      [12, 0],
+      [12, 0],
+      [12, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kennedysmunich.de/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 3.2,
     "tables": [
       { "id": 0, "seats": 8, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -1742,7 +2099,7 @@
       { "id": 20, "seats": 10, "available": true }
     ],
     "restaurantType": "IRISH",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 21,
@@ -1795,11 +2152,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [11, 0],
+      [11, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.mariandl.com/",
-    "priceCategory": 0,
+    "priceCategory": 3,
+    "averageRating": 4.6,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -1826,7 +2200,7 @@
       { "id": 22, "seats": 11, "available": true }
     ],
     "restaurantType": "CAFE",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 22,
@@ -1879,11 +2253,28 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.wildmosers.de/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 3.0,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -1909,7 +2300,7 @@
       { "id": 21, "seats": 7, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 23,
@@ -1962,11 +2353,28 @@
         "rating": 2
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [7, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://augustineramdom.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 3.0,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1987,7 +2395,7 @@
       { "id": 16, "seats": 5, "available": true }
     ],
     "restaurantType": "GERMAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 24,
@@ -2040,11 +2448,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.hackerhaus.de/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 4, "available": true },
@@ -2076,7 +2501,7 @@
       { "id": 27, "seats": 3, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 25,
@@ -2129,11 +2554,28 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.arabesk.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 5, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -2158,7 +2600,7 @@
       { "id": 20, "seats": 8, "available": true }
     ],
     "restaurantType": "MIDDLE_EASTERN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 26,
@@ -2211,11 +2653,28 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.der-pschorr.de/",
-    "priceCategory": 0,
+    "priceCategory": 3,
+    "averageRating": 4.0,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -2234,7 +2693,7 @@
       { "id": 14, "seats": 8, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 27,
@@ -2287,11 +2746,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [6, 0],
+      [6, 0],
+      [6, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://wirtshausinderau.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -2315,7 +2791,7 @@
       { "id": 19, "seats": 5, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 28,
@@ -2368,11 +2844,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.teatro-bar-tapas.de/",
-    "priceCategory": 0,
+    "priceCategory": 5,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 7, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -2400,7 +2893,7 @@
       { "id": 23, "seats": 4, "available": true }
     ],
     "restaurantType": "SPANISH",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 29,
@@ -2453,11 +2946,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.molly-malones.org/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 3, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -2484,7 +2994,7 @@
       { "id": 22, "seats": 10, "available": true }
     ],
     "restaurantType": "IRISH",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 30,
@@ -2537,11 +3047,28 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [12, 0],
+      [12, 0],
+      [12, 0],
+      [18, 0],
+      [18, 0],
+      [17, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafezimt.de/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 3.6,
     "tables": [
       { "id": 0, "seats": 8, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -2571,7 +3098,7 @@
       { "id": 25, "seats": 11, "available": true }
     ],
     "restaurantType": "CAFE",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 31,
@@ -2624,11 +3151,28 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.mcmueller.org/",
-    "priceCategory": 0,
+    "priceCategory": 5,
+    "averageRating": 4.6,
     "tables": [
       { "id": 0, "seats": 8, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -2651,7 +3195,7 @@
       { "id": 18, "seats": 4, "available": true }
     ],
     "restaurantType": "BURGER",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 32,
@@ -2704,11 +3248,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [5, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.trachtenvogl.de/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 4, "available": true },
@@ -2737,7 +3298,7 @@
       { "id": 24, "seats": 5, "available": true }
     ],
     "restaurantType": "CAFE",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 33,
@@ -2790,11 +3351,28 @@
         "rating": 2
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.ole-madrid.com/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 2.2,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 3, "available": true },
@@ -2821,7 +3399,7 @@
       { "id": 22, "seats": 11, "available": true }
     ],
     "restaurantType": "SPANISH",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 34,
@@ -2874,11 +3452,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.paulaner-brauhaus.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -2909,7 +3504,7 @@
       { "id": 26, "seats": 3, "available": true }
     ],
     "restaurantType": "GERMAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 35,
@@ -2962,11 +3557,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [9, 0],
+      [9, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://hansimglueck-burgergrill.de/burger-restaurant/muenchen-goetheplatz/?utm_source=google&utm_medium=yext&utm_campaign=9",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -2994,7 +3606,7 @@
       { "id": 23, "seats": 8, "available": true }
     ],
     "restaurantType": "BURGER",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 36,
@@ -3047,11 +3659,28 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [7, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.hofbraeukeller.de/",
-    "priceCategory": 0,
+    "priceCategory": 3,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -3076,7 +3705,7 @@
       { "id": 20, "seats": 3, "available": true }
     ],
     "restaurantType": "BAVARIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 37,
@@ -3129,11 +3758,28 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.leos-lounge.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.6,
     "tables": [
       { "id": 0, "seats": 7, "available": true },
       { "id": 1, "seats": 6, "available": true },
@@ -3164,7 +3810,7 @@
       { "id": 26, "seats": 10, "available": true }
     ],
     "restaurantType": "BURGER",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 38,
@@ -3217,11 +3863,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.yum-thai.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 4.6,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 9, "available": true },
@@ -3259,7 +3922,7 @@
       { "id": 33, "seats": 2, "available": true }
     ],
     "restaurantType": "ASIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 39,
@@ -3312,11 +3975,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [16, 0],
+      [10, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://lucullus-muenchen.de/",
-    "priceCategory": 0,
+    "priceCategory": 5,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -3345,7 +4025,7 @@
       { "id": 24, "seats": 2, "available": true }
     ],
     "restaurantType": "GREEK",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 40,
@@ -3394,11 +4074,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://global-wok.de/m.html",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 6, "available": true },
@@ -3422,7 +4119,7 @@
       { "id": 19, "seats": 8, "available": true }
     ],
     "restaurantType": "ASIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 41,
@@ -3475,11 +4172,28 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.farmerscafeandsteakhouse.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 8, "available": true },
       { "id": 1, "seats": 4, "available": true },
@@ -3504,7 +4218,7 @@
       { "id": 20, "seats": 8, "available": true }
     ],
     "restaurantType": "BURGER",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 42,
@@ -3557,11 +4271,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.lapergola-garching.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -3590,7 +4321,7 @@
       { "id": 24, "seats": 3, "available": true }
     ],
     "restaurantType": "ITALIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 43,
@@ -3643,11 +4374,28 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.restaurant-rama-ismaning.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -3673,7 +4421,7 @@
       { "id": 21, "seats": 9, "available": true }
     ],
     "restaurantType": "ASIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 44,
@@ -3726,11 +4474,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [17, 0],
+      [17, 0],
+      [12, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.riedmair.de/",
-    "priceCategory": 0,
+    "priceCategory": 4,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -3756,7 +4521,7 @@
       { "id": 21, "seats": 2, "available": true }
     ],
     "restaurantType": "CAFE",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 45,
@@ -3809,11 +4574,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [13, 0],
+      [12, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.nanosushi.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -3833,7 +4615,7 @@
       { "id": 15, "seats": 8, "available": true }
     ],
     "restaurantType": "SUSHI",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 46,
@@ -3886,11 +4668,28 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [17, 0],
+      [17, 0],
+      [15, 0],
+      [15, 0],
+      [9, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://freiraum.rest/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 3, "available": true },
@@ -3918,7 +4717,7 @@
       { "id": 23, "seats": 7, "available": true }
     ],
     "restaurantType": "GERMAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 47,
@@ -3971,11 +4770,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [17, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cucina-laperla.de/",
-    "priceCategory": 0,
+    "priceCategory": 5,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 5, "available": true },
       { "id": 1, "seats": 9, "available": true },
@@ -3997,7 +4813,7 @@
       { "id": 17, "seats": 10, "available": true }
     ],
     "restaurantType": "ITALIAN",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 48,
@@ -4046,11 +4862,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.herr-lichtenberg.de/",
-    "priceCategory": 0,
+    "priceCategory": 1,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -4077,7 +4910,7 @@
       { "id": 22, "seats": 9, "available": true }
     ],
     "restaurantType": "CAFE",
-    "reservations": null
+    "reservations": []
   },
   {
     "id": 49,
@@ -4126,11 +4959,28 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [15, 0],
+      [15, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.uno-pizza-ismaning.de/",
-    "priceCategory": 0,
+    "priceCategory": 2,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 3, "available": true },
@@ -4156,6 +5006,6 @@
       { "id": 21, "seats": 5, "available": true }
     ],
     "restaurantType": "ITALIAN",
-    "reservations": null
+    "reservations": []
   }
 ]

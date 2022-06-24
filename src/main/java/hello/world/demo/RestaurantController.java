@@ -14,8 +14,6 @@ import hello.world.demo.restaurant.Review;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 public class RestaurantController {
 

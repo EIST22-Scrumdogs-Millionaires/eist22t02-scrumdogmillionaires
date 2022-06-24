@@ -50,14 +50,6 @@ public class RestaurantOverview extends Thread {
     }
 
     public static List<SmallRestaurant> getTopTen() {
-        for (int i = 0; i < restaurants.size(); i++) {
-            List<Tisch> toAdd = new ArrayList<>();
-            for (int j = 0; j < (int) (Math.random()*40d +15d); j++) {
-                toAdd.add(new Tisch(j,(int) (Math.random()*10 +2)));
-            }
-            restaurants.get(i).setTables(toAdd);
-        }
-        Data.saveRestaurants(restaurants);
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
@@ -268,6 +260,7 @@ public class RestaurantOverview extends Thread {
             } else if (reservation.getConfirmSecretKey().compareTo(actionSecretKey) == 0) {
                 reservation.confirmReservation(actionSecretKey);
             }
+            Data.saveRestaurants(restaurants);
         }
     }
 
