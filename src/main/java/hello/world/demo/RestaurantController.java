@@ -10,8 +10,6 @@ import hello.world.demo.restaurant.RestaurantOverview;
 import hello.world.demo.restaurant.RestaurantType;
 import hello.world.demo.restaurant.Review;
 
-import java.util.List;
-
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

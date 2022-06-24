@@ -51,6 +51,10 @@ public class RestaurantOverview extends Thread {
     }
 
     public static List<SmallRestaurant> getTopTen() {
+        for (int i = 0; i < restaurants.size(); i++) {
+            restaurants.get(i).setId(i);
+        }
+        Data.saveRestaurants(restaurants);
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
