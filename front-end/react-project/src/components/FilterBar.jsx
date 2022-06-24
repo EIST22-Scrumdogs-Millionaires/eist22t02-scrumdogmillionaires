@@ -43,9 +43,9 @@ function SelectPreisklasse(props) {
 
     return (
         <Box sx={{minWidth:100}}>
-            <FormControl fullWidth>
-                <InputLabel>Preisklasse</InputLabel>
-                <Select labelId="preisklasse" label="Preisklasse" value={preisklasse} onChange={handleChange}>
+            <FormControl>
+                <InputLabel >Preisklasse</InputLabel>
+                <Select labelId="preisklasse" label="Preisklasse" value={preisklasse} onChange={handleChange} sx={{ width: 228 }}>
                     <MenuItem value={"1"}>€</MenuItem>
                     <MenuItem value={"2"}>€€</MenuItem>
                     <MenuItem value={"3"}>€€€</MenuItem>
@@ -66,9 +66,9 @@ function SelectCategory(props) {
 
     return (
         <Box sx={{minWidth:150}}>
-            <FormControl fullWidth>
-                <InputLabel>Kategorie</InputLabel>
-                <Select labelId="category" label="Category" value={category} onChange={handleChange}>
+            <FormControl>
+                <InputLabel >Kategorie</InputLabel>
+                <Select labelId="category" label="Category" value={category} onChange={handleChange} sx={{ width: 228 }}>
                     <MenuItem value={"1"}>Chinese</MenuItem>
                     <MenuItem value={"2"}>German</MenuItem>
                     <MenuItem value={"3"}>Bavarian</MenuItem>
@@ -96,10 +96,11 @@ function ReservationTimePicker(props) {
         <Box sx={{minWidth:160}}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DateTimePicker
+                    
                     label="Date&Time picker"
                     value={value}
                     onChange={handleChange}
-                    renderInput={(params) => <TextField {...params} />}
+                    renderInput={(params) => <TextField {...params} sx={{ width: 228 }}/>}
                 />
             </LocalizationProvider>
         </Box>
@@ -173,38 +174,37 @@ export default function FilterBar(props) {
     return (
             <div>
                 <Grid container spacing={3} justifyContent="space-around">
-                    <Grid item xs={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <SelectCategory callback={handleCategoryChange}/>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <SelectPreisklasse callback={handlePriceChange}/>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
                             <Typography>Rating (mind.)</Typography>
                             <Rating onChange={handleRatingChange} />
                         </Box>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
-                            <Typography>Distanz</Typography>
+                            <Typography>Distance</Typography>
                             <Slider
-                                defaultValue={5} min={1} max={30} marks={marks} onChange={handleSliderChange}/>
+                                defaultValue={5} min={1} max={30} marks={marks} onChange={handleSliderChange} sx={{ width: 130 }}/>
                         </Box>
                     </Grid>
 
-                    <Grid item xs={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
                             <ReservationTimePicker callback={handleTimeChange} />
                         </Box>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
                             <TextField id="persons" label="Personen" type="number" value={filters.persons}
-                                       InputLabelProps={{
-                                           shrink: true,
-                                       }} InputProps={{
+                                        sx={{ width: 228 }}
+                                         InputProps={{
                                 inputProps:
                                     {min:0,max: 10}
                             }}

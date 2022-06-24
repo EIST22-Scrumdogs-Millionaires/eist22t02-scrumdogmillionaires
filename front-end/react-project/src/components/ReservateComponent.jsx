@@ -231,7 +231,6 @@ const ReservateComponent = (props) => {
           </div>
           <div className="input-reservate">
             <TimePicker
-              sx={{ m: 1, width: 806 }}
               ampm={false}
               label="Time"
               value={time}
