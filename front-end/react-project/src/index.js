@@ -17,9 +17,6 @@ root.render(
           <Route path="/" element={<Home />}></Route>
         </Routes>
         <Routes>
-          <Route path="/login" element={<Login />}></Route>
-        </Routes>
-        <Routes>
           <Route path="/search/:query" element={<Search />}></Route>
         </Routes>
         <Routes>
