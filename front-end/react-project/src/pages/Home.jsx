@@ -14,7 +14,7 @@ export default function Home() {
 
   const [query, handleSearchBox] = React.useState("");
   const [restaurants, setRestaurants] = React.useState( () => {
-        Axios.get(`http://localhost:8080/restaurants/getTopTen`)
+        Axios.get(`http://localhost:8080/restaurants/search/""`)
             .then((res) => {
               setRestaurants(res.data);
             })
@@ -97,7 +97,7 @@ export default function Home() {
           </div>
 
           <div className="filterbar">
-            <FilterBar  filterCallback={handleFilterChange}/>
+            <FilterBar  filters={filters} filterCallback={handleFilterChange}/>
           </div>
 
           <div className="map">

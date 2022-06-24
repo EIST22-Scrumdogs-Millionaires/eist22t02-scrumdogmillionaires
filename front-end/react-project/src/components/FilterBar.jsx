@@ -109,12 +109,12 @@ function ReservationTimePicker(props) {
 
 export default function FilterBar(props) {
         const [filters, setFilters] = React.useState({
-            category: "",
-            price: "",
-            rating: "",
-            distance: "",
-            time: "",
-            persons: 2,
+            category: props.filters.category,
+            price: props.filters.price,
+            rating: props.filters.rating,
+            distance: props.filters.distance,
+            time: props.filters.time,
+            persons: props.filters.persons,
         });
 
       useEffect(() => {
