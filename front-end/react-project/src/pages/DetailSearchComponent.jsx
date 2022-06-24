@@ -97,11 +97,13 @@ export default function DetailSearchComponent() {
               )}
             </div>
             <div className="picture-wrapper">
-              <img
-                src={`${data.pictures}`}
-                alt="restaurant picture"
-                className="picture"
-              />
+                {data.pictures.map((picture) => (
+                    <img
+                        src={`${picture}`}
+                        alt="restaurant picture"
+                        className="picture"
+                    />
+                ))}
             </div>
             <div>
             {data.reviews ? <ReservateComponent restaurant={data}></ReservateComponent> : null}
