@@ -96,7 +96,7 @@ function ReservationTimePicker(props) {
         <Box sx={{minWidth:160}}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DateTimePicker
-                    
+                    ampm={false}
                     label="Date&Time picker"
                     value={value}
                     onChange={handleChange}
