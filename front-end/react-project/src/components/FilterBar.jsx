@@ -199,7 +199,7 @@ export default function FilterBar(props) {
 
                     <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
-                            <TextField id="persons" label="Personen" type="number" defaultValue={2} onChange={handlePersonsChange sx={{width:228}}}
+                            <TextField id="persons" label="Personen" type="number" defaultValue={2} onChange={handlePersonsChange} sx={{width: 228}}
                                        InputLabelProps={{
                                            shrink: true,
                                        }} InputProps={{
