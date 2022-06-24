@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
+import hello.world.demo.Data;
 import hello.world.demo.Util;
 
 import hello.world.demo.email.EmailThread;
@@ -108,11 +109,11 @@ public class Restaurant {
 		this.pictures = pictures;
 	}
 
-	public double getAverageRating(){
+	public double getAverageRating() {
 		return this.averageRating;
 	}
 
-	public void setAverageRating(double averageRating ){
+	public void setAverageRating(double averageRating) {
 		this.averageRating = averageRating;
 	}
 
@@ -298,20 +299,21 @@ public class Restaurant {
 				.filter(x -> !possibleReservations.stream().anyMatch(y -> y.getTable().getId() == x.getId())).toList();
 	}
 
-	public void passReservation(Reservation reservation, Visitor user) {
+	public void passReservation(Reservation reservation) {
 
-		String emailResText = Util.reservationMail(user, reservation);
-		String emailResConfirmText = Util.confirmMail(user, reservation, this);
+		String emailResText = Util.reservationMail(reservation.getUser(), reservation);
+		String emailResConfirmText = Util.confirmMail(reservation.getUser(), reservation, this);
 
-		Email emailRes = new Email(user.getEmail(), "Reservierung bestätigt", emailResText, LocalDate.now(),
+		Email emailRes = new Email(reservation.getUser().getEmail(), "Reservierung bestätigt", emailResText,
+				LocalDate.now(),
 				LocalTime.now());
-		Email emailResConfirm = new Email(user.getEmail(), "Bitte bestätigen Sie Ihre Reservierung",
+		Email emailResConfirm = new Email(reservation.getUser().getEmail(), "Bitte bestätigen Sie Ihre Reservierung",
 				emailResConfirmText,
 				reservation.getDate().minusDays(1), reservation.getTime().minusHours(24));
 		EmailThread.addEmail(emailRes);
 		EmailThread.addEmail(emailResConfirm);
-
-		reservation.setUser(user);
+		reservation.setId(Data.getReservationId());
+		Data.saveReservationId(reservation.getId() + 1);
 		reservations.add(reservation);
 	}
 }

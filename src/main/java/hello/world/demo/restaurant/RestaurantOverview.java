@@ -239,9 +239,9 @@ public class RestaurantOverview extends Thread {
      * @param visitor
      * @return
      */
-    public static Reservation postReservation(Reservation reservation, Visitor visitor) {
+    public static Reservation postReservation(Reservation reservation) {
         restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
-                .passReservation(reservation, visitor);
+                .passReservation(reservation);
         Data.saveRestaurants(restaurants);
         return reservation;
 
