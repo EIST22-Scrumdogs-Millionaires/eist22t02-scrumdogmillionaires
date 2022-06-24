@@ -50,8 +50,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [10, 0],
+      [10, 0],
+      [5, 0],
+      [5, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": "Mon-Wed, Sun: 15:00-23:00\nThu-Sat: 13:00-23:00",
     "website": "http://www.augustinerkeller.de/",
     "priceCategory": 0,
@@ -137,8 +153,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [11, 0],
+      [11, 0],
+      [6, 0],
+      [6, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.hofbraeuhaus.de/de/hofbraeuhaus.html",
     "priceCategory": 0,
@@ -223,8 +255,24 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [13, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://prinzmyshkin.com/",
     "priceCategory": 0,
@@ -305,8 +353,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kiliansirishpub.de/",
     "priceCategory": 0,
@@ -385,8 +449,24 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kuffler.de/de/restaurant/spatenhaus/",
     "priceCategory": 0,
@@ -464,8 +544,24 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.brennergrill.de/",
     "priceCategory": 0,
@@ -551,8 +647,24 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.zumstraubinger.de/",
     "priceCategory": 0,
@@ -636,8 +748,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [12, 0],
+      [12, 0],
+      [12, 0],
+      [12, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafe-kranich.de/",
     "priceCategory": 0,
@@ -718,8 +846,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.zum-franziskaner.de/",
     "priceCategory": 0,
@@ -795,8 +939,24 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://losteria.net/de/restaurants/restaurant/muenchen-kuenstlerhaus/?utm_source=google&utm_medium=Yext",
     "priceCategory": 0,
@@ -875,8 +1035,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.schneider-brauhaus.de/",
     "priceCategory": 0,
@@ -955,8 +1131,24 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.augustiner-am-platzl.de/",
     "priceCategory": 0,
@@ -1038,8 +1230,24 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://faun-muenchen.de/",
     "priceCategory": 0,
@@ -1125,8 +1333,24 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [5, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafe-luitpold.de/",
     "priceCategory": 0,
@@ -1209,8 +1433,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.sushi-soul.de/",
     "priceCategory": 0,
@@ -1297,8 +1537,24 @@
         "rating": 2
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.vapiano.de/",
     "priceCategory": 0,
@@ -1387,8 +1643,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [15, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.parkcafe089.de/",
     "priceCategory": 0,
@@ -1465,8 +1737,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.ratskeller.com/",
     "priceCategory": 0,
@@ -1546,8 +1834,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.pfistermuehle.de/",
     "priceCategory": 0,
@@ -1631,8 +1935,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [6, 0],
+      [6, 0],
+      [9, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.zurschwalbe.com/",
     "priceCategory": 0,
@@ -1713,8 +2033,24 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [12, 0],
+      [12, 0],
+      [12, 0],
+      [12, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kennedysmunich.de/",
     "priceCategory": 0,
@@ -1795,8 +2131,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [11, 0],
+      [11, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.mariandl.com/",
     "priceCategory": 0,
@@ -1879,8 +2231,24 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.wildmosers.de/",
     "priceCategory": 0,
@@ -1962,8 +2330,24 @@
         "rating": 2
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [7, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://augustineramdom.de/",
     "priceCategory": 0,
@@ -2040,8 +2424,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.hackerhaus.de/",
     "priceCategory": 0,
@@ -2129,8 +2529,24 @@
         "rating": 1
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.arabesk.de/",
     "priceCategory": 0,
@@ -2211,8 +2627,24 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.der-pschorr.de/",
     "priceCategory": 0,
@@ -2287,8 +2719,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [6, 0],
+      [6, 0],
+      [6, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://wirtshausinderau.de/",
     "priceCategory": 0,
@@ -2368,8 +2816,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.teatro-bar-tapas.de/",
     "priceCategory": 0,
@@ -2453,8 +2917,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.molly-malones.org/",
     "priceCategory": 0,
@@ -2537,8 +3017,24 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [12, 0],
+      [12, 0],
+      [12, 0],
+      [18, 0],
+      [18, 0],
+      [17, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafezimt.de/",
     "priceCategory": 0,
@@ -2624,8 +3120,24 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [13, 0],
+      [13, 0],
+      [13, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.mcmueller.org/",
     "priceCategory": 0,
@@ -2704,8 +3216,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [5, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.trachtenvogl.de/",
     "priceCategory": 0,
@@ -2790,8 +3318,24 @@
         "rating": 2
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.ole-madrid.com/",
     "priceCategory": 0,
@@ -2874,8 +3418,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.paulaner-brauhaus.de/",
     "priceCategory": 0,
@@ -2962,8 +3522,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [9, 0],
+      [9, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [5, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://hansimglueck-burgergrill.de/burger-restaurant/muenchen-goetheplatz/?utm_source=google&utm_medium=yext&utm_campaign=9",
     "priceCategory": 0,
@@ -3047,8 +3623,24 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [7, 0],
+      [7, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.hofbraeukeller.de/",
     "priceCategory": 0,
@@ -3129,8 +3721,24 @@
         "rating": 4
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.leos-lounge.de/",
     "priceCategory": 0,
@@ -3217,8 +3825,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [5, 0],
+      [5, 0],
+      [5, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0],
+      [18, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.yum-thai.de/",
     "priceCategory": 0,
@@ -3312,8 +3936,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [9, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [16, 0],
+      [10, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://lucullus-muenchen.de/",
     "priceCategory": 0,
@@ -3394,8 +4034,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://global-wok.de/m.html",
     "priceCategory": 0,
@@ -3475,8 +4131,24 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [16, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.farmerscafeandsteakhouse.de/",
     "priceCategory": 0,
@@ -3557,8 +4229,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.lapergola-garching.de/",
     "priceCategory": 0,
@@ -3643,8 +4331,24 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [10, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [20, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.restaurant-rama-ismaning.de/",
     "priceCategory": 0,
@@ -3726,8 +4430,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [17, 0],
+      [17, 0],
+      [12, 0]
+    ],
+    "closingTime": [
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [20, 0],
+      [20, 0],
+      [20, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.riedmair.de/",
     "priceCategory": 0,
@@ -3809,8 +4529,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [8, 0],
+      [13, 0],
+      [12, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [20, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.nanosushi.de/",
     "priceCategory": 0,
@@ -3886,8 +4622,24 @@
         "rating": 3
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [14, 0],
+      [17, 0],
+      [17, 0],
+      [15, 0],
+      [15, 0],
+      [9, 0],
+      [9, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [20, 0],
+      [20, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://freiraum.rest/",
     "priceCategory": 0,
@@ -3971,8 +4723,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [10, 0],
+      [10, 0],
+      [15, 0],
+      [15, 0],
+      [15, 0],
+      [17, 0],
+      [17, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [22, 0],
+      [22, 0],
+      [22, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cucina-laperla.de/",
     "priceCategory": 0,
@@ -4046,8 +4814,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0],
+      [11, 0]
+    ],
+    "closingTime": [
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.herr-lichtenberg.de/",
     "priceCategory": 0,
@@ -4126,8 +4910,24 @@
         "rating": 5
       }
     ],
-    "openingTimes": null,
-    "closingTime": null,
+    "openingTimes": [
+      [15, 0],
+      [15, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0],
+      [14, 0]
+    ],
+    "closingTime": [
+      [20, 0],
+      [20, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0],
+      [21, 0]
+    ],
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.uno-pizza-ismaning.de/",
     "priceCategory": 0,
