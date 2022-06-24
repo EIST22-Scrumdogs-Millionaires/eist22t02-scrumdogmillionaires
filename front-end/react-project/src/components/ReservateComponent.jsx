@@ -14,6 +14,10 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import useState from "react-hook-use-state";
 import Axios from "axios";
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
 //contains much code from https://mui.com/material-ui/react-stepper/
 const steps = ["Your Data", "Select", "Confirm"];
 const optionsDate = { year: "numeric", month: "2-digit", day: "2-digit" };
@@ -37,8 +41,52 @@ const ReservateComponent = (props) => {
   const [userTable, setUserTable] = useState("");
   const [numberPersons, handleNumberPersonsChange] = useState(1);
   const [availableTables, setAvailableTables] = useState([]);
+  const [openSuccessMessage, setOpenSuccessMessage] = React.useState(false);
+  const [openErrorMessage, setOpenErrorMessage] = React.useState(false);
 
+  const successMessage = (
+    <Collapse in={openSuccessMessage}>
+        <Alert
+         severity="success"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpenSuccessMessage(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ m: 4 }}
+        >
+          Success!
+        </Alert>
+      </Collapse>);
 
+const errorMessage = (
+  <Collapse in={openErrorMessage}>
+      <Alert
+        severity="error"
+        action={
+          <IconButton
+            aria-label="close"
+            color="inherit"
+            size="small"
+            onClick={() => {
+              setOpenErrorMessage(false);
+            }}
+          >
+            <CloseIcon fontSize="inherit" />
+          </IconButton>
+        }
+        sx={{ m: 2 }}
+      >
+        An error occured :/
+      </Alert>
+    </Collapse>);
 
   useEffect(() => {
     const inputDate = formatDate(date);
@@ -71,9 +119,11 @@ const ReservateComponent = (props) => {
       reservation, user
     )
       .then((res) => {
+        setOpenSuccessMessage(true);
         console.log(res);
       })
       .catch((error) => {
+        setOpenErrorMessage(true);
         console.error("There was an error!", error);
       });
   }
@@ -297,7 +347,8 @@ const ReservateComponent = (props) => {
   return (
     <div className="reservation-comp">
       <Box sx={{ width: "100%" }}>
-        <div style={{ margin: "10px", textAlign: "left" }}>
+         
+         <div style={{ margin: "10px", textAlign: "left" }}>
           <h3>Reservate:</h3>
         </div>
         <Stepper activeStep={activeStep}>
@@ -314,7 +365,7 @@ const ReservateComponent = (props) => {
             );
           })}
         </Stepper>
-
+        
         {activeStep === steps.length ? (
           <React.Fragment>
             {content}
@@ -351,9 +402,12 @@ const ReservateComponent = (props) => {
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
             </Box>
+            
           </React.Fragment>
         )}
       </Box>
+      {successMessage}
+        {errorMessage}
     </div>
   );
 };
