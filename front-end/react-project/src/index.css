@@ -97,12 +97,17 @@ footer {
 }
 
 .picture-wrapper{
-  height: 200px;
+  height: auto;
   padding: 20px 20px;
   border-radius: 7px;
   background: #f7f7f7;
   box-shadow:  8px 8px 24px #d0d0d0,
   -8px -8px 24px #f0f0f0;
+}
+
+.picture{
+  height: 200px;
+  border-radius: 15px;
 }
 
 .restaurant-infos{
@@ -133,10 +138,7 @@ footer {
   width: 100%;
 }
 
-.picture{
-  height: 100%;
-  border-radius: 15px;
-}
+
 
 .content{
   padding-bottom: 80px;

@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import NavigationBar from "../components/NavigationBar";
-import { Grid, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import CommentSection from "../components/CommentSection";
 import ReservateComponent from "../components/ReservateComponent";
 import IconButton from "@mui/material/IconButton";
 import { default as WebsiteIcon } from "@mui/icons-material/Language";
 import useState from "react-hook-use-state";
 import { useEffect, React } from "react";
+import apikey from "../data/apikey";
 import Axios from "axios";
 export default function DetailSearchComponent() {
   const [data, setData] = useState(null);
@@ -20,25 +21,6 @@ export default function DetailSearchComponent() {
       })
       .catch((err) => console.log(err));
   }, []);
-  /*
-  const fetchData = async () => {
-    const response = await fetch(`http://localhost:8080/restaurant/${id}`);
-    if (!response.ok) {
-      throw new Error('Data could not be fetched!');
-    } else {
-      return response.json();
-    }
-  }
-  useEffect(() => {
-    fetchData()
-      .then((res) => {
-        setData(res);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      })
-  }, []);
-  */
 
   if (data == null || data == undefined) {
     return <div>Loading...</div>;
@@ -97,11 +79,13 @@ export default function DetailSearchComponent() {
               )}
             </div>
             <div className="picture-wrapper">
-              <img
-                src={`${data.pictures}`}
-                alt="restaurant picture"
-                className="picture"
-              />
+                {data.pictures.map((picture) => (
+                    <img
+                        src={`${picture+apikey}`}
+                        alt="restaurant picture"
+                        className="picture"
+                    />
+                ))}
             </div>
             <div>
             {data.reviews ? <ReservateComponent restaurant={data}></ReservateComponent> : null}
@@ -114,8 +98,4 @@ export default function DetailSearchComponent() {
       </div>
     );
   }
-
-  /*console.log(data);
-  console.log(data.location.city);
-  console.log((data.location));*/
 }
