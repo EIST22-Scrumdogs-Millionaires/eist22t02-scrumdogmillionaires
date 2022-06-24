@@ -63,13 +63,14 @@ public class RestaurantOverview extends Thread {
      * Filterype Syntax:
      * T_t: RestaurantType
      * P_p: Prce Category
-     * D_x_y_d: Distance, x and y coordinates and distnace in km respectively
+     * D_x_y_d: Distance, x and y coordinates and distance in km respectively
      * A_r: Average Rating
      * F_f_d_p: Free time slots, timefrom, date and number of persons
      */
-    public static List<SmallRestaurant> filter(String searchQuery, List<String> filterTypes) {
+    public static List<SmallRestaurant> filter(String searchQuery, String filter) {
+        List<String> filterTypes = Arrays.stream(filter.split("@")).filter(x -> !x.isBlank()).toList();
         List<Restaurant> ret;
-        if (searchQuery.isBlank()) {
+        if (searchQuery.isBlank() || searchQuery.compareTo("all") == 0) {
             ret = restaurants;
         } else {
             ret = searchB(searchQuery);
@@ -83,8 +84,8 @@ public class RestaurantOverview extends Thread {
                     break;
                 }
                 case 'P': {
-                    String priceCategory = getArgument(filterType, 0);
-                    ret = ret.stream().filter(x -> x.getPriceCategory().compareTo(priceCategory) == 0).toList();
+                    int priceCategory = Integer.parseInt(getArgument(filterType, 0));
+                    ret = ret.stream().filter(x -> x.getPriceCategory() == priceCategory).toList();
                     break;
                 }
                 case 'D': {
@@ -111,7 +112,7 @@ public class RestaurantOverview extends Thread {
         }
         return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
-                x.getPictures()))
+             null))
                 .toList();
 
     }

@@ -14,7 +14,7 @@ public class SmallRestaurant {
 
 	private String website;
 
-	private String priceCategory;
+	private int priceCategory;
 
 	private double averageRating;
 
@@ -35,7 +35,7 @@ public class SmallRestaurant {
 	 * @param restaurantType
 	 */
 	public SmallRestaurant(int id, String name, String description, Location location,
-			String website, String priceCategory, double averageRating, RestaurantType restaurantType,
+			String website, int priceCategory, double averageRating, RestaurantType restaurantType,
 			List<String> pictures) {
 		this.id = id;
 		this.name = name;
@@ -85,11 +85,11 @@ public class SmallRestaurant {
 		this.website = website;
 	}
 
-	public String getPriceCategory() {
+	public int getPriceCategory() {
 		return priceCategory;
 	}
 
-	public void setPriceCategory(String priceCategory) {
+	public void setPriceCategory(int priceCategory) {
 		this.priceCategory = priceCategory;
 	}
 

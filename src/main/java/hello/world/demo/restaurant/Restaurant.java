@@ -33,7 +33,7 @@ public class Restaurant {
 
 	private String website;
 
-	private String priceCategory;
+	private int priceCategory;
 
 	private List<Tisch> tables;
 
@@ -47,7 +47,7 @@ public class Restaurant {
 	public Restaurant(int id, String name, String description, Location location, List<String> pictures,
 			List<Review> reviews,
 			List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
-			String priceCategory,
+			int priceCategory,
 			List<Tisch> tables, RestaurantType restaurantType, List<Reservation> reservations) {
 		super();
 		this.id = id;
@@ -218,11 +218,11 @@ public class Restaurant {
 		this.website = website;
 	}
 
-	public String getPriceCategory() {
+	public int getPriceCategory() {
 		return priceCategory;
 	}
 
-	public void setPriceCategory(String priceCategory) {
+	public void setPriceCategory(int priceCategory) {
 		this.priceCategory = priceCategory;
 	}
 
