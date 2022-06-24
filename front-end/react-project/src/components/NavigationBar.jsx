@@ -22,17 +22,6 @@ export default function NavigationBar() {
         </IconButton>
 
         <div style={{ flex: 1 }} />
-
-        <div>
-          <Stack direction="row" spacing={2}>
-            <IconButton size="small" color="inherit">
-              <DarkModeIcon />
-            </IconButton>
-            <Button component={Link} to="/login" color="inherit">
-              Login
-            </Button>
-          </Stack>
-        </div>
       </Toolbar>
     </AppBar>
     </ThemeProvider>

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import NavigationBar from "../components/NavigationBar";
-import { Grid, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import CommentSection from "../components/CommentSection";
 import ReservateComponent from "../components/ReservateComponent";
 import IconButton from "@mui/material/IconButton";
@@ -20,25 +20,6 @@ export default function DetailSearchComponent() {
       })
       .catch((err) => console.log(err));
   }, []);
-  /*
-  const fetchData = async () => {
-    const response = await fetch(`http://localhost:8080/restaurant/${id}`);
-    if (!response.ok) {
-      throw new Error('Data could not be fetched!');
-    } else {
-      return response.json();
-    }
-  }
-  useEffect(() => {
-    fetchData()
-      .then((res) => {
-        setData(res);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      })
-  }, []);
-  */
 
   if (data == null || data == undefined) {
     return <div>Loading...</div>;
@@ -116,8 +97,4 @@ export default function DetailSearchComponent() {
       </div>
     );
   }
-
-  /*console.log(data);
-  console.log(data.location.city);
-  console.log((data.location));*/
 }
