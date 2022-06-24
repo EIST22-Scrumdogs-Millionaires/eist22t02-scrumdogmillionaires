@@ -33,7 +33,7 @@ public class Restaurant {
 
 	private String website;
 
-	private String priceCategory;
+	private int priceCategory;
 
 	private List<Tisch> tables;
 
@@ -47,7 +47,7 @@ public class Restaurant {
 	public Restaurant(int id, String name, String description, Location location, List<String> pictures,
 			List<Review> reviews,
 			List<LocalTime> openingTimes, List<LocalTime> closingTime, String website,
-			String priceCategory,
+			int priceCategory,
 			List<Tisch> tables, RestaurantType restaurantType, List<Reservation> reservations) {
 		super();
 		this.id = id;
@@ -171,6 +171,10 @@ public class Restaurant {
 			done.add(actualDay);
 			int prev = actualDay;
 			boolean first = true;
+			// Restaurant not open?
+			if (Duration.between(openingTimes.get(actualDay), closingTime.get(actualDay)).toHours() == 0) {
+				continue;
+			}
 			for (int i = actualDay + 1; i < 7; i++) {
 				if (Duration.between(openingTimes.get(actualDay), openingTimes.get(i)).toHours() == 0
 						&& Duration.between(closingTime.get(actualDay), closingTime.get(i)).toHours() == 0) {
@@ -218,11 +222,11 @@ public class Restaurant {
 		this.website = website;
 	}
 
-	public String getPriceCategory() {
+	public int getPriceCategory() {
 		return priceCategory;
 	}
 
-	public void setPriceCategory(String priceCategory) {
+	public void setPriceCategory(int priceCategory) {
 		this.priceCategory = priceCategory;
 	}
 
@@ -261,6 +265,10 @@ public class Restaurant {
 	}
 
 	public List<Tisch> getAvailableTables(LocalTime from, LocalDate date, int persons) {
+		if (Duration.between(openingTimes.get(date.getDayOfWeek().getValue() - 1),
+				closingTime.get(date.getDayOfWeek().getValue() - 1)).toHours() == 0) {
+			return new ArrayList<>();
+		}
 		LocalTime closing = LocalTime.of(
 				closingTime.get(date.getDayOfWeek().getValue() - 1).getHour(),
 				closingTime.get(date.getDayOfWeek().getValue() - 1).getMinute());

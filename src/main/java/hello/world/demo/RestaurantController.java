@@ -10,8 +10,6 @@ import hello.world.demo.restaurant.RestaurantOverview;
 import hello.world.demo.restaurant.RestaurantType;
 import hello.world.demo.restaurant.Review;
 
-import java.util.List;
-
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -83,7 +81,7 @@ public class RestaurantController {
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(RestaurantOverview.search(search));
+            jsonString = mapper.writeValueAsString(RestaurantOverview.filter(search, filter));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
