@@ -71,6 +71,7 @@
     "openingAndClosingTimesAsFancyString": "Mon-Wed, Sun: 15:00-23:00\nThu-Sat: 13:00-23:00",
     "website": "http://www.augustinerkeller.de/",
     "priceCategory": 2,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -174,6 +175,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.hofbraeuhaus.de/de/hofbraeuhaus.html",
     "priceCategory": 1,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -276,6 +278,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://prinzmyshkin.com/",
     "priceCategory": 2,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 6, "available": true },
@@ -374,6 +377,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kiliansirishpub.de/",
     "priceCategory": 4,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -470,6 +474,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kuffler.de/de/restaurant/spatenhaus/",
     "priceCategory": 2,
+    "averageRating": 3.6,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -565,6 +570,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.brennergrill.de/",
     "priceCategory": 1,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 3, "available": true },
       { "id": 1, "seats": 3, "available": true },
@@ -668,6 +674,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.zumstraubinger.de/",
     "priceCategory": 1,
+    "averageRating": 4.0,
     "tables": [
       { "id": 0, "seats": 7, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -769,6 +776,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafe-kranich.de/",
     "priceCategory": 1,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 3, "available": true },
       { "id": 1, "seats": 6, "available": true },
@@ -867,6 +875,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.zum-franziskaner.de/",
     "priceCategory": 1,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -960,6 +969,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://losteria.net/de/restaurants/restaurant/muenchen-kuenstlerhaus/?utm_source=google&utm_medium=Yext",
     "priceCategory": 5,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1056,6 +1066,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.schneider-brauhaus.de/",
     "priceCategory": 5,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -1152,6 +1163,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.augustiner-am-platzl.de/",
     "priceCategory": 2,
+    "averageRating": 2.6,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -1251,6 +1263,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://faun-muenchen.de/",
     "priceCategory": 4,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 9, "available": true },
@@ -1354,6 +1367,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafe-luitpold.de/",
     "priceCategory": 4,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1454,6 +1468,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.sushi-soul.de/",
     "priceCategory": 5,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 7, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1558,6 +1573,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.vapiano.de/",
     "priceCategory": 1,
+    "averageRating": 3.6,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1664,6 +1680,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.parkcafe089.de/",
     "priceCategory": 1,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -1758,6 +1775,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.ratskeller.com/",
     "priceCategory": 3,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -1855,6 +1873,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.pfistermuehle.de/",
     "priceCategory": 4,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -1956,6 +1975,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.zurschwalbe.com/",
     "priceCategory": 3,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -2054,6 +2074,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.kennedysmunich.de/",
     "priceCategory": 2,
+    "averageRating": 3.2,
     "tables": [
       { "id": 0, "seats": 8, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -2152,6 +2173,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.mariandl.com/",
     "priceCategory": 3,
+    "averageRating": 4.6,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -2252,6 +2274,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.wildmosers.de/",
     "priceCategory": 2,
+    "averageRating": 3.0,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -2351,6 +2374,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://augustineramdom.de/",
     "priceCategory": 1,
+    "averageRating": 3.0,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -2445,6 +2469,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.hackerhaus.de/",
     "priceCategory": 2,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 4, "available": true },
@@ -2550,6 +2575,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.arabesk.de/",
     "priceCategory": 1,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 5, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -2648,6 +2674,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.der-pschorr.de/",
     "priceCategory": 3,
+    "averageRating": 4.0,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -2740,6 +2767,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://wirtshausinderau.de/",
     "priceCategory": 4,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -2837,6 +2865,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.teatro-bar-tapas.de/",
     "priceCategory": 5,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 7, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -2938,6 +2967,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.molly-malones.org/",
     "priceCategory": 1,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 3, "available": true },
       { "id": 1, "seats": 5, "available": true },
@@ -3038,6 +3068,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cafezimt.de/",
     "priceCategory": 2,
+    "averageRating": 3.6,
     "tables": [
       { "id": 0, "seats": 8, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -3141,6 +3172,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.mcmueller.org/",
     "priceCategory": 5,
+    "averageRating": 4.6,
     "tables": [
       { "id": 0, "seats": 8, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -3237,6 +3269,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.trachtenvogl.de/",
     "priceCategory": 2,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 4, "available": true },
@@ -3339,6 +3372,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.ole-madrid.com/",
     "priceCategory": 1,
+    "averageRating": 2.2,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 3, "available": true },
@@ -3439,6 +3473,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.paulaner-brauhaus.de/",
     "priceCategory": 4,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -3543,6 +3578,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://hansimglueck-burgergrill.de/burger-restaurant/muenchen-goetheplatz/?utm_source=google&utm_medium=yext&utm_campaign=9",
     "priceCategory": 1,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 10, "available": true },
@@ -3644,6 +3680,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.hofbraeukeller.de/",
     "priceCategory": 3,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -3742,6 +3779,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.leos-lounge.de/",
     "priceCategory": 1,
+    "averageRating": 4.6,
     "tables": [
       { "id": 0, "seats": 7, "available": true },
       { "id": 1, "seats": 6, "available": true },
@@ -3846,6 +3884,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.yum-thai.de/",
     "priceCategory": 4,
+    "averageRating": 4.6,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 9, "available": true },
@@ -3957,6 +3996,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://lucullus-muenchen.de/",
     "priceCategory": 5,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -4055,6 +4095,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://global-wok.de/m.html",
     "priceCategory": 4,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 6, "available": true },
@@ -4152,6 +4193,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.farmerscafeandsteakhouse.de/",
     "priceCategory": 1,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 8, "available": true },
       { "id": 1, "seats": 4, "available": true },
@@ -4250,6 +4292,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.lapergola-garching.de/",
     "priceCategory": 4,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 6, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -4352,6 +4395,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.restaurant-rama-ismaning.de/",
     "priceCategory": 4,
+    "averageRating": 4.4,
     "tables": [
       { "id": 0, "seats": 2, "available": true },
       { "id": 1, "seats": 7, "available": true },
@@ -4451,6 +4495,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.riedmair.de/",
     "priceCategory": 4,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 2, "available": true },
@@ -4550,6 +4595,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.nanosushi.de/",
     "priceCategory": 1,
+    "averageRating": 4.8,
     "tables": [
       { "id": 0, "seats": 9, "available": true },
       { "id": 1, "seats": 8, "available": true },
@@ -4643,6 +4689,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://freiraum.rest/",
     "priceCategory": 2,
+    "averageRating": 3.8,
     "tables": [
       { "id": 0, "seats": 10, "available": true },
       { "id": 1, "seats": 3, "available": true },
@@ -4744,6 +4791,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.cucina-laperla.de/",
     "priceCategory": 5,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 5, "available": true },
       { "id": 1, "seats": 9, "available": true },
@@ -4835,6 +4883,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "http://www.herr-lichtenberg.de/",
     "priceCategory": 1,
+    "averageRating": 4.2,
     "tables": [
       { "id": 0, "seats": 11, "available": true },
       { "id": 1, "seats": 11, "available": true },
@@ -4931,6 +4980,7 @@
     "openingAndClosingTimesAsFancyString": null,
     "website": "https://www.uno-pizza-ismaning.de/",
     "priceCategory": 2,
+    "averageRating": 5.0,
     "tables": [
       { "id": 0, "seats": 4, "available": true },
       { "id": 1, "seats": 3, "available": true },

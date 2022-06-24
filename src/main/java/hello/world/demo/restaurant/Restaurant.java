@@ -35,6 +35,8 @@ public class Restaurant {
 
 	private int priceCategory;
 
+	private double averageRating;
+
 	private List<Tisch> tables;
 
 	private RestaurantType restaurantType;
@@ -104,6 +106,14 @@ public class Restaurant {
 
 	public void setPictures(List<String> pictures) {
 		this.pictures = pictures;
+	}
+
+	public double getAverageRating(){
+		return this.averageRating;
+	}
+
+	public void setAverageRating(double averageRating ){
+		this.averageRating = averageRating;
 	}
 
 	public double averageRating() {
