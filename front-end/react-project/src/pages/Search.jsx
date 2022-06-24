@@ -13,11 +13,19 @@ export default function Search() {
   const [data, setData] = useState([]);
   const { query } = useParams();
   useEffect(() => {
-    Axios.get(`http://localhost:8080/restaurants/search/${query}`)
+    if (query === "topten") {
+      Axios.get(`http://localhost:8080/restaurants/getTopTen`)
       .then((res) => {
         setData(res.data);
       })
       .catch((err) => console.log(err));
+    } else {
+      Axios.get(`http://localhost:8080/restaurants/search/${query}`)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+    }
   }, []);
   const restaurants = data.map((restaurant) => {
     return (
@@ -26,16 +34,7 @@ export default function Search() {
       </Grid>
     );
   });
-  console.log(data);
-  const restaurants_dummy_local = restaurant_data["restaurants"].map(
-    (restaurant) => {
-      return (
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          <SearchResultComp restaurant={restaurant}></SearchResultComp>
-        </Grid>
-      );
-    }
-  );
+  
 
   return (
     <div>
@@ -43,9 +42,9 @@ export default function Search() {
       <div className="content">
         <Container maxWidth="xl">
           <div className="title-wrapper">
-            {query === "all" ? (
+            {query === "topten" ? (
               <div>
-                <h1 className="title">All restaurants</h1>
+                <h1 className="title">Top 10 restaurants</h1>
               </div>
             ) : (
               <div>

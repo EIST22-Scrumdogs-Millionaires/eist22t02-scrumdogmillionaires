@@ -88,7 +88,7 @@ export default function Home() {
                   color="secondary"
                   variant="contained"
                   component={Link}
-                  to={`/search/${query === "" ? "all" : query}`}
+                  to={`/search/${!query ? "topten" : query}`}
                 >
                   Search
                 </Button>
