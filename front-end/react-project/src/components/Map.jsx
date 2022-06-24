@@ -12,10 +12,7 @@ export function MapContainer(props) {
         showingInfoWindow: false,
         activeMarker: {},
         selectedPlace: {},
-        currentLocation: {
-            lat: 48.142166098,
-            lng: 11.56745
-        },
+        currentLocation: props.location,
         filters: props.filters,
         restaurants: props.restaurants,
     });
@@ -27,6 +24,10 @@ export function MapContainer(props) {
             restaurants: props.restaurants,
         })
     }, [props])
+
+    useEffect(() => {
+        props.locationCallback(state.currentLocation);
+    }, [state.currentLocation])
 
     const onMapClicked = (props, e, coord) => {
         setState({
@@ -66,16 +67,6 @@ export function MapContainer(props) {
         });
     }
 
-    /*
-    const componentDidUpdate(prevProps, prevState) {
-
-        if (prevProps.filters !== this.props.filters) {
-            this.setState({
-                filters: this.props.filters
-            })
-        }
-    }
-     */
 
     const getPosition = (restaurant) => {
         return {

@@ -69,15 +69,13 @@ function SelectCategory(props) {
             <FormControl fullWidth>
                 <InputLabel>Kategorie</InputLabel>
                 <Select labelId="category" label="Category" value={category} onChange={handleChange}>
-                    <MenuItem value={"1"}>Chinese</MenuItem>
-                    <MenuItem value={"2"}>German</MenuItem>
-                    <MenuItem value={"3"}>Bavarian</MenuItem>
-                    <MenuItem value={"4"}>Taiwanese</MenuItem>
-                    <MenuItem value={"5"}>Italian</MenuItem>
-                    <MenuItem value={"6"}>Fast Food</MenuItem>
-                    <MenuItem value={"7"}>Pizza</MenuItem>
-                    <MenuItem value={"8"}>Kebab</MenuItem>
-                    <MenuItem value={"9"}>Gourmet</MenuItem>
+                    <MenuItem value={"CHINESE"}>Chinese</MenuItem>
+                    <MenuItem value={"GERMAN"}>German</MenuItem>
+                    <MenuItem value={"BAVARIAN"}>Bavarian</MenuItem>
+                    <MenuItem value={"CAFE"}>Cafe</MenuItem>
+                    <MenuItem value={"ITALIAN"}>Italian</MenuItem>
+                    <MenuItem value={"FAST_FOOD"}>Fast Food</MenuItem>
+                    <MenuItem value={"GOURMET"}>Gourmet</MenuItem>
                 </Select>
             </FormControl>
         </Box>
@@ -151,22 +149,21 @@ export default function FilterBar(props) {
     }
 
     const handlePersonsChange = (_event, newPersons) => {
-        setFilters({
+          setFilters({
             ...filters,
-            persons: newPersons
+            persons: _event.target.value
         });
     }
 
     const handleTimeChange = (newTime) => {
           const d = new Date(newTime);
-          var persons = filters.persons;
           var hours = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
           var minutes = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
           var month = (d.getMonth()+1) < 10 ? "0" + (d.getMonth()+1) : (d.getMonth()+1);
           var day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
           setFilters({
                 ...filters,
-                time: hours + ":" + minutes + "_" + d.getFullYear() + "-" + month + "-" + day+"_"+persons
+                time: hours + ":" + minutes + "_" + d.getFullYear() + "-" + month + "-" + day
           })
     }
 
@@ -201,14 +198,14 @@ export default function FilterBar(props) {
 
                     <Grid item xs={1}>
                         <Box>
-                            <TextField id="persons" label="Personen" type="number" value={filters.persons}
+                            <TextField id="persons" label="Personen" type="number" defaultValue={2} onChange={handlePersonsChange}
                                        InputLabelProps={{
                                            shrink: true,
                                        }} InputProps={{
                                 inputProps:
                                     {min:0,max: 10}
                             }}
-                                       onChange={handlePersonsChange} />
+                            />
                         </Box>
                     </Grid>
                 </Grid>

@@ -43,7 +43,6 @@ public class RestaurantOverview extends Thread {
 
     // TODO: null checks
     public static List<SmallRestaurant> getAllRestaurants() {
-        System.out.println(restaurants.size());
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
