@@ -2,7 +2,6 @@ package hello.world.demo.restaurant;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 public class Reservation {
 
@@ -24,8 +23,7 @@ public class Reservation {
 
     private boolean confirmed;
 
-    public Reservation(){
-        
+    public Reservation() {
     }
 
     public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, Integer id, Integer restaurant_id) {
@@ -50,6 +48,10 @@ public class Reservation {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public LocalTime getTime() {
@@ -92,14 +94,26 @@ public class Reservation {
         return confirmed;
     }
 
+    public void setRestaurant_id(Integer restaurant_id) {
+        this.restaurant_id = restaurant_id;
+    }
+
+    public void setCancelSecretKey(String cancelSecretKey) {
+        this.cancelSecretKey = cancelSecretKey;
+    }
+
+    public void setConfirmSecretKey(String confirmSecretKey) {
+        this.confirmSecretKey = confirmSecretKey;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
     public void confirmReservation(String actionSecretKey) {
         if (actionSecretKey.compareTo(confirmSecretKey) == 0) {
             confirmed = true;
         }
     }
 
-    // oder boolean?
-    public void saveCalendarEvent() {
-
-    }
 }

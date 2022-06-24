@@ -1,7 +1,5 @@
 package hello.world.demo.email;
 
-import hello.world.demo.restaurant.Reservation;
-import hello.world.demo.restaurant.Visitor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;

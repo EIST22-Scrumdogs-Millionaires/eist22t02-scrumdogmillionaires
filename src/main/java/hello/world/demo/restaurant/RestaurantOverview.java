@@ -8,10 +8,9 @@ import java.time.LocalTime;
 import java.util.*;
 
 public class RestaurantOverview extends Thread {
-    private static List<Restaurant> restaurants = Data.generateRestaurants();
+    private static List<Restaurant> restaurants = Data.getRestaurants();
 
     private final static int MAX_LEVENSTHEIN_DIFFERENCE = 40;
-    private final static int TOP_X = 10;
 
     private static final int UPDATE_TIME = 100_000;
 
@@ -44,17 +43,18 @@ public class RestaurantOverview extends Thread {
 
     // TODO: null checks
     public static List<SmallRestaurant> getAllRestaurants() {
+        System.out.println(restaurants.size());
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
                 .toList();
     }
 
     public static List<SmallRestaurant> getTopTen() {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
-                .sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(TOP_X)
+                .sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
                 .toList();
 
     }
@@ -97,7 +97,7 @@ public class RestaurantOverview extends Thread {
                 }
                 case 'A': {
                     Double avg = Double.parseDouble(getArgument(filterType, 0));
-                    ret = ret.stream().filter(l -> l.getAverageRating() >= avg).toList();
+                    ret = ret.stream().filter(l -> l.averageRating() >= avg).toList();
                     break;
                 }
                 case 'F': {
@@ -110,7 +110,7 @@ public class RestaurantOverview extends Thread {
             }
         }
         return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
                 .toList();
 
@@ -246,6 +246,7 @@ public class RestaurantOverview extends Thread {
     public static Reservation postReservation(Reservation reservation, Visitor visitor) {
         restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
                 .passReservation(reservation, visitor);
+        Data.saveRestaurants(restaurants);
         return reservation;
 
     }
@@ -269,6 +270,7 @@ public class RestaurantOverview extends Thread {
     public static void addReview(int id, Review review) {
         if (getRestaurantById(id) != null) {
             getRestaurantById(id).addReview(review);
+            Data.saveRestaurants(restaurants);
         }
     }
 
