@@ -51,20 +51,8 @@ public class RestaurantOverview extends Thread {
 
     public static List<SmallRestaurant> getTopTen() {
         for (int i = 0; i < restaurants.size(); i++) {
-            List<LocalTime> opeining = new ArrayList<>();
-            List<LocalTime> closing = new ArrayList<>();
-            int count = 0;
-            while (count < 7) {
-                LocalTime op = LocalTime.of((int) (Math.random() * 14) + 5, ((int) Math.random() * 5) * 10);
-                LocalTime cl = LocalTime.of((int) (23 - (Math.random() * 3)), ((int) Math.random() * 5) * 10);
-                for (int j = 0; j < ((int) (Math.random() * 21)) && count < 7; j++, count++) {
-                    opeining.add(op);
-                    closing.add(cl);
-
-                }
-            }
-            restaurants.get(i).setOpeningTimes(opeining);
-            restaurants.get(i).setClosingTime(closing);
+            restaurants.get(i).setReservations(new ArrayList<>());
+            restaurants.get(i).setPriceCategory((int) (Math.random() * 5 + 1));
         }
         Data.saveRestaurants(restaurants);
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
