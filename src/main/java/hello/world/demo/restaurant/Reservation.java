@@ -24,6 +24,10 @@ public class Reservation {
 
     private boolean confirmed;
 
+    public Reservation(){
+        
+    }
+
     public Reservation(LocalTime time, LocalDate date, Tisch table, Visitor user, Integer id, Integer restaurant_id) {
         this.id = id;
         this.time = time;

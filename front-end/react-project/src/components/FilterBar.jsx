@@ -121,7 +121,7 @@ export default function FilterBar(props) {
           props.filterCallback(filters);
       }, [filters])
 
-    const handleSliderChange = (event, value) => {
+    const handleSliderChange = (_event, value) => {
         setFilters({
             ...filters,
             distance: value*1000
@@ -143,14 +143,14 @@ export default function FilterBar(props) {
         });
     }
 
-    const handleRatingChange = (event, newRating) => {
+    const handleRatingChange = (_event, newRating) => {
         setFilters({
             ...filters,
             rating: newRating
         });
     }
 
-    const handlePersonsChange = (event, newPersons) => {
+    const handlePersonsChange = (_event, newPersons) => {
         setFilters({
             ...filters,
             persons: newPersons

@@ -19,23 +19,30 @@ const steps = ["Your Data", "Select", "Confirm"];
 const optionsDate = { year: "numeric", month: "2-digit", day: "2-digit" };
 const optionsTime = { hour: "2-digit", minute: "2-digit" };
 
+const formatDate = (inputDate) => {
+  return inputDate
+  .toLocaleDateString("de-De", optionsDate)
+  .replaceAll(".", "-");
+}
 
-const DetailRestaurantInfos = (props) => {
+const formatTime = (inputTime) => {
+  return inputTime.toLocaleTimeString("de-De", optionsTime);
+}
+
+const ReservateComponent = (props) => {
   const [name, handleNameChange] = useState("");
   const [email, handleEmailChange] = useState("");
   const [date, handleDateChange] = useState(new Date());
   const [time, handleChangeTime] = useState(new Date());
-  const [table, setTable] = useState(0);
+  const [userTable, setUserTable] = useState("");
   const [numberPersons, handleNumberPersonsChange] = useState(1);
   const [availableTables, setAvailableTables] = useState([]);
 
 
 
   useEffect(() => {
-    var inputDate = date
-      .toLocaleDateString("de-De", optionsDate)
-      .replaceAll(".", "-");
-    var inputTime = time.toLocaleTimeString("de-De", optionsTime);
+    const inputDate = formatDate(date);
+    const inputTime = formatTime(time);
 
     Axios.get(
       `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/${numberPersons}`
@@ -47,10 +54,37 @@ const DetailRestaurantInfos = (props) => {
   }, [date, time, numberPersons]);
 
   const makeReservation = () => {
-    //TODO
+    const user = {
+      username: name,
+      email: email
+    }
+    const reservation = {
+      time: time,
+      date: date,
+      table: userTable,
+      user: user,
+      id: 0, //serverseitig gesetzt
+      restaurant_id: props.restaurant.id,
+    };
+    Axios.post(
+      `http://localhost:8080/reservations/${props.restaurant.id}`,
+      reservation, user
+    )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
   }
 
-  const handleTableChange = (event) => setTable(event.target.value);
+  const handleTableChange = (event) => {
+    if (event === "") {
+      setUserTable("");
+    } else {
+       setUserTable(event.target.value);
+    }
+  }
 
   const classNameAvailable = "tableStyleAvailable";
   const classNameNonavailable = "tableStyleNonavailable";
@@ -84,13 +118,13 @@ const DetailRestaurantInfos = (props) => {
       <FormControl sx={{ m: 1, width: 266 }}>
         <InputLabel>Table</InputLabel>
         <Select
-          value={table}
+          value={userTable}
           onChange={handleTableChange}
           label="Table"
           color="secondary"
-          defaultValue={0}
+          defaultValue=""
         >
-          <MenuItem value={0}>
+          <MenuItem value="">
             <em>None</em>
           </MenuItem>
           {tableIdsFree}
@@ -99,6 +133,7 @@ const DetailRestaurantInfos = (props) => {
     </div>
   );
 
+  
   const handleTimePickerChange = (newTime) => {
     handleChangeTime(newTime);
   };
@@ -107,13 +142,10 @@ const DetailRestaurantInfos = (props) => {
     handleDateChange(newDate);
   };
 
+  
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
-  const isStepOptional = (step) => {
-    //return step === 1;
-    return false;
-  };
-
+  
   const isStepSkipped = (step) => {
     return skipped.has(step);
   };
@@ -136,25 +168,10 @@ const DetailRestaurantInfos = (props) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
-
   const handleReset = () => {
     handleEmailChange("");
     handleNameChange("");
-    handleTableChange(1);
+    handleTableChange("");
     handleNumberPersonsChange(0);
     setActiveStep(0);
   };
@@ -274,7 +291,7 @@ const DetailRestaurantInfos = (props) => {
         {numberPersons}
         <br />
         <strong>Table Number: </strong>
-        {table}
+        {userTable}
       </div>
     );
   }
@@ -288,11 +305,6 @@ const DetailRestaurantInfos = (props) => {
           {steps.map((label, index) => {
             const stepProps = {};
             const labelProps = {};
-            if (isStepOptional(index)) {
-              labelProps.optional = (
-                <Typography variant="caption">Optional</Typography>
-              );
-            }
             if (isStepSkipped(index)) {
               stepProps.completed = false;
             }
@@ -327,18 +339,14 @@ const DetailRestaurantInfos = (props) => {
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              {isStepOptional(activeStep) && (
-                <Button color="secondary" onClick={handleSkip} sx={{ mr: 1 }}>
-                  Skip
-                </Button>
-              )}
+            
 
               <Button
                 onClick={handleNext}
                 color="secondary"
                 disabled={
                   (activeStep === 0 && (name === "" || email === "")) ||
-                  (activeStep === 1 && (table === null || numberPersons === 0))
+                  (activeStep === 1 && (userTable === "" || numberPersons === 0))
                 }
               >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
@@ -351,4 +359,4 @@ const DetailRestaurantInfos = (props) => {
   );
 };
 
-export default DetailRestaurantInfos;
+export default ReservateComponent;
