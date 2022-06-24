@@ -74,7 +74,7 @@ public class RestaurantController {
     @GetMapping("restaurants/search/{search}/{filter}")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> filterRestaurants(@PathVariable("search") String search,
-            @PathVariable("filter") List<String> filter) {
+            @PathVariable("filter") String filter) {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
@@ -82,7 +82,7 @@ public class RestaurantController {
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(RestaurantOverview.search(search));
+            jsonString = mapper.writeValueAsString(RestaurantOverview.filter(search, filter));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

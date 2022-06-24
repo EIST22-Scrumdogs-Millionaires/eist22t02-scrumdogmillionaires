@@ -75,11 +75,15 @@ public class RestaurantOverview extends Thread {
         } else {
             ret = searchB(searchQuery);
         }
+        System.out.println("Here");
         for (String filterType : filterTypes) {
+            System.out.println(filterType);
 
             switch (filterType.charAt(0)) {
                 case 'T': {
+                    System.out.println();
                     RestaurantType restaurantType = RestaurantType.valueOf(getArgument(filterType, 0));
+                    System.out.println(restaurantType);
                     ret = ret.stream().filter(x -> x.getRestaurantType() == restaurantType).toList();
                     break;
                 }
@@ -112,21 +116,13 @@ public class RestaurantOverview extends Thread {
         }
         return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
-             null))
+                null))
                 .toList();
 
     }
 
     private static String getArgument(String src, int num) {
-        String ret = "";
-        while (num > 0) {
-            src = src.substring(src.indexOf('_' + 1, 0));
-            if (src.lastIndexOf('_') != -1 && num == 0) {
-                src = src.substring(0, src.indexOf('_', 0));
-            }
-            num--;
-        }
-        return ret;
+        return Arrays.stream(src.split("_")).filter(x -> !x.isBlank()).toList().get(num + 1);
     }
 
     /**
