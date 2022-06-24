@@ -29,7 +29,11 @@ export function MapContainer(props) {
         props.locationCallback(state.currentLocation);
     }, [state.currentLocation])
 
-    const onMapClicked = (props, e, coord) => {
+    const onMapClicked = (props2, e, coord) => {
+        props.locationCallback({
+                lat: coord.latLng.lat(),
+                lng: coord.latLng.lng()
+        })
         setState({
             ...state,
             currentLocation: {
