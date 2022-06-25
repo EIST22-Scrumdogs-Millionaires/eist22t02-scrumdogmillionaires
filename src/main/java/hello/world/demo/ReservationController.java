@@ -10,6 +10,7 @@ import hello.world.demo.email.EmailServiceImpl;
 import hello.world.demo.email.EmailThread;
 import hello.world.demo.restaurant.Email;
 import hello.world.demo.restaurant.Reservation;
+import hello.world.demo.restaurant.Restaurant;
 import hello.world.demo.restaurant.RestaurantOverview;
 
 
@@ -95,6 +96,9 @@ public class ReservationController {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        Restaurant restaurant = Data.getRestaurants().get(reservation.getRestaurant_id());
+        EmailServiceImpl.sendMail(reservation.getUser().getEmail(), "Tisch Reservierung bei "+restaurant.getName(),
+                "Klicken Sie diesen Link um ein Kalender-Event hinzuzufügen:"+EmailServiceImpl.generateCalendarLink(reservation,restaurant));
         return ResponseEntity.ok(jsonString);
     }
 
@@ -113,9 +117,6 @@ public class ReservationController {
 
         // EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject",
         // "Test mail");
-
-        EmailServiceImpl.sendMail("rico.finkbeiner@tum.de", "100 Euro Rabatt - Klicken Sie jetzt schnell",
-                "100 Euro Rabatt - Klicken Sie jetzt schnell: https://is.gd/WVZvnI");
 
         return "emailsent";
     }

@@ -1,10 +1,14 @@
 package hello.world.demo.email;
 
+import hello.world.demo.restaurant.Reservation;
+import hello.world.demo.restaurant.Restaurant;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
+
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 @Service
@@ -39,6 +43,22 @@ public class EmailServiceImpl {
 
         return mailSender;
     }
-
+    public static String generateCalendarLink(Reservation reservation, Restaurant restaurant){
+        String dateString = reservation.getDate().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        String timeString = reservation.getTime().format(DateTimeFormatter.ofPattern("hhmm"));
+        String endtimeString = reservation.getTime().plusHours(2).format(DateTimeFormatter.ofPattern("hhmm"));
+        String endDateString;
+        if(endtimeString.compareTo(timeString)<0){
+            endDateString=reservation.getDate().plusDays(1).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        }else {
+            endDateString=dateString;
+        }
+        System.out.println(dateString);
+       return changeWhitespacesToPlus("https://calendar.google.com/calendar/r/eventedit?text="+restaurant.getName()+"+Reservierung&dates="+dateString+"T"+timeString+"00Z/"+endDateString +"T" +endtimeString +"00Z&details=We confirm the reservation of a table for "+reservation.getTable().getSeats()+" people in the "+restaurant.getName()+
+               "&location="+restaurant.getLocation().getCity()+"+"+restaurant.getLocation().getPlz()+"+"+restaurant.getLocation().getStreet()+"+"+restaurant.getLocation().getStreetnumber());
+    }
+    public static String changeWhitespacesToPlus(String s){
+        return s.replace(' ','+');
+    }
 
 }
