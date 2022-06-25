@@ -12,7 +12,6 @@ import hello.world.demo.restaurant.Review;
 
 import java.util.List;
 
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -124,9 +123,6 @@ public class RestaurantController {
         return ResponseEntity.ok(jsonString);
     }
 
-
-
-    // Open question about how the review gets transmitted
     @PostMapping("comment/{id}")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String>  commentRestaurant( @RequestBody Review rev, @PathVariable("id") Integer id) {

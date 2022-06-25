@@ -8,11 +8,11 @@ public class Review {
 
     private Integer rating;
 
+
     public Review(String username, String comment, Integer rating) {
         this.username = username;
         this.comment = comment;
         this.rating = rating;
-
     }
 
     public void setUsername(String username) {
