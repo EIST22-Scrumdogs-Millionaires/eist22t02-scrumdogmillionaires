@@ -43,9 +43,10 @@ function SelectPreisklasse(props) {
 
     return (
         <Box sx={{minWidth:100}}>
-            <FormControl fullWidth>
-                <InputLabel>Preisklasse</InputLabel>
-                <Select labelId="preisklasse" label="Preisklasse" value={preisklasse} onChange={handleChange}>
+            <FormControl>
+                <InputLabel >Price</InputLabel>
+                <Select labelId="preisklasse" label="Preisklasse" value={preisklasse} onChange={handleChange} sx={{ width: 228 }}>
+                    <MenuItem value={"0"}>All</MenuItem>
                     <MenuItem value={"1"}>€</MenuItem>
                     <MenuItem value={"2"}>€€</MenuItem>
                     <MenuItem value={"3"}>€€€</MenuItem>
@@ -67,17 +68,16 @@ function SelectCategory(props) {
     return (
         <Box sx={{minWidth:150}}>
             <FormControl fullWidth>
-                <InputLabel>Kategorie</InputLabel>
-                <Select labelId="category" label="Category" value={category} onChange={handleChange}>
-                    <MenuItem value={"1"}>Chinese</MenuItem>
-                    <MenuItem value={"2"}>German</MenuItem>
-                    <MenuItem value={"3"}>Bavarian</MenuItem>
-                    <MenuItem value={"4"}>Taiwanese</MenuItem>
-                    <MenuItem value={"5"}>Italian</MenuItem>
-                    <MenuItem value={"6"}>Fast Food</MenuItem>
-                    <MenuItem value={"7"}>Pizza</MenuItem>
-                    <MenuItem value={"8"}>Kebab</MenuItem>
-                    <MenuItem value={"9"}>Gourmet</MenuItem>
+                <InputLabel>Category</InputLabel>
+                <Select labelId="category" label="Category" value={category} onChange={handleChange} sx={{ width: 228 }}>
+                    <MenuItem value={"ALL"}>All</MenuItem>
+                    <MenuItem value={"CHINESE"}>Chinese</MenuItem>
+                    <MenuItem value={"GERMAN"}>German</MenuItem>
+                    <MenuItem value={"BAVARIAN"}>Bavarian</MenuItem>
+                    <MenuItem value={"CAFE"}>Cafe</MenuItem>
+                    <MenuItem value={"ITALIAN"}>Italian</MenuItem>
+                    <MenuItem value={"FAST_FOOD"}>Fast Food</MenuItem>
+                    <MenuItem value={"GOURMET"}>Gourmet</MenuItem>
                 </Select>
             </FormControl>
         </Box>
@@ -96,10 +96,11 @@ function ReservationTimePicker(props) {
         <Box sx={{minWidth:160}}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DateTimePicker
+                    ampm={false}
                     label="Date&Time picker"
                     value={value}
                     onChange={handleChange}
-                    renderInput={(params) => <TextField {...params} />}
+                    renderInput={(params) => <TextField {...params} sx={{ width: 228 }}/>}
                 />
             </LocalizationProvider>
         </Box>
@@ -109,19 +110,19 @@ function ReservationTimePicker(props) {
 
 export default function FilterBar(props) {
         const [filters, setFilters] = React.useState({
-            category: "",
-            price: "",
-            rating: "",
-            distance: "",
-            time: "",
-            persons: 2,
+            category: props.filters.category,
+            price: props.filters.price,
+            rating: props.filters.rating,
+            distance: props.filters.distance,
+            time: props.filters.time,
+            persons: props.filters.persons,
         });
 
       useEffect(() => {
           props.filterCallback(filters);
       }, [filters])
 
-    const handleSliderChange = (event, value) => {
+    const handleSliderChange = (_event, value) => {
         setFilters({
             ...filters,
             distance: value*1000
@@ -143,72 +144,71 @@ export default function FilterBar(props) {
         });
     }
 
-    const handleRatingChange = (event, newRating) => {
+    const handleRatingChange = (_event, newRating) => {
         setFilters({
             ...filters,
             rating: newRating
         });
     }
 
-    const handlePersonsChange = (event, newPersons) => {
-        setFilters({
+    const handlePersonsChange = (_event, newPersons) => {
+          setFilters({
             ...filters,
-            persons: newPersons
+            persons: _event.target.value
         });
     }
 
     const handleTimeChange = (newTime) => {
           const d = new Date(newTime);
-          var persons = filters.persons;
           var hours = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
           var minutes = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
           var month = (d.getMonth()+1) < 10 ? "0" + (d.getMonth()+1) : (d.getMonth()+1);
           var day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
           setFilters({
                 ...filters,
-                time: hours + ":" + minutes + "_" + d.getFullYear() + "-" + month + "-" + day+"_"+persons
+                time: hours + ":" + minutes + "_" + d.getFullYear() + "-" + month + "-" + day
           })
     }
 
     return (
             <div>
                 <Grid container spacing={3} justifyContent="space-around">
-                    <Grid item xs={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <SelectCategory callback={handleCategoryChange}/>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <SelectPreisklasse callback={handlePriceChange}/>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
                             <Typography>Rating (mind.)</Typography>
                             <Rating onChange={handleRatingChange} />
                         </Box>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
-                            <Typography>Distanz</Typography>
+                            <Typography>Distance</Typography>
                             <Slider
-                                defaultValue={5} min={1} max={30} marks={marks} onChange={handleSliderChange}/>
+                                defaultValue={5} min={1} max={30} marks={marks} onChange={handleSliderChange} sx={{ width: 130 }}/>
                         </Box>
                     </Grid>
 
-                    <Grid item xs={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
                             <ReservationTimePicker callback={handleTimeChange} />
                         </Box>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
                         <Box>
-                            <TextField id="persons" label="Personen" type="number" value={filters.persons}
+                            <TextField id="persons" label="Persons" type="number" defaultValue={2} onChange={handlePersonsChange} sx={{width: 228}}
                                        InputLabelProps={{
                                            shrink: true,
                                        }} InputProps={{
                                 inputProps:
                                     {min:0,max: 10}
                             }}
-                                       onChange={handlePersonsChange} />
+                            />
                         </Box>
                     </Grid>
                 </Grid>

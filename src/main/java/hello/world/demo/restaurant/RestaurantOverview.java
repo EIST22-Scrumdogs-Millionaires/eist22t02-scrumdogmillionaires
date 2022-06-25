@@ -8,10 +8,9 @@ import java.time.LocalTime;
 import java.util.*;
 
 public class RestaurantOverview extends Thread {
-    private static List<Restaurant> restaurants = Data.generateRestaurants();
+    private static List<Restaurant> restaurants = Data.getRestaurants();
 
     private final static int MAX_LEVENSTHEIN_DIFFERENCE = 40;
-    private final static int TOP_TEN = 10;
 
     private static final int UPDATE_TIME = 100_000;
 
@@ -45,16 +44,16 @@ public class RestaurantOverview extends Thread {
     // TODO: null checks
     public static List<SmallRestaurant> getAllRestaurants() {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
                 .toList();
     }
 
     public static List<SmallRestaurant> getTopTen() {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
                 x.getPictures()))
-                .sorted((a, b) -> (int) ((a.getAverageRating() * 1000d) - (b.getAverageRating() * 1000d))).limit(10)
+                .sorted((a, b) -> (int) ((b.getAverageRating() * 1000d) - (a.getAverageRating() * 1000d))).limit(10)
                 .toList();
 
     }
@@ -63,28 +62,33 @@ public class RestaurantOverview extends Thread {
      * Filterype Syntax:
      * T_t: RestaurantType
      * P_p: Prce Category
-     * D_x_y_d: Distance, x and y coordinates and distnace in km respectively
+     * D_x_y_d: Distance, x and y coordinates and distance in km respectively
      * A_r: Average Rating
      * F_f_d_p: Free time slots, timefrom, date and number of persons
      */
-    public static List<SmallRestaurant> filter(String searchQuery, List<String> filterTypes) {
+    public static List<SmallRestaurant> filter(String searchQuery, String filter) {
+        List<String> filterTypes = Arrays.stream(filter.split("@")).filter(x -> !x.isBlank()).toList();
         List<Restaurant> ret;
-        if (searchQuery.isBlank()) {
+        if (searchQuery.isBlank() || searchQuery.compareTo("all") == 0) {
             ret = restaurants;
         } else {
             ret = searchB(searchQuery);
         }
+        System.out.println("Here");
         for (String filterType : filterTypes) {
+            System.out.println(filterType);
 
             switch (filterType.charAt(0)) {
                 case 'T': {
+                    System.out.println();
                     RestaurantType restaurantType = RestaurantType.valueOf(getArgument(filterType, 0));
+                    System.out.println(restaurantType);
                     ret = ret.stream().filter(x -> x.getRestaurantType() == restaurantType).toList();
                     break;
                 }
                 case 'P': {
-                    String priceCategory = getArgument(filterType, 0);
-                    ret = ret.stream().filter(x -> x.getPriceCategory().compareTo(priceCategory) == 0).toList();
+                    int priceCategory = Integer.parseInt(getArgument(filterType, 0));
+                    ret = ret.stream().filter(x -> x.getPriceCategory() == priceCategory).toList();
                     break;
                 }
                 case 'D': {
@@ -97,7 +101,7 @@ public class RestaurantOverview extends Thread {
                 }
                 case 'A': {
                     Double avg = Double.parseDouble(getArgument(filterType, 0));
-                    ret = ret.stream().filter(l -> l.getAverageRating() >= avg).toList();
+                    ret = ret.stream().filter(l -> l.averageRating() >= avg).toList();
                     break;
                 }
                 case 'F': {
@@ -110,22 +114,14 @@ public class RestaurantOverview extends Thread {
             }
         }
         return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.getAverageRating(), x.getRestaurantType(),
-                x.getPictures()))
+                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
+                null))
                 .toList();
 
     }
 
     private static String getArgument(String src, int num) {
-        String ret = "";
-        while (num > 0) {
-            src = src.substring(src.indexOf('_' + 1, 0));
-            if (src.lastIndexOf('_') != -1 && num == 0) {
-                src = src.substring(0, src.indexOf('_', 0));
-            }
-            num--;
-        }
-        return ret;
+        return Arrays.stream(src.split("_")).filter(x -> !x.isBlank()).toList().get(num + 1);
     }
 
     /**
@@ -243,9 +239,10 @@ public class RestaurantOverview extends Thread {
      * @param visitor
      * @return
      */
-    public static Reservation postReservation(Reservation reservation, Visitor visitor) {
+    public static Reservation postReservation(Reservation reservation) {
         restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
-                .passReservation(reservation, visitor);
+                .passReservation(reservation);
+        Data.saveRestaurants(restaurants);
         return reservation;
 
     }
@@ -263,12 +260,14 @@ public class RestaurantOverview extends Thread {
             } else if (reservation.getConfirmSecretKey().compareTo(actionSecretKey) == 0) {
                 reservation.confirmReservation(actionSecretKey);
             }
+            Data.saveRestaurants(restaurants);
         }
     }
 
     public static void addReview(int id, Review review) {
         if (getRestaurantById(id) != null) {
             getRestaurantById(id).addReview(review);
+            Data.saveRestaurants(restaurants);
         }
     }
 
@@ -285,7 +284,6 @@ public class RestaurantOverview extends Thread {
                 }
                 return x;
             }).toList();
-
         }
         return null;
     }

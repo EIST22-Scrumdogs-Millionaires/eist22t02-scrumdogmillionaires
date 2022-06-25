@@ -1,7 +1,5 @@
 package hello.world.demo.restaurant;
 
-import java.util.Date;
-
 public class Visitor {
 
     private int id;
@@ -10,16 +8,20 @@ public class Visitor {
 
     private String email;
 
-    private Date birthday;
+    public Visitor() {
+    }
 
-    public Visitor(String username, String email, Date birthday) {
+    public Visitor(String username, String email) {
         this.username = username;
         this.email = email;
-        this.birthday = birthday;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -36,14 +38,6 @@ public class Visitor {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
     }
 
 }

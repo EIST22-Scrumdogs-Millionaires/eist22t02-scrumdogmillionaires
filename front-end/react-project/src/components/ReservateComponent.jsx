@@ -14,27 +14,84 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import useState from "react-hook-use-state";
 import Axios from "axios";
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
 //contains much code from https://mui.com/material-ui/react-stepper/
 const steps = ["Your Data", "Select", "Confirm"];
 const optionsDate = { year: "numeric", month: "2-digit", day: "2-digit" };
 const optionsTime = { hour: "2-digit", minute: "2-digit" };
 
-const DetailRestaurantInfos = (props) => {
+const formatDate = (inputDate) => {
+  return inputDate
+  .toLocaleDateString("de-De", optionsDate)
+  .replaceAll(".", "-");
+}
+
+const formatTime = (inputTime) => {
+  return inputTime.toLocaleTimeString("de-De", optionsTime);
+}
+
+const ReservateComponent = (props) => {
   const [name, handleNameChange] = useState("");
   const [email, handleEmailChange] = useState("");
-  const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
-  const [table, setTable] = useState(null);
-  const [numberPersons, setNumberPersons] = useState(0);
+  const [date, handleDateChange] = useState(new Date());
+  const [time, handleChangeTime] = useState(new Date());
+  const [userTable, setUserTable] = useState("");
+  const [numberPersons, handleNumberPersonsChange] = useState(1);
   const [availableTables, setAvailableTables] = useState([]);
+  const [openSuccessMessage, setOpenSuccessMessage] = React.useState(false);
+  const [openErrorMessage, setOpenErrorMessage] = React.useState(false);
+
+  const successMessage = (
+    <Collapse in={openSuccessMessage}>
+        <Alert
+         severity="success"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpenSuccessMessage(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ m: 4 }}
+        >
+          Success!
+        </Alert>
+      </Collapse>);
+
+const errorMessage = (
+  <Collapse in={openErrorMessage}>
+      <Alert
+        severity="error"
+        action={
+          <IconButton
+            aria-label="close"
+            color="inherit"
+            size="small"
+            onClick={() => {
+              setOpenErrorMessage(false);
+            }}
+          >
+            <CloseIcon fontSize="inherit" />
+          </IconButton>
+        }
+        sx={{ m: 2 }}
+      >
+        An error occured :/
+      </Alert>
+    </Collapse>);
+
   useEffect(() => {
-    const dummyDate = new Date();
-    var inputDate = dummyDate
-      .toLocaleDateString("de-De", optionsDate)
-      .replaceAll(".", "-");
-    var inputTime = dummyDate.toLocaleTimeString("de-De", optionsTime);
-    
-    //TODO 5 ändern
+    const inputDate = formatDate(date);
+    const inputTime = formatTime(time);
+
     Axios.get(
       `http://localhost:8080/reservations/getAvailableTables/${props.restaurant.id}/${inputDate}/${inputTime}/${numberPersons}`
     )
@@ -42,50 +99,68 @@ const DetailRestaurantInfos = (props) => {
         setAvailableTables(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
-  console.log("Available Tables: " + availableTables);
+  }, [date, time, numberPersons]);
 
-  const tablesDummy = [
-    { id: 0, seats: 5, available: true },
-    { id: 1, seats: 2, available: false },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: false },
-    { id: 0, seats: 5, available: false },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: true },
-    { id: 0, seats: 5, available: true },
-  ];
-  console.log(props.restaurant.tables);
+  const makeReservation = () => {
+    const user = {
+      username: name,
+      email: email
+    }
+    const reservation = {
+      time: time,
+      date: date,
+      table: userTable,
+      user: user,
+      id: 0, //serverseitig gesetzt
+      restaurant_id: props.restaurant.id,
+    };
+    Axios.post(
+      `http://localhost:8080/reservations/${props.restaurant.id}`,
+      reservation, user
+    )
+      .then((res) => {
+        setOpenSuccessMessage(true);
+        console.log(res);
+      })
+      .catch((error) => {
+        setOpenErrorMessage(true);
+        console.error("There was an error!", error);
+      });
+  }
 
-  for (let [key, value1] of Object.entries(props.restaurant.tables)) {
-    console.log(`${key}: ${value1}`);
+  const handleTableChange = (event) => {
+    if (event === "") {
+      setUserTable("");
+    } else {
+       setUserTable(event.target.value);
+    }
   }
 
   const classNameAvailable = "tableStyleAvailable";
   const classNameNonavailable = "tableStyleNonavailable";
   //props.restaurant.tables.map ...
-  const tables = tablesDummy.map((table) => {
+  const tables = availableTables.map((currentTable) => {
     // id, seats
     return (
-      <Grid item xs={3} sm={3} md={3} lg={3}>
+      <Grid item xs={4} sm={4} md={4} lg={4}>
         <div
           className={
-            table.available === true
+            currentTable.available === true
               ? classNameAvailable
               : classNameNonavailable
           }
         >
-          {table.id}
+         Nr.{currentTable.id}: <strong>{currentTable.seats}</strong>
         </div>
       </Grid>
     );
   });
-  const tableIdsFree = tablesDummy
-    .filter((table) => table.available)
-    .map((table) => {
-      return <MenuItem value={table.id}>{table.id}</MenuItem>;
+  const tableIdsFree = availableTables
+    .filter((currentTable) => currentTable.available)
+    .map((currentTable) => {
+      console.log(currentTable.id);
+      console.log(typeof(currentTable.id));
+      return <MenuItem value={currentTable.id}>{currentTable.id}</MenuItem>;
     });
 
   const chooseTable = (
@@ -93,9 +168,8 @@ const DetailRestaurantInfos = (props) => {
       <FormControl sx={{ m: 1, width: 266 }}>
         <InputLabel>Table</InputLabel>
         <Select
-          value={table}
-          onChange={setTable}
-          autoWidth
+          value={userTable}
+          onChange={handleTableChange}
           label="Table"
           color="secondary"
           defaultValue=""
@@ -109,26 +183,27 @@ const DetailRestaurantInfos = (props) => {
     </div>
   );
 
+  
   const handleTimePickerChange = (newTime) => {
-    setTime(newTime);
+    handleChangeTime(newTime);
   };
 
   const handleDatePickerChange = (newDate) => {
-    setDate(newDate);
+    handleDateChange(newDate);
   };
 
+  
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
-  const isStepOptional = (step) => {
-    //return step === 1;
-    return false;
-  };
-
+  
   const isStepSkipped = (step) => {
     return skipped.has(step);
   };
 
   const handleNext = () => {
+    if (activeStep === steps.length - 1) {
+      makeReservation();
+    }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -143,22 +218,11 @@ const DetailRestaurantInfos = (props) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
-
   const handleReset = () => {
+    handleEmailChange("");
+    handleNameChange("");
+    handleTableChange("");
+    handleNumberPersonsChange(0);
     setActiveStep(0);
   };
 
@@ -217,7 +281,6 @@ const DetailRestaurantInfos = (props) => {
           </div>
           <div className="input-reservate">
             <TimePicker
-              sx={{ m: 1, width: 806 }}
               ampm={false}
               label="Time"
               value={time}
@@ -236,7 +299,9 @@ const DetailRestaurantInfos = (props) => {
             InputProps={{
               inputProps: { min: 0, max: 10 },
             }}
-            onChange={(e) => setNumberPersons(e.target.value)}
+            onChange={(e) => {
+              handleNumberPersonsChange(e.target.value);
+            }}
             sx={{ width: 266 }}
           />
         </div>
@@ -246,8 +311,8 @@ const DetailRestaurantInfos = (props) => {
           <Grid
             container
             alignItems="center"
-            rowSpacing={{ xs: 2 }}
-            columnSpacing={{ xs: 2 }}
+            rowSpacing={{ xs: 1 }}
+            columnSpacing={{ xs: 1 }}
           >
             {tables}
           </Grid>
@@ -270,24 +335,26 @@ const DetailRestaurantInfos = (props) => {
         <br />
         <strong>Time: </strong>
         {time.toLocaleTimeString("de-De", optionsTime)}
+        <br />
+        <strong>Number Persons: </strong>
+        {numberPersons}
+        <br />
+        <strong>Table Number: </strong>
+        {userTable}
       </div>
     );
   }
   return (
     <div className="reservation-comp">
       <Box sx={{ width: "100%" }}>
-        <div style={{ margin: "10px", textAlign: "left" }}>
+         
+         <div style={{ margin: "10px", textAlign: "left" }}>
           <h3>Reservate:</h3>
         </div>
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps = {};
             const labelProps = {};
-            if (isStepOptional(index)) {
-              labelProps.optional = (
-                <Typography variant="caption">Optional</Typography>
-              );
-            }
             if (isStepSkipped(index)) {
               stepProps.completed = false;
             }
@@ -298,7 +365,7 @@ const DetailRestaurantInfos = (props) => {
             );
           })}
         </Stepper>
-
+        
         {activeStep === steps.length ? (
           <React.Fragment>
             {content}
@@ -322,28 +389,27 @@ const DetailRestaurantInfos = (props) => {
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              {isStepOptional(activeStep) && (
-                <Button color="secondary" onClick={handleSkip} sx={{ mr: 1 }}>
-                  Skip
-                </Button>
-              )}
+            
 
               <Button
                 onClick={handleNext}
                 color="secondary"
                 disabled={
                   (activeStep === 0 && (name === "" || email === "")) ||
-                  (activeStep === 1 && (table === null || numberPersons === 0))
+                  (activeStep === 1 && (userTable === "" || numberPersons === 0))
                 }
               >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
             </Box>
+            
           </React.Fragment>
         )}
       </Box>
+      {successMessage}
+        {errorMessage}
     </div>
   );
 };
 
-export default DetailRestaurantInfos;
+export default ReservateComponent;

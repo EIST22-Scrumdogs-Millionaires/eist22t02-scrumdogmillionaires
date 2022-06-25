@@ -12,10 +12,7 @@ export function MapContainer(props) {
         showingInfoWindow: false,
         activeMarker: {},
         selectedPlace: {},
-        currentLocation: {
-            lat: 48.142166098,
-            lng: 11.56745
-        },
+        currentLocation: props.location,
         filters: props.filters,
         restaurants: props.restaurants,
     });
@@ -28,8 +25,17 @@ export function MapContainer(props) {
         })
     }, [props])
 
-    const onMapClicked = (props, e, coord) => {
+    useEffect(() => {
+        props.locationCallback(state.currentLocation);
+    }, [state.currentLocation])
+
+    const onMapClicked = (props2, e, coord) => {
+        props.locationCallback({
+                lat: coord.latLng.lat(),
+                lng: coord.latLng.lng()
+        })
         setState({
+            ...state,
             currentLocation: {
                 lat: coord.latLng.lat(),
                 lng: coord.latLng.lng()
@@ -39,48 +45,52 @@ export function MapContainer(props) {
 
     const onMouseoverMarker = (props, marker, e) =>
         setState({
+            ...state,
             selectedPlace: props,
             activeMarker: marker,
             showingInfoWindow: true
         });
 
-    const onMarkerClick = (props, marker, e) =>
+    const onMarkerClick = (props, marker, e) => {
+        console.log(props);
         setState({
+            ...state,
             selectedPlace: props,
             activeMarker: marker,
             showingInfoWindow: true
         });
+    }
+
 
 
     const onInfoWindowClose = () => {
         setState({
+            ...state,
             showingInfoWindow: false,
             activeMarker: null
         });
     }
 
-    /*
-    const componentDidUpdate(prevProps, prevState) {
-
-        if (prevProps.filters !== this.props.filters) {
-            this.setState({
-                filters: this.props.filters
-            })
-        }
-    }
-     */
 
     const getPosition = (restaurant) => {
         return {
-            lat: restaurant.location.Xcoordinate,
-            lng: restaurant.location.Ycoordinate
+            lat: restaurant.location.ycoordinate,
+            lng: restaurant.location.xcoordinate
         }
     }
-        var dis = state.filters.distance === ""? 2000 : state.filters.distance;
 
-        if (typeof (state.restaurants) === "undefined") {
+    const getTitle = (restaurant) => {
+        return (
+            <div>
+                <a href={`http://localhost:3000/search/detail/${restaurant.id}`} target="_blank">{restaurant.name}</a>
+            </div>
+        )
+    }
+
+        if (typeof (state.restaurants) === "undefined" || typeof (state.filters) === "undefined") {
             return <div>Loading...</div>
         } else {
+            var dis = state.filters.distance === ""? 2000 : state.filters.distance;
             return (
                 <Map
                     google={props.google}
@@ -97,7 +107,7 @@ export function MapContainer(props) {
                     <Marker onClick={onMarkerClick} title={"CurLoc"} name={"CurrentLocation"} position={state.currentLocation} />
 
                     {state.restaurants.map(restaurant => (
-                        <Marker onClick={onMarkerClick} title={restaurant.name} name={restaurant.name} position={getPosition(restaurant)} />
+                        <Marker onClick={onMarkerClick} title={restaurant.name} name={getTitle(restaurant)} position={getPosition(restaurant)} />
                     ))}
 
 

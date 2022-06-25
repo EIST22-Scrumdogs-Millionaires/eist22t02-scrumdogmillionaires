@@ -6,16 +6,18 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import hello.world.demo.Data;
 import hello.world.demo.restaurant.Email;
 
 public class EmailThread extends Thread {
 
-    private static List<Email> toSend = new ArrayList<>();
+    private static List<Email> toSend = Data.getEmails();
 
     private static final int UPDATE_TIME = 1_000;
 
     public static void addEmail(Email e) {
         toSend.add(e);
+        Data.saveEmails(toSend);
     }
 
     @Override
@@ -30,6 +32,7 @@ public class EmailThread extends Thread {
                         toRemove.add(x);
                     });
             toSend.removeAll(toRemove);
+            Data.saveEmails(toSend);
             try {
                 Thread.sleep(UPDATE_TIME);
             } catch (InterruptedException e) {

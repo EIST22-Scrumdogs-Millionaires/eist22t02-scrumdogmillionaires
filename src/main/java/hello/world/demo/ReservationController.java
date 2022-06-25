@@ -12,7 +12,6 @@ import hello.world.demo.restaurant.Email;
 import hello.world.demo.restaurant.Reservation;
 import hello.world.demo.restaurant.RestaurantOverview;
 
-import hello.world.demo.restaurant.Visitor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -78,11 +77,13 @@ public class ReservationController {
         RestaurantOverview.performActionOnReservation(id, actionSecretKey);
     }
 
+    
+
     // Open question about how the user gets transmitted
     @PostMapping("reservations")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<String> postReservation(@RequestBody Reservation reservation,
-            @RequestBody Visitor visitor) {
+    public ResponseEntity<String> postReservation(@RequestBody Reservation reservation
+          ) {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
@@ -90,7 +91,7 @@ public class ReservationController {
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(RestaurantOverview.postReservation(reservation, visitor));
+            jsonString = mapper.writeValueAsString(RestaurantOverview.postReservation(reservation));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

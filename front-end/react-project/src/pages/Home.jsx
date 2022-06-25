@@ -14,13 +14,19 @@ export default function Home() {
 
   const [query, handleSearchBox] = React.useState("");
   const [restaurants, setRestaurants] = React.useState( () => {
-        Axios.get(`http://localhost:8080/restaurants/getTopTen`)
+        Axios.get(`http://localhost:8080/restaurants/search/""`)
             .then((res) => {
               setRestaurants(res.data);
             })
             .catch((err) => console.log(err));
   }
   );
+
+  const [location, setLocation] = React.useState({
+    lat: 48.142166098,
+    lng: 11.56745
+  });
+
   const [filters, setFilters] = React.useState({
     category: "",
     price: "",
@@ -30,34 +36,63 @@ export default function Home() {
     persons: 2,
   });
 
+  const handleLocationChange = (newLocation) => {
+    setLocation(newLocation);
+    var filterTypes = createFilterSting(filters)
+    fetchRestaurants(filterTypes);
+  }
+
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
-    var filterTypes = [];
-    for (let [key, value] of Object.entries(newFilters)) {
+    var filterTypes = createFilterSting(newFilters)
+    fetchRestaurants(filterTypes);
+  };
+
+  const createFilterSting = (filters) => {
+    var filterTypes=[];
+    for (let [key, value] of Object.entries(filters)) {
       switch (key) {
         case "category": {
-          filterTypes.push(`T_${value}`);
+          if (value !== "" && value !== "ALL") {
+            filterTypes.push("T_"+value);
+          }
           break;
         }
         case "price": {
-          filterTypes.push(`P_${value}`);
+            if (value !== "" && value !== 0) {
+              filterTypes.push("P_"+value);
+            }
           break;
         }
         case "rating": {
-          filterTypes.push(`A_${value}`);
+            if (value !== "") {
+              filterTypes.push("A_"+value);
+            }
           break;
         }
         case "distance": {
-          filterTypes.push(`D_${value}`);
+          filterTypes.push("D_" + location.lng + "_" + location.lat + "_" + (value / 1000));
           break;
         }
         case "time": {
-          filterTypes.push(`F_${value}`);
+          if (value !== "") {
+            filterTypes.push("F_"+value + "_" + filters.persons);
+          }
           break;
         }
       }
     }
-  };
+    console.log(filterTypes.join("@"));
+    return filterTypes.length < 2 ? filterTypes[0] : filterTypes.join("@");
+  }
+
+  const fetchRestaurants = (filterString) => {
+    Axios.get(`http://localhost:8080/restaurants/search/all/${filterString}`)
+        .then((res) => {
+          setRestaurants(res.data);
+        })
+        .catch((err) => console.log(err));
+  }
 
   return (
     <div>
@@ -88,7 +123,7 @@ export default function Home() {
                   color="secondary"
                   variant="contained"
                   component={Link}
-                  to={`/search/${query === "" ? "all" : query}`}
+                  to={`/search/${!query ? "topten" : query}`}
                 >
                   Search
                 </Button>
@@ -97,11 +132,11 @@ export default function Home() {
           </div>
 
           <div className="filterbar">
-            <FilterBar  filterCallback={handleFilterChange}/>
+            <FilterBar  filters={filters} filterCallback={handleFilterChange}/>
           </div>
 
           <div className="map">
-            <Map filters={filters} restaurants={restaurants}/>
+            <Map filters={filters} restaurants={restaurants} location={location} locationCallback={handleLocationChange}/>
           </div>
         </Container>
       </div>

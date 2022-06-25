@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import NavigationBar from "../components/NavigationBar";
-import { Grid, Container } from "@mui/material";
+import { Container, Grid, ImageList, ImageListItem } from "@mui/material";
 import CommentSection from "../components/CommentSection";
 import ReservateComponent from "../components/ReservateComponent";
 import IconButton from "@mui/material/IconButton";
 import { default as WebsiteIcon } from "@mui/icons-material/Language";
 import useState from "react-hook-use-state";
 import { useEffect, React } from "react";
+import apikey from "../data/apikey";
 import Axios from "axios";
 export default function DetailSearchComponent() {
   const [data, setData] = useState(null);
@@ -20,31 +21,10 @@ export default function DetailSearchComponent() {
       })
       .catch((err) => console.log(err));
   }, []);
-  /*
-  const fetchData = async () => {
-    const response = await fetch(`http://localhost:8080/restaurant/${id}`);
-    if (!response.ok) {
-      throw new Error('Data could not be fetched!');
-    } else {
-      return response.json();
-    }
-  }
-  useEffect(() => {
-    fetchData()
-      .then((res) => {
-        setData(res);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      })
-  }, []);
-  */
 
   if (data == null || data == undefined) {
     return <div>Loading...</div>;
   } else {
-    
-
     for (let [key, value] of Object.entries(data)) {
       console.log(`${key}: ${value}`);
     }
@@ -63,11 +43,22 @@ export default function DetailSearchComponent() {
                 <h1>{data.name}</h1>
                 {data.description}
                 <p>
-                {data.priceCategory === undefined ? null :  (<span><em>Price Category: </em>{data.priceCategory}</span>)
-                  }
-                  {data.priceCategory === undefined || data.restaurantType === undefined ? null : <span>,</span>}
-                 {data.restaurantType === undefined ? null : (<span><em>Type: </em>
-                  {data.restaurantType}</span>)}
+                  {data.priceCategory === undefined ? null : (
+                    <span>
+                      <em>Price Category: </em>
+                      {data.priceCategory}
+                    </span>
+                  )}
+                  {data.priceCategory === undefined ||
+                  data.restaurantType === undefined ? null : (
+                    <span>,</span>
+                  )}
+                  {data.restaurantType === undefined ? null : (
+                    <span>
+                      <em>Type: </em>
+                      {data.restaurantType}
+                    </span>
+                  )}
                 </p>
               </div>
             </div>
@@ -97,14 +88,37 @@ export default function DetailSearchComponent() {
               )}
             </div>
             <div className="picture-wrapper">
-              <img
-                src={`${data.pictures}`}
-                alt="restaurant picture"
-                className="picture"
-              />
+            
+              <ImageList
+                sx={{
+                  width: {
+                    xs: 300,
+                    sm: 500,
+                    md: 800,     
+                  },
+                  height: 450,
+                }}
+                variant="woven"
+                cols={3}
+                gap={8}
+                style={{margin: "auto"}}
+              >
+                {data.pictures.map((picture) => (
+                  <ImageListItem>
+                    <img
+                      src={`${picture + apikey}`}
+                      alt="restaurant picture"
+                      className="picture"
+                      loading="lazy"
+                    />
+                  </ImageListItem>
+                ))}
+              </ImageList>
             </div>
             <div>
-              <ReservateComponent restaurant={data}></ReservateComponent>
+              {data.reviews ? (
+                <ReservateComponent restaurant={data}></ReservateComponent>
+              ) : null}
             </div>
             <CommentSection restaurant={data} />
           </Container>
@@ -113,8 +127,4 @@ export default function DetailSearchComponent() {
       </div>
     );
   }
-
-  /*console.log(data);
-  console.log(data.location.city);
-  console.log((data.location));*/
 }
