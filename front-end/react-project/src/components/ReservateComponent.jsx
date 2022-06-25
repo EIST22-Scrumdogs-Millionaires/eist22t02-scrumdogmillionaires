@@ -107,15 +107,19 @@ const errorMessage = (
       email: email
     }
     const reservation = {
-      time: time,
+      time: time.toLocaleTimeString(),
       date: date,
-      table: userTable,
+      table:  {
+        id:userTable,
+        available:true,
+        seats:numberPersons
+      },
       user: user,
       id: 0, //serverseitig gesetzt
       restaurant_id: props.restaurant.id,
     };
     Axios.post(
-      `http://localhost:8080/reservations/${props.restaurant.id}`,
+      `http://localhost:8080/reservations`,
       reservation, user
     )
       .then((res) => {

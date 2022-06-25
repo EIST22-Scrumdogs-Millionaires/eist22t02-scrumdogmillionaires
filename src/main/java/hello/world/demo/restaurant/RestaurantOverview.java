@@ -5,6 +5,7 @@ import hello.world.demo.Data;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class RestaurantOverview extends Thread {
@@ -20,8 +21,8 @@ public class RestaurantOverview extends Thread {
         while (true) {
             restaurants.stream().forEach(x -> {
                 x.getReservations().stream()
-                        .filter(y -> !y.getConfirmed() && (Duration.between(y.getDate(), LocalDate.now()).toHours()
-                                + Duration.between(y.getTime(), LocalTime.now()).toHours() < 12))
+                        .filter(y -> !y.getConfirmed() && (ChronoUnit.HOURS.between(y.getDate(), LocalDate.now())
+                                + ChronoUnit.HOURS.between(y.getTime(), LocalTime.now()) < 12))
                         .forEach(y -> x.cancelReservation(y, y.getCancelSecretKey()));
             });
             try {
@@ -41,7 +42,6 @@ public class RestaurantOverview extends Thread {
         return ret.get(0);
     }
 
-    // TODO: null checks
     public static List<SmallRestaurant> getAllRestaurants() {
         return restaurants.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
@@ -235,8 +235,6 @@ public class RestaurantOverview extends Thread {
      * Finds the restaurant in the list of restaurants and adds the new reservation
      * to it
      * 
-     * @param reservation
-     * @param visitor
      * @return
      */
     public static Reservation postReservation(Reservation reservation) {
@@ -250,7 +248,7 @@ public class RestaurantOverview extends Thread {
     /**
      *
      * @param id
-     * @param secretCancelKey
+     * @param actionSecretKey
      */
     public static void performActionOnReservation(int id, String actionSecretKey) {
         Reservation reservation = getReservation(id);
