@@ -67,7 +67,7 @@ function SelectCategory(props) {
 
     return (
         <Box sx={{minWidth:150}}>
-            <FormControl fullWidth>
+            <FormControl>
                 <InputLabel>Category</InputLabel>
                 <Select labelId="category" label="Category" value={category} onChange={handleChange} sx={{ width: 228 }}>
                     <MenuItem value={"ALL"}>All</MenuItem>
