@@ -255,18 +255,18 @@ public class Util {
                                 "        \n" +
                                 "        <div style=\"color: #5e5e5e; line-height: 170%; text-align: center; word-wrap: break-word;\">\n"
                                 +
-                                "            <p style=\"font-size: 14px; line-height: 170%;\"><span style=\"font-family: Raleway, sans-serif; font-size: 16px; line-height: 27.2px;\">Hallo \""
-                                + user.getUsername() + "\",</span></p>\n" +
+                                "            <p style=\"font-size: 14px; line-height: 170%;\"><span style=\"font-family: Raleway, sans-serif; font-size: 16px; line-height: 27.2px;\">Hallo "
+                                + user.getUsername() + ",</span></p>\n" +
                                 "        <p style=\"font-size: 14px; line-height: 170%;\"><span style=\"font-family: Raleway, sans-serif; font-size: 16px; line-height: 27.2px;\">Vielen Dank, dass Sie Scrumdog Millionaires verwenden. </span></p>\n"
                                 +
-                                "        <p style=\"font-size: 14px; line-height: 170%;\"><span style=\"font-family: Raleway, sans-serif; font-size: 16px; line-height: 27.2px;\">Sie haben bei \""
+                                "        <p style=\"font-size: 14px; line-height: 170%;\"><span style=\"font-family: Raleway, sans-serif; font-size: 16px; line-height: 27.2px;\">Sie haben bei "
                                 + RestaurantOverview.getRestaurantById(reservation.getRestaurant_id()).getName()
-                                + "\" reserviert:</span></p>\n"
+                                + " reserviert:</span></p>\n"
                                 +
                                 "        <p style=\"font-size: 14px; line-height: 170%;\"><span style=\"font-family: Raleway, sans-serif; font-size: 16px; line-height: 27.2px;\">Tisch \""
-                                + reservation.getTable().getId() + " \"&nbsp;am \"" + reservation.getDate() + "\" um \""
-                                + reservation.getTime() + " \"<br />Reservierungsname: \""
-                                + reservation.getUser().getUsername() + "\"<br />Best&auml;tigungsnummer: \""
+                                + reservation.getTable().getId() + " &nbsp;am " + reservation.getDate() + " um "
+                                + reservation.getTime() + " <br />Reservierungsname: "
+                                + reservation.getUser().getUsername() + "<br />Best&auml;tigungsnummer: "
                                 + reservation.getId() + "\"</span></p>\n" +
                                 "          </div>\n" +
                                 "\n" +
@@ -284,10 +284,10 @@ public class Util {
                                 "        \n" +
                                 "  <h1 style=\"margin: 0px; color: #000000; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Open Sans',sans-serif; font-size: 19px;\">\n"
                                 +
-                                "    F&uuml;gen Sie den Termin zu Ihrem Kalender hinzu: \""
+                                "    F&uuml;gen Sie den Termin zu Ihrem Kalender hinzu: "
                                 + EmailServiceImpl.generateCalendarLink(reservation,
                                                 RestaurantOverview.getRestaurantById(reservation.getRestaurant_id()))
-                                + "\"\n"
+                                + "\n"
                                 +
                                 "  </h1>\n" +
                                 "\n" +
