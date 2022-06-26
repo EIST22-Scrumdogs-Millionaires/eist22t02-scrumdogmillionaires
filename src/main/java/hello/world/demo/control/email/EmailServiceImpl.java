@@ -50,6 +50,13 @@ public class EmailServiceImpl {
 
         return mailSender;
     }
+
+    /**
+     * Creates a calendar link for the reservation, based on : https://stackoverflow.com/questions/5831877/how-do-i-create-a-link-to-add-an-entry-to-a-calendar/19867654#19867654
+     * @param reservation
+     * @param restaurant
+     * @return
+     */
     public static String generateCalendarLink(Reservation reservation, Restaurant restaurant){
         String dateString = reservation.getDate().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
         String timeString = reservation.getTime().format(DateTimeFormatter.ofPattern("hhmm"));
