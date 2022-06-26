@@ -14,7 +14,7 @@ export default function Home() {
 
   const [query, handleSearchBox] = React.useState("");
   const [restaurants, setRestaurants] = React.useState( () => {
-        Axios.get(`http://localhost:8080/restaurants/search/""`)
+        Axios.get(`http://localhost:8080/restaurants/search/all`)
             .then((res) => {
               setRestaurants(res.data);
             })
@@ -59,7 +59,7 @@ export default function Home() {
           break;
         }
         case "price": {
-            if (value !== "" && value !== 0) {
+            if (value !== "" && value !== "0") {
               filterTypes.push("P_"+value);
             }
           break;
@@ -123,7 +123,7 @@ export default function Home() {
                   color="secondary"
                   variant="contained"
                   component={Link}
-                  to={`/search/${!query ? "topten" : query}`}
+                  to={`/search/${!query ? "topten" : query}/${createFilterSting(filters)}`}
                 >
                   Search
                 </Button>
