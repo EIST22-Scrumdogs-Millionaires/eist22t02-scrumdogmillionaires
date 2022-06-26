@@ -1,5 +1,8 @@
 package hello.world.demo.control.email;
 
+import hello.world.demo.restaurant.Reservation;
+import hello.world.demo.restaurant.Restaurant;
+import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Service;
 import hello.world.demo.model.Reservation;
 import hello.world.demo.model.Restaurant;
 
+import javax.mail.SendFailedException;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
@@ -22,7 +26,11 @@ public class EmailServiceImpl {
         mailMessage.setSubject(subject);
         mailMessage.setText(message);
         mailMessage.setFrom("scrumdogmillionaries@yahoo.com");
-        mailSender.send(mailMessage);
+        try {
+            mailSender.send(mailMessage);
+        }catch (MailException e){
+            System.out.println("Mail not sent");
+        }
     }
 
     public static JavaMailSender getJavaMailSender() {
