@@ -26,11 +26,11 @@ public class RestaurantOverview extends Thread {
         while (true) {
             restaurants.stream().forEach(x -> {
                 x.getReservations().stream()
-                        .filter(y ->{
-                            LocalDateTime combined = LocalDateTime.of(y.getDate(),y.getTime());
-                           return !y.getConfirmed() &&
-                                   (ChronoUnit.HOURS.between(combined,LocalDateTime.now())< 12);
-                        } )
+                        .filter(y -> {
+                            LocalDateTime combined = LocalDateTime.of(y.getDate(), y.getTime());
+                            return !y.getConfirmed() &&
+                                    (ChronoUnit.HOURS.between(combined, LocalDateTime.now()) < 12);
+                        })
                         .forEach(y -> x.cancelReservation(y, y.getCancelSecretKey()));
             });
             try {
@@ -133,6 +133,9 @@ public class RestaurantOverview extends Thread {
     /**
      * Calculate distance between two points in latitude and longitude using
      * Haversine method as its base.
+     * 
+     * We got some inspiration from the following code:
+     * https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula
      *
      * @param lat1 Latidue one
      * @param lat2 Latidue two
