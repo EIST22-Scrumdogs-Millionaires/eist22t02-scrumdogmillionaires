@@ -185,7 +185,7 @@ public class RestaurantOverview extends Thread {
     }
 
     /**
-     * calculates the difference between 2 strings
+     * calculates the LevenstheinDistance difference between 2 strings
      * 
      * @param x
      * @param y
@@ -278,6 +278,16 @@ public class RestaurantOverview extends Thread {
         }
     }
 
+    /**
+     * Returns all the Tables of the restaurants including thei availability
+     * specified with the given parameters
+     * 
+     * @param restaurant_id
+     * @param date
+     * @param time
+     * @param seats
+     * @return
+     */
     public synchronized static List<Tisch> getAvailableTables(int restaurant_id, LocalDate date, LocalTime time,
             int seats) {
         Restaurant restaurant = getRestaurantById(restaurant_id);
