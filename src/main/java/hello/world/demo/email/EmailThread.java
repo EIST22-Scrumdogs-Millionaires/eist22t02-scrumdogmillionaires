@@ -28,8 +28,9 @@ public class EmailThread extends Thread {
             List<Email> toRemove = new ArrayList<>();
 
             toSend.stream().filter(x -> {
+                        System.out.println("found");
                         LocalDateTime combined = LocalDateTime.of(x.getSendDate(),x.getSendTime());
-                        return (ChronoUnit.HOURS.between(combined,LocalDateTime.now())<= 12);
+                        return (ChronoUnit.HOURS.between(combined,LocalDateTime.now())>= 0);
                     }).limit(2)
                     .forEach(x -> {
                         EmailServiceImpl.sendMail(x.getTo(), x.getSubject(), x.getText());
