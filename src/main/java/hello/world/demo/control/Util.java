@@ -286,8 +286,10 @@ public class Util {
                                         "  <h1 style=\"margin: 0px; color: #000000; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Open Sans',sans-serif; font-size: 19px;\">\n"
                                         +
                                         "    F&uuml;gen Sie den Termin zu Ihrem Kalender hinzu: "
+                                        + "<a href=\""
                                         + EmailServiceImpl.generateCalendarLink(reservation,
-                                                        RestaurantOverview.getRestaurantById(reservation.getRestaurant_id()))
+                                                RestaurantOverview.getRestaurantById(reservation.getRestaurant_id()))
+                                        + "\">Kalender-Event</a>"
                                         + "\n"
                                         +
                                         "  </h1>\n" +
