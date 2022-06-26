@@ -378,39 +378,16 @@ public class Util {
                                 "        \n" +
                                 "  <h1 style=\"margin: 0px; color: #000000; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Open Sans',sans-serif; font-size: 22px;\">\n"
                                 +
-                                "    Ich m&ouml;chte meine Reservierung stornieren:\n" +
+                                "    Ich m&ouml;chte meine Reservierung stornieren: localhost:8080/reservations/"
+                                                        + reservation.getId() + "/" + reservation.getCancelSecretKey() +
                                 "  </h1>\n" +
                                 "\n" +
                                 "      </td>\n" +
                                 "    </tr>\n" +
                                 "  </tbody>\n" +
                                 "</table>\n" +
-                                "\n" +
-                                "<table id=\"u_content_button_5\" style=\"font-family:arial,helvetica,sans-serif;\" role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" border=\"0\">\n"
+                                "\n"
                                 +
-                                "  <tbody>\n" +
-                                "    <tr>\n" +
-                                "      <td style=\"overflow-wrap:break-word;word-break:break-word;padding:10px 10px 60px;font-family:arial,helvetica,sans-serif;\" align=\"left\">\n"
-                                +
-                                "        \n" +
-                                "<div align=\"center\">\n" +
-                                "  <!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;\"><tr><td style=\"font-family:arial,helvetica,sans-serif;\" align=\"center\"><v:roundrect xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:w=\"urn:schemas-microsoft-com:office:word\" href=\"localhost:8080/reservations/&quot;                         + reservation.getId() + &quot;/&quot; + reservation.getCancelSecretKey()\" style=\"height:64px; v-text-anchor:middle; width:290px;\" arcsize=\"6.5%\" stroke=\"f\" fillcolor=\"#c5e1a5\"><w:anchorlock/><center style=\"color:#ffffff;font-family:arial,helvetica,sans-serif;\"><![endif]-->\n"
-                                +
-                                "    <a href=\"localhost:8080/reservations/&quot;" + reservation.getId()
-                                + "&quot;/&quot;" + reservation.getCancelSecretKey()
-                                + "\" target=\"_blank\" class=\"v-size-width\" style=\"box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #ffffff; background-color: #c5e1a5; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:46%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-color: #000000; border-top-style: solid; border-top-width: 0px; border-left-color: #000000; border-left-style: solid; border-left-width: 0px; border-right-color: #000000; border-right-style: solid; border-right-width: 0px; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0px;\">\n"
-                                +
-                                "      <span style=\"display:block;padding:20px;line-height:120%;\"><span style=\"font-size: 20px; line-height: 24px; font-family: 'Open Sans', sans-serif;\">Reservierung stornieren</span></span>\n"
-                                +
-                                "    </a>\n" +
-                                "  <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->\n" +
-                                "</div>\n" +
-                                "\n" +
-                                "      </td>\n" +
-                                "    </tr>\n" +
-                                "  </tbody>\n" +
-                                "</table>\n" +
-                                "\n" +
                                 "  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n" +
                                 "  </div>\n" +
                                 "</div>\n" +
