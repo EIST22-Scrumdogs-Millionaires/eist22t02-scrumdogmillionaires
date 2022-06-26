@@ -49,6 +49,7 @@ public class EmailServiceImpl {
 
         return mailSender;
     }
+
     public static String generateCalendarLink(Reservation reservation, Restaurant restaurant){
         String dateString = reservation.getDate().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
         String timeString = reservation.getTime().format(DateTimeFormatter.ofPattern("hhmm"));
