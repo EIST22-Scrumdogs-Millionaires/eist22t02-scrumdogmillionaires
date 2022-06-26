@@ -113,8 +113,8 @@ public class ReservationController {
 
         t.start();
 
-        // EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject",
-        // "Test mail");
+         EmailServiceImpl.sendMail("caroline.stallknecht@gmail.com", "Test Subject",
+         "Test mail");
 
         return "emailsent";
     }
