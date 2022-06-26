@@ -88,24 +88,6 @@ public class RestaurantController {
         return ResponseEntity.ok(jsonString);
     }
 
-    // Dont need that do we? We hope not ;)
-    // @GetMapping("restaurants/{pageSize}/{index}")
-    // public ResponseEntity<String> returnAllRestaurants(@PathVariable("pageSize")
-    // int pageSize,
-    // @PathVariable("index") int index) {
-
-    // ObjectMapper mapper = new ObjectMapper();
-    // mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-
-    // String jsonString = "didn't find anything";
-    // try {
-    // jsonString = mapper.writeValueAsString(Data.getAllRestaurants());
-    // } catch (JsonProcessingException e) {
-    // e.printStackTrace();
-    // }
-    // return ResponseEntity.ok(jsonString);
-    // }
-
     @GetMapping("restaurant/{id}")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> returnRestaurant(@PathVariable("id") int id) {
