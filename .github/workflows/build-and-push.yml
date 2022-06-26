@@ -58,7 +58,7 @@ jobs:
       run: git config --global user.email "eist22-scrumdogmillionaires@github.com" && git config --global user.name "GitHub Action Runner"
       
     - name: Fix merge conflicts if any
-      run: git pull --rebase --reapply-cherry-picks upstream main
+      run: git pull --rebase --strategy=ours upstream main
 
     - name: Git push to other repo
       run: git push upstream
