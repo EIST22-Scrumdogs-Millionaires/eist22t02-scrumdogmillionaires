@@ -25,13 +25,13 @@ public class RestaurantOverview extends Thread {
     public void run() {
         while (true) {
             restaurants.stream().forEach(x -> {
-                x.getReservations().stream()
-                        .filter(y -> {
-                            LocalDateTime combined = LocalDateTime.of(y.getDate(), y.getTime());
-                            return !y.getConfirmed() &&
-                                    (ChronoUnit.HOURS.between(combined, LocalDateTime.now()) < 12);
-                        })
-                        .forEach(y -> x.cancelReservation(y, y.getCancelSecretKey()));
+                // x.getReservations().stream()
+                //         .filter(y -> {
+                //             LocalDateTime combined = LocalDateTime.of(y.getDate(), y.getTime());
+                //             return !y.getConfirmed() &&
+                //                     (ChronoUnit.HOURS.between(combined, LocalDateTime.now()) < 12);
+                //         })
+                //         .forEach(y -> x.cancelReservation(y, y.getCancelsecretkey()));
             });
             try {
                 Thread.sleep(UPDATE_TIME);
@@ -86,9 +86,7 @@ public class RestaurantOverview extends Thread {
 
             switch (filterType.charAt(0)) {
                 case 'T': {
-                    System.out.println();
                     RestaurantType restaurantType = RestaurantType.valueOf(getArgument(filterType, 0));
-                    System.out.println(restaurantType);
                     ret = ret.stream().filter(x -> x.getRestaurantType() == restaurantType).toList();
                     break;
                 }
@@ -231,8 +229,15 @@ public class RestaurantOverview extends Thread {
      * @return
      */
     public static Reservation getReservation(int id) {
+        List<Reservation> help = new ArrayList<>();
+        restaurants.stream().forEach(x -> help.addAll(x.getReservations()));
+        System.out.println(help.size());
+
         List<Reservation> ret = new ArrayList<>();
-        restaurants.stream().map(x -> x.getReservations()).forEach(x -> ret.addAll(x));
+        ret.addAll(help);
+
+        ret = ret.stream().filter(x -> x.getId() == id).toList();
+        System.out.println(ret.size());
 
         if (ret.size() == 0) {
             return null;
@@ -247,7 +252,7 @@ public class RestaurantOverview extends Thread {
      * @return
      */
     public static Reservation postReservation(Reservation reservation) {
-        restaurants.stream().filter(res -> getRestaurantById(reservation.getId()).equals(res)).toList().get(0)
+        getRestaurantById(reservation.getRestaurant_id())
                 .passReservation(reservation);
         Data.saveRestaurants(restaurants);
         return reservation;
@@ -262,9 +267,9 @@ public class RestaurantOverview extends Thread {
     public static void performActionOnReservation(int id, String actionSecretKey) {
         Reservation reservation = getReservation(id);
         if (reservation != null) {
-            if (reservation.getCancelSecretKey().compareTo(actionSecretKey) == 0) {
-                getRestaurantById(reservation.getId()).cancelReservation(reservation, actionSecretKey);
-            } else if (reservation.getConfirmSecretKey().compareTo(actionSecretKey) == 0) {
+            if (reservation.getCancelsecretkey().compareTo(actionSecretKey) == 0) {
+                getRestaurantById(reservation.getRestaurant_id()).cancelReservation(reservation, actionSecretKey);
+            } else if (reservation.getConfirmsecretkey().compareTo(actionSecretKey) == 0) {
                 reservation.confirmReservation(actionSecretKey);
             }
             Data.saveRestaurants(restaurants);

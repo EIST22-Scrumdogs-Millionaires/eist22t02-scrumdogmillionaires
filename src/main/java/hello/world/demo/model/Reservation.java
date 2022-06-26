@@ -17,9 +17,9 @@ public class Reservation {
 
     private Integer restaurant_id;
 
-    private String cancelSecretKey;
+    private String cancelsecretkey;
 
-    private String confirmSecretKey;
+    private String confirmsecretkey;
 
     private boolean confirmed;
 
@@ -33,9 +33,12 @@ public class Reservation {
         this.user = user;
         this.table = table;
         this.restaurant_id = restaurant_id;
-        this.cancelSecretKey = String.valueOf(Math.random());
-        this.confirmSecretKey = String.valueOf(Math.random());
         this.confirmed = false;
+    }
+
+    public void generateSecretKeys() {
+        this.confirmsecretkey = String.valueOf(Math.random()).replace('.', 'x');
+        this.cancelsecretkey = String.valueOf(Math.random()).replace('.', 'x');
     }
 
     public Visitor getUser() {
@@ -78,12 +81,20 @@ public class Reservation {
         this.table = table;
     }
 
-    public String getCancelSecretKey() {
-        return cancelSecretKey;
+    public String getCancelsecretkey() {
+        return cancelsecretkey;
     }
 
-    public String getConfirmSecretKey() {
-        return confirmSecretKey;
+    public String getConfirmsecretkey() {
+        return confirmsecretkey;
+    }
+
+    public void setCancelsecretkey(String cancelsecretkey) {
+        this.cancelsecretkey = cancelsecretkey;
+    }
+
+    public void setConfirmsecretkey(String confirmsecretkey) {
+        this.confirmsecretkey = confirmsecretkey;
     }
 
     public int getRestaurant_id() {
@@ -98,20 +109,12 @@ public class Reservation {
         this.restaurant_id = restaurant_id;
     }
 
-    public void setCancelSecretKey(String cancelSecretKey) {
-        this.cancelSecretKey = cancelSecretKey;
-    }
-
-    public void setConfirmSecretKey(String confirmSecretKey) {
-        this.confirmSecretKey = confirmSecretKey;
-    }
-
     public void setConfirmed(boolean confirmed) {
         this.confirmed = confirmed;
     }
 
     public void confirmReservation(String actionSecretKey) {
-        if (actionSecretKey.compareTo(confirmSecretKey) == 0) {
+        if (actionSecretKey.compareTo(confirmsecretkey) == 0) {
             confirmed = true;
         }
     }

@@ -269,8 +269,9 @@ public class Restaurant {
 	}
 
 	public void cancelReservation(Reservation reservation, String cancelSecretKey) {
-		if (reservation.getCancelSecretKey().compareTo(cancelSecretKey) == 0) {
-			reservations.remove(reservation);
+		System.out.println(this.getId());
+		if (reservation.getCancelsecretkey().compareTo(cancelSecretKey) == 0) {
+			reservations.removeIf(x -> x.getId() == reservation.getId());
 		}
 	}
 
@@ -304,6 +305,11 @@ public class Restaurant {
 
 	public void passReservation(Reservation reservation) {
 
+		reservation.setId(Data.getReservationId());
+		Data.saveReservationId(reservation.getId() + 1);
+		reservation.generateSecretKeys();
+		reservations.add(reservation);
+
 		String emailResText = Util.reservationMail(reservation.getUser(), reservation);
 		String emailResConfirmText = Util.confirmMail(reservation.getUser(), reservation, this);
 
@@ -315,8 +321,5 @@ public class Restaurant {
 				reservation.getDate().minusDays(1), reservation.getTime().minusHours(24));
 		EmailThread.addEmail(emailRes);
 		EmailThread.addEmail(emailResConfirm);
-		reservation.setId(Data.getReservationId());
-		Data.saveReservationId(reservation.getId() + 1);
-		reservations.add(reservation);
 	}
 }
