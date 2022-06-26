@@ -20,7 +20,7 @@ root.render(
           <Route path="/search/:query/:filter" element={<Search />}></Route>
         </Routes>
         <Routes>
-          <Route path="/search/detail/:id" element={<DetailSearchComponent />}></Route>
+          <Route path="/searchdetail/:id" element={<DetailSearchComponent />}></Route>
         </Routes>
       </ThemeProvider>
     </Router>

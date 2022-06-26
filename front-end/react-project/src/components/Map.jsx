@@ -82,7 +82,7 @@ export function MapContainer(props) {
     const getTitle = (restaurant) => {
         return (
             <div>
-                <a href={`http://localhost:3000/search/detail/${restaurant.id}`} target="_blank">{restaurant.name}</a>
+                <a href={`http://localhost:3000/searchdetail/${restaurant.id}`} target="_blank">{restaurant.name}</a>
             </div>
         )
     }

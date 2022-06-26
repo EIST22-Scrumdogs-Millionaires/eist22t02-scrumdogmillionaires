@@ -28,49 +28,48 @@ export default function Search() {
     }
   }, []);
   const restaurants = data.map((restaurant) => {
-    return (
-      <Grid item xs={12} sm={6} md={4} lg={3}>
-        <SearchResultComp restaurant={restaurant}></SearchResultComp>
-      </Grid>
-    );
+      return (
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <SearchResultComp restaurant={restaurant} />
+          </Grid>
+      );
   });
-  
-
-  return (
-    <div>
-      <NavigationBar />
-      <div className="content">
-        <Container maxWidth="xl">
-          <div className="title-wrapper">
-            {query === "topten" ? (
-              <div>
-                <h1 className="title">Top 10 restaurants</h1>
+    return (
+        <div>
+          <NavigationBar />
+          <div className="content">
+            <Container maxWidth="xl">
+              <div className="title-wrapper">
+                {query === "topten" ? (
+                    <div>
+                      <h1 className="title">Top 10 restaurants</h1>
+                    </div>
+                ) : (
+                    <div>
+                      <h1>
+                        Search results for <em>"{query}"</em>
+                      </h1>
+                    </div>
+                )}
               </div>
-            ) : (
-              <div>
-                <h1>
-                  Search results for <em>"{query}"</em>
-                </h1>
-              </div>
-            )}
-          </div>
 
-          <div className="search-result-wrapper">
-            <Grid
-              container
-              alignItems="center"
-              rowSpacing={{ xs: 3, md: 4 }}
-              columnSpacing={{ xs: 3, md: 4 }}
-            >
-              {
-                // value: how many of the 12 available columns are occupied by the component
-              }
-              {restaurants}
-            </Grid>
+              <div className="search-result-wrapper">
+                <Grid
+                    container
+                    alignItems="center"
+                    rowSpacing={{ xs: 3, md: 4 }}
+                    columnSpacing={{ xs: 3, md: 4 }}
+                >
+                  {
+                    // value: how many of the 12 available columns are occupied by the component
+                  }
+                  {restaurants}
+                </Grid>
+              </div>
+            </Container>
           </div>
-        </Container>
-      </div>
-      <Footer />
-    </div>
-  );
+          <Footer />
+        </div>
+    );
+
 }
