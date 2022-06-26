@@ -11,7 +11,7 @@ import Axios from "axios";
 export default function Search() {
   //hook from react router do
   const [data, setData] = useState([]);
-  const { query, filter } = useParams();
+  const { query } = useParams();
   useEffect(() => {
     if (query === "topten") {
       Axios.get(`http://localhost:8080/restaurants/getTopTen`)

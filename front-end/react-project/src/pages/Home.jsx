@@ -10,8 +10,6 @@ import Axios from "axios";
 
 export default function Home() {
 
-
-
   const [query, handleSearchBox] = React.useState("");
   const [restaurants, setRestaurants] = React.useState( () => {
         Axios.get(`http://localhost:8080/restaurants/search/all`)
@@ -123,7 +121,7 @@ export default function Home() {
                   color="secondary"
                   variant="contained"
                   component={Link}
-                  to={`/search/${!query ? "topten" : query}/${createFilterSting(filters)}`}
+                  to={`/search/${!query ? "topten" : query}`}
                 >
                   Search
                 </Button>
