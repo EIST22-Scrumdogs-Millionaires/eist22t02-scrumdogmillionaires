@@ -1,7 +1,6 @@
 package hello.world.demo.control.email;
 
-import hello.world.demo.restaurant.Reservation;
-import hello.world.demo.restaurant.Restaurant;
+
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 import hello.world.demo.model.Reservation;
 import hello.world.demo.model.Restaurant;
 
-import javax.mail.SendFailedException;
+
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
