@@ -235,7 +235,7 @@ const errorMessage = (
     content = (
       <Typography sx={{ mt: 2, mb: 1 }}>
         <p>All steps completed!</p>
-        <p>You will recieve a comfimation E-Mail.</p>
+        <p>You will recieve a confirmation E-Mail.</p>
       </Typography>
     );
   } else if (activeStep === 0) {
