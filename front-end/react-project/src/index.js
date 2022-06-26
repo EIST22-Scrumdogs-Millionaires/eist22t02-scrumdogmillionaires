@@ -17,7 +17,7 @@ root.render(
           <Route path="/" element={<Home />}></Route>
         </Routes>
         <Routes>
-          <Route path="/search/:query" element={<Search />}></Route>
+          <Route path="/search/:query/:filter" element={<Search />}></Route>
         </Routes>
         <Routes>
           <Route path="/search/detail/:id" element={<DetailSearchComponent />}></Route>

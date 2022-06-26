@@ -1,15 +1,16 @@
-package hello.world.demo.email;
+package hello.world.demo.control.email;
 
-import hello.world.demo.restaurant.Reservation;
-import hello.world.demo.restaurant.Restaurant;
+
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
+import hello.world.demo.model.Reservation;
+import hello.world.demo.model.Restaurant;
 
-import javax.mail.SendFailedException;
+
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
@@ -49,6 +50,14 @@ public class EmailServiceImpl {
 
         return mailSender;
     }
+
+
+    /**
+     * Creates a calendar link for the reservation, based on : https://stackoverflow.com/questions/5831877/how-do-i-create-a-link-to-add-an-entry-to-a-calendar/19867654#19867654
+     * @param reservation
+     * @param restaurant
+     * @return
+     */
 
     public static String generateCalendarLink(Reservation reservation, Restaurant restaurant){
         String dateString = reservation.getDate().format(DateTimeFormatter.ofPattern("yyyyMMdd"));

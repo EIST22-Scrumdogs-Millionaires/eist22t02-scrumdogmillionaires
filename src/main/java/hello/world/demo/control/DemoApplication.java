@@ -1,10 +1,13 @@
-package hello.world.demo;
+package hello.world.demo.control;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import hello.world.demo.email.EmailThread;
-import hello.world.demo.restaurant.RestaurantOverview;
+import hello.world.demo.control.email.EmailThread;
+
+
+
+
 
 @SpringBootApplication
 public class DemoApplication {

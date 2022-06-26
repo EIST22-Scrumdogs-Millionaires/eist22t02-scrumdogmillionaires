@@ -1,14 +1,13 @@
-package hello.world.demo.restaurant;
+package hello.world.demo.model;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
-import hello.world.demo.Data;
-import hello.world.demo.Util;
-
-import hello.world.demo.email.EmailThread;
+import hello.world.demo.control.Data;
+import hello.world.demo.control.Util;
+import hello.world.demo.control.email.EmailThread;
 
 public class Restaurant {
 

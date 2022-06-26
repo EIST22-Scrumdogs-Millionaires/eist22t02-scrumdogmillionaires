@@ -1,15 +1,12 @@
-package hello.world.demo.email;
+package hello.world.demo.control.email;
 
-import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
-import hello.world.demo.Data;
-import hello.world.demo.restaurant.Email;
+import hello.world.demo.control.Data;
+import hello.world.demo.model.Email;
 
 public class EmailThread extends Thread {
 
@@ -26,17 +23,17 @@ public class EmailThread extends Thread {
     public void run() {
         while (true) {
             List<Email> toRemove = new ArrayList<>();
-
+            System.out.println("SIZE:    " + toSend.size());
             toSend.stream().filter(x -> {
-                        System.out.println("found");
-                        LocalDateTime combined = LocalDateTime.of(x.getSendDate(),x.getSendTime());
-                        return (ChronoUnit.HOURS.between(combined,LocalDateTime.now())>= 0);
-                    }).limit(2)
+                System.out.println("found");
+                LocalDateTime combined = LocalDateTime.of(x.getSendDate(), x.getSendTime());
+                return (ChronoUnit.HOURS.between(combined, LocalDateTime.now()) >= 0);
+            }).limit(2)
                     .forEach(x -> {
                         EmailServiceImpl.sendMail(x.getTo(), x.getSubject(), x.getText());
                         toRemove.add(x);
                     });
-            toSend.removeAll(toRemove);
+            System.out.println(toSend.removeAll(toRemove));
             Data.saveEmails(toSend);
             try {
                 Thread.sleep(UPDATE_TIME);
