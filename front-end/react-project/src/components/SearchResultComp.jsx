@@ -62,7 +62,7 @@ export default function SearchResultComp(props) {
   
         </Typography>
        
-        <Button  color="secondary" variant="contained" component={Link} to={`/searchdetail/${props.restaurant.id}`}>More</Button>
+        <Button  color="secondary" variant="contained" component={Link} to={`/search/detail/${props.restaurant.id}`}>More</Button>
         
       </CardContent>
       
