@@ -1,4 +1,4 @@
-package hello.world.demo;
+package hello.world.demo.control;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -6,13 +6,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import hello.world.demo.email.EmailServiceImpl;
-import hello.world.demo.email.EmailThread;
-import hello.world.demo.restaurant.Email;
-import hello.world.demo.restaurant.Reservation;
-import hello.world.demo.restaurant.Restaurant;
-import hello.world.demo.restaurant.RestaurantOverview;
-
+import hello.world.demo.control.email.EmailServiceImpl;
+import hello.world.demo.control.email.EmailThread;
+import hello.world.demo.model.Email;
+import hello.world.demo.model.Reservation;
+import hello.world.demo.model.Restaurant;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

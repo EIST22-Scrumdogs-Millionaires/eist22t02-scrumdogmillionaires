@@ -1,12 +1,12 @@
-package hello.world.demo.email;
+package hello.world.demo.control.email;
 
-import hello.world.demo.restaurant.Reservation;
-import hello.world.demo.restaurant.Restaurant;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
+import hello.world.demo.model.Reservation;
+import hello.world.demo.model.Restaurant;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;

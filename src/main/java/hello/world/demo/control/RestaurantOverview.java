@@ -1,8 +1,12 @@
-package hello.world.demo.restaurant;
+package hello.world.demo.control;
 
-import hello.world.demo.Data;
+import hello.world.demo.model.Reservation;
+import hello.world.demo.model.Restaurant;
+import hello.world.demo.model.RestaurantType;
+import hello.world.demo.model.Review;
+import hello.world.demo.model.SmallRestaurant;
+import hello.world.demo.model.Tisch;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -78,9 +82,7 @@ public class RestaurantOverview extends Thread {
         } else {
             ret = searchB(searchQuery);
         }
-        System.out.println("Here");
         for (String filterType : filterTypes) {
-            System.out.println(filterType);
 
             switch (filterType.charAt(0)) {
                 case 'T': {

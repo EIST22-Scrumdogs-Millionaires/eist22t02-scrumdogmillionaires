@@ -1,12 +1,12 @@
-package hello.world.demo;
-
-import hello.world.demo.restaurant.Reservation;
-import hello.world.demo.restaurant.Restaurant;
-import hello.world.demo.restaurant.Visitor;
+package hello.world.demo.control;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import hello.world.demo.model.Reservation;
+import hello.world.demo.model.Restaurant;
+import hello.world.demo.model.Visitor;
 
 public class Util {
 

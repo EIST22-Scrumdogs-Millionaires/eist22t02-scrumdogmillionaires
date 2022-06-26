@@ -1,4 +1,4 @@
-package hello.world.demo;
+package hello.world.demo.control;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

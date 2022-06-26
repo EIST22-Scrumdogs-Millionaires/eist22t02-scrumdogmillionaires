@@ -1,4 +1,4 @@
-package hello.world.demo.restaurant;
+package hello.world.demo.model;
 
 public enum RestaurantType {
 	CHINESE, GERMAN, BAVARIAN, TAIWANESE, ITALIAN, FAST_FOOD, PIZZA, KEBAP, GOURMET, KNEIPE, IRISH, CAFE, MIDDLE_EASTERN, SPANISH, BURGER, SUSHI, ASIAN, GREEK

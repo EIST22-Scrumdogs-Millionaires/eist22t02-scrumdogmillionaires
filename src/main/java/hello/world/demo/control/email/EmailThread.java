@@ -1,4 +1,4 @@
-package hello.world.demo.email;
+package hello.world.demo.control.email;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -8,8 +8,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
-import hello.world.demo.Data;
-import hello.world.demo.restaurant.Email;
+import hello.world.demo.control.Data;
+import hello.world.demo.model.Email;
+
+
 
 public class EmailThread extends Thread {
 
