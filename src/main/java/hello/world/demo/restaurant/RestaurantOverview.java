@@ -4,6 +4,7 @@ import hello.world.demo.Data;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
@@ -21,8 +22,11 @@ public class RestaurantOverview extends Thread {
         while (true) {
             restaurants.stream().forEach(x -> {
                 x.getReservations().stream()
-                        .filter(y -> !y.getConfirmed() && (ChronoUnit.HOURS.between(y.getDate(), LocalDate.now())
-                                + ChronoUnit.HOURS.between(y.getTime(), LocalTime.now()) < 12))
+                        .filter(y ->{
+                            LocalDateTime combined = LocalDateTime.of(y.getDate(),y.getTime());
+                           return !y.getConfirmed() &&
+                                   (ChronoUnit.HOURS.between(combined,LocalDateTime.now())< 12);
+                        } )
                         .forEach(y -> x.cancelReservation(y, y.getCancelSecretKey()));
             });
             try {

@@ -2,7 +2,9 @@ package hello.world.demo.email;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +27,10 @@ public class EmailThread extends Thread {
         while (true) {
             List<Email> toRemove = new ArrayList<>();
 
-            toSend.stream().filter(x -> Duration.between(x.getSendDate(), LocalDate.now()).toHours() <= 0)
-                    .filter(x -> Duration.between(x.getSendTime(), LocalTime.now()).toHours() <= 0).limit(2)
+            toSend.stream().filter(x -> {
+                        LocalDateTime combined = LocalDateTime.of(x.getSendDate(),x.getSendTime());
+                        return (ChronoUnit.HOURS.between(combined,LocalDateTime.now())<= 12);
+                    }).limit(2)
                     .forEach(x -> {
                         EmailServiceImpl.sendMail(x.getTo(), x.getSubject(), x.getText());
                         toRemove.add(x);
