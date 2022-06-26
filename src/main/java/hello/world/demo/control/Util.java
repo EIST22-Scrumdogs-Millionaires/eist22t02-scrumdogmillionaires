@@ -913,7 +913,7 @@ public class Util {
                         + "/" + reservation.getConfirmsecretkey()
                         + "\" target=\"_blank\" class=\"v-size-width\" style=\"box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #ffffff; background-color: #c5e1a5; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:46%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-color: #000000; border-top-style: solid; border-top-width: 0px; border-left-color: #000000; border-left-style: solid; border-left-width: 0px; border-right-color: #000000; border-right-style: solid; border-right-width: 0px; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0px;\">\n"
                         +
-                        "      <span style=\"display:block;padding:20px;line-height:120%;\"><span style=\"font-size: 20px; line-height: 24px; font-family: 'Open Sans', sans-serif;\">Reservierung stornieren</span></span>\n"
+                        "      <span style=\"display:block;padding:20px;line-height:120%;\"><span style=\"font-size: 20px; line-height: 24px; font-family: 'Open Sans', sans-serif;\">Reservierung bestätigen</span></span>\n"
                         +
                         "    </a>\n" +
                         "  <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->\n" +
