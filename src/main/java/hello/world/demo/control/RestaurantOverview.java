@@ -119,7 +119,7 @@ public class RestaurantOverview extends Thread {
         }
         return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
                 x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
-                null))
+                x.getPictures()))
                 .toList();
 
     }
@@ -158,28 +158,48 @@ public class RestaurantOverview extends Thread {
 
     public static List<Restaurant> searchB(String searchQuery) {
         return restaurants.stream()
-                .filter(x -> calculateLevenstheinDistance(searchQuery,
-                        x.getName() + " " + x.getDescription()) <= MAX_LEVENSTHEIN_DIFFERENCE)
-                .sorted((a, b) -> calculateLevenstheinDistance(searchQuery, a.getName() + " " + a.getDescription())
-                        - calculateLevenstheinDistance(searchQuery, b.getName() + " " + b.getDescription()))
-                .limit(10).toList();
+                    .filter(x -> Math.min(calculateLevenstheinDistance(searchQuery, x.getName()),
+                            calculateLevenstheinDistance(searchQuery, x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
+                    .sorted((a,b) -> {
+                        boolean exactMatchA = a.getName().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT))
+                                || a.getDescription().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT));
+                        boolean exactMatchB = b.getName().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT))
+                                || b.getDescription().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT));
+                        if (exactMatchA && !exactMatchB) {
+                            return -1;
+                        } else if (!exactMatchA && exactMatchB) {
+                            return 1;
+                        } else {
+                            int levA = Math.min(calculateLevenstheinDistance(searchQuery, a.getName()),
+                                    calculateLevenstheinDistance(searchQuery, a.getDescription()));
+                            int levB = Math.min(calculateLevenstheinDistance(searchQuery, b.getName()),
+                                    calculateLevenstheinDistance(searchQuery, b.getDescription()));
+                            return levA - levB;
+                        }
+                    }).toList();
     }
 
     public static List<SmallRestaurant> search(String searchQuery) {
         return getAllRestaurants().stream()
-                .filter(x -> Math.min(calculateLevenstheinDistance(searchQuery,
-                        x.getName()),
-                        calculateLevenstheinDistance(searchQuery,
-                                x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
-                .sorted((a, b) -> Math.min(calculateLevenstheinDistance(searchQuery,
-                        a.getName()),
-                        calculateLevenstheinDistance(searchQuery,
-                                a.getDescription()))
-                        - Math.min(calculateLevenstheinDistance(searchQuery,
-                                b.getName()),
-                                calculateLevenstheinDistance(searchQuery,
-                                        b.getDescription())))
-                .limit(10).toList();
+                .filter(x -> Math.min(calculateLevenstheinDistance(searchQuery, x.getName()),
+                calculateLevenstheinDistance(searchQuery, x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
+                .sorted((a,b) -> {
+                    boolean exactMatchA = a.getName().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT))
+                            || a.getDescription().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT));
+                    boolean exactMatchB = b.getName().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT))
+                            || b.getDescription().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT));
+                    if (exactMatchA && !exactMatchB) {
+                        return -1;
+                    } else if (!exactMatchA && exactMatchB) {
+                        return 1;
+                    } else {
+                        int levA = Math.min(calculateLevenstheinDistance(searchQuery, a.getName()),
+                                calculateLevenstheinDistance(searchQuery, a.getDescription()));
+                        int levB = Math.min(calculateLevenstheinDistance(searchQuery, b.getName()),
+                                calculateLevenstheinDistance(searchQuery, b.getDescription()));
+                        return levA - levB;
+                    }
+                }).limit(10).toList();
     }
 
     /**
