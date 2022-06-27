@@ -105,4 +105,13 @@ public class SmallRestaurant {
 		return pictures;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof SmallRestaurant) {
+			SmallRestaurant other = (SmallRestaurant) obj;
+			return this.id == other.id;
+		}
+		return false;
+	}
+
 }

@@ -322,4 +322,13 @@ public class Restaurant {
 		EmailThread.addEmail(emailRes);
 		EmailThread.addEmail(emailResConfirm);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Restaurant) {
+			Restaurant other = (Restaurant) obj;
+			return this.getId() == other.getId();
+		}
+		return false;
+	}
 }

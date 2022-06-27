@@ -23,9 +23,9 @@ public class EmailThread extends Thread {
     public void run() {
         while (true) {
             List<Email> toRemove = new ArrayList<>();
-            System.out.println("SIZE:    " + toSend.size());
+            //System.out.println("SIZE:    " + toSend.size());
             toSend.stream().filter(x -> {
-                System.out.println("found");
+                //System.out.println("found");
                 LocalDateTime combined = LocalDateTime.of(x.getSendDate(), x.getSendTime());
                 return (ChronoUnit.HOURS.between(combined, LocalDateTime.now()) >= 0);
             }).limit(2)
@@ -33,7 +33,7 @@ public class EmailThread extends Thread {
                         EmailServiceImpl.sendMail(x.getTo(), x.getSubject(), x.getText());
                         toRemove.add(x);
                     });
-            System.out.println(toSend.removeAll(toRemove));
+            //System.out.println(toSend.removeAll(toRemove));
             Data.saveEmails(toSend);
             try {
                 Thread.sleep(UPDATE_TIME);

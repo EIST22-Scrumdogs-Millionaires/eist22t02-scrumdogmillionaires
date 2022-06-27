@@ -210,6 +210,8 @@ public class RestaurantOverview extends Thread {
      * @return
      */
     private static int calculateLevenstheinDistance(String x, String y) {
+        x = x.toLowerCase(Locale.ROOT);
+        y = y.toLowerCase(Locale.ROOT);
         int[][] dp = new int[x.length() + 1][y.length() + 1];
 
         for (int i = 0; i <= x.length(); i++) {
