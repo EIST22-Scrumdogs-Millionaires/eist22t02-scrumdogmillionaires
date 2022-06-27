@@ -1,15 +1,15 @@
+import hello.world.demo.control.Data;
 import hello.world.demo.control.RestaurantOverview;
 import hello.world.demo.model.Restaurant;
 import hello.world.demo.model.RestaurantType;
 import hello.world.demo.model.SmallRestaurant;
 import org.junit.jupiter.api.Test;
 
-import javax.el.MethodNotFoundException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.List;
 
 public class RestaurantControllerTest {
@@ -85,9 +85,8 @@ public class RestaurantControllerTest {
     }
 
     @Test
-    void testFilter() {
+    void testFilterType() {
         List<SmallRestaurant> restaurants = RestaurantOverview.search("augustiner");
-
         List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("augustiner", "T_BAVARIAN");
 
         for (SmallRestaurant restaurant : restaurants) {
@@ -97,7 +96,77 @@ public class RestaurantControllerTest {
                 assertFalse(filteredRestaurants.contains(restaurant));
             }
         }
+        for (SmallRestaurant restaurant : filteredRestaurants) {
+            assertTrue(restaurant.getRestaurantType().equals(RestaurantType.BAVARIAN));
+        }
+    }
 
+    @Test
+    void testFilterPrice() {
+        List<SmallRestaurant> restaurants = RestaurantOverview.search("cafe");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "P_3");
+
+        for (SmallRestaurant restaurant : restaurants) {
+            if (restaurant.getPriceCategory() == 3) {
+                assertTrue(filteredRestaurants.contains(restaurant));
+            } else {
+                assertFalse(filteredRestaurants.contains(restaurant));
+            }
+        }
+        for (SmallRestaurant restaurant : filteredRestaurants) {
+            assertEquals(3, restaurant.getPriceCategory());
+        }
+    }
+
+    @Test
+    void testFilterRating() {
+        List<SmallRestaurant> restaurants = RestaurantOverview.search("cafe");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "A_3");
+
+        for (SmallRestaurant restaurant : restaurants) {
+            if (restaurant.getAverageRating() >= 3.0) {
+                assertTrue(filteredRestaurants.contains(restaurant));
+            } else {
+                assertFalse(filteredRestaurants.contains(restaurant));
+            }
+        }
+        for (SmallRestaurant restaurant : filteredRestaurants) {
+            assertTrue(restaurant.getAverageRating() >= 3.0);
+        }
+    }
+
+    @Test
+    void testFilterTime() {
+        List<SmallRestaurant> smallRestaurants = RestaurantOverview.search("cafe");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "F_18:00_2022-07-07_2");
+        List<Restaurant> restaurants = Data.getRestaurants();
+
+        //The date is a thursday, so we need the third index in the times list
+        for (SmallRestaurant restaurant : smallRestaurants) {
+            restaurants.stream().filter(r -> r.getId() == restaurant.getId()).forEach(r -> {
+                if (r.getOpeningTimes().get(3).getHour() <= 18 && r.getClosingTime().get(3).getHour() >= 18) {
+                    assertTrue(filteredRestaurants.contains(restaurant));
+                } else {
+                    assertFalse(filteredRestaurants.contains(restaurant));
+                }
+            });
+        }
+    }
+
+    @Test
+    void testFilterDistance() {
+        List<SmallRestaurant> smallRestaurants = RestaurantOverview.search("cafe");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "D_11.64615674133299_48.24755548611005_1");
+
+        List<Integer> expectedIds = Arrays.asList(new Integer[]{41,42,44,45});
+
+        for (SmallRestaurant restaurant : smallRestaurants) {
+            if (expectedIds.contains(restaurant.getId())) {
+                assertTrue(filteredRestaurants.contains(restaurant));
+            } else {
+                assertFalse(filteredRestaurants.contains(restaurant));
+            }
+        }
     }
 
 }
