@@ -6,15 +6,16 @@ WORKDIR /usr/src/app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY front-end/react-project/package*.json ./
+COPY package*.json ./
 
 RUN npm install -g npm@8.13.1
-RUN npm i --force
+#RUN npm i --force
 # If you are building your code for production
 # RUN npm ci --only=production
 
 # Bundle app source
 COPY ../.. .
+RUN npm i --force --prefix front-end/react-project
 
 EXPOSE 3000
 
