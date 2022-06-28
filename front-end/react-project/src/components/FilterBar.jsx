@@ -122,6 +122,7 @@ function ReservationTimePicker(props) {
                 <DateTimePicker
                     ampm={false}
                     label="Date&Time picker"
+                    inputFormat="dd/MM/yyyy hh:mm"
                     value={value}
                     onChange={handleChange}
                     renderInput={(params) => <TextField {...params} sx={{ width: 228 }}/>}
