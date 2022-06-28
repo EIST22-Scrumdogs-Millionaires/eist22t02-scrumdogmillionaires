@@ -15,25 +15,6 @@ import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
 import Axios from "axios";
 
-const marks = [
-    {
-        value: 1,
-        label: "1km",
-    },
-    {
-        value: 10,
-        label: "10km",
-    },
-    {
-        value: 20,
-        label: "20km",
-    },
-    {
-        value: 30,
-        label: "30km",
-    },
-];
-
 function SelectPreisklasse(props) {
     const [preisklasse, setPreisklasse] = React.useState("");
 
@@ -82,13 +63,13 @@ function SelectCategory(props) {
     if (types === undefined) {
         return (
             <Box sx={{minWidth:150}}>
-            <FormControl>
-                <InputLabel>Category</InputLabel>
-                <Select labelId="category" label="Category" value={category} onChange={handleChange} sx={{ width: 228 }}>
-                    <MenuItem value={"ALL"}>All</MenuItem>
-                </Select>
-            </FormControl>
-        </Box>
+                <FormControl>
+                    <InputLabel>Category</InputLabel>
+                    <Select labelId="category" label="Category" value={category} onChange={handleChange} sx={{ width: 228 }}>
+                        <MenuItem value={"ALL"}>All</MenuItem>
+                    </Select>
+                </FormControl>
+            </Box>
         );
     } else {
         return (
@@ -99,13 +80,12 @@ function SelectCategory(props) {
                         <MenuItem value={"ALL"}>All</MenuItem>
                         {types.map(type => (
                             <MenuItem value={type}>{getCategory(type)}</MenuItem>
-                            ))}
+                        ))}
                     </Select>
                 </FormControl>
             </Box>
         );
     }
-
 }
 
 function ReservationTimePicker(props) {
@@ -122,7 +102,6 @@ function ReservationTimePicker(props) {
                 <DateTimePicker
                     ampm={false}
                     label="Date&Time picker"
-                    inputFormat="dd/MM/yyyy hh:mm"
                     value={value}
                     onChange={handleChange}
                     renderInput={(params) => <TextField {...params} sx={{ width: 228 }}/>}
@@ -133,27 +112,12 @@ function ReservationTimePicker(props) {
     )
 }
 
-export default function FilterBar(props) {
-        const [filters, setFilters] = React.useState({
-            category: props.filters.category,
-            price: props.filters.price,
-            rating: props.filters.rating,
-            distance: props.filters.distance,
-            time: props.filters.time,
-            persons: props.filters.persons,
-        });
+export default function FilterBarSearch(props) {
+        const [filters, setFilters] = React.useState(props.filter);
 
       useEffect(() => {
           props.filterCallback(filters);
       }, [filters])
-
-    const handleSliderChange = (_event, value) => {
-        setFilters({
-            ...filters,
-            distance: value*1000
-            }
-        )
-    }
 
     const handleCategoryChange = (newCategory) => {
         setFilters({
@@ -208,13 +172,6 @@ export default function FilterBar(props) {
                         <Box>
                             <Typography>Rating (mind.)</Typography>
                             <Rating onChange={handleRatingChange} />
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={2}>
-                        <Box>
-                            <Typography>Distance</Typography>
-                            <Slider
-                                defaultValue={5} min={1} max={30} marks={marks} onChange={handleSliderChange} sx={{ width: 130 }}/>
                         </Box>
                     </Grid>
 

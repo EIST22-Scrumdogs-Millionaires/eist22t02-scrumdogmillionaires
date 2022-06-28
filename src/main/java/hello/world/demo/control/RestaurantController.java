@@ -69,11 +69,11 @@ public class RestaurantController {
         return ResponseEntity.ok(jsonString);
     }
 
-    @GetMapping("restaurants/search/{search}/{filter}")
+    @GetMapping("restaurants/search/{search}/{filter}/{limit}")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> filterRestaurants(@PathVariable("search") String search,
-            @PathVariable("filter") String filter) {
-        System.out.println(filter);
+            @PathVariable("filter") String filter, @PathVariable("limit") int limit) {
+        //System.out.println(filter);
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
@@ -81,7 +81,7 @@ public class RestaurantController {
 
         String jsonString = "didn't find anything";
         try {
-            jsonString = mapper.writeValueAsString(RestaurantOverview.filter(search, filter));
+            jsonString = mapper.writeValueAsString(RestaurantOverview.filter(search, filter, limit));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

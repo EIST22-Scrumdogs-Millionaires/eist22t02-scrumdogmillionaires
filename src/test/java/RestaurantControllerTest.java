@@ -87,7 +87,7 @@ public class RestaurantControllerTest {
     @Test
     void testFilterType() {
         List<SmallRestaurant> restaurants = RestaurantOverview.search("augustiner");
-        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("augustiner", "T_BAVARIAN");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("augustiner", "T_BAVARIAN",0);
 
         for (SmallRestaurant restaurant : restaurants) {
             if (restaurant.getRestaurantType().equals(RestaurantType.BAVARIAN)) {
@@ -104,7 +104,7 @@ public class RestaurantControllerTest {
     @Test
     void testFilterPrice() {
         List<SmallRestaurant> restaurants = RestaurantOverview.search("cafe");
-        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "P_3");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "P_3",0);
 
         for (SmallRestaurant restaurant : restaurants) {
             if (restaurant.getPriceCategory() == 3) {
@@ -121,7 +121,7 @@ public class RestaurantControllerTest {
     @Test
     void testFilterRating() {
         List<SmallRestaurant> restaurants = RestaurantOverview.search("cafe");
-        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "A_3");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "A_3",0);
 
         for (SmallRestaurant restaurant : restaurants) {
             if (restaurant.getAverageRating() >= 3.0) {
@@ -138,7 +138,7 @@ public class RestaurantControllerTest {
     @Test
     void testFilterTime() {
         List<SmallRestaurant> smallRestaurants = RestaurantOverview.search("cafe");
-        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "F_18:00_2022-07-07_2");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "F_18:00_2022-07-07_2",0);
         List<Restaurant> restaurants = Data.getRestaurants();
 
         //The date is a thursday, so we need the third index in the times list
@@ -156,7 +156,7 @@ public class RestaurantControllerTest {
     @Test
     void testFilterDistance() {
         List<SmallRestaurant> smallRestaurants = RestaurantOverview.search("cafe");
-        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "D_11.64615674133299_48.24755548611005_1");
+        List<SmallRestaurant> filteredRestaurants = RestaurantOverview.filter("cafe", "D_11.64615674133299_48.24755548611005_1",0);
 
         List<Integer> expectedIds = Arrays.asList(new Integer[]{41,42,44,45});
 
@@ -167,6 +167,25 @@ public class RestaurantControllerTest {
                 assertFalse(filteredRestaurants.contains(restaurant));
             }
         }
+    }
+
+    @Test
+    void testDistance() {
+        //Arabesk Restaurant
+        double lat1 = 48.1548167;
+        double lng1 = 11.5856458;
+
+        //CurLoc
+        double lat2 = 48.1413069883512;
+        double lng2 = 11.56174225921629;
+
+        assertFalse(RestaurantOverview.distance(lat1, lat2, lng1, lng2, 2));
+        assertTrue(RestaurantOverview.distance(lat1, lat2, lng1, lng2, 2.4));
+    }
+
+    @Test
+    void testDistanceSame() {
+        assertTrue(RestaurantOverview.distance(48.1548167, 48.1548167, 11.5856458, 11.5856458, 0.01));
     }
 
 }

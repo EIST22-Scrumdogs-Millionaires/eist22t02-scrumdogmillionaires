@@ -74,7 +74,7 @@ public class RestaurantOverview extends Thread {
      * A_r: Average Rating
      * F_f_d_p: Free time slots, timefrom, date and number of persons
      */
-    public static List<SmallRestaurant> filter(String searchQuery, String filter) {
+    public static List<SmallRestaurant> filter(String searchQuery, String filter, int limit) {
         List<String> filterTypes = Arrays.stream(filter.split("@")).filter(x -> !x.isBlank()).toList();
         List<Restaurant> ret;
         if (searchQuery.isBlank() || searchQuery.compareTo("all") == 0) {
@@ -117,10 +117,18 @@ public class RestaurantOverview extends Thread {
                 }
             }
         }
-        return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
-                x.getPictures()))
-                .toList();
+        if(limit > 0) {
+            return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
+                            x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
+                            x.getPictures()))
+                    .limit(limit).toList();
+        } else {
+            return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
+                            x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
+                            x.getPictures()))
+                    .toList();
+        }
+
 
     }
 
@@ -204,6 +212,8 @@ public class RestaurantOverview extends Thread {
 
     /**
      * calculates the LevenstheinDistance difference between 2 strings
+     *
+     * We based our code on the following code source: https://www.baeldung.com/java-levenshtein-distance
      * 
      * @param x
      * @param y

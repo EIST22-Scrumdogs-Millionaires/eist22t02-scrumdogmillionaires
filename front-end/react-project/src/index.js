@@ -14,13 +14,13 @@ root.render(
     <Router>
       <ThemeProvider theme={colorTheme}>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home/>} />
         </Routes>
         <Routes>
-          <Route path="/search/:query" element={<Search />}></Route>
+          <Route path="/search/:query" element={<Search/>}/>
         </Routes>
         <Routes>
-          <Route path="/search/detail/:id" element={<DetailSearchComponent />}></Route>
+          <Route path="/search/detail/:id" element={<DetailSearchComponent/>}/>
         </Routes>
       </ThemeProvider>
     </Router>

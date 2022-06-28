@@ -80,16 +80,23 @@ export default function Home() {
         }
       }
     }
-    console.log(filterTypes.join("@"));
+    //console.log(filterTypes.join("@"));
     return filterTypes.length < 2 ? filterTypes[0] : filterTypes.join("@");
   }
 
+
   const fetchRestaurants = (filterString) => {
-    Axios.get(`http://localhost:8080/restaurants/search/all/${filterString}`)
+    Axios.get(`http://localhost:8080/restaurants/search/all/${filterString}/0`)
         .then((res) => {
           setRestaurants(res.data);
         })
         .catch((err) => console.log(err));
+  }
+
+  if (typeof (restaurants) !== "undefined" && typeof(filters) !== "undefined") {
+    if (restaurants.length === 10) {
+      fetchRestaurants(createFilterSting(filters));
+    }
   }
 
   return (

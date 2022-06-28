@@ -273,7 +273,7 @@ const errorMessage = (
             <DesktopDatePicker
               color="secondary"
               label="Date"
-              inputFormat="MM/dd/yyyy"
+              inputFormat="dd/MM/yyyy"
               value={date}
               onChange={handleDatePickerChange}
               renderInput={(params) => (
