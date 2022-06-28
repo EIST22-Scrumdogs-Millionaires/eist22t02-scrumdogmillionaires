@@ -86,13 +86,13 @@ export default function Home() {
 
 
   const fetchRestaurants = (filterString) => {
-    Axios.get(`http://localhost:8080/restaurants/search/all/${filterString}`)
+    Axios.get(`http://localhost:8080/restaurants/search/all/${filterString}/0`)
         .then((res) => {
           setRestaurants(res.data);
         })
         .catch((err) => console.log(err));
   }
-  
+
   if (typeof (restaurants) !== "undefined" && typeof(filters) !== "undefined") {
     if (restaurants.length === 10) {
       fetchRestaurants(createFilterSting(filters));
