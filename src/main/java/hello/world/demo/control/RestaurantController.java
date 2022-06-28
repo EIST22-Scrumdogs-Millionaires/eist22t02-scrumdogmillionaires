@@ -73,7 +73,7 @@ public class RestaurantController {
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> filterRestaurants(@PathVariable("search") String search,
             @PathVariable("filter") String filter) {
-        System.out.println(filter);
+        //System.out.println(filter);
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
