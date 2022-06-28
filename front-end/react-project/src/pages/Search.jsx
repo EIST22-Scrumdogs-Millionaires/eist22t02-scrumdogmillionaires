@@ -76,7 +76,7 @@ export default function Search() {
 
     useEffect(() => {
         var filterTypes = createFilterSting(filters);
-        console.log(filterTypes);
+        
         Axios.get(`http://localhost:8080/restaurants/search/${query}/${filterTypes}/10`)
                 .then((res) => {
                     setData(res.data);

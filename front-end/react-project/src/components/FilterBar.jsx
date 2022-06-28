@@ -13,6 +13,7 @@ import React, {useEffect} from "react";
 import {DateTimePicker} from "@mui/x-date-pickers";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
+import Axios from "axios";
 
 const marks = [
     {
@@ -59,29 +60,52 @@ function SelectPreisklasse(props) {
 
 function SelectCategory(props) {
     const [category, setCategory] = React.useState("");
+    const [types, setTypes] = React.useState(() => {
+        Axios.get(`http://localhost:8080/restaurants/getRestaurantTypes`)
+            .then((res) => {
+                setTypes(res.data);
+            })
+            .catch((err) => console.log(err));
+    });
 
     const handleChange = (event) => {
         setCategory(event.target.value);
         props.callback(event.target.value);
     }
 
-    return (
-        <Box sx={{minWidth:150}}>
+    const getCategory = (type) => {
+        var typeStr = type.toLocaleString();
+        typeStr = typeStr.replaceAll("_", " ");
+        return typeStr[0] + typeStr.slice(1).toLowerCase();
+    }
+
+    if (types === undefined) {
+        return (
+            <Box sx={{minWidth:150}}>
             <FormControl>
                 <InputLabel>Category</InputLabel>
                 <Select labelId="category" label="Category" value={category} onChange={handleChange} sx={{ width: 228 }}>
                     <MenuItem value={"ALL"}>All</MenuItem>
-                    <MenuItem value={"CHINESE"}>Chinese</MenuItem>
-                    <MenuItem value={"GERMAN"}>German</MenuItem>
-                    <MenuItem value={"BAVARIAN"}>Bavarian</MenuItem>
-                    <MenuItem value={"CAFE"}>Cafe</MenuItem>
-                    <MenuItem value={"ITALIAN"}>Italian</MenuItem>
-                    <MenuItem value={"FAST_FOOD"}>Fast Food</MenuItem>
-                    <MenuItem value={"GOURMET"}>Gourmet</MenuItem>
                 </Select>
             </FormControl>
         </Box>
-    );
+        );
+    } else {
+        return (
+            <Box sx={{minWidth:150}}>
+                <FormControl>
+                    <InputLabel>Category</InputLabel>
+                    <Select labelId="category" label="Category" value={category} onChange={handleChange} sx={{ width: 228 }}>
+                        <MenuItem value={"ALL"}>All</MenuItem>
+                        {types.map(type => (
+                            <MenuItem value={type}>{getCategory(type)}</MenuItem>
+                            ))}
+                    </Select>
+                </FormControl>
+            </Box>
+        );
+    }
+
 }
 
 function ReservationTimePicker(props) {

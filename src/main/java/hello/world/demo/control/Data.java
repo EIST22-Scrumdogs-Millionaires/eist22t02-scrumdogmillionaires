@@ -101,6 +101,7 @@ public class Data {
                 }
         }
 
+        /*
         public static List<Restaurant> generateRestaurantsOld() {
                 List<Restaurant> sampleRestaurants = new ArrayList<>();
 
@@ -236,5 +237,7 @@ public class Data {
 
                 return sampleRestaurants;
         }
+
+         */
 
 }
