@@ -1,0 +1,17 @@
+services:
+  npm:
+    image: ghcr.io/eist22-scrumdogs-millionaires/restaurant-npm:latest
+    build:
+      dockerfile: front-end/react-project/Dockerfile
+    pull_policy: always
+    container_name: npm
+    ports:
+      - "3000:3000"
+  springboot:
+    image: ghcr.io/eist22-scrumdogs-millionaires/restaurant-sprintboot:latest
+    build:
+      dockerfile: src/Dockerfile
+    pull_policy: always
+    container_name: sprintboot
+    ports:
+      - "8080:8080"
