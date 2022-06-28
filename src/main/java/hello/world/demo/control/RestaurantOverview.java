@@ -212,6 +212,8 @@ public class RestaurantOverview extends Thread {
 
     /**
      * calculates the LevenstheinDistance difference between 2 strings
+     *
+     * We based our code on the following code source: https://www.baeldung.com/java-levenshtein-distance
      * 
      * @param x
      * @param y
