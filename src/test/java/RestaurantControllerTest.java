@@ -169,4 +169,23 @@ public class RestaurantControllerTest {
         }
     }
 
+    @Test
+    void testDistance() {
+        //Arabesk Restaurant
+        double lat1 = 48.1548167;
+        double lng1 = 11.5856458;
+
+        //CurLoc
+        double lat2 = 48.1413069883512;
+        double lng2 = 11.56174225921629;
+
+        assertFalse(RestaurantOverview.distance(lat1, lat2, lng1, lng2, 2));
+        assertTrue(RestaurantOverview.distance(lat1, lat2, lng1, lng2, 2.4));
+    }
+
+    @Test
+    void testDistanceSame() {
+        assertTrue(RestaurantOverview.distance(48.1548167, 48.1548167, 11.5856458, 11.5856458, 0.01));
+    }
+
 }
