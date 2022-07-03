@@ -25,13 +25,13 @@ public class RestaurantOverview extends Thread {
     public void run() {
         while (true) {
             restaurants.stream().forEach(x -> {
-                // x.getReservations().stream()
-                //         .filter(y -> {
-                //             LocalDateTime combined = LocalDateTime.of(y.getDate(), y.getTime());
-                //             return !y.getConfirmed() &&
-                //                     (ChronoUnit.HOURS.between(combined, LocalDateTime.now()) < 12);
-                //         })
-                //         .forEach(y -> x.cancelReservation(y, y.getCancelsecretkey()));
+                x.getReservations().stream()
+                        .filter(y -> {
+                            LocalDateTime combined = LocalDateTime.of(y.getDate(), y.getTime());
+                            return !y.getConfirmed() &&
+                                    (ChronoUnit.HOURS.between(LocalDateTime.now(), combined) < 12);
+                        })
+                        .forEach(y -> x.cancelReservation(y, y.getCancelsecretkey()));
             });
             try {
                 Thread.sleep(UPDATE_TIME);
@@ -117,18 +117,17 @@ public class RestaurantOverview extends Thread {
                 }
             }
         }
-        if(limit > 0) {
+        if (limit > 0) {
             return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                            x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
-                            x.getPictures()))
+                    x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
+                    x.getPictures()))
                     .limit(limit).toList();
         } else {
             return ret.stream().map(x -> new SmallRestaurant(x.getId(), x.getName(), x.getDescription(),
-                            x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
-                            x.getPictures()))
+                    x.getLocation(), x.getWebsite(), x.getPriceCategory(), x.averageRating(), x.getRestaurantType(),
+                    x.getPictures()))
                     .toList();
         }
-
 
     }
 
@@ -166,36 +165,44 @@ public class RestaurantOverview extends Thread {
 
     public static List<Restaurant> searchB(String searchQuery) {
         return restaurants.stream()
-                    .filter(x -> Math.min(calculateLevenstheinDistance(searchQuery, x.getName()),
-                            calculateLevenstheinDistance(searchQuery, x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
-                    .sorted((a,b) -> {
-                        boolean exactMatchA = a.getName().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT))
-                                || a.getDescription().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT));
-                        boolean exactMatchB = b.getName().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT))
-                                || b.getDescription().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT));
-                        if (exactMatchA && !exactMatchB) {
-                            return -1;
-                        } else if (!exactMatchA && exactMatchB) {
-                            return 1;
-                        } else {
-                            int levA = Math.min(calculateLevenstheinDistance(searchQuery, a.getName()),
-                                    calculateLevenstheinDistance(searchQuery, a.getDescription()));
-                            int levB = Math.min(calculateLevenstheinDistance(searchQuery, b.getName()),
-                                    calculateLevenstheinDistance(searchQuery, b.getDescription()));
-                            return levA - levB;
-                        }
-                    }).toList();
+                .filter(x -> Math.min(calculateLevenstheinDistance(searchQuery, x.getName()),
+                        calculateLevenstheinDistance(searchQuery, x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
+                .sorted((a, b) -> {
+                    boolean exactMatchA = a.getName().toLowerCase(Locale.ROOT)
+                            .contains(searchQuery.toLowerCase(Locale.ROOT))
+                            || a.getDescription().toLowerCase(Locale.ROOT)
+                                    .contains(searchQuery.toLowerCase(Locale.ROOT));
+                    boolean exactMatchB = b.getName().toLowerCase(Locale.ROOT)
+                            .contains(searchQuery.toLowerCase(Locale.ROOT))
+                            || b.getDescription().toLowerCase(Locale.ROOT)
+                                    .contains(searchQuery.toLowerCase(Locale.ROOT));
+                    if (exactMatchA && !exactMatchB) {
+                        return -1;
+                    } else if (!exactMatchA && exactMatchB) {
+                        return 1;
+                    } else {
+                        int levA = Math.min(calculateLevenstheinDistance(searchQuery, a.getName()),
+                                calculateLevenstheinDistance(searchQuery, a.getDescription()));
+                        int levB = Math.min(calculateLevenstheinDistance(searchQuery, b.getName()),
+                                calculateLevenstheinDistance(searchQuery, b.getDescription()));
+                        return levA - levB;
+                    }
+                }).toList();
     }
 
     public static List<SmallRestaurant> search(String searchQuery) {
         return getAllRestaurants().stream()
                 .filter(x -> Math.min(calculateLevenstheinDistance(searchQuery, x.getName()),
-                calculateLevenstheinDistance(searchQuery, x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
-                .sorted((a,b) -> {
-                    boolean exactMatchA = a.getName().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT))
-                            || a.getDescription().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT));
-                    boolean exactMatchB = b.getName().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT))
-                            || b.getDescription().toLowerCase(Locale.ROOT).contains(searchQuery.toLowerCase(Locale.ROOT));
+                        calculateLevenstheinDistance(searchQuery, x.getDescription())) <= MAX_LEVENSTHEIN_DIFFERENCE)
+                .sorted((a, b) -> {
+                    boolean exactMatchA = a.getName().toLowerCase(Locale.ROOT)
+                            .contains(searchQuery.toLowerCase(Locale.ROOT))
+                            || a.getDescription().toLowerCase(Locale.ROOT)
+                                    .contains(searchQuery.toLowerCase(Locale.ROOT));
+                    boolean exactMatchB = b.getName().toLowerCase(Locale.ROOT)
+                            .contains(searchQuery.toLowerCase(Locale.ROOT))
+                            || b.getDescription().toLowerCase(Locale.ROOT)
+                                    .contains(searchQuery.toLowerCase(Locale.ROOT));
                     if (exactMatchA && !exactMatchB) {
                         return -1;
                     } else if (!exactMatchA && exactMatchB) {
@@ -213,7 +220,8 @@ public class RestaurantOverview extends Thread {
     /**
      * calculates the LevenstheinDistance difference between 2 strings
      *
-     * We based our code on the following code source: https://www.baeldung.com/java-levenshtein-distance
+     * We based our code on the following code source:
+     * https://www.baeldung.com/java-levenshtein-distance
      * 
      * @param x
      * @param y

@@ -10,8 +10,6 @@ import hello.world.demo.control.email.EmailServiceImpl;
 import hello.world.demo.control.email.EmailThread;
 import hello.world.demo.model.Email;
 import hello.world.demo.model.Reservation;
-import hello.world.demo.model.Restaurant;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -91,10 +89,6 @@ public class ReservationController {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        Restaurant restaurant = Data.getRestaurants().get(reservation.getRestaurant_id());
-        EmailServiceImpl.sendMail(reservation.getUser().getEmail(), "Tisch Reservierung bei " + restaurant.getName(),
-                "Klicken Sie diesen Link um ein Kalender-Event hinzuzufügen:"
-                        + EmailServiceImpl.generateCalendarLink(reservation, restaurant));
         return ResponseEntity.ok(jsonString);
     }
 

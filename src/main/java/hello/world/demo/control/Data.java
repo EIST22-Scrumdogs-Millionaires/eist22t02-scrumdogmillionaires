@@ -2,21 +2,14 @@ package hello.world.demo.control;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import hello.world.demo.model.Email;
-import hello.world.demo.model.Location;
-import hello.world.demo.model.Reservation;
 import hello.world.demo.model.Restaurant;
-import hello.world.demo.model.RestaurantType;
-import hello.world.demo.model.Review;
-import hello.world.demo.model.Tisch;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

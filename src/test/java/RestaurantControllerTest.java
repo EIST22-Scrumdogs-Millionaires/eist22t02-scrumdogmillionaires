@@ -187,5 +187,4 @@ public class RestaurantControllerTest {
     void testDistanceSame() {
         assertTrue(RestaurantOverview.distance(48.1548167, 48.1548167, 11.5856458, 11.5856458, 0.01));
     }
-
 }
