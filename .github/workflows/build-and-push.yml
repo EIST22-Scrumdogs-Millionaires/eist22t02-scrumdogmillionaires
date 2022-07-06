@@ -32,6 +32,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    - name: Check file
+      run: ls -alh
     - run: ./gradlew clean test
     
  # CODE FOR PUSH TO BITBUCKET TAKEN FROM github.com/babyygemperor/github-action-push-to-another-repository.git
