@@ -2,6 +2,7 @@ services:
   npm:
     image: ghcr.io/eist22-scrumdogs-millionaires/restaurant-npm:latest
     build:
+      context: ./
       dockerfile: front-end/react-project/Dockerfile
     pull_policy: always
     container_name: npm
@@ -10,6 +11,7 @@ services:
   springboot:
     image: ghcr.io/eist22-scrumdogs-millionaires/restaurant-sprintboot:latest
     build:
+      context: ./
       dockerfile: src/Dockerfile
     pull_policy: always
     container_name: sprintboot
