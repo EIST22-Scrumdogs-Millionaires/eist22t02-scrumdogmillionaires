@@ -3,7 +3,7 @@ services:
     image: ghcr.io/eist22-scrumdogs-millionaires/restaurant-npm:latest
     build:
       context: ./
-      dockerfile: front-end/react-project/Dockerfile
+      dockerfile: src/main/java/hello/world/demo/view/react-project
     pull_policy: always
     container_name: npm
     ports:
