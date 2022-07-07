@@ -1,0 +1,55 @@
+{
+    "restaurants" : [
+        {
+            "name" : "TUM Garching Mensa",
+            "description" : "Die Kantine mit aparter Holzdecke und Café bereitet Gerichte aus aller Welt auch vegetarisch und vegan zu.",
+            "address": "Boltzmannstraße 19, 85748 Garching bei München",
+            "website": "https://www.studentenwerk-muenchen.de/mensa/standorte-und-oeffnungszeiten/garching/",
+            "stars" :4,
+            "id": 1
+
+        },
+        {
+            "name" : "El Greco",
+            "description" : "Das familienbetriebene Lokal mit rustikalen Lampen, Pflanzen und Bildern serviert griechische Spezialitäten.",
+            "address": "Schleißheimer Str. 17, 85748 Garching bei München",
+            "website": "https://www.elgrecogarching.de/",
+            "stars": 5,
+            "id": 2
+        },
+        {
+            "name" : "El Greco",
+            "description" : "Das familienbetriebene Lokal mit rustikalen Lampen, Pflanzen und Bildern serviert griechische Spezialitäten.",
+            "address": "Schleißheimer Str. 17, 85748 Garching bei München",
+            "website": "https://www.elgrecogarching.de/",
+            "stars": 5,
+            "id": 2
+        },
+        {
+            "name" : "El Greco",
+            "description" : "Das familienbetriebene Lokal mit rustikalen Lampen, Pflanzen und Bildern serviert griechische Spezialitäten.",
+            "address": "Schleißheimer Str. 17, 85748 Garching bei München",
+            "website": "https://www.elgrecogarching.de/",
+            "stars": 5,
+            "id": 2
+        },
+        {
+            "name" : "El Greco",
+            "description" : "Das familienbetriebene Lokal mit rustikalen Lampen, Pflanzen und Bildern serviert griechische Spezialitäten.",
+            "address": "Schleißheimer Str. 17, 85748 Garching bei München",
+            "website": "https://www.elgrecogarching.de/",
+            "stars": 5,
+            "id": 2
+        },
+        {
+            "name" : "El Greco",
+            "description" : "Das familienbetriebene Lokal mit rustikalen Lampen, Pflanzen und Bildern serviert griechische Spezialitäten.",
+            "address": "Schleißheimer Str. 17, 85748 Garching bei München",
+            "website": "https://www.elgrecogarching.de/",
+            "stars": 5,
+            "id": 2
+        }
+
+
+    ]
+}
