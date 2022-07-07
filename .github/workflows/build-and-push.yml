@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 jobs:
   build:
@@ -42,17 +43,14 @@ jobs:
         
     - name: Generate jar for springboot docker
       run: ./gradlew clean build
-    
-    - name: Test
-      run: ls -alh && pwd && tree
-    
+      
     - name: Docker Compose Build
       run: docker-compose build
     
     - name: Docker Compose Push
       run: docker-compose push
-    
- # CODE FOR PUSH TO BITBUCKET TAKEN FROM github.com/babyygemperor/github-action-push-to-another-repository.git
+      
+     # CODE FOR PUSH TO BITBUCKET TAKEN FROM github.com/babyygemperor/github-action-push-to-another-repository.git
     
     - name: Set up remote
       run: git remote add upstream ${{env.UPSTREAM}}
