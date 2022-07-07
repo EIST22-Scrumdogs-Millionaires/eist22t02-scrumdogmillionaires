@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 jobs:
   build:
@@ -37,8 +38,8 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
-        username: babyygemperor
-        password: ${{ secrets.PAT }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Generate jar for springboot docker
       run: ./gradlew clean build
