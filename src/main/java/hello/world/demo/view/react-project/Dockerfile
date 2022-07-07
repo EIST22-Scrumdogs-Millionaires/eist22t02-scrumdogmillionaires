@@ -15,7 +15,7 @@ RUN npm install -g npm@8.13.1
 # RUN npm ci --only=production
 
 # Bundle app source
-COPY ../.. .
+COPY ./. .
 RUN npm i --force --prefix src/main/java/hello/world/demo/view/react-project
 
 EXPOSE 3000
