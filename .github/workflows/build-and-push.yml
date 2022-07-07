@@ -44,6 +44,12 @@ jobs:
     - name: Generate jar for springboot docker
       run: ./gradlew clean build
       
+    - name: Docker Compose Build
+      run: docker-compose build
+    
+    - name: Docker Compose Push
+      run: docker-compose push
+      
      # CODE FOR PUSH TO BITBUCKET TAKEN FROM github.com/babyygemperor/github-action-push-to-another-repository.git
     
     - name: Set up remote
@@ -72,9 +78,3 @@ jobs:
 
     - name: Git push to other repo
       run: git push upstream
-    
-    - name: Docker Compose Build
-      run: docker-compose build
-    
-    - name: Docker Compose Push
-      run: docker-compose push
