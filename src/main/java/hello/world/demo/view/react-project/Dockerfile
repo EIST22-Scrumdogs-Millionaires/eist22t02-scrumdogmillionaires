@@ -20,4 +20,4 @@ RUN npm i --force --prefix src/main/java/hello/world/demo/view/react-project
 
 EXPOSE 3000
 
-CMD [ "npm", "start", "--prefix", "front-end/react-project"]
+CMD [ "npm", "start", "--prefix", "src/main/java/hello/world/demo/view/react-project/"]
