@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.7'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "com.moowork.node" version "2.2.4"
 }
 
 group = 'hello.world'
@@ -12,6 +13,37 @@ compileTestJava.options.encoding = 'UTF-8'
 
 repositories {
     mavenCentral()
+}
+
+node {
+    version = '16.15.0'
+    download = true
+    workDir = file("src/main/java/hello/world/demo/view/react-project/nodejs")
+    npmWorkDir = file("src/main/java/hello/world/demo/view/react-project/npm")
+    nodeModulesDir = file("src/main/java/hello/world/demo/view/react-project")
+
+}
+
+task npmInstallDependencies(type: NpmTask) {
+    dependsOn "npmSetup"
+    execOverrides {
+        it.ignoreExitValue = true
+        it.workingDir = "src/main/java/hello/world/demo/view/react-project"
+    }
+    args = ["install --force"]
+}
+
+task npmBuild(type: NpmTask) {
+    dependsOn "npmInstallDependencies"
+    execOverrides {
+        it.workingDir = "src/main/java/hello/world/demo/view/react-project"
+    }
+    args = ["run", "build"]
+}
+
+task copyFrontendToBuild(type: Copy) {
+    from "src/main/java/hello/world/demo/view/react-project/build/"
+    into "src/main/resources/main/static"
 }
 
 dependencies {
