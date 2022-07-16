@@ -118,7 +118,6 @@ chrome-user-data
 *.swo
 front-end/react-project/src/data/apikey.jsx
 
-
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build
 packages/react-devtools-extensions/chrome/*.crx
