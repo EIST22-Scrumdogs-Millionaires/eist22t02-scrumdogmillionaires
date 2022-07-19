@@ -19,6 +19,7 @@ RUN mkdir src/main/java/hello/world/demo/data/
 COPY src/main/java/hello/world/demo/data/email.json ./src/main/java/hello/world/demo/data/email.json
 
 RUN chown spring:spring /src
+RUN chmod 777 /src/main/java/hello/world/demo/data/email.json
 USER spring:spring
 
 ENTRYPOINT ["java","-jar","/app.jar"]
