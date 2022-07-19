@@ -18,7 +18,7 @@ RUN mkdir src/main/java/hello/world/demo/
 RUN mkdir src/main/java/hello/world/demo/data/
 COPY src/main/java/hello/world/demo/data/email.json ./src/main/java/hello/world/demo/data/email.json
 
-RUN chown spring:sprint /src
+RUN chown spring:spring /src
 USER spring:spring
 
 ENTRYPOINT ["java","-jar","/app.jar"]
