@@ -74,7 +74,7 @@ jobs:
       run: git config --global user.email "eist22-scrumdogmillionaires@github.com" && git config --global user.name "GitHub Action Runner"
       
     - name: Fix merge conflicts if any
-      run: git pull --rebase --strategy=ours upstream main
+      run: git pull --rebase -s recursive -X ours upstream main | git commit -am "Resolve merge conflicts" | true
 
     - name: Git push to other repo
       run: git push upstream

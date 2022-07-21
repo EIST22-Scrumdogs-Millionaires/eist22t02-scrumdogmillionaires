@@ -306,16 +306,19 @@ public class RestaurantOverview extends Thread {
      * @param id
      * @param actionSecretKey
      */
-    public static void performActionOnReservation(int id, String actionSecretKey) {
+    public static String performActionOnReservation(int id, String actionSecretKey) {
         Reservation reservation = getReservation(id);
         if (reservation != null) {
             if (reservation.getCancelsecretkey().compareTo(actionSecretKey) == 0) {
                 getRestaurantById(reservation.getRestaurant_id()).cancelReservation(reservation, actionSecretKey);
+                return "Your reservation got canceled " + reservation.getUser().getUsername() + "!";
             } else if (reservation.getConfirmsecretkey().compareTo(actionSecretKey) == 0) {
                 reservation.confirmReservation(actionSecretKey);
+                return "Your reservation is confirmed " + reservation.getUser().getUsername() + "!";
             }
             Data.saveRestaurants(restaurants);
         }
+        return "Invalid link!";
     }
 
     public static void addReview(int id, Review review) {

@@ -69,9 +69,9 @@ public class ReservationController {
 
     @GetMapping("reservations/{id}/{actionSecretKey}")
     @CrossOrigin(origins = "http://localhost:3000")
-    public void removeReservation(@PathVariable("id") int id,
+    public String removeReservation(@PathVariable("id") int id,
             @PathVariable("actionSecretKey") String actionSecretKey) {
-        RestaurantOverview.performActionOnReservation(id, actionSecretKey);
+        return RestaurantOverview.performActionOnReservation(id, actionSecretKey);
     }
 
     // Open question about how the user gets transmitted
