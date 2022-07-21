@@ -20,7 +20,9 @@ public class RestaurantOverview extends Thread {
 
     private static final int UPDATE_TIME = 100_000;
 
-    // Deletes all unconfirmed Reservations 12 Hours before the reserved time
+    /*
+     * Deletes all unconfirmed Reservations 12 Hours before the reserved time
+    */
     @Override
     public void run() {
         while (true) {
