@@ -55,3 +55,10 @@ test {
     defaultCharacterEncoding = 'UTF-8'
     useJUnitPlatform()
 }
+
+
+task start_client(type: Exec) {
+    commandLine 'sh', './start_client.sh'
+}
+
+build.dependsOn start_client

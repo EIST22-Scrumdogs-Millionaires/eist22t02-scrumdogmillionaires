@@ -232,6 +232,3 @@ eval "set -- $(
     )" '"$@"'
 
 exec "$JAVACMD" "$@"
-
-#start client
-commandLine 'sh', './start_client.sh'
