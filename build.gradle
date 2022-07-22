@@ -57,8 +57,12 @@ test {
 }
 
 
+task install_node_packages(type: Exec) {
+    commandLine 'sh', './install_dependencies_node.sh'
+}
+
 task start_client(type: Exec) {
     commandLine 'sh', './start_client.sh'
 }
 
-build.dependsOn start_client
+build.dependsOn install_node_packages
