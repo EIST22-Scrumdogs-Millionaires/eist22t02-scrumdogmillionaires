@@ -149,7 +149,7 @@ public class RestaurantOverview extends Thread {
      * @param lon1 Longitude one
      * @param lon2 Longitude one
      * @param dis  maximal distance
-     * @returns true if distance in KM is smaller equal than the passed distance,
+     * @return true if distance in KM is smaller equal than the passed distance,
      *          otherwise false
      */
     public static boolean distance(double lat1, double lat2, double lon1,

@@ -19,7 +19,6 @@ import javax.mail.internet.MimeMessage;
 public class EmailServiceImpl {
 
     private static JavaMailSender mailSender = getJavaMailSender();
-
     /**
      * Sends the given HTML email
      * 
