@@ -19,6 +19,9 @@ import javax.mail.internet.MimeMessage;
 public class EmailServiceImpl {
 
     private static JavaMailSender mailSender = getJavaMailSender();
+    private static final String EMAIL_PASSWORD = "gzxvbavnrturnlzm";
+    private static final String EMAIL_USERNAME = "scrumdogmillionaries@yahoo.com";
+    private static final String EMAIL_HOST = "smtp.mail.yahoo.com";
     /**
      * Sends the given HTML email
      * 
@@ -49,11 +52,11 @@ public class EmailServiceImpl {
 
     public static JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.mail.yahoo.com");
+        mailSender.setHost(EMAIL_HOST);
         mailSender.setPort(465);
 
-        mailSender.setUsername("scrumdogmillionaries@yahoo.com");
-        mailSender.setPassword("gzxvbavnrturnlzm");
+        mailSender.setUsername(EMAIL_USERNAME);
+        mailSender.setPassword(EMAIL_PASSWORD);
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
