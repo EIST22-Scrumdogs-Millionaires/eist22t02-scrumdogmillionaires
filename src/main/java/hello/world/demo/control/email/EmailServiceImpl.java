@@ -19,9 +19,9 @@ import javax.mail.internet.MimeMessage;
 public class EmailServiceImpl {
 
     private static JavaMailSender mailSender = getJavaMailSender();
-    private static final String EMAIL_PASSWORD = "gzxvbavnrturnlzm";
-    private static final String EMAIL_USERNAME = "scrumdogmillionaries@yahoo.com";
-    private static final String EMAIL_HOST = "smtp.mail.yahoo.com";
+    private static final String EMAIL_PASSWORD = ""; // TODO
+    private static final String EMAIL_USERNAME = ""; // TODO
+    private static final String EMAIL_HOST = "smtp.mail.yahoo.com"; // TODO change if necessary
     /**
      * Sends the given HTML email
      * 
